@@ -32,7 +32,28 @@
 \contentsline {subsection}{\numberline {1.7.5}Typesetting mathematics}{11}{subsection.39}
 \contentsline {section}{\numberline {1.8}Sectioning and Subsectioning}{12}{section.41}
 \contentsline {section}{\numberline {1.9}In Closing}{12}{section.42}
+\contentsline {chapter}{\numberline {2}Document Similarity}{13}{chapter.43}
+\contentsline {section}{\numberline {2.1}Background}{13}{section.44}
+\contentsline {section}{\numberline {2.2}Lexical Similarity}{13}{section.45}
+\contentsline {subsection}{\numberline {2.2.1}Document Represenatation}{14}{subsection.46}
+\contentsline {subsection}{\numberline {2.2.2}Cosine Similarity}{15}{subsection.49}
+\contentsline {section}{\numberline {2.3}Semantic Similarity}{15}{section.51}
+\contentsline {subsection}{\numberline {2.3.1}Corpus Based}{17}{subsection.53}
+\contentsline {subsection}{\numberline {2.3.2}Knowledge Based}{17}{subsection.54}
+\contentsline {section}{\numberline {2.4}What this Template Includes}{17}{section.55}
+\contentsline {subsection}{\numberline {2.4.1}Folders}{17}{subsection.56}
+\contentsline {subsection}{\numberline {2.4.2}Files}{18}{subsection.57}
+\contentsline {section}{\numberline {2.5}Filling in the `\texttt {Thesis.cls}' File}{20}{section.58}
+\contentsline {section}{\numberline {2.6}The `\texttt {Thesis.tex}' File Explained}{20}{section.59}
+\contentsline {section}{\numberline {2.7}Thesis Features and Conventions}{21}{section.60}
+\contentsline {subsection}{\numberline {2.7.1}Printing Format}{22}{subsection.61}
+\contentsline {subsection}{\numberline {2.7.2}Using US Letter Paper}{22}{subsection.62}
+\contentsline {subsection}{\numberline {2.7.3}References}{23}{subsection.63}
+\contentsline {subsection}{\numberline {2.7.4}Figures}{23}{subsection.65}
+\contentsline {subsection}{\numberline {2.7.5}Typesetting mathematics}{25}{subsection.67}
+\contentsline {section}{\numberline {2.8}Sectioning and Subsectioning}{25}{section.69}
+\contentsline {section}{\numberline {2.9}In Closing}{26}{section.70}
 \vspace {2em}
-\contentsline {chapter}{\numberline {A}Appendix Title Here}{13}{appendix.43}
+\contentsline {chapter}{\numberline {A}Appendix Title Here}{27}{appendix.71}
 \vspace {2em}
-\contentsline {chapter}{Bibliography}{14}{dummy.44}
+\contentsline {chapter}{Bibliography}{28}{dummy.72}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.4.5)  15 APR 2012 19:32
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.4.5)  15 APR 2012 21:45
 entering extended mode
  %&-line parsing enabled.
 **\nonstopmode \input{"/home/emara/Desktop/Documentation/Thesis.tex"}
@@ -412,7 +412,20 @@ LaTeX Info: Redefining \cite on input line 467.
 )
 Package hyperref Info: Option `colorlinks' set `true' on input line 28.
 
-(/home/emara/Desktop/Documentation/Thesis.aux)
+(/home/emara/Desktop/Documentation/Thesis.aux
+
+LaTeX Warning: Label `FillingFile' multiply defined.
+
+
+LaTeX Warning: Label `ThesisConventions' multiply defined.
+
+
+LaTeX Warning: Label `fig:Electron' multiply defined.
+
+
+LaTeX Warning: Label `eqn:Einstein' multiply defined.
+
+)
 \openout1 = `Thesis.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 31.
@@ -431,8 +444,7 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 31.
 LaTeX Font Info:    ... okay on input line 31.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 31.
 LaTeX Font Info:    ... okay on input line 31.
-
-(/usr/share/texmf-texlive/tex/latex/ms/ragged2e.sty
+ (/usr/share/texmf-texlive/tex/latex/ms/ragged2e.sty
 Package: ragged2e 2009/05/21 v2.1 ragged2e Package (MS)
 
 (/usr/share/texmf-texlive/tex/latex/ms/everysel.sty
@@ -625,54 +637,223 @@ LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <14.4> not available
 [6] [7] [8]
 Missing character: There is no ﬁ in font cmr10!
 Missing character: There is no ﬁ in font cmr10!
- [9] <./Figures/Electron.pdf, id=315, 398.3386pt x 284.52756pt>
+ [9] <./Figures/Electron.pdf, id=424, 398.3386pt x 284.52756pt>
 File: ./Figures/Electron.pdf Graphic file (type pdf)
 
 <use ./Figures/Electron.pdf> [10 <./Figures/Electron.pdf>] [11])
-(./Appendices/AppendixA.tex [12]
+(./Chapters/Chapter2.tex [12]
+Chapter 2.
+------------------------------------------------------------------------------
+ 2 Document Similarity
+------------------------------------------------------------------------------
+[13
+
+]
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ô in font cmr10!
+ <./Figures/a.png, id=505, 263.98625pt x 116.435pt>
+File: ./Figures/a.png Graphic file (type png)
+ <use ./Figures/a.png>
+! Undefined control sequence.
+l.47 \When
+           documents are represented as term vectors, the similarity of two ...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[14 <./Figures/a.png>]
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ì in font cmr10!
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ì in font cmr10!
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.74 ...ilarity between the input text segments T_
+                                                  1 and T_2 is therefore det...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+
+! LaTeX Error: Bad math environment delimiter.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.75 \begin{equation}
+                     
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! You can't use `\eqno' in math mode.
+\endmathdisplay@a ...\df@tag \@empty \else \veqno 
+                                                  \alt@tag \df@tag \fi \ifx ...
+l.77 \end{equation}
+                   
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+! Missing \endgroup inserted.
+<inserted text> 
+                \endgroup 
+l.77 \end{equation}
+                   
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+
+! LaTeX Error: \begin{document} ended by \end{equation}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.77 \end{equation}
+                   
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.77 \end{equation}
+                   
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Extra \endgroup.
+<recently read> \endgroup 
+                          
+l.77 \end{equation}
+                   
+Things are pretty mixed up, but I think the worst is over.
+
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ú in font cmr10!
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ù in font cmr10!
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ú in font cmr10!
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ù in font cmr10!
+
+Overfull \hbox (64.23845pt too wide) in paragraph at lines 70--81
+\OT1/cmr/m/n/10.95 T$[]\OML/cmm/m/it/10.95 andT[]isthereforedeterminedusingthef
+ollowingscoringfunction \OT1/cmr/m/n/10.95 : []\OML/cmm/m/it/10.95 SIM\OT1/cmr/
+m/n/10.95 ([]\OML/cmm/m/it/10.95 ; []\OT1/cmr/m/n/10.95 ) = [][]$$$This
+ []
+
+[15] [16] [17] [18] [19] [20] [21]
+Missing character: There is no √ in font cmr10!
+Missing character: There is no û in font cmr10!
+Missing character: There is no √ in font cmr10!
+Missing character: There is no û in font cmr10!
+ [22]
+File: ./Figures/Electron.pdf Graphic file (type pdf)
+ <use ./Figures/Electron.pdf> [23]
+[24] [25]) (./Appendices/AppendixA.tex [26]
 Appendix A.
 ------------------------------------------------------------------------------
  A Appendix Title Here
 ------------------------------------------------------------------------------
-) [13
+) [27
 
 ]
 ------------------------------------------------------------------------------
  Bibliography
 ------------------------------------------------------------------------------
-(/home/emara/Desktop/Documentation/Thesis.bbl) [14
+(/home/emara/Desktop/Documentation/Thesis.bbl) [28
 
 
 ]
-(/home/emara/Desktop/Documentation/Thesis.aux) ) 
+(/home/emara/Desktop/Documentation/Thesis.aux)
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
 Here is how much of TeX's memory you used:
- 9167 strings out of 495061
- 124958 string characters out of 1182622
- 200963 words of memory out of 3000000
- 12085 multiletter control sequences out of 15000+50000
+ 9252 strings out of 495061
+ 125963 string characters out of 1182622
+ 206963 words of memory out of 3000000
+ 12112 multiletter control sequences out of 15000+50000
  20607 words of font info for 78 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
- 49i,11n,45p,836b,394s stack positions out of 5000i,500n,10000p,200000b,50000s
-</usr/share/texmf-texlive/fonts
-/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf-texlive/fonts/type1/publ
-ic/amsfonts/cm/cmbx12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts
-/cm/cmbx8.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmcsc10.
-pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/s
-hare/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-t
-exlive/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-texlive/fonts
-/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-texlive/fonts/type1/public
-/amsfonts/cm/cmr8.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/
-cmr9.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsl12.pfb></
-usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/t
-exmf-texlive/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-texlive
-/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-texlive/fonts/type
-1/public/amsfonts/cm/cmti12.pfb></usr/share/texmf-texlive/fonts/type1/public/am
-sfonts/cm/cmtt10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/c
-mtt12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/symbols/msam7.p
-fb>
-Output written on Thesis.pdf (27 pages, 319119 bytes).
+ 49i,14n,45p,1379b,394s stack positions out of 5000i,500n,10000p,200000b,50000s
+pdfTeX warning (dest): name{figure.65} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{dummy.71} has been referenced but does not exist, r
+eplaced by a fixed one
+
+pdfTeX warning (dest): name{appendix.70} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{section.68} has been referenced but does not exist,
+ replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.66} has been referenced but does not exi
+st, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.64} has been referenced but does not exi
+st, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.60} has been referenced but does not exi
+st, replaced by a fixed one
+
+pdfTeX warning (dest): name{section.57} has been referenced but does not exist,
+ replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.55} has been referenced but does not exi
+st, replaced by a fixed one
+
+pdfTeX warning (dest): name{section.54} has been referenced but does not exist,
+ replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.52} has been referenced but does not exi
+st, replaced by a fixed one
+
+</usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share
+/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-texl
+ive/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texmf-texlive/fonts/ty
+pe1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texmf-texlive/fonts/type1/public
+/amsfonts/cm/cmmi10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/c
+m/cmmi6.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi8.pfb>
+</usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/
+texmf-texlive/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-texliv
+e/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-texlive/fonts/type1
+/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfo
+nts/cm/cmr9.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsl12
+.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/
+share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-
+texlive/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-texlive/fon
+ts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texmf-texlive/fonts/type1/pu
+blic/amsfonts/cm/cmtt10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfon
+ts/cm/cmtt12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/symbols/
+msam7.pfb>
+Output written on Thesis.pdf (41 pages, 409364 bytes).
 PDF statistics:
- 482 PDF objects out of 1000 (max. 8388607)
- 76 named destinations out of 1000 (max. 500000)
- 262 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 705 PDF objects out of 1000 (max. 8388607)
+ 129 named destinations out of 1000 (max. 500000)
+ 435 words of extra memory for PDF output out of 10000 (max. 10000000)
 
