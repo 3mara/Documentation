@@ -16,44 +16,48 @@
 \contentsline {subsection}{\numberline {1.2.1}A (not so short) Introduction to \LaTeX {}}{2}{subsection.21}
 \contentsline {subsection}{\numberline {1.2.2}A Short Math Guide for \LaTeX {}}{2}{subsection.22}
 \contentsline {subsection}{\numberline {1.2.3}Common \LaTeX {} Math Symbols}{2}{subsection.23}
-\contentsline {subsection}{\numberline {1.2.4}\LaTeX {} on a Mac}{3}{subsection.24}
+\contentsline {subsection}{\numberline {1.2.4}\LaTeX {} on a Mac}{2}{subsection.24}
 \contentsline {section}{\numberline {1.3}Getting Started with this Template}{3}{section.25}
 \contentsline {subsection}{\numberline {1.3.1}About this Template}{3}{subsection.26}
 \contentsline {section}{\numberline {1.4}What this Template Includes}{4}{section.27}
 \contentsline {subsection}{\numberline {1.4.1}Folders}{4}{subsection.28}
-\contentsline {subsection}{\numberline {1.4.2}Files}{5}{subsection.29}
+\contentsline {subsection}{\numberline {1.4.2}Files}{4}{subsection.29}
 \contentsline {section}{\numberline {1.5}Filling in the `\texttt {Thesis.cls}' File}{6}{section.30}
-\contentsline {section}{\numberline {1.6}The `\texttt {Thesis.tex}' File Explained}{7}{section.31}
-\contentsline {section}{\numberline {1.7}Thesis Features and Conventions}{8}{section.32}
+\contentsline {section}{\numberline {1.6}The `\texttt {Thesis.tex}' File Explained}{6}{section.31}
+\contentsline {section}{\numberline {1.7}Thesis Features and Conventions}{7}{section.32}
 \contentsline {subsection}{\numberline {1.7.1}Printing Format}{8}{subsection.33}
 \contentsline {subsection}{\numberline {1.7.2}Using US Letter Paper}{8}{subsection.34}
 \contentsline {subsection}{\numberline {1.7.3}References}{9}{subsection.35}
-\contentsline {subsection}{\numberline {1.7.4}Figures}{10}{subsection.37}
-\contentsline {subsection}{\numberline {1.7.5}Typesetting mathematics}{11}{subsection.39}
-\contentsline {section}{\numberline {1.8}Sectioning and Subsectioning}{12}{section.41}
-\contentsline {section}{\numberline {1.9}In Closing}{12}{section.42}
+\contentsline {subsection}{\numberline {1.7.4}Figures}{9}{subsection.37}
+\contentsline {subsection}{\numberline {1.7.5}Typesetting mathematics}{10}{subsection.39}
+\contentsline {section}{\numberline {1.8}Sectioning and Subsectioning}{11}{section.41}
+\contentsline {section}{\numberline {1.9}In Closing}{11}{section.42}
 \contentsline {chapter}{\numberline {2}Document Similarity}{13}{chapter.43}
 \contentsline {section}{\numberline {2.1}Background}{13}{section.44}
 \contentsline {section}{\numberline {2.2}Lexical Similarity}{13}{section.45}
-\contentsline {subsection}{\numberline {2.2.1}Document Represenatation}{14}{subsection.46}
-\contentsline {subsection}{\numberline {2.2.2}Cosine Similarity}{15}{subsection.49}
+\contentsline {subsection}{\numberline {2.2.1}Document Represenatation}{13}{subsection.46}
+\contentsline {subsection}{\numberline {2.2.2}Cosine Similarity}{14}{subsection.49}
 \contentsline {section}{\numberline {2.3}Semantic Similarity}{15}{section.51}
-\contentsline {subsection}{\numberline {2.3.1}Corpus Based}{17}{subsection.53}
+\contentsline {subsection}{\numberline {2.3.1}Corpus Based}{16}{subsection.53}
 \contentsline {subsection}{\numberline {2.3.2}Knowledge Based}{17}{subsection.54}
 \contentsline {section}{\numberline {2.4}What this Template Includes}{17}{section.55}
 \contentsline {subsection}{\numberline {2.4.1}Folders}{17}{subsection.56}
 \contentsline {subsection}{\numberline {2.4.2}Files}{18}{subsection.57}
-\contentsline {section}{\numberline {2.5}Filling in the `\texttt {Thesis.cls}' File}{20}{section.58}
+\contentsline {section}{\numberline {2.5}Filling in the `\texttt {Thesis.cls}' File}{19}{section.58}
 \contentsline {section}{\numberline {2.6}The `\texttt {Thesis.tex}' File Explained}{20}{section.59}
 \contentsline {section}{\numberline {2.7}Thesis Features and Conventions}{21}{section.60}
-\contentsline {subsection}{\numberline {2.7.1}Printing Format}{22}{subsection.61}
-\contentsline {subsection}{\numberline {2.7.2}Using US Letter Paper}{22}{subsection.62}
-\contentsline {subsection}{\numberline {2.7.3}References}{23}{subsection.63}
+\contentsline {subsection}{\numberline {2.7.1}Printing Format}{21}{subsection.61}
+\contentsline {subsection}{\numberline {2.7.2}Using US Letter Paper}{21}{subsection.62}
+\contentsline {subsection}{\numberline {2.7.3}References}{22}{subsection.63}
 \contentsline {subsection}{\numberline {2.7.4}Figures}{23}{subsection.65}
-\contentsline {subsection}{\numberline {2.7.5}Typesetting mathematics}{25}{subsection.67}
+\contentsline {subsection}{\numberline {2.7.5}Typesetting mathematics}{24}{subsection.67}
 \contentsline {section}{\numberline {2.8}Sectioning and Subsectioning}{25}{section.69}
-\contentsline {section}{\numberline {2.9}In Closing}{26}{section.70}
+\contentsline {section}{\numberline {2.9}In Closing}{25}{section.70}
+\contentsline {chapter}{\numberline {3}Chapter Title Here}{26}{chapter.71}
+\contentsline {section}{\numberline {3.1}Motivation}{26}{section.72}
+\contentsline {section}{\numberline {3.2}Goals and Scoop}{27}{section.73}
+\contentsline {section}{\numberline {3.3}Structure of the document}{27}{section.74}
 \vspace {2em}
-\contentsline {chapter}{\numberline {A}Appendix Title Here}{27}{appendix.71}
+\contentsline {chapter}{\numberline {A}Appendix Title Here}{28}{appendix.75}
 \vspace {2em}
-\contentsline {chapter}{Bibliography}{28}{dummy.72}
+\contentsline {chapter}{Bibliography}{29}{dummy.76}

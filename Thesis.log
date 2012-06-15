@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.4.5)  15 APR 2012 21:45
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.4.5)  15 JUN 2012 23:17
 entering extended mode
  %&-line parsing enabled.
 **\nonstopmode \input{"/home/emara/Desktop/Documentation/Thesis.tex"}
@@ -630,17 +630,23 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
 
 ]
 Missing character: There is no ” in font cmr10!
- [2] [3] [4] [5]
+
+Overfull \hbox (5.2891pt too wide) in paragraph at lines 50--51
+[]\OT1/cmr/m/n/10.95 MacTeX in-cludes a ded-i-cated L[]T[]X IDE (In-te-grated D
+e-vel-op-ment En-vi-ron-ment) called ``TeXShop''
+ []
+
+[2] [3] [4] [5]
 LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <14.4> not available
 (Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 135.
-
-[6] [7] [8]
+ [6] [7]
 Missing character: There is no ﬁ in font cmr10!
 Missing character: There is no ﬁ in font cmr10!
- [9] <./Figures/Electron.pdf, id=424, 398.3386pt x 284.52756pt>
+ [8]
+<./Figures/Electron.pdf, id=434, 398.3386pt x 284.52756pt>
 File: ./Figures/Electron.pdf Graphic file (type pdf)
 
-<use ./Figures/Electron.pdf> [10 <./Figures/Electron.pdf>] [11])
+<use ./Figures/Electron.pdf> [9] [10 <./Figures/Electron.pdf>] [11])
 (./Chapters/Chapter2.tex [12]
 Chapter 2.
 ------------------------------------------------------------------------------
@@ -652,7 +658,7 @@ Chapter 2.
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ô in font cmr10!
- <./Figures/a.png, id=505, 263.98625pt x 116.435pt>
+ <./Figures/a.png, id=525, 263.98625pt x 116.435pt>
 File: ./Figures/a.png Graphic file (type png)
  <use ./Figures/a.png>
 ! Undefined control sequence.
@@ -757,13 +763,6 @@ Missing character: There is no ú in font cmr10!
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ù in font cmr10!
-
-Overfull \hbox (64.23845pt too wide) in paragraph at lines 70--81
-\OT1/cmr/m/n/10.95 T$[]\OML/cmm/m/it/10.95 andT[]isthereforedeterminedusingthef
-ollowingscoringfunction \OT1/cmr/m/n/10.95 : []\OML/cmm/m/it/10.95 SIM\OT1/cmr/
-m/n/10.95 ([]\OML/cmm/m/it/10.95 ; []\OT1/cmr/m/n/10.95 ) = [][]$$$This
- []
-
 [15] [16] [17] [18] [19] [20] [21]
 Missing character: There is no √ in font cmr10!
 Missing character: There is no û in font cmr10!
@@ -772,18 +771,28 @@ Missing character: There is no û in font cmr10!
  [22]
 File: ./Figures/Electron.pdf Graphic file (type pdf)
  <use ./Figures/Electron.pdf> [23]
-[24] [25]) (./Appendices/AppendixA.tex [26]
+[24]) (./Chapters/Chapter3.tex [25]
+Chapter 3.
+------------------------------------------------------------------------------
+ 3 Chapter Title Here
+------------------------------------------------------------------------------
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ô in font cmr10!
+[26
+
+]) (./Appendices/AppendixA.tex [27]
 Appendix A.
 ------------------------------------------------------------------------------
  A Appendix Title Here
 ------------------------------------------------------------------------------
-) [27
+) [28
 
 ]
 ------------------------------------------------------------------------------
  Bibliography
 ------------------------------------------------------------------------------
-(/home/emara/Desktop/Documentation/Thesis.bbl) [28
+(/home/emara/Desktop/Documentation/Thesis.bbl) [29
 
 
 ]
@@ -793,67 +802,34 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 9252 strings out of 495061
- 125963 string characters out of 1182622
+ 9257 strings out of 495061
+ 126047 string characters out of 1182622
  206963 words of memory out of 3000000
- 12112 multiletter control sequences out of 15000+50000
+ 12120 multiletter control sequences out of 15000+50000
  20607 words of font info for 78 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
  49i,14n,45p,1379b,394s stack positions out of 5000i,500n,10000p,200000b,50000s
-pdfTeX warning (dest): name{figure.65} has been referenced but does not exist
-, replaced by a fixed one
-
-pdfTeX warning (dest): name{dummy.71} has been referenced but does not exist, r
-eplaced by a fixed one
-
-pdfTeX warning (dest): name{appendix.70} has been referenced but does not exist
-, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.68} has been referenced but does not exist,
- replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.66} has been referenced but does not exi
-st, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.64} has been referenced but does not exi
-st, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.60} has been referenced but does not exi
-st, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.57} has been referenced but does not exist,
- replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.55} has been referenced but does not exi
-st, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.54} has been referenced but does not exist,
- replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.52} has been referenced but does not exi
-st, replaced by a fixed one
-
-</usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share
-/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-texl
-ive/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texmf-texlive/fonts/ty
-pe1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texmf-texlive/fonts/type1/public
-/amsfonts/cm/cmmi10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/c
-m/cmmi6.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi8.pfb>
-</usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/
-texmf-texlive/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-texliv
-e/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-texlive/fonts/type1
-/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfo
-nts/cm/cmr9.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsl12
-.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/
-share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-
-texlive/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-texlive/fon
-ts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texmf-texlive/fonts/type1/pu
-blic/amsfonts/cm/cmtt10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfon
-ts/cm/cmtt12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/symbols/
-msam7.pfb>
-Output written on Thesis.pdf (41 pages, 409364 bytes).
+</usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/sha
+re/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-te
+xlive/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texmf-texlive/fonts/
+type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texmf-texlive/fonts/type1/publ
+ic/amsfonts/cm/cmmi10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts
+/cm/cmmi6.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi8.pf
+b></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/shar
+e/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-texl
+ive/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-texlive/fonts/typ
+e1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-texlive/fonts/type1/public/ams
+fonts/cm/cmr9.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsl
+12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy10.pfb></us
+r/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texm
+f-texlive/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-texlive/f
+onts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texmf-texlive/fonts/type1/
+public/amsfonts/cm/cmtt10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsf
+onts/cm/cmtt12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/symbol
+s/msam7.pfb>
+Output written on Thesis.pdf (42 pages, 413885 bytes).
 PDF statistics:
- 705 PDF objects out of 1000 (max. 8388607)
- 129 named destinations out of 1000 (max. 500000)
- 435 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 718 PDF objects out of 1000 (max. 8388607)
+ 123 named destinations out of 1000 (max. 500000)
+ 467 words of extra memory for PDF output out of 10000 (max. 10000000)
 

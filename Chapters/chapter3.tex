@@ -1,0 +1,31 @@
+% Chapter 3
+
+\chapter{Chapter Title Here} % Main chapter title
+
+\label{Chapter3} % For referencing the chapter elsewhere, use \ref{Chapter3} 
+
+\lhead{Chapter 3. \emph{Chapter Title Here}} % This is for the header on each page - perhaps a shortened title
+
+%----------------------------------------------------------------------------------------
+A general overview of the documentation is provided in this chapter, focusing on the definition of the problems that motivated the work. Section ~\ref{subsec:motivation} presents the motivation which made us interested in this work, and shows the limitations of the previous work.\\
+Section ~\ref{subsec:goals} states the goals of our work to be achieved. Section ~\ref{subsec:struct} describes the structure of this document.
+
+\section{Motivation}\label{subsec:motivation}
+With the tremendous increase of the on-line news streams, the need to aggregate related news has also increased, also the need to filter duplicate news.  Here arouses the role of recommendation systems which help the readers surf the news that are likely to be of interest. Systems recommend items of interest to users based on preferences they have expressed either explicitly or implicitly. Such systems have an obvious appeal in situations where the amount of on-line news available to users greatly exceeds the users’ ability to survey it.\\
+On contrast to the existence of many systems that support the English language, only a few can be found for Arabic language in spite of its importance. Arabic language consists of 28 letters and is used by more than 330 million Arabic speakers that are spread over 22 countries (Ghosn, 2003; Censure of the Internet in the Arab countries, 2006). The performance of information retrieval in Arabic language is very problematic which lead to the arousal of many challenges in developing text analysis and recommendation systems for Arabic documents. The complex and rich nature of the Arabic language can be observed in the morphological and structural changes in the language like polysemy, irregular and inflected derived forms, various spelling of certain words, various writing of certain characters combination, short (diacritics) and long vowels. In addition, most of the Arabic words contain affixes. The language is written from right to left. Moreover, the majority of words have a tri-letter root. The rest have either a quad-letter root, penta-letter root or hexa-letter root.\\
+Similarity between documents is one of the issues in information retrieval and a major issue in recommendation systems. Almost all of the proposed systems for Arabic are based on Lexical Similarity which is weakened by the complex nature of the language. Another approach that provides promising results is similarity based on the Semantics of the context. Semantics of the context helps capture the essence of the document. Hence, Semantic Similarity provides a better measure of affinity between Arabic documents.
+
+\section{Goals and Scoop}\label{subsec:goals}
+In this work we focus on evaluating semantic similarity techniques on Arabic text. We chose news articles as a case study because they are written mainly in a formal non-colloquial Arabic and to avoid the variation of Arabic dialects.
+We considered the following points as main goals
+\begin {itemize}
+\item Building semantic similarity module using two different approaches: knowledge based and corpus based.
+\item Using the semantic similarity as an affinity metric to cluster documents and users' profiles.
+\item Recommend news to users based on her feed back and predict her taste.
+\end{itemize}
+
+\section{Structure of the document}\label{subsec:struct}
+
+
+%----------------------------------------------------------------------------------------
+
