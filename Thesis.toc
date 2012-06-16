@@ -57,7 +57,11 @@
 \contentsline {section}{\numberline {3.1}Motivation}{26}{section.72}
 \contentsline {section}{\numberline {3.2}Goals and Scoop}{27}{section.73}
 \contentsline {section}{\numberline {3.3}Structure of the document}{27}{section.74}
+\contentsline {chapter}{\numberline {4}Literature}{28}{chapter.75}
+\contentsline {section}{\numberline {4.1}Semantic Similarity}{28}{section.76}
+\contentsline {chapter}{\numberline {5}Tools}{30}{chapter.77}
+\contentsline {section}{\numberline {5.1}AWN}{30}{section.78}
 \vspace {2em}
-\contentsline {chapter}{\numberline {A}Appendix Title Here}{28}{appendix.75}
+\contentsline {chapter}{\numberline {A}Appendix Title Here}{32}{appendix.79}
 \vspace {2em}
-\contentsline {chapter}{Bibliography}{29}{dummy.76}
+\contentsline {chapter}{Bibliography}{33}{dummy.80}

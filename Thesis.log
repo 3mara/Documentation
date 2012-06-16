@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.4.5)  15 JUN 2012 23:17
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.4.5)  17 JUN 2012 00:54
 entering extended mode
  %&-line parsing enabled.
 **\nonstopmode \input{"/home/emara/Desktop/Documentation/Thesis.tex"}
@@ -643,7 +643,7 @@ LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <14.4> not available
 Missing character: There is no Þ in font cmr10!
 Missing character: There is no Þ in font cmr10!
  [8]
-<./Figures/Electron.pdf, id=434, 398.3386pt x 284.52756pt>
+<./Figures/Electron.pdf, id=454, 398.3386pt x 284.52756pt>
 File: ./Figures/Electron.pdf Graphic file (type pdf)
 
 <use ./Figures/Electron.pdf> [9] [10 <./Figures/Electron.pdf>] [11])
@@ -658,7 +658,7 @@ Chapter 2.
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no ™ in font cmr10!
- <./Figures/a.png, id=525, 263.98625pt x 116.435pt>
+ <./Figures/a.png, id=545, 263.98625pt x 116.435pt>
 File: ./Figures/a.png Graphic file (type png)
  <use ./Figures/a.png>
 ! Undefined control sequence.
@@ -781,18 +781,113 @@ Missing character: There is no € in font cmr10!
 Missing character: There is no ™ in font cmr10!
 [26
 
-]) (./Appendices/AppendixA.tex [27]
+]) (./Chapters/Chapter4.tex [27]
+Chapter 4.
+------------------------------------------------------------------------------
+ 4 Literature
+------------------------------------------------------------------------------
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no ™ in font cmr10!
+
+Underfull \hbox (badness 10000) in paragraph at lines 12--13
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 14--18
+
+ []
+
+[28
+
+]
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no œ in font cmr10!
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no  in font cmr10!
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--21
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--23
+
+ []
+
+) (./Chapters/Chapter5.tex [29]
+Chapter 5.
+------------------------------------------------------------------------------
+ 5 Tools
+------------------------------------------------------------------------------
+
+Underfull \hbox (badness 10000) in paragraph at lines 12--14
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 15--16
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 17--18
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 18--19
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19--20
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 21--22
+
+ []
+
+[30
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 23--24
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 24--25
+
+ []
+
+Missing character: There is no Â in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no Â in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no Â in font cmr10!
+Missing character: There is no   in font cmr10!
+
+Underfull \hbox (badness 10000) in paragraph at lines 26--30
+
+ []
+
+) (./Appendices/AppendixA.tex [31]
 Appendix A.
 ------------------------------------------------------------------------------
  A Appendix Title Here
 ------------------------------------------------------------------------------
-) [28
+) [32
 
 ]
 ------------------------------------------------------------------------------
  Bibliography
 ------------------------------------------------------------------------------
-(/home/emara/Desktop/Documentation/Thesis.bbl) [29
+(/home/emara/Desktop/Documentation/Thesis.bbl) [33
 
 
 ]
@@ -802,10 +897,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 9257 strings out of 495061
- 126047 string characters out of 1182622
- 206963 words of memory out of 3000000
- 12120 multiletter control sequences out of 15000+50000
+ 9277 strings out of 495061
+ 126291 string characters out of 1182622
+ 205963 words of memory out of 3000000
+ 12126 multiletter control sequences out of 15000+50000
  20607 words of font info for 78 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
  49i,14n,45p,1379b,394s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -827,9 +922,9 @@ onts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texmf-texlive/fonts/type1/
 public/amsfonts/cm/cmtt10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsf
 onts/cm/cmtt12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/symbol
 s/msam7.pfb>
-Output written on Thesis.pdf (42 pages, 413885 bytes).
+Output written on Thesis.pdf (46 pages, 425144 bytes).
 PDF statistics:
- 718 PDF objects out of 1000 (max. 8388607)
- 123 named destinations out of 1000 (max. 500000)
- 467 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 759 PDF objects out of 1000 (max. 8388607)
+ 131 named destinations out of 1000 (max. 500000)
+ 499 words of extra memory for PDF output out of 10000 (max. 10000000)
 
