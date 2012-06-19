@@ -8,6 +8,27 @@ Chapter 6
 
 %----------------------------------------------------------------------------------------
 
+\section{Lucene}
+
+Apache Lucene is a free open source information retrieval software library, originally created in Java by Doug Cutting. It is supported by the Apache Software Foundation and is released under the Apache Software License.
+\subsection{Basic Concepts}
+Lucene is a full-text search library which makes it easy to add search functionality to an application or website. It does so by adding content to a full-text index. It then searches this index and returns results ranked by either the relevance to the query or by an arbitrary field such as a document's last modified date.
+\subsection{Searching and Indexing}
+Lucene is able to achieve fast search responses because, instead of searching the text directly, it searches an index instead. This would be the equivalent of retrieving pages in a book related to a keyword by searching the index at the back of a book, as opposed to searching the words in each page of the book. This type of index is called an inverted index, because it inverts a page-centric data structure (page->words) to a keyword-centric data structure (word->pages).
+
+\subsection{Documents}
+In Lucene, a Document is the unit of search and index. An index consists of one or more Documents. Indexing involves adding Documents to an IndexWriter, and searching involves retrieving Documents from an index via an IndexSearcher. A Lucene Document doesn't necessarily have to be a document in the common English usage of the word. For example, if you're creating a Lucene index of a database table of users, then each user would be represented in the index as a Lucene Document.
+\subsection{Fields}
+A Document consists of one or more Fields. A Field is simply a name-value pair. For example, a Field commonly found in applications is title. In the case of a title Field, the field name is title and the value is the title of that content item. Indexing in Lucene thus involves creating Documents comprising of one or more Fields, and adding these Documents to an IndexWriter.
+
+
+
+\subsection{Searching}
+Searching requires an index to have already been built. It involves creating a Query (usually via a QueryParser) and handing this Query to an IndexSearcher, which returns a list of Hits.
+\subsection{Queries}
+Lucene has its own mini-language for performing searches.  The Lucene query language allows the user to specify which field(s) to search on, which fields to give more weight to (boosting), the ability to perform boolean queries (AND, OR, NOT) and other functionality.
+
+
 \section{AWN}
 Arabic WordNet is the Arabic analogue to the widely used WordNet for the English language. The Arabic WordNet (AWN) is a lexical database of the Arabic language following the development process of Princeton English WordNet and Euro WordNet. It utilizes the Suggested Upper Merged Ontology as an interlingua to link Arabic WordNet to previously developed wordnets. Christiane Fellbaum at Princeton was the project lead. The project was sponsored by DOI/REFLEX.\\
 From http://www.globalwordnet.org/AWN/DataSpec.html you can get the XML data exchange specifications of the database. AWN contains about 11,000 synsets (including 1,000 NE).\\
