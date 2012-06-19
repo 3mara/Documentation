@@ -2,70 +2,106 @@
 \vspace {1em}
 \contentsline {chapter}{Acknowledgements}{iii}{dummy.2}
 \vspace {1em}
-\contentsline {chapter}{List of Figures}{vi}{dummy.4}
-\contentsline {chapter}{List of Tables}{vii}{dummy.6}
-\contentsline {chapter}{Abbreviations}{viii}{dummy.8}
-\contentsline {chapter}{Physical Constants}{ix}{dummy.11}
-\contentsline {chapter}{Symbols}{x}{dummy.14}
+\contentsline {chapter}{List of Figures}{vii}{dummy.4}
+\contentsline {chapter}{List of Tables}{viii}{dummy.6}
+\contentsline {chapter}{Abbreviations}{ix}{dummy.8}
+\contentsline {chapter}{Physical Constants}{x}{dummy.11}
+\contentsline {chapter}{Symbols}{xi}{dummy.14}
 \vspace {2em}
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.17}
 \contentsline {section}{\numberline {1.1}Motivation}{1}{section.18}
 \contentsline {section}{\numberline {1.2}Goals and Scoop}{2}{section.19}
 \contentsline {section}{\numberline {1.3}Structure of the document}{2}{section.20}
 \contentsline {chapter}{\numberline {2}Literature}{3}{chapter.21}
-\contentsline {section}{\numberline {2.1}Semantic Similarity}{3}{section.22}
-\contentsline {chapter}{\numberline {3}Document Similarity}{5}{chapter.23}
-\contentsline {section}{\numberline {3.1}Lexical Similarity}{5}{section.24}
-\contentsline {subsection}{\numberline {3.1.1}Document Represenatation}{5}{subsection.25}
-\contentsline {subsection}{\numberline {3.1.2}Similarity Measures}{6}{subsection.28}
-\contentsline {subsubsection}{\numberline {3.1.2.1}Eculidean Distance}{6}{subsubsection.29}
-\contentsline {subsubsection}{\numberline {3.1.2.2}Cosine Similarity}{6}{subsubsection.30}
-\contentsline {section}{\numberline {3.2}Semantic Similarity}{7}{section.32}
-\contentsline {subsection}{\numberline {3.2.1}Corpus Based}{9}{subsection.34}
-\contentsline {subsection}{\numberline {3.2.2}Knowledge Based}{9}{subsection.35}
-\contentsline {subsubsection}{\numberline {3.2.2.1}Wu \& Palmer}{11}{subsubsection.36}
-\contentsline {subsection}{\numberline {3.2.3}Weigthing Factor}{11}{subsection.38}
-\contentsline {subsubsection}{\numberline {3.2.3.1}Specificity}{11}{subsubsection.39}
-\contentsline {subsubsection}{\numberline {3.2.3.2}Latent Semantic Analysis – Specificity:}{12}{subsubsection.40}
-\contentsline {subsubsection}{\numberline {3.2.3.3}Inverse Document Frequency – Specificity:}{13}{subsubsection.41}
-\contentsline {subsection}{\numberline {3.2.4}Disambiguation}{13}{subsection.42}
-\contentsline {subsection}{\numberline {3.2.5}ay7aga}{14}{subsection.70}
-\contentsline {chapter}{\numberline {4}Tools}{15}{chapter.71}
-\contentsline {section}{\numberline {4.1}AWN}{15}{section.72}
-\contentsline {chapter}{\numberline {5}Recommendation System}{17}{chapter.73}
-\contentsline {section}{\numberline {5.1}Introduction}{17}{section.74}
-\contentsline {section}{\numberline {5.2}Recommendation Problem}{17}{section.75}
-\contentsline {section}{\numberline {5.3}Limitation}{21}{section.78}
-\contentsline {subsection}{\numberline {5.3.1}Limited content analysis}{21}{subsection.79}
-\contentsline {subsection}{\numberline {5.3.2}Over-specialization}{22}{subsection.80}
-\contentsline {subsection}{\numberline {5.3.3}New user problem}{22}{subsection.81}
-\contentsline {section}{\numberline {5.4}Collaborative Methods}{23}{section.82}
-\contentsline {subsection}{\numberline {5.4.1}Collaborative recommendations algorithms}{23}{subsection.83}
-\contentsline {subsection}{\numberline {5.4.2}Computing similarity between users}{24}{subsection.84}
-\contentsline {subsubsection}{\numberline {5.4.2.1}Correlation based similarity}{24}{subsubsection.85}
-\contentsline {subsubsection}{\numberline {5.4.2.2}Cosine based similarity}{24}{subsubsection.86}
-\contentsline {subsection}{\numberline {5.4.3}Default Voting}{25}{subsection.87}
-\contentsline {subsection}{\numberline {5.4.4}Cluster models}{25}{subsection.88}
-\contentsline {subsection}{\numberline {5.4.5}Bayesian networks}{26}{subsection.89}
-\contentsline {subsection}{\numberline {5.4.6}Limitation}{26}{subsection.90}
-\contentsline {subsubsection}{\numberline {5.4.6.1}New user problem}{26}{subsubsection.91}
-\contentsline {subsubsection}{\numberline {5.4.6.2}New item problem}{26}{subsubsection.92}
-\contentsline {subsubsection}{\numberline {5.4.6.3}Sparsity}{26}{subsubsection.93}
-\contentsline {section}{\numberline {5.5}Hybrid Methods}{27}{section.94}
-\contentsline {subsection}{\numberline {5.5.1}Combining separate recommenders}{27}{subsection.95}
-\contentsline {subsection}{\numberline {5.5.2}Adding content-based characteristics to collaborative models}{28}{subsection.96}
-\contentsline {subsection}{\numberline {5.5.3}Adding collaborative characteristics to content-based models}{28}{subsection.97}
-\contentsline {subsection}{\numberline {5.5.4}Developing a single unifying recommendation model}{28}{subsection.98}
-\contentsline {section}{\numberline {5.6}Demographic-based Methods}{28}{section.99}
-\contentsline {section}{\numberline {5.7}Collaboration via content}{29}{section.100}
-\contentsline {section}{\numberline {5.8}Building user Profile}{29}{section.101}
-\contentsline {section}{\numberline {5.9}User's Feedback}{31}{section.103}
-\contentsline {section}{\numberline {5.10}Collaboration via content}{31}{section.104}
-\contentsline {subsection}{\numberline {5.10.1}Explicit feedback}{31}{subsection.105}
-\contentsline {subsection}{\numberline {5.10.2}Implicit feedback}{31}{subsection.106}
-\contentsline {section}{\numberline {5.11}Using LSA in Recommendation}{31}{section.107}
-\contentsline {subsection}{\numberline {5.11.1}Advantage of using LSA}{31}{subsection.108}
+\contentsline {section}{\numberline {2.1}Clustering}{3}{section.22}
+\contentsline {section}{\numberline {2.2}Semantic Similarity}{5}{section.24}
+\contentsline {section}{\numberline {2.3}Recommendation}{6}{section.25}
+\contentsline {subsection}{\numberline {2.3.1}Definition of a Recommender System}{6}{subsection.26}
+\contentsline {subsection}{\numberline {2.3.2}Basics to a Recommender System}{7}{subsection.27}
+\contentsline {subsection}{\numberline {2.3.3}Challenges of Recommender Systems}{7}{subsection.28}
+\contentsline {subsubsection}{\numberline {2.3.3.1}Quality of a recommender system}{7}{subsubsection.29}
+\contentsline {subsubsection}{\numberline {2.3.3.2}Sparsity}{8}{subsubsection.30}
+\contentsline {subsubsection}{\numberline {2.3.3.3}Synonymy}{8}{subsubsection.31}
+\contentsline {subsubsection}{\numberline {2.3.3.4}First Rater Problem}{8}{subsubsection.32}
+\contentsline {subsection}{\numberline {2.3.4}Memory Based Recommender Systems}{8}{subsection.33}
+\contentsline {subsubsection}{\numberline {2.3.4.1}User‐Based Recommendation}{8}{subsubsection.34}
+\contentsline {subsubsection}{\numberline {2.3.4.2}Item‐Based Recommendation}{9}{subsubsection.37}
+\contentsline {subsection}{\numberline {2.3.5}Comparison between User‐based and Item‐based recommender systems}{10}{subsection.38}
+\contentsline {subsection}{\numberline {2.3.6}Content‐Based Recommender Systems}{10}{subsection.39}
+\contentsline {subsection}{\numberline {2.3.7}Testing the Accuracy of a Recommender System}{10}{subsection.40}
+\contentsline {subsubsection}{\numberline {2.3.7.1}Accuracy}{11}{subsubsection.41}
+\contentsline {subsubsection}{\numberline {2.3.7.2}Mean Absolute Error}{11}{subsubsection.42}
+\contentsline {chapter}{\numberline {3}Document Similarity}{12}{chapter.43}
+\contentsline {section}{\numberline {3.1}Lexical Similarity}{12}{section.44}
+\contentsline {subsection}{\numberline {3.1.1}Document Represenatation}{12}{subsection.45}
+\contentsline {subsection}{\numberline {3.1.2}Similarity Measures}{13}{subsection.48}
+\contentsline {subsubsection}{\numberline {3.1.2.1}Eculidean Distance}{13}{subsubsection.49}
+\contentsline {subsubsection}{\numberline {3.1.2.2}Cosine Similarity}{13}{subsubsection.50}
+\contentsline {section}{\numberline {3.2}Semantic Similarity}{14}{section.52}
+\contentsline {subsection}{\numberline {3.2.1}Corpus Based}{16}{subsection.54}
+\contentsline {subsubsection}{\numberline {3.2.1.1}LSA for Semantic Similarity}{16}{subsubsection.55}
+\contentsline {subsection}{\numberline {3.2.2}Knowledge Based}{18}{subsection.56}
+\contentsline {subsubsection}{\numberline {3.2.2.1}Wu \& Palmer}{19}{subsubsection.57}
+\contentsline {subsubsection}{\numberline {3.2.2.2}AWN}{20}{subsubsection.59}
+\contentsline {subsubsection}{\numberline {3.2.2.3}Wikipedia}{24}{subsubsection.60}
+\contentsline {subsection}{\numberline {3.2.3}Term Weigthing using Specificity}{26}{subsection.61}
+\contentsline {subsubsection}{\numberline {3.2.3.1}Latent Semantic Analysis:}{26}{subsubsection.62}
+\contentsline {subsubsection}{\numberline {3.2.3.2}Inverse Document Frequency:}{27}{subsubsection.63}
+\contentsline {subsection}{\numberline {3.2.4}Disambiguation}{28}{subsection.64}
+\contentsline {subsubsection}{\numberline {3.2.4.1}JIGSAW Algorithm}{28}{subsubsection.65}
+\contentsline {chapter}{\numberline {4}Document Clustering}{30}{chapter.66}
+\contentsline {section}{\numberline {4.1}Dynamic modeling and distance relatedness concepts}{31}{section.67}
+\contentsline {subsection}{\numberline {4.1.1}Dynamic vs. static models}{31}{subsection.68}
+\contentsline {subsection}{\numberline {4.1.2}Distance-based density}{32}{subsection.69}
+\contentsline {section}{\numberline {4.2}Proposed distance relatedness dynamic model}{32}{section.71}
+\contentsline {subsection}{\numberline {4.2.1}Distance consistency definitions}{34}{subsection.73}
+\contentsline {section}{\numberline {4.3}Algorithms phases}{34}{section.74}
+\contentsline {section}{\numberline {4.4}Implementation Details}{35}{section.75}
+\contentsline {subsection}{\numberline {4.4.1}Disjoint set}{35}{subsection.76}
+\contentsline {subsubsection}{\numberline {4.4.1.1}Linked-List Implementation}{36}{subsubsection.77}
+\contentsline {subsubsection}{\numberline {4.4.1.2}Disjoint-set Implementation: Forests}{36}{subsubsection.80}
+\contentsline {chapter}{\numberline {5}Recommender Systems}{38}{chapter.82}
+\contentsline {section}{\numberline {5.1}Introduction}{38}{section.83}
+\contentsline {section}{\numberline {5.2}Recommendation Problem}{38}{section.84}
+\contentsline {section}{\numberline {5.3}Content-Based Methods}{40}{section.87}
+\contentsline {subsection}{\numberline {5.3.1}Limitation}{43}{subsection.94}
+\contentsline {subsubsection}{\numberline {5.3.1.1}Limited Content Analysis}{43}{subsubsection.95}
+\contentsline {subsubsection}{\numberline {5.3.1.2}Over-Specialization}{43}{subsubsection.96}
+\contentsline {subsubsection}{\numberline {5.3.1.3}New User Problem}{44}{subsubsection.97}
+\contentsline {section}{\numberline {5.4}Collaborative Methods}{44}{section.98}
+\contentsline {subsection}{\numberline {5.4.1}Collaborative recommendations algorithms}{45}{subsection.99}
+\contentsline {subsection}{\numberline {5.4.2}Computing similarity between users}{46}{subsection.105}
+\contentsline {subsubsection}{\numberline {5.4.2.1}Correlation based similarity}{46}{subsubsection.106}
+\contentsline {subsubsection}{\numberline {5.4.2.2}Cosine based similarity}{46}{subsubsection.108}
+\contentsline {subsection}{\numberline {5.4.3}Default Voting}{47}{subsection.110}
+\contentsline {subsection}{\numberline {5.4.4}Cluster models}{47}{subsection.111}
+\contentsline {subsection}{\numberline {5.4.5}Bayesian networks}{47}{subsection.112}
+\contentsline {subsection}{\numberline {5.4.6}Limitation}{48}{subsection.113}
+\contentsline {subsubsection}{\numberline {5.4.6.1}New user problem}{48}{subsubsection.114}
+\contentsline {subsubsection}{\numberline {5.4.6.2}New item problem}{48}{subsubsection.115}
+\contentsline {subsubsection}{\numberline {5.4.6.3}Sparsity}{48}{subsubsection.116}
+\contentsline {section}{\numberline {5.5}Hybrid Methods}{49}{section.117}
+\contentsline {subsection}{\numberline {5.5.1}Combining separate recommenders}{49}{subsection.118}
+\contentsline {subsection}{\numberline {5.5.2}Adding content-based characteristics to collaborative models}{49}{subsection.119}
+\contentsline {subsection}{\numberline {5.5.3}Adding collaborative characteristics to content-based models}{50}{subsection.120}
+\contentsline {subsection}{\numberline {5.5.4}Developing a single unifying recommendation model}{50}{subsection.121}
+\contentsline {section}{\numberline {5.6}Demographic-based Methods}{50}{section.122}
+\contentsline {section}{\numberline {5.7}Collaboration via content}{51}{section.123}
+\contentsline {section}{\numberline {5.8}Building user Profile}{51}{section.124}
+\contentsline {section}{\numberline {5.9}User's Feedback}{52}{section.126}
+\contentsline {section}{\numberline {5.10}Collaboration via content}{52}{section.127}
+\contentsline {subsection}{\numberline {5.10.1}Explicit feedback}{52}{subsection.128}
+\contentsline {subsection}{\numberline {5.10.2}Implicit feedback}{53}{subsection.129}
+\contentsline {section}{\numberline {5.11}Using LSA in Recommendation}{53}{section.130}
+\contentsline {subsection}{\numberline {5.11.1}Advantage of using LSA}{53}{subsection.131}
+\contentsline {chapter}{\numberline {6}Tools}{54}{chapter.132}
+\contentsline {section}{\numberline {6.1}AWN}{54}{section.133}
+\contentsline {section}{\numberline {6.2}Crawlers}{55}{section.134}
+\contentsline {subsection}{\numberline {6.2.1}Basic concept}{55}{subsection.135}
+\contentsline {section}{\numberline {6.3}Corpus}{57}{section.136}
 \vspace {2em}
-\contentsline {chapter}{\numberline {A}Appendix Title Here}{33}{appendix.109}
+\contentsline {chapter}{\numberline {A}Appendix Title Here}{58}{appendix.137}
+\contentsline {section}{\numberline {A.1}Crawlers XML Configuration File}{58}{section.138}
+\contentsline {section}{\numberline {A.2}JIGSAW Disambiguation}{61}{section.267}
 \vspace {2em}
-\contentsline {chapter}{Bibliography}{34}{dummy.110}
+\contentsline {chapter}{Bibliography}{62}{dummy.268}

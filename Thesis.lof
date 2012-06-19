@@ -1,9 +1,14 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Clustering techniques}}{3}{figure.23}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Angle Between Documents}}{6}{figure.27}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Angle Between Documents}}{13}{figure.47}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Distances between patterns reflect the density structure.}}{33}{figure.70}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Effect of distance inconsistency on merging of patterns}}{34}{figure.72}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Two sets}}{36}{figure.78}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Union of two sets}}{36}{figure.79}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Path compression}}{37}{figure.81}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Angle Between Documents}}{18}{figure.76}
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Angle Between Documents}}{30}{figure.102}
 \addvspace {10\p@ }
