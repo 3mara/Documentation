@@ -8,27 +8,6 @@ Chapter 6
 
 %----------------------------------------------------------------------------------------
 
-\section{Lucene}
-
-Apache Lucene is a free open source information retrieval software library, originally created in Java by Doug Cutting. It is supported by the Apache Software Foundation and is released under the Apache Software License.
-\subsection{Basic Concepts}
-Lucene is a full-text search library which makes it easy to add search functionality to an application or website. It does so by adding content to a full-text index. It then searches this index and returns results ranked by either the relevance to the query or by an arbitrary field such as a document's last modified date.
-\subsection{Searching and Indexing}
-Lucene is able to achieve fast search responses because, instead of searching the text directly, it searches an index instead. This would be the equivalent of retrieving pages in a book related to a keyword by searching the index at the back of a book, as opposed to searching the words in each page of the book. This type of index is called an inverted index, because it inverts a page-centric data structure (page->words) to a keyword-centric data structure (word->pages).
-
-\subsection{Documents}
-In Lucene, a Document is the unit of search and index. An index consists of one or more Documents. Indexing involves adding Documents to an IndexWriter, and searching involves retrieving Documents from an index via an IndexSearcher. A Lucene Document doesn't necessarily have to be a document in the common English usage of the word. For example, if you're creating a Lucene index of a database table of users, then each user would be represented in the index as a Lucene Document.
-\subsection{Fields}
-A Document consists of one or more Fields. A Field is simply a name-value pair. For example, a Field commonly found in applications is title. In the case of a title Field, the field name is title and the value is the title of that content item. Indexing in Lucene thus involves creating Documents comprising of one or more Fields, and adding these Documents to an IndexWriter.
-
-
-
-\subsection{Searching}
-Searching requires an index to have already been built. It involves creating a Query (usually via a QueryParser) and handing this Query to an IndexSearcher, which returns a list of Hits.
-\subsection{Queries}
-Lucene has its own mini-language for performing searches.  The Lucene query language allows the user to specify which field(s) to search on, which fields to give more weight to (boosting), the ability to perform boolean queries (AND, OR, NOT) and other functionality.
-
-
 \section{AWN}
 Arabic WordNet is the Arabic analogue to the widely used WordNet for the English language. The Arabic WordNet (AWN) is a lexical database of the Arabic language following the development process of Princeton English WordNet and Euro WordNet. It utilizes the Suggested Upper Merged Ontology as an interlingua to link Arabic WordNet to previously developed wordnets. Christiane Fellbaum at Princeton was the project lead. The project was sponsored by DOI/REFLEX.\\
 From http://www.globalwordnet.org/AWN/DataSpec.html you can get the XML data exchange specifications of the database. AWN contains about 11,000 synsets (including 1,000 NE).\\
@@ -92,5 +71,47 @@ The second pipeline uses result of the previous execution in order to collect al
 We used two corpora one of them is Al Jazeera, which contains 4462 article from various categories like Arts,culture,Economy, International, locals, Medical, Society, Sport.
 The other corpus is upto-date corpus extracted using crawling tool with predefined XML files from specific News agency Like: Reuters, CNN, BBC, Al Arabiya, Youm7.This corpus was around 160 articles from many categories.
 
+
+\section{LSA Tools}
+\subsection{Python}
+\subsubsection{Description}
+Python is a remarkably powerful dynamic programming language that is used in a wide variety of application domains. Python is often compared to Tcl, Perl, Ruby, Scheme or Java. Some of its key distinguishing features include:
+\begin{itemize}
+\item very clear, readable syntax
+\item strong introspection capabilities
+\item intuitive object orientation
+\item natural expression of procedural code
+\item full modularity, supporting hierarchical packages
+\item exception-based error handling
+\item very high level dynamic data types
+\item extensive standard libraries and third party modules for virtually every task
+\item extensions and modules easily written in C, C++ (or Java for Jython, or .NET languages for IronPython)
+\item embeddable within applications as a scripting interface
+\end{itemize}
+\subsubsection{Usage}
+Python was used as the main programming language for the LSA implementation due to being extensible till the Ram size and having many third party packages for haonendling SVD calculations
+\subsection{DIVISI2}
+\subsubsection{Description}
+Divisi is a sparse SVD toolkit for Python that is particularly designed for working with semantic networks.
+\subsubsection{Usage}
+Divisi was used to calculate SVD in a sparse way as the term vs. document matrix is so sparse so sparse SVD is more efficient than normal one
+\subsection{PyTables}
+\subsubsection{Description}
+PyTables is a package for managing hierarchical datasets and designed to efficiently and easily cope with extremely large amounts of data. 
+PyTables is built on top of the HDF5 library, using the Python language and the NumPy package. It features an object-oriented interface that, combined with C extensions for the performance-critical parts of the code (generated using Cython), makes it a fast, yet extremely easy to use tool for interactively browse, process and search very large amounts of data. One important feature of PyTables is that it optimizes memory and disk resources so that data takes much less space (specially if on-flight compression is used) than other solutions such as relational or object oriented databases.
+\subsubsection{Usage}
+PyTables was used to save the term vs. document matrix in a h5 file format which caches part of the array in the Ram so as to be able to deal with array sizes bigger than that of the Ram. Also, the array is saved in a compressed format.
+\subsection{Numpy}
+\subsubsection{Description}
+NumPy is the fundamental package for scientific computing with Python. It contains among other things:
+\begin{itemize}
+\item a powerful N-dimensional array object
+\item sophisticated (broadcasting) functions
+\item tools for integrating C/C++ and Fortran code
+\item useful linear algebra, Fourier transform, and random number capabilities
+\end{itemize}
+Besides its obvious scientific uses, NumPy can also be used as an efficient multi-dimensional container of generic data. Arbitrary data-types can be defined. This allows NumPy to seamlessly and speedily integrate with a wide variety of databases.
+\subsubsection{Usage}
+Numpy was used to perform matrix operations like: calculating the cosine similarity, calculate the vector representation of the document.
 
 

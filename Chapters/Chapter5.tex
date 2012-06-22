@@ -14,18 +14,18 @@ Recommender systems became an important research area since the appearance of th
 \section{Recommendation Problem}
 The recommendation problem is reduced to the problem of estimating ratings for the items that have not been seen by a user. Intuitively, this estimation is usually based on the ratings given by this user to other items and on some other information that will be formally described below. Once we can estimate ratings for the yet unrated items, we can recommend to the user the item(s) with the highest estimated rating(s).
 More formally, the recommendation problem can be formulated as follows. Let C be the set of all users and let S be the set of all possible items that can be recommended, such as books, movies, or restaurants. The space S of possible items can be very large, ranging in hundreds of thousands or even millions of items in some applications, such as recommending books or CDs.
-Similarly, the user space can also be very large  millions in some cases. Let u be a utility function that measures usefulness of item s to user c, i.e., $u :C \times S \rightarrow R$ , where $R$ is a totally ordered set (e.g., non-negative integers or real numbers within a certain range). Then for each user $c\in C$ , we want to choose such item $s' \in S$ that maximizes the users utility. More formally
+Similarly, the user space can also be very large millions in some cases. Let u be a utility function that measures usefulness of item s to user c, i.e., $u :C \times S \rightarrow R$ , where $R$ is a totally ordered set (e.g., non-negative integers or real numbers within a certain range). Then for each user $c\in C$ , we want to choose such item $s' \in S$ that maximizes the user's utility. More formally
 \begin{equation} \label{eq:1}
 \forall c \in C,\, S'_c = arg_{max u} (c,s)_{s \in S}
 \end{equation}
 
-In recommender systems the utility of an item is usually represented by a rating, which indicates how a particular user liked a particular item, e.g., John Doe gave the movie Harry Potter the rating of 7 (out of 10). However, as indicated earlier, in general utility can be an arbitrary function, including a profit function. Depending on the application, utility u can either be specified by the user, as is often done for the user-defined ratings, or is computed by the application, as can be the case for a profit-based utility function.
+In recommender systems the utility of an item is usually represented by a rating, which indicates how a particular user liked a particular item, e.g., John Doe gave the movie Harry Potter the rating of 7 (out of 10). However, as indicated earlier, in general utility can be an arbitrary function, including a profit function. Depending on the application, utility u can either be specified by the user, as is often done for the user-defined ratings, or is computed by the application, as can be the case for a profit-based utility function.
 Each element of the user space C can be defined with a profile that includes various user characteristics, such as age, gender, income, marital status, etc. In the simplest case, the profile can contain only a single (unique) element, such as User ID. Similarly, each element of the item space S is defined with a set of characteristics. For example, in a movie  recommendation application, where S is a collection of movies, each movie can be represented not only by its ID, but also by its title, genre, director, year of release, leading actors, etc.
 
 The central problem of recommender systems lies in that utility u is usually not defined on the whole $C \times S$ space, but only on some subset of it. This means u needs to be extrapolated to the whole space $C \times S$ . In recommender systems, utility is typically represented by ratings and is initially defined only on the items previously rated by the users. For example, in a movie recommendation application (such as the one at MovieLens.org), users initially rate some subset of movies that they have already seen. An example of a user-item rating matrix for a movie recommendation application is presented in Table ~\ref{table:1}, where ratings are specified on the scale of 1 to 5. The $\phi$ symbol for some of the ratings in Table ~\ref{table:1} means that the users have not rated the corresponding movies. Therefore, the recommendation engine should be able to estimate (predict) the ratings of the non-rated movie/user combinations and issue appropriate recommendations based on these predictions.
 
 \begin{table}[ht]
-\caption{A fragmint of a rating matrix for a movie recommender system} % title of Table
+\caption{A fragment of a rating matrix for a movie recommender system} % title of Table
 \centering  % used for centering table
 \begin{tabular}{c c c c c} % centered columns (5 columns)
 \hline\hline                        %inserts double horizontal lines
@@ -129,46 +129,46 @@ There have been many collaborative systems developed in the academia and the ind
 \subsection{Collaborative recommendations algorithms}
 According to [15], algorithms for collaborative recommendations can be grouped into two general classes: memory-based (or heuristic-based) and model-based. Memory-based algorithms [15, 27, 72, 86, 97] essentially are heuristics that make rating predictions based on the entire collection of previously rated items by the users. That is, the value of the unknown rating rc,s for user c and item s is usually computed as an aggregate of the ratings of some other (usually the N most similar) users for the same item s:
 \begin{equation}\label{eq:9}
-rc,s=aggrc'∈C rc',s 
+rc,s=aggr_{c'\in \hat{C}} r_{c',s} 
 \end{equation}
 where C denotes the set of N users that are the most similar to user c and who have rated item s (N can range anywhere from 1 to the number of all users). Some examples of the aggregation function are:
 \begin{equation}\label{eq:10.a}
-arc,s= 1Nc'\in Crc',s 
+r_{c,s}= \frac{1}{N}\sum_{c' \in \hat{C}} r_{c',s} 
 \end{equation}
 \begin{equation}\label{eq:10.b}
-brc,s= kc'\in Csim(c,c')×rc',s 
+r_{c,s}= k\sum_{ c'\in \hat{C}} sim(c,c')\times r_{c',s}
 \end{equation}
 \begin{equation}\label{eq:10.c}
-crc,s=rc+ kc'\in Csim(c,c')×(rc',s- rc')
+r_{c,s}= \bar{r_c} + k\sum_{ c'\in \hat{C}} sim(c,c')\times (r_{c',s} - \bar{r_{c'}})
 \end{equation}
 
-where multiplier k serves as a normalizing factor and is usually selected as $k= 1c'\in C|sim(c,c')|$ and , and where the average rating of user c, rc in (10c) is defined as
+where multiplier k serves as a normalizing factor and is usually selected as $k = \frac{1}{\sum_{c' \in \hat{C}} |sim(c,c')|}$ and , and where the average rating of user c, rc in (10c) is defined as
 \begin{equation}\label{eq:11}
-rc=1|sc|s\in Scrc,s$ where $Sc=s\in S rc,s\neq \phi
+\bar{r_c}=\frac{1}{|s_c|}\sum _{s\in S_c} r_{c,s} \,\, where \,S_c = \{s\in S r_{c,s} \neq \phi\}
 \end{equation}
 In the simplest case, the aggregation can be a simple average, as defined by expression (10a).However, the most common aggregation approach is to use the weighted sum, shown in (10b).The similarity measure between the users c and c’, sim(c, c’), is essentially a distance measure and is used as a weight, i.e., the more similar users c and c’ are, the more weight rating rc’,s will carry in the prediction of rc,s. Note that sim(x,y) is a heuristic artifact that is introduced in order to be able to differentiate between levels of user similarity (i.e., to be able to find a set of “closest peers” or “nearest neighbors” for each user) and at the same time simplify the rating estimation procedure. As shown in (10b), different recommendation applications can use their own user similarity measure, as long as the calculations are normalized using the normalizing factor k, as shown above. The two most commonly used similarity measures will be described below. One problem with using the weighted sum, as in (10b), is that it does not take into account the fact that different users may use the rating scale differently. The adjusted weighted sum, shown in (10c), has been widely used to address this limitation. In this approach, instead of using the absolute values of ratings, the weighted sum uses their deviations from the average rating of the corresponding user.
 
 
 \subsection{Computing similarity between users}
-Various approaches have been used to compute the similarity sim(c,c') between users in collaborative recommender systems. In most of these approaches, the similarity between two users is based on their ratings of items that both users have rated. The two most popular approaches are correlation and cosine-based. To present them, let Sxy be the set of all items co-rated by both users x and y, i.e. sxy={s∈S|rx,s≠∅ & ry,s≠∅ }. In collaborative recommender systems Sxy is used mainly as an intermediate result for calculating the "nearest neighbors" of user x and is often computed in a straightforward manner, i.e., by computing the intersection of sets Sx and Sy. However, some methods, such as the graph-theoretic approach to collaborative filtering [4], can determine the nearest neighbors of x without computing Sxy for all users y.
+Various approaches have been used to compute the similarity sim(c,c') between users in collaborative recommender systems. In most of these approaches, the similarity between two users is based on their ratings of items that both users have rated. The two most popular approaches are correlation and cosine-based. To present them, let $S_{xy}$ be the set of all items co-rated by both users x and y, i.e. $s_{xy}=\{s\in S|r_{x,s}\neq \phi\, \&\, r_{y,s} \neq \phi \}$. In collaborative recommender systems Sxy is used mainly as an intermediate result for calculating the "nearest neighbors" of user x and is often computed in a straightforward manner, i.e., by computing the intersection of sets $S_x$ and $S_y$. However, some methods, such as the graph-theoretic approach to collaborative filtering [4], can determine the nearest neighbors of x without computing $S_{xy}$ for all users y.
 
 \subsubsection{Correlation based similarity}
 In the correlation-based approach, the Pearson correlation coefficient is used to measure the similarity [86, 97]:
 \begin{equation}\label{eq:12}
-simx,y=s\in Sxyrx,s-rxry,s-rys\in Sxy(rx,s-rx)2s\in Sxy(ry,s-ry)2
+sim(x,y)= \frac {\sum_{s\in S_{xy}}(r_{x,s}-\bar{r_x})(r_{y,s}- \bar{r_y})}{\sqrt{\sum_{s \in S_{xy}}(r_{x,s}-\bar{r_x})^2 \sum_{s\in S_{xy}}(r_{y,s}- \bar{r_y})^2}}}
 \end{equation}
 \subsubsection{Cosine based similarity}
-In the cosine-based approach [15, 91], the two users x and y are treated as two vectors in m-dimensional space, where m=|Sxy |. Then, the similarity between two vectors can be measured by computing the cosine of the angle between them:
-$sim(x,y)=cosx $, \begin{equation}\label{eq:13}
-y =x . y ||x||2 ×||y||2 =i=1krx,sry,ss\in Sxyrx,c2s\in Sxyry,s2 
+In the cosine-based approach [15, 91], the two users x and y are treated as two vectors in m-dimensional space, where $m=|S_{xy} |$. Then, the similarity between two vectors can be measured by computing the cosine of the angle between them:
+\begin{equation}\label{eq:13}
+sim(x,y)= cos(\vec{x}  ,\vec {y}) = \frac{\vec{x} . \vec {y}} {\|\vec{x}\|_2 \times \|\vec{y}\|_2 } = 
+\frac{\sum _{i=1}^{k}r_{x,s}r_{y,s} }{\sqrt {\sum_{s\in S_{xy}}r^{2}_{x,s}}{\sqrt {\sum_{s\in S_{xy}}r^{2}_{y,s}}}}
 \end{equation}
-where x . y  denotes the dot-product between the vectors x and y . Still another approach  to measuring similarity between users uses the mean squared difference measure and is described in [97]. Note that different recommender systems may take different approaches in order to implement the user similarity calculations and rating estimations as efficiently as possible.
+where $\vec{x} . \vec {y}$  denotes the dot-product between the vectors $\vec{x} \,and \,\vec {y}$ . Still another approach  to measuring similarity between users uses the mean squared difference measure and is described in [97]. Note that different recommender systems may take different approaches in order to implement the user similarity calculations and rating estimations as efficiently as possible.
 Many performance-improving modifications, such as default voting, inverse user frequency, case amplification [15], and weighted-majority prediction [27, 72], have been proposed as extensions to these standard correlation-based and cosine-based techniques.
-\subsection{Default Voting}
-an extension to the memory-based approaches described above. It was observed that whenever there are relatively few user-specified ratings, these methods would not work well in computing similarity between users x and y since the similarity measure is based on the intersection of the itemsets, i.e., sets of items rated by both users x and y .It was empirically shown that the rating prediction accuracy could improve if we assume some default rating value for the missing ratings [15].
+
 
 Also, while the above techniques traditionally have been used to compute similarities between users, [91] proposed to use the same correlation-based and cosine-based techniques to compute similarities between items instead and obtain the ratings from them. This idea has been further extended in [29] for top-N item recommendations. In addition, [29, 91] present empirical evidence that item-based algorithms can provide better computational performance than traditional user-based collaborative methods, while at the same time providing comparable or better quality than the best available user-based algorithms.
-In contrast to memory-based methods, model-based algorithms [11, 15, 37, 39, 47, 64, 75, 105] use the collection of ratings to learn a model, which is then used to make rating predictions. For example, [15] proposes a probabilistic approach to collaborative filtering, and it is assumed that rating values are integers between 0 and n, and the probability expression is the probability that user c will give a particular rating to item s given that user’s ratings of the previously rated items. To estimate this probability, [15] proposes two alternative probabilistic models: cluster models and Bayesian networks.
+In contrast to memory-based methods, model-based algorithms [11, 15, 37, 39, 47, 64, 75, 105] use the collection of ratings to learn a model, which is then used to make rating predictions. For example, [15] proposes a probabilistic approach to collaborative filtering, and it is assumed that rating values are integers between 0 and n, and the probability expression is the probability that user c will give a particular rating to item s given that user’s ratings of the previously rated items. To estimate this probability, [15] proposes two alternative probabilistic models: \textbf{cluster models and Bayesian networks}.
 
 \subsection{Cluster models}
 Like-minded users are clustered into classes. Given the user’s class membership, the user ratings are assumed to be independent, i.e., the model structure is that of a naïve Bayesian model. The number of classes and the parameters of the model are learned from the data.
@@ -176,7 +176,8 @@ One limitation of this approach is that each user can be clustered into a single
 
 \subsection{Bayesian networks}
 Represents each item in the domain as a node in a Bayesian network, where the states of each node correspond to the possible rating values for each item. Both the structure of the network and the conditional probabilities are learned from the data.
-
+\subsection{Default Voting}
+an extension to the memory-based approaches described above. It was observed that whenever there are relatively few user-specified ratings, these methods would not work well in computing similarity between users x and y since the similarity measure is based on the intersection of the itemsets, i.e., sets of items rated by both users x and y .It was empirically shown that the rating prediction accuracy could improve if we assume some default rating value for the missing ratings [15].
 \subsection{Limitation}
 \subsubsection{New user problem}
 It is the same problem as with content-based systems. In order to make accurate recommendations, the system must first learn the user’s preferences from the ratings that the user makes. Several techniques have been proposed to address this problem. Most of them use hybrid recommendation approach, which combines content-based and collaborative techniques. The next section describes hybrid recommender systems in more detail. An alternative approach is presented in [83, 109], where various techniques are explored for determining the best (i.e., most informative to a recommender system) items for a new user to rate. These techniques use strategies that are based on item popularity, item entropy, user personalization, and combinations of the above [83, 109].
@@ -221,11 +222,10 @@ The content-based profile of each user is exploited to detect similarities among
 
 \section{Building user Profile}
 For the content-based approach which we are taking, there are four essential requirements:
-
 \begin{table}[ht]
 \caption{The four essential requirements} % title of Table
 \centering  % used for centering table
-\begin{tabular}{c c c c} % centered columns (5 columns)
+\begin{tabular}{c c} % centered columns (5 columns)
 \hline\hline                        %inserts double horizontal lines
 Requirement & Description\\ [0.5ex] % inserts table 
 %heading
@@ -239,15 +239,22 @@ u(w,m,s)& A function returning an updated user profile m given the user's feedba
 \label{table:2} % is used to refer this table in the text
 \end{table}
 The assumption underlying content-based systems is that the content (rather than appearance, interactivity, speed of loading, etc.) of a page is what determines the user's interest. Now we make the further assumption that we can represent the content of a page purely by considering the words contained in the text. We ignore all mark-up tags, images and other multimedia information.
-The vector-space model of information retrieval (Salton & McGill 1983) provides us with an appropriate representation for documents based on their constituent words. This model has been used and studied extensively, forms the basis for commercial web search systems and has been shown to be competitive with alternative IR methods (Harman 1995).
-In this model documents and queries are represented as vectors. Assume some dictionary vector d, where each element di is a word. Each document then has a vector w, where element wi is the weight of word di for that document. If the document does not contain di then wi = 0.
-In our formulation we reduce words to their stems, ignore words from a stop list words, and calculate a TFIDF weight.
-In an attempt to avoid over-fitting, and reduce memory and communications load, we use just the 100 highest-weighted words from any document. Recent experiments described in (Pazzani, Muramatsu, & Billsus 1996) have shown that using too many words leads to a decrease in performance when classifying web pages using supervised learning methods. So, the top N informative words are chosen using TFIDF weighting to determine them.
+The vector-space model of information retrieval (Salton & McGill 1983) provides us with an appropriate representation for documents based on their constituent words. This model has been used and studied extensively, forms the basis for commercial web search systems and has been shown to be competitive with alternative IR methods (Harman 1995).\\
+In this model documents and queries are represented as vectors. Assume some dictionary vector d, where each element $d_i$ is a word. Each document then has a vector w, where element $w_i$ is the weight of word $d_i$ for that document. If the document does not contain $d_i$ then $w_i = 0$.
+In our formulation we reduce words to their stems, ignore words from a stop list words, and calculate a TFIDF weight.\\
+In an attempt to avoid over-fitting, and reduce memory and communications load, we use just the 100 highest-weighted words from any document. Recent experiments described in (Pazzani, Muramatsu, \& Billsus 1996) have shown that using too many words leads to a decrease in performance when classifying web pages using supervised learning methods. So, the top N informative words are chosen using TFIDF weighting to determine them.\\
 Once the top N words have been picked we normalize w to be of unit length, to allow comparisons between documents of different lengths.
 This vector representation is used both for pages, as explained, and for the model of the user's interests, the user profile m (which corresponds to the query in a retrospective IR system). In order to measure how well a page w matches a profile m, we use a variant of the standard IR cosine measure:
-$rw,m= w.m$
+
+\begin{equation}\label{eq:13}
+r(w,m)= w.m
+\end{equation}
 Updating m also corresponds to a normal operation in retrospective IR: relevance feedback (Rocchio 1971).We use a simple update rule:
-$u(w,m,s) =m+sw$
+
+
+\begin{equation}\label{eq:13}
+u(w,m,s) =m+sw
+\end{equation}
 where s is the user's score for page w (we translate the scale shown in following Figure to the integers 3, 2, 1, 0, -1,-2, -3).
 
 We assume that a user's interests change over time, and furthermore that this happens in real time, regardless of the number of recommendations requested per day. This process is modeled using a simple decay function-each night all the weights in the profiles are multiplied by 0.97.
