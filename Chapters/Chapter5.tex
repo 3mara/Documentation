@@ -7,6 +7,9 @@
 \lhead{Chapter 5. \emph{Document Clustering}} % This is for the header on each page - perhaps a shortened title
 
 %----------------------------------------------------------------------------------------
+In this chapter we discuess the choosed clustering algorithms and implementation details, section \ref{sec:background} introduces the dynamic modeling and distance relatedness concepts which are used in the Mitosis algorithm, Mitosis distance relatdness model is introduced in section ~\ref{sec:mitosis_proposed}, algorithms steps are explained in section ~\ref{sec:phases}, where implementation details are given in section ~\ref{sec:implementation}
+
+
 Document clustering has been investigated for use in a number of different areas of text
 mining and information retrieval. Initially, document clustering was investigated for improving
 the precision or recall in information retrieval systems and as an efficient way of
@@ -69,7 +72,7 @@ Spanning Tree(\textit{MST}) distances) differentiate the densities of clusters i
 	\label{fig:mitosis_1}
 \end{figure}
 
-\section{Proposed distance relatedness dynamic model}
+\section{Mitosis Proposed distance relatedness dynamic model}\label{sec:mitosis_proposed}
 The dynamic model proposed in \textit{Mitosis} aims at maintaining the consistency of distances between patterns in each cluster.It defines a
 distance-relatedness clustering criterion based on the following:
 \begin{itemize}
@@ -116,7 +119,7 @@ $d(x, y)<k. \mu$
 \end{itemize}
 According to the above definitions the merge criteria are proposed.
 
-\section{Algorithms phases}
+\section{Algorithms phases}\label{sec:phases}
 
 The algorithm takes as an input the dataset $P$, and 2 main parameters $f$ and $k$. The main steps are as follows:
 \begin{itemize}
@@ -140,7 +143,7 @@ associated patterns/clusters, and update the clusters'measures.}
 \end{itemize}
 
 
-\section{Implementation Details}
+\section{Implementation Details}\label{sec:implementation}
 The class diagram of the implementation of Mitosis is illustrated in figure ~\ref{fig:mitosis_6} where class \textit{Pattern} is an abstract class represents the object to be clustered, in our work the class \textit{Document} implements it, this class sotores the representation of the document which is an N-dimentional feature vector each pattern has a reference to its cluster.
 The \textit{Asscaition} class contains the relations between the pattern \textit{p} and all other patterns within its dynamic range. Each \textit{Cluster} object contains a list of all patterns and associations consisting it, the \textit{Cluster} object contains the mean value of distances of associations in the cluster $\mu$, and keep updating it while more associations is added to it.
 
@@ -152,7 +155,7 @@ The \textit{Asscaition} class contains the relations between the pattern \textit
 	\label{fig:mitosis_6}
 \end{figure}
 
-\section{Loading associations}
+\subsection{Loading associations}
 Mitosis requires loading the associations of each pattern which have distance less than $f.min{dist}$ where $f$ is mitosis factor and $min_{dist}$ is the minimum distance betweeen the pattern and all its neighbours.
 
 Given a databse that stores all the distances between all pairs of patterns, loading associations that are in dynamic range for a given patterns $p$ is performed on two steps, first the database is queried to obtain the the nearst pattern to $p$ which is at distance $min{dist}$, then the pattern's threshold is calculated as $threshold_{dist} = f \dot dist_{min}$ the database is queried again to obtain all the association with distance less than or equal to $threshold{dist}$.
