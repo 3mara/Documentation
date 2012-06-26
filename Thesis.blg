@@ -1,45 +1,140 @@
-This is BibTeX, Version 0.99c (TeX Live 2009/Debian)
-The top-level auxiliary file: Thesis.aux
+This is BibTeX, Version 0.99cThe top-level auxiliary file: Thesis.aux
 The style file: unsrtnat.bst
 Database file #1: Bibliography.bib
-You've used 3 entries,
-            2481 wiz_defined-function locations,
-            577 strings with 4969 characters,
-and the built_in function-call counts, 1307 in all, are:
-= -- 119
-> -- 57
-< -- 1
-+ -- 22
-- -- 16
-* -- 120
-:= -- 210
-add.period$ -- 12
-call.type$ -- 3
-change.case$ -- 6
-chr.to.int$ -- 3
-cite$ -- 3
-duplicate$ -- 57
-empty$ -- 116
-format.name$ -- 21
-if$ -- 268
-int.to.chr$ -- 1
-int.to.str$ -- 4
-missing$ -- 3
-newline$ -- 26
-num.names$ -- 9
-pop$ -- 18
-preamble$ -- 1
-purify$ -- 3
-quote$ -- 0
-skip$ -- 30
-stack$ -- 0
-substring$ -- 84
-swap$ -- 9
-text.length$ -- 0
-text.prefix$ -- 0
-top$ -- 0
-type$ -- 21
-warning$ -- 0
-while$ -- 12
-width$ -- 0
-write$ -- 52
+Warning--I didn't find a database entry for "pre_20"
+Name 1 in "A.K.Jain, M.N.Murty, P.J.Flyn," has a comma at the end for entry clustering_1
+while executing---line 1233 of file unsrtnat.bst
+Too many commas in name 1 of "T.Zhang,R.Ramakrishnan,M.Linvy,BIRCH" for entry clustering_6
+while executing---line 1233 of file unsrtnat.bst
+Too many commas in name 1 of "W.Wang,J.Yang,M.Muntz,STING" for entry clustering_8
+while executing---line 1233 of file unsrtnat.bst
+Too many commas in name 1 of "R.Agrawal,J.Gehrke,D.Gunopulos,P.Raghavan" for entry clustering_9
+while executing---line 1233 of file unsrtnat.bst
+Too many commas in name 1 of "G.Sheikholeslami,S.Chatterjee,A.Zhang,WaveCluster" for entry clustering_10
+while executing---line 1233 of file unsrtnat.bst
+Too many commas in name 1 of "M.Ester,H.-P.Kriegel,J.Sander,X.Xu" for entry clustering_12
+while executing---line 1233 of file unsrtnat.bst
+Too many commas in name 1 of "Hill, W., L. Stead, M. Rosenstein, G. Furnas" for entry recom_45
+while executing---line 1233 of file unsrtnat.bst
+Too many commas in name 1 of "Hill, W., L. Stead, M. Rosenstein, G. Furnas" for entry recom_45
+while executing---line 1233 of file unsrtnat.bst
+Too many commas in name 1 of "Resnick, P., N. Iakovou, M. Sushak, P. Bergstrom, J. Riedl" for entry recom_86
+while executing---line 1233 of file unsrtnat.bst
+Too many commas in name 1 of "Resnick, P., N. Iakovou, M. Sushak, P. Bergstrom, J. Riedl" for entry recom_86
+while executing---line 1233 of file unsrtnat.bst
+Too many commas in name 1 of "Resnick, P., N. Iakovou, M. Sushak, P. Bergstrom, J. Riedl" for entry recom_86
+while executing---line 1233 of file unsrtnat.bst
+Too many commas in name 1 of "Linden, G., B. Smith,J. York" for entry recom_61
+while executing---line 1233 of file unsrtnat.bst
+Too many commas in name 1 of "Miller, B. N., I. Albert, S. K. Lam, J. A. Konstan, J. Riedl" for entry recom_67
+while executing---line 1233 of file unsrtnat.bst
+Too many commas in name 1 of "Miller, B. N., I. Albert, S. K. Lam, J. A. Konstan, J. Riedl" for entry recom_67
+while executing---line 1233 of file unsrtnat.bst
+Too many commas in name 1 of "Miller, B. N., I. Albert, S. K. Lam, J. A. Konstan, J. Riedl" for entry recom_67
+while executing---line 1233 of file unsrtnat.bst
+Too many commas in name 1 of "Billsus, D., C. A. Brunk, C. Evans, B. Gladish, M. Pazzani" for entry recom_14
+while executing---line 1233 of file unsrtnat.bst
+Too many commas in name 1 of "Billsus, D., C. A. Brunk, C. Evans, B. Gladish, M. Pazzani" for entry recom_14
+while executing---line 1233 of file unsrtnat.bst
+Too many commas in name 1 of "Billsus, D., C. A. Brunk, C. Evans, B. Gladish, M. Pazzani" for entry recom_14
+while executing---line 1233 of file unsrtnat.bst
+Too many commas in name 1 of "Mooney, R. J., P. N. Bennett, L. Roy" for entry recom_70
+while executing---line 1233 of file unsrtnat.bst
+Too many commas in name 1 of "Duda, R. O., P. E. Hart, D. G. Stork" for entry recom_31
+while executing---line 1233 of file unsrtnat.bst
+Name 1 in "Zhang, Y, J. Callan, and T. Minka" has a comma at the end for entry recom_112
+while executing---line 1233 of file unsrtnat.bst
+Name 1 in "A.K.Jain, M.N.Murty, P.J.Flyn," has a comma at the end for entry clustering_1
+while executing---line 1315 of file unsrtnat.bst
+Name 1 in "A.K.Jain, M.N.Murty, P.J.Flyn," has a comma at the end for entry clustering_1
+while executing---line 1315 of file unsrtnat.bst
+Too many commas in name 1 of "T.Zhang,R.Ramakrishnan,M.Linvy,BIRCH" for entry clustering_6
+while executing---line 1315 of file unsrtnat.bst
+Too many commas in name 1 of "T.Zhang,R.Ramakrishnan,M.Linvy,BIRCH" for entry clustering_6
+while executing---line 1315 of file unsrtnat.bst
+Too many commas in name 1 of "W.Wang,J.Yang,M.Muntz,STING" for entry clustering_8
+while executing---line 1315 of file unsrtnat.bst
+Too many commas in name 1 of "W.Wang,J.Yang,M.Muntz,STING" for entry clustering_8
+while executing---line 1315 of file unsrtnat.bst
+Too many commas in name 1 of "R.Agrawal,J.Gehrke,D.Gunopulos,P.Raghavan" for entry clustering_9
+while executing---line 1315 of file unsrtnat.bst
+Too many commas in name 1 of "R.Agrawal,J.Gehrke,D.Gunopulos,P.Raghavan" for entry clustering_9
+while executing---line 1315 of file unsrtnat.bst
+Too many commas in name 1 of "G.Sheikholeslami,S.Chatterjee,A.Zhang,WaveCluster" for entry clustering_10
+while executing---line 1315 of file unsrtnat.bst
+Too many commas in name 1 of "G.Sheikholeslami,S.Chatterjee,A.Zhang,WaveCluster" for entry clustering_10
+while executing---line 1315 of file unsrtnat.bst
+Too many commas in name 1 of "M.Ester,H.-P.Kriegel,J.Sander,X.Xu" for entry clustering_12
+while executing---line 1315 of file unsrtnat.bst
+Too many commas in name 1 of "M.Ester,H.-P.Kriegel,J.Sander,X.Xu" for entry clustering_12
+while executing---line 1315 of file unsrtnat.bst
+Warning--empty journal in clustering_14
+Warning--empty author in Mitosis_2
+Warning--empty title in Mitosis_2
+Too many commas in name 1 of "Hill, W., L. Stead, M. Rosenstein, G. Furnas" for entry recom_45
+while executing---line 1315 of file unsrtnat.bst
+Too many commas in name 1 of "Hill, W., L. Stead, M. Rosenstein, G. Furnas" for entry recom_45
+while executing---line 1315 of file unsrtnat.bst
+Too many commas in name 1 of "Hill, W., L. Stead, M. Rosenstein, G. Furnas" for entry recom_45
+while executing---line 1315 of file unsrtnat.bst
+Too many commas in name 1 of "Hill, W., L. Stead, M. Rosenstein, G. Furnas" for entry recom_45
+while executing---line 1315 of file unsrtnat.bst
+Too many commas in name 1 of "Resnick, P., N. Iakovou, M. Sushak, P. Bergstrom, J. Riedl" for entry recom_86
+while executing---line 1315 of file unsrtnat.bst
+Too many commas in name 1 of "Resnick, P., N. Iakovou, M. Sushak, P. Bergstrom, J. Riedl" for entry recom_86
+while executing---line 1315 of file unsrtnat.bst
+Too many commas in name 1 of "Resnick, P., N. Iakovou, M. Sushak, P. Bergstrom, J. Riedl" for entry recom_86
+while executing---line 1315 of file unsrtnat.bst
+Too many commas in name 1 of "Resnick, P., N. Iakovou, M. Sushak, P. Bergstrom, J. Riedl" for entry recom_86
+while executing---line 1315 of file unsrtnat.bst
+Too many commas in name 1 of "Resnick, P., N. Iakovou, M. Sushak, P. Bergstrom, J. Riedl" for entry recom_86
+while executing---line 1315 of file unsrtnat.bst
+Too many commas in name 1 of "Resnick, P., N. Iakovou, M. Sushak, P. Bergstrom, J. Riedl" for entry recom_86
+while executing---line 1315 of file unsrtnat.bst
+Too many commas in name 1 of "Linden, G., B. Smith,J. York" for entry recom_61
+while executing---line 1315 of file unsrtnat.bst
+Too many commas in name 1 of "Linden, G., B. Smith,J. York" for entry recom_61
+while executing---line 1315 of file unsrtnat.bst
+Too many commas in name 1 of "Miller, B. N., I. Albert, S. K. Lam, J. A. Konstan, J. Riedl" for entry recom_67
+while executing---line 1315 of file unsrtnat.bst
+Too many commas in name 1 of "Miller, B. N., I. Albert, S. K. Lam, J. A. Konstan, J. Riedl" for entry recom_67
+while executing---line 1315 of file unsrtnat.bst
+Too many commas in name 1 of "Miller, B. N., I. Albert, S. K. Lam, J. A. Konstan, J. Riedl" for entry recom_67
+while executing---line 1315 of file unsrtnat.bst
+Too many commas in name 1 of "Miller, B. N., I. Albert, S. K. Lam, J. A. Konstan, J. Riedl" for entry recom_67
+while executing---line 1315 of file unsrtnat.bst
+Too many commas in name 1 of "Miller, B. N., I. Albert, S. K. Lam, J. A. Konstan, J. Riedl" for entry recom_67
+while executing---line 1315 of file unsrtnat.bst
+Too many commas in name 1 of "Miller, B. N., I. Albert, S. K. Lam, J. A. Konstan, J. Riedl" for entry recom_67
+while executing---line 1315 of file unsrtnat.bst
+Too many commas in name 1 of "Billsus, D., C. A. Brunk, C. Evans, B. Gladish, M. Pazzani" for entry recom_14
+while executing---line 1315 of file unsrtnat.bst
+Too many commas in name 1 of "Billsus, D., C. A. Brunk, C. Evans, B. Gladish, M. Pazzani" for entry recom_14
+while executing---line 1315 of file unsrtnat.bst
+Too many commas in name 1 of "Billsus, D., C. A. Brunk, C. Evans, B. Gladish, M. Pazzani" for entry recom_14
+while executing---line 1315 of file unsrtnat.bst
+Too many commas in name 1 of "Billsus, D., C. A. Brunk, C. Evans, B. Gladish, M. Pazzani" for entry recom_14
+while executing---line 1315 of file unsrtnat.bst
+Too many commas in name 1 of "Billsus, D., C. A. Brunk, C. Evans, B. Gladish, M. Pazzani" for entry recom_14
+while executing---line 1315 of file unsrtnat.bst
+Too many commas in name 1 of "Billsus, D., C. A. Brunk, C. Evans, B. Gladish, M. Pazzani" for entry recom_14
+while executing---line 1315 of file unsrtnat.bst
+Warning--empty journal in recom_7
+Too many commas in name 1 of "Mooney, R. J., P. N. Bennett, L. Roy" for entry recom_70
+while executing---line 1315 of file unsrtnat.bst
+Too many commas in name 1 of "Mooney, R. J., P. N. Bennett, L. Roy" for entry recom_70
+while executing---line 1315 of file unsrtnat.bst
+Too many commas in name 1 of "Duda, R. O., P. E. Hart, D. G. Stork" for entry recom_31
+while executing---line 1315 of file unsrtnat.bst
+Too many commas in name 1 of "Duda, R. O., P. E. Hart, D. G. Stork" for entry recom_31
+while executing---line 1315 of file unsrtnat.bst
+Warning--empty journal in recom_31
+Name 1 in "Zhang, Y, J. Callan, and T. Minka" has a comma at the end for entry recom_112
+while executing---line 1315 of file unsrtnat.bst
+Name 1 in "Zhang, Y, J. Callan, and T. Minka" has a comma at the end for entry recom_112
+while executing---line 1315 of file unsrtnat.bst
+Warning--empty journal in pre_9
+Warning--empty journal in pre_10
+Warning--empty journal in pre_11
+Warning--empty author in pre_4
+(There were 63 error messages)

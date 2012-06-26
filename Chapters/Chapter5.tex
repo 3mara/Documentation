@@ -1,288 +1,246 @@
 % Chapter 5
 
-\chapter{Recommender Systems} % Main chapter title
+\chapter{Document Clustering} % Main chapter title
 
-\label{recommender} % For referencing the chapter elsewhere, use \ref{recommender} 
+\label{clustering} % For referencing the chapter elsewhere, use \ref{Chapter4} 
 
-\lhead{Chapter 5. \emph{Recommender Systems}} % This is for the header on each page - perhaps a shortened title
+\lhead{Chapter 5. \emph{Document Clustering}} % This is for the header on each page - perhaps a shortened title
 
 %----------------------------------------------------------------------------------------
-\section{Introduction}
-Recommender systems became an important research area since the appearance of the first papers on collaborative filtering since the mid-1990s  \citep{recom_45} \citep{recom_86} \citep{recom_97}. There has been much work done both in the industry and academia on developing new approaches to recommender systems over the last decade. The interest in this area still remains high because it constitutes a problem-rich research area and because of the abundance of practical applications that help users to deal with information overload and provide personalized recommendations, content and services to them. Examples of such applications include recommending books, CDs and other products at Amazon.com \citep{recom_61}, movies by MovieLens \citep{recom_67}, and news at VERSIFI Technologies (formerly AdaptiveInfo.com) \citep{recom_14}. Moreover, some of the vendors have incorporated recommendation capabilities into their commerce servers \citep{recom_78}.
+Document clustering has been investigated for use in a number of different areas of text
+mining and information retrieval. Initially, document clustering was investigated for improving
+the precision or recall in information retrieval systems and as an efficient way of
+finding the nearest neighbors of a document. More recently, clustering has been
+proposed for use in browsing a collection of documents or in organizing the results
+returned by a search engine in response to a user's query. Document clustering has
+also been used to automatically generate hierarchical clusters of documents. (The
+automatic generation of a taxonomy of Web documents like that provided by Yahoo! \citep{clustering_15}
 
+In this work we used clustring to group similar articles together for to ease user browsing and to determine the user neighborhood to enhance the performance of the system as we don't need to use all users' profiles in the system in the recommendation algorithm to determine the recommendations to a specified user, but instead we only investigate the profiles of the user's neighborhood which are other users who are in the same cluster.
 
-\section{Recommendation Problem}
-The recommendation problem is reduced to the problem of estimating ratings for the items that have not been seen by a user. Intuitively, this estimation is usually based on the ratings given by this user to other items and on some other information that will be formally described below. Once we can estimate ratings for the yet unrated items, we can recommend to the user the item(s) with the highest estimated rating(s).
-More formally, the recommendation problem can be formulated as follows. Let C be the set of all users and let S be the set of all possible items that can be recommended, such as books, movies, or restaurants. The space S of possible items can be very large, ranging in hundreds of thousands or even millions of items in some applications, such as recommending books or CDs.
-Similarly, the user space can also be very large millions in some cases. Let u be a utility function that measures usefulness of item s to user c, i.e., $u :C \times S \rightarrow R$ , where $R$ is a totally ordered set (e.g., non-negative integers or real numbers within a certain range). Then for each user $c\in C$ , we want to choose such item $s' \in S$ that maximizes the user's utility. More formally
-\begin{equation} \label{eq:1}
-\forall c \in C,\, S'_c = arg_{max u} (c,s)_{s \in S}
-\end{equation}
+Partitioning algorithms as K-Means \citep{clustering_1}, itsvariants \citep{clustering_2} \citep{clustering_3}, K-Medoids \citep{clustering_4}, PAM \citep{clustering_5} (Partitioning AroundMedoids),BIRCH \citep{clustering_6} and
+CLARANS \citep{clustering_7}, tend to use a center-based clustering objective,re-sulting in clusters of known geometrical shape,e.g. asphereoran ellipse. Grid based clustering algorithms include STING \citep{clustering_8}, CliQue \citep{clustering_9},WaveCluster \citep{clustering_10}, andDenClue \citep{clustering_11}.
+However,density-based
+algorithms asDBScan \citep{clustering_12}, DenClue \citep{clustering_11}, andSNN(SharedNear-
+est Neighbors) \citep{clustering_13} have introduced new clustering criteria that do not restrict the shape of clusters, and thus are able to obtain what is called \textit{arbitrary} shaped clusters.
+Yet,they depend on using a static model for clustering, which deteriorates when arbitrary densities are present in data. Chameleon  \citep{clustering_14}, on the
+other hand, uses a dynamic model to be able to merge clusters of related densities together. Yet, Chameleon suffers some drawbacks.
 
-In recommender systems the utility of an item is usually represented by a rating, which indicates how a particular user liked a particular item, e.g., John Doe gave the movie Harry Potter the rating of 7 (out of 10). However, as indicated earlier, in general utility can be an arbitrary function, including a profit function. Depending on the application, utility u can either be specified by the user, as is often done for the user-defined ratings, or is computed by the application, as can be the case for a profit-based utility function.
-Each element of the user space C can be defined with a profile that includes various user characteristics, such as age, gender, income, marital status, etc. In the simplest case, the profile can contain only a single (unique) element, such as User ID. Similarly, each element of the item space S is defined with a set of characteristics. For example, in a movie  recommendation application, where S is a collection of movies, each movie can be represented not only by its ID, but also by its title, genre, director, year of release, leading actors, etc.
-
-The central problem of recommender systems lies in that utility u is usually not defined on the whole $C \times S$ space, but only on some subset of it. This means u needs to be extrapolated to the whole space $C \times S$ . In recommender systems, utility is typically represented by ratings and is initially defined only on the items previously rated by the users. For example, in a movie recommendation application (such as the one at MovieLens.org), users initially rate some subset of movies that they have already seen. An example of a user-item rating matrix for a movie recommendation application is presented in Table ~\ref{table:1}, where ratings are specified on the scale of 1 to 5. The $\phi$ symbol for some of the ratings in Table ~\ref{table:1} means that the users have not rated the corresponding movies. Therefore, the recommendation engine should be able to estimate (predict) the ratings of the non-rated movie/user combinations and issue appropriate recommendations based on these predictions.
-
-\begin{table}[ht]
-\caption{A fragment of a rating matrix for a movie recommender system} % title of Table
-\centering  % used for centering table
-\begin{tabular}{c c c c c} % centered columns (5 columns)
-\hline\hline                        %inserts double horizontal lines
- & K PAX & Life of Brain & Memento & Notorious\\ [0.5ex] % inserts table 
-%heading
-\hline                  % inserts single horizontal line
-Alice & 4 & 3& 2 &4  \\ % inserting body of the table
-Bob & $\phi$ & 4 & 5 &5  \\
-Cindy & 2 & 2  & 4 &$\phi$  \\
-David & 3 & $\phi$& 5 &2 \\[1ex]      % [1ex] adds vertical space
-\hline %inserts single line
-\end{tabular}
-\label{table:1} % is used to refer this table in the text
-\end{table}
-
-
-Extrapolations from known to unknown ratings are usually done by:
+For the reasons mentioned above we applied the model proposed in \textbf{Mitosis} \citep{Mitosis_1} which introduces a dynamic model based on distance relatedness concepts to overcome drawbacks of related algorithms. Mitosis discovers clusters of arbitrary shapes and densities. It uses distance relatedness between patterns (in this case documents)as a measure to identify clusters of different densities.
+Mitosis overcomes the traditional clustering algorithms in the following points
 \begin{itemize}
-\item Specifying heuristics that define the utility function and empirically validating its performance
-\item Estimating the utility function that optimizes certain performance criterion, such as the mean square error.
+\item{Combining both local and global novel distance-consistency measures in a dynamic model to cluster the data.}
+\item{Introducing a greedy clustering approach to keep up with the linear time performance of simple algorithms.}
+\item{The ability to identify outliers in the presence of clusters of different densities in the same dataset.}
+\item{The use of a parameter selection procedure to guide the clustering algorithm.}
+\item{Suitability for high dimensional data, where the discovery of arbitrary shape and density clusters reveals other relations not revealed by traditional clustering algorithms.}
 \end{itemize}
+Section ~\ref{sec:background} introduces background needed to explain the algorithm.
+\section{Dynamic modeling and distance relatedness concepts}\label{sec:background}
 
-Once the unknown ratings are estimated, actual recommendations of an item to a user are made by selecting the highest rating among all the estimated ratings for that user, according to formula ~\ref{eq:1}. Alternatively, we can recommend N best items to a user or a set of users to an item.
-The new ratings of the not-yet-rated items can be estimated in many different ways using the methods from machine learning, approximation theory and various heuristics. Recommender systems are usually classified according to their approach to rating estimation.
+The significance of a dynamic model of clustering is first explained ~\ref{subsec:dynamic_static}, and the theoretical background of distance relatedness is then discussed ~\ref{subsec:dist_density}.
 
-Recommender systems are usually classified into the following categories, based on how recommendations are made:
+\subsection{Dynamic vs. static models}\label{subsec:dynamic_static}
+A static model refers to using user-defined parameters for defining density thresholds without referring to the characteristics of the underlying data.DBScan, DenClue, WaveClusterandSNN, are examples of algorithms that use a static model and are unable to find clusters of arbitrary densities.For example, DBScan uses two parameters \textit{Eps} and \textit{Minpts}, where \textit{Eps} specifies a threshold on range distance,
+and Minpts specifies the minimum number of neighbors.
+Apattern with a number of neighbors more than Minpts at adistance less than Eps, is considered a corepoint(\textit{pattern}) and is used to track clusters. Chameleon,on the other hand introduced a dynamic modelfor
+clustering based on the following:
 \begin{itemize}
-	\item Content-based recommendations: the user is recommended items similar to the ones the user preferred in the past
-	\item Collaborative recommendations: the user is recommended items that people with similar tastes and preferences liked in the past
-	\item Hybrid approaches: these methods combine collaborative and content-based methods
+\item The use of k-nearest neighbors(\textit{k-NN}).
+\item Merging of clusters based on relative closeness and relative interconnectivity measures, weighed by user defined parameters.
 \end{itemize}
 
 
-\section{Content-Based Methods}
-In content-based recommendation methods, the utility $u(c, s)$ of item $s$ for user $c$ is estimated based on the utilities $u(c ,s_i)$  assigned by user $c$ to items $s_i \in S$ that are \textit{similar} to item $s$. For example, in a movie recommendation application, in order to recommend movies to user c, the content-based recommender system tries to understand the commonalities among the movies user c has rated highly in the past (specific actors, directors, genres, subject matter, etc.). Then, only the movies that have a high degree of similarity to whatever users preferences are would get recommended.
-
-The content-based approach to recommendation has its roots in information retrieval \citep{recom_7} \citep{recom_89} and information filtering \citep{recom_10} research. Because of the significant and early advancements made by the information retrieval and filtering communities and because of the importance of several text-based applications, many current content-based systems focus on recommending items containing textual information, such as documents, Web sites (URLs), and Usenet news messages. The improvement over the traditional information retrieval approaches comes from the use of user profiles that contain information about users tastes, preferences, and needs. The profiling information can be elicited from users explicitly, e.g., through questionnaires, or implicitly  learned from their transactional behavior over time.
-
-More formally, let Content(s) be an item profile, i.e., a set of attributes characterizing item s. It is usually computed by extracting a set of features from item s (its content) and is used to determine appropriateness of the item for recommendation purposes. Since, as mentioned earlier, content-based systems are designed mostly to recommend text-based items, the content in these systems is usually described with keywords. For example, a content-based component of the Fab system \citep{recom_8}, which recommends Web pages to users, represents Web page content with the 100 most important words. Similarly, the Syskill \& Webert system \cite{recom_77} represents documents with the 128 most informative words. The "importance" (or "informativeness") of word $k_i$ in document $d_j$ is determined with some weighting measure $w_{ij}$ that can be defined in several different ways.
-
-One of the best-known measures for specifying keyword weights in Information Retrieval is the term frequency/inverse document frequency (TF-IDF) measure [89] that is defined as follows. Assume that $N$ is the total number of documents that can be recommended to users and that keyword ki appears in ni of them. Moreover, assume that $f_{i,j}$  is the number of times keyword $k_i$ appears in document $d_j$. Then $TF_{i,j}$ , the term frequency (or normalized frequency) of keyword $k_i$ in document $d_j$, is defined as
-
-\begin{equation} \label{eq:2}
-TF_{i,j} = \frac{f_{i,j}}{max_z f_{z,j}}
-\end{equation}
-
-Where the maximum is computed over the frequencies $f_{z,j}$ of all keywords $k_z$ that appear in the document $d_j$. However, keywords that appear in many documents are not useful in distinguishing between a relevant document and a non-relevant one. Therefore, the 
-measure of inverse document frequency ($IDF_i$) is often used in combination with simple term frequency ($TF_{i, j}$). The inverse document frequency for keyword $k_i$ is usually defined as
-
-\begin{equation} \label{eq:3}
-IDF_i = log(\frac{N}{n_i})
-\end{equation}
-
-Then the TF-IDF weight for keyword $k_i$ in document $d_j$ is defined as
-\begin{equation} \label{eq:4}
-w_{i,j} = TF_{i,j} \times IDF_{i}
-\end{equation}
-
-and the content of document $d_j$ is defined as Content$(d_j) = (w_{1j}, w_{kj})$.
-
-
-As stated earlier, content-based systems recommend items similar to those that a user liked in the past  \citep{recom_56}  \citep{recom_69}  \citep{recom_77}. In particular, various candidate items are compared with items previously rated by the user, and the best-matching item(s) are recommended. More formally, let ContentBasedProfile(c) be the profile of user c containing tastes and preferences of this user. These profiles are obtained by analyzing the content of the items previously seen and rated by the user and are usually constructed using keyword analysis techniques from information retrieval. For example, ContentBasedProfile(c) can be defined as a vector of weights ($w_{c_1},...,w_{c_k}$), where each weight $w_{c_i}$ denotes the importance of keyword $k_i$ to user c and can be computed from individually rated content vectors using a variety of techniques. For example, some averaging approach, such as Rocchio algorithm  \citep{recom_85}, can be used to compute ContentBasedProfile(c) as an \textit{average} vector from an individual content vectors  \citep{recom_8}  \citep{recom_56}. On the other hand,  \citep{recom_77} use a Bayesian classifier in order to estimate the probability that a document is liked. The Winnow algorithm  \citep{recom_62} has also been shown to work well for this purpose, especially in the situations where there are many possible features  \citep{recom_76}.
-In content-based systems, the utility function $u(c, s)$ is usually defined as:
-\begin{equation}\label{eq:5}
-u(c,s)= score(ContentBasedProfile(c),Content(s))
-\end{equation}
-
-
-
-Using the above-mentioned information retrieval-based paradigm of recommending Web pages, Web site URLs, or Usenet news messages, both ContentBasedProfile(c) of user c and Content(s) of document s can be represented as TF-IDF vectors $\vec{W}_c$   and $\vec{W}_S$ of keyword weights. Moreover, utility function $u(c, s)$ is usually represented in information retrieval literature by some scoring heuristic defined in terms of vectors $\vec{W}_c$   and $\vec{W}_S$ , such as cosine similarity measure \citep{recom_7} \citep{recom_89}:
-\begin{equation}\label{eq:6}
-	u(c,s) = cos(\vec{W}_c, \vec{W}_S) = \frac{\vec{W}_c \cdot \vec{W}_S}{ \|\vec{W}_c\|_2 \times \|\vec{W}_S\|_2} = 
-	\frac{\sum\limits_{i=1}^k w_{i,c} \cdot w_{i,s}}{\sqrt{\sum\limits_{i=1}^k w_{i,c}^2} \sqrt{\sum\limits_{i=1}^k w_{i,s}^2}}
-\end{equation}
-
-
-where $K$ is the total number of keywords in the system.
-For example, if user c reads many online articles on the topic of bioinformatics, then content-based recommendation techniques will be able to recommend other bioinformatics articles to user c. This is the case, because these articles will have more bioinformatics-related terms (e.g., genome, sequencing, proteomics) than articles on other topics,  and, therefore, ContentBasedProfile(c), as defined by vector $\vec{W}_c$, will represent such terms $k_i$ with high weights $w_{ic}$. Consequently, a recommender system using the cosine or a related similarity measure will assign higher utility u(c, s) to those articles s that have high-weighted bioinformatics terms in $\vec{w}_s $ and lower utility to the ones where bioinformatics terms are weighted less.
-Besides the traditional heuristics that are based mostly on information retrieval methods, other techniques for content-based recommendation have also been used, such as Bayesian classifiers  \citep{recom_70}  \citep{recom_77} and various machine learning techniques, including clustering, decision trees, and artificial neural networks \citep{recom_77}. These techniques differ from information retrieval-based approaches in that they calculate utility predictions based not on a heuristic formula,  such as a cosine similarity measure, but rather are based on a model learned from the underlying data using statistical learning and machine learning techniques. For example, based on a set of Web pages that were rated as relevant or irrelevant by the user, \citep{recom_77} use the naïve Bayesian classifier \citep{recom_31} to classify unrated Web pages. More specifically, the naïve Bayesian classifier is used to estimate the following probability that page $p_j$ belongs to a certain class $C_i$ (e.g., relevant or irrelevant) given the set of keywords $k_{1,j} , ..., k{n,j}$ on that page:
-\begin{equation}\label{eq:7}
-P(C_i|k_{1,j} \&...\&K_{n,j})
-\end{equation}
-
-While not explicitly dealing with providing recommendations, the text retrieval community has contributed several techniques that are being used in content-based recommender systems. One example of such technique would be the research on adaptive filtering \citep{recom_101} \citep{recom_112}, which focuses on becoming more accurate at identifying relevant documents incrementally, by observing the documents one-by-one in a continuous document stream. Another example would be the work on threshold setting \citep{recom_84} \citep{recom_111}, which focuses on determining the extent to which documents should match a given query in order to be relevant to the user.
-
-\subsection{Limitation}
-\subsubsection{Limited Content Analysis}
-Content-based techniques are limited by the features that are explicitly associated with the objects that these systems recommend. Therefore, in order to have a sufficient set of features, the content must either be in a form that can be parsed automatically by a computer (e.g., text), or the features should be assigned to items manually. While information retrieval techniques work well in extracting features from text documents, some other domains have an inherent problem with automatic feature extraction. For example, automatic feature extraction methods are much harder to apply to the multimedia data, e.g., graphical images, audio and video streams. Moreover, it is often not practical to assign attributes by hand due to limitations of resources \citep{recom_97}.
-Another problem with limited content analysis is that, if two different items are represented by the same set of features, they are indistinguishable. Therefore, since text-based documents are usually represented by their most important keywords, content-based systems cannot distinguish between a well-written article and a badly written one, if they happen to use the same terms \citep{recom_97}.
-
-\subsubsection{Over-Specialization}
-When the system can only recommend items that score highly against a users profile, the user is limited to being recommended items similar to those already rated. For example, a person with no experience with Greek cuisine would never receive a recommendation for even the greatest Greek restaurant in town. This problem, which has also been studied in other domains, is often addressed by introducing some randomness. For example, the use of genetic algorithms has been proposed as a possible solution in the context of information filtering \citep{recom_98}. In addition, the problem with over-specialization is not only that the content-based systems cannot recommend items that are different from anything the user has seen before. In certain cases, items should not be recommended if they are too similar to something the user has already seen, such as different news article describing the same event. Therefore, some content based recommender systems, such as DailyLearner \citep{recom_13}, filter out items not only if they are too different from users preferences, but also if they are too similar to something the user has seen before. Furthermore, \citep{recom_112} provide a set of five redundancy measures to evaluate whether a document that is deemed to be relevant contains some novel information as well. In summary, the diversity of recommendations is often a desirable feature in recommender systems. Ideally, the user should be presented with a range of options and not with a homogeneous set of alternatives. For example, it is not necessarily a good idea to recommend all movies by Woody Allen to a user who liked one of them.
-
-\subsubsection{New User Problem}
-The user has to rate a sufficient number of items before a content-based recommender system can really understand users preferences and present the user with reliable recommendations. Therefore, a new user, having very few ratings, would not be able to get accurate recommendations.
-
-\section{Collaborative Methods}
-Unlike content-based recommendation methods, collaborative recommender systems (or collaborative filtering systems) try to predict the utility of items for a particular user based on the items previously rated by other users. More formally, the utility $u(c, s)$ of item $s$ for user $c$ is estimated based on the utilities u(cj, s) assigned to item s by those users cj?C who are "similar" to user c. For example, in a movie recommendation application, in order to recommend movies to user c, the collaborative recommender system tries to find the "peers" of user c, i.e., other users that have similar tastes in movies (rate the same movies similarly). Then, only the movies that are most liked by the peers of user c would get recommended.
-There have been many collaborative systems developed in the academia and the industry.It can be argued that the Grundy system [87] was the first recommender system, which proposed to use stereotypes as a mechanism for building models of users based on a limited amount of information on each individual user. Using stereotypes, the Grundy system would build individual user models and use them to recommend relevant books to each user. Later on, the Tapestry system relied on each user to identify like-minded users manually [38]. GroupLens [53, 86], Video Recommender [45], and Ringo [97] were the first systems to use collaborative filtering algorithms to automate prediction. Other examples of collaborative recommender systems include the book recommendation system from Amazon.com, the PHOAKS system that helps people find relevant information on the WWW [103], and the Jester system that recommends jokes [39].
-
-\subsection{Collaborative recommendations algorithms}
-According to [15], algorithms for collaborative recommendations can be grouped into two general classes: memory-based (or heuristic-based) and model-based. Memory-based algorithms [15, 27, 72, 86, 97] essentially are heuristics that make rating predictions based on the entire collection of previously rated items by the users. That is, the value of the unknown rating rc,s for user c and item s is usually computed as an aggregate of the ratings of some other (usually the N most similar) users for the same item s:
-\begin{equation}\label{eq:9}
-rc,s=aggr_{c'\in \hat{C}} r_{c',s} 
-\end{equation}
-where C denotes the set of N users that are the most similar to user c and who have rated item s (N can range anywhere from 1 to the number of all users). Some examples of the aggregation function are:
-\begin{equation}\label{eq:10.a}
-r_{c,s}= \frac{1}{N}\sum_{c' \in \hat{C}} r_{c',s} 
-\end{equation}
-\begin{equation}\label{eq:10.b}
-r_{c,s}= k\sum_{ c'\in \hat{C}} sim(c,c')\times r_{c',s}
-\end{equation}
-\begin{equation}\label{eq:10.c}
-r_{c,s}= \bar{r_c} + k\sum_{ c'\in \hat{C}} sim(c,c')\times (r_{c',s} - \bar{r_{c'}})
-\end{equation}
-
-where multiplier k serves as a normalizing factor and is usually selected as $k = \frac{1}{\sum_{c' \in \hat{C}} |sim(c,c')|}$ and , and where the average rating of user c, rc in (10c) is defined as
-\begin{equation}\label{eq:11}
-\bar{r_c}=\frac{1}{|s_c|}\sum _{s\in S_c} r_{c,s} \,\, where \,S_c = \{s\in S r_{c,s} \neq \phi\}
-\end{equation}
-In the simplest case, the aggregation can be a simple average, as defined by expression (10a).However, the most common aggregation approach is to use the weighted sum, shown in (10b).The similarity measure between the users c and c’, sim(c, c’), is essentially a distance measure and is used as a weight, i.e., the more similar users c and c’ are, the more weight rating rc’,s will carry in the prediction of rc,s. Note that sim(x,y) is a heuristic artifact that is introduced in order to be able to differentiate between levels of user similarity (i.e., to be able to find a set of “closest peers” or “nearest neighbors” for each user) and at the same time simplify the rating estimation procedure. As shown in (10b), different recommendation applications can use their own user similarity measure, as long as the calculations are normalized using the normalizing factor k, as shown above. The two most commonly used similarity measures will be described below. One problem with using the weighted sum, as in (10b), is that it does not take into account the fact that different users may use the rating scale differently. The adjusted weighted sum, shown in (10c), has been widely used to address this limitation. In this approach, instead of using the absolute values of ratings, the weighted sum uses their deviations from the average rating of the corresponding user.
-
-
-\subsection{Computing similarity between users}
-Various approaches have been used to compute the similarity sim(c,c') between users in collaborative recommender systems. In most of these approaches, the similarity between two users is based on their ratings of items that both users have rated. The two most popular approaches are correlation and cosine-based. To present them, let $S_{xy}$ be the set of all items co-rated by both users x and y, i.e. $s_{xy}=\{s\in S|r_{x,s}\neq \phi\, \&\, r_{y,s} \neq \phi \}$. In collaborative recommender systems Sxy is used mainly as an intermediate result for calculating the "nearest neighbors" of user x and is often computed in a straightforward manner, i.e., by computing the intersection of sets $S_x$ and $S_y$. However, some methods, such as the graph-theoretic approach to collaborative filtering [4], can determine the nearest neighbors of x without computing $S_{xy}$ for all users y.
-
-\subsubsection{Correlation based similarity}
-In the correlation-based approach, the Pearson correlation coefficient is used to measure the similarity [86, 97]:
-\begin{equation}\label{eq:12}
-sim(x,y)= \frac {\sum_{s\in S_{xy}}(r_{x,s}-\bar{r_x})(r_{y,s}- \bar{r_y})}{\sqrt{\sum_{s \in S_{xy}}(r_{x,s}-\bar{r_x})^2 \sum_{s\in S_{xy}}(r_{y,s}- \bar{r_y})^2}}}
-\end{equation}
-\subsubsection{Cosine based similarity}
-In the cosine-based approach [15, 91], the two users x and y are treated as two vectors in m-dimensional space, where $m=|S_{xy} |$. Then, the similarity between two vectors can be measured by computing the cosine of the angle between them:
-\begin{equation}\label{eq:13}
-sim(x,y)= cos(\vec{x}  ,\vec {y}) = \frac{\vec{x} . \vec {y}} {\|\vec{x}\|_2 \times \|\vec{y}\|_2 } = 
-\frac{\sum _{i=1}^{k}r_{x,s}r_{y,s} }{\sqrt {\sum_{s\in S_{xy}}r^{2}_{x,s}}{\sqrt {\sum_{s\in S_{xy}}r^{2}_{y,s}}}}
-\end{equation}
-where $\vec{x} . \vec {y}$  denotes the dot-product between the vectors $\vec{x} \,and \,\vec {y}$ . Still another approach  to measuring similarity between users uses the mean squared difference measure and is described in [97]. Note that different recommender systems may take different approaches in order to implement the user similarity calculations and rating estimations as efficiently as possible.
-Many performance-improving modifications, such as default voting, inverse user frequency, case amplification [15], and weighted-majority prediction [27, 72], have been proposed as extensions to these standard correlation-based and cosine-based techniques.
-
-
-Also, while the above techniques traditionally have been used to compute similarities between users, [91] proposed to use the same correlation-based and cosine-based techniques to compute similarities between items instead and obtain the ratings from them. This idea has been further extended in [29] for top-N item recommendations. In addition, [29, 91] present empirical evidence that item-based algorithms can provide better computational performance than traditional user-based collaborative methods, while at the same time providing comparable or better quality than the best available user-based algorithms.
-In contrast to memory-based methods, model-based algorithms [11, 15, 37, 39, 47, 64, 75, 105] use the collection of ratings to learn a model, which is then used to make rating predictions. For example, [15] proposes a probabilistic approach to collaborative filtering, and it is assumed that rating values are integers between 0 and n, and the probability expression is the probability that user c will give a particular rating to item s given that user’s ratings of the previously rated items. To estimate this probability, [15] proposes two alternative probabilistic models: \textbf{cluster models and Bayesian networks}.
-
-\subsection{Cluster models}
-Like-minded users are clustered into classes. Given the user’s class membership, the user ratings are assumed to be independent, i.e., the model structure is that of a naïve Bayesian model. The number of classes and the parameters of the model are learned from the data.
-One limitation of this approach is that each user can be clustered into a single cluster, whereas some recommendation applications may benefit from the ability to cluster users into several categories at once. For example, in a book recommendation application, a user may be interested in one topic (e.g., programming) for work purposes and a completely different topic (e.g., fishing) for leisure.
-
-\subsection{Bayesian networks}
-Represents each item in the domain as a node in a Bayesian network, where the states of each node correspond to the possible rating values for each item. Both the structure of the network and the conditional probabilities are learned from the data.
-\subsection{Default Voting}
-an extension to the memory-based approaches described above. It was observed that whenever there are relatively few user-specified ratings, these methods would not work well in computing similarity between users x and y since the similarity measure is based on the intersection of the itemsets, i.e., sets of items rated by both users x and y .It was empirically shown that the rating prediction accuracy could improve if we assume some default rating value for the missing ratings [15].
-\subsection{Limitation}
-\subsubsection{New user problem}
-It is the same problem as with content-based systems. In order to make accurate recommendations, the system must first learn the user’s preferences from the ratings that the user makes. Several techniques have been proposed to address this problem. Most of them use hybrid recommendation approach, which combines content-based and collaborative techniques. The next section describes hybrid recommender systems in more detail. An alternative approach is presented in [83, 109], where various techniques are explored for determining the best (i.e., most informative to a recommender system) items for a new user to rate. These techniques use strategies that are based on item popularity, item entropy, user personalization, and combinations of the above [83, 109].
-
-\subsubsection{New item problem}
-New items are added regularly to recommender systems. Collaborative systems rely solely on users’ preferences to make recommendations. Therefore, until the new item is rated by a substantial number of users, the recommender system would not be able to recommend it.
-
-\subsubsection{Sparsity}
-In any recommender system, the number of ratings already obtained is usually very small compared to the number of ratings that need to be predicted. Effective prediction of ratings from a small number of examples is important. Also, the success of the collaborative recommender system depends on the availability of a critical mass of users. For example, in the movie recommendation system there may be many movies that have been rated only by few people and these movies would be recommended very rarely, even if those few users gave high ratings to them. Also, for the user whose tastes are unusual compared to the rest of the population there will not be any other users who are particularly similar, leading to poor recommendations [8]. One way to overcome the problem of rating sparsity is to use user profile information when calculating user similarity. That is, two users could be considered similar not only if they rated the same movies similarly, but also if they belong to the same demographic segment. For example, [76] uses gender, age, area code, education, and employment information of users in the restaurant recommendation application. This extension of traditional collaborative filtering techniques is sometimes called “demographic filtering” [76]. Another approach that also explores similarities among users has been proposed in [49], where the sparsity problem is addressed by applying associative retrieval framework and related spreading activation algorithms to explore transitive associations among consumers through their past transactions and feedback. A different approach for dealing with sparse rating matrices was used in [11, 90], where a dimensionality reduction technique, Singular Value Decomposition (SVD), was used to reduce dimensionality of sparse ratings matrices. SVD is a well-known method for matrix factorization that provides the best lower rank approximations of the original matrix [90].
-
-\section{Hybrid Methods}
-Several recommendation systems use a hybrid approach by combining collaborative and content-based methods, which helps to avoid certain limitations of content-based and collaborative systems. Different ways to combine collaborative and content-based methods into a hybrid recommender system can be classified as follows:
+\subsection{Distance-based density}\label{subsec:dist_density}
+Clusters can be visually detected by recognizing relatively higher density regions in data separated by regions of relatively lower densities. It is observed that the behavior of neighborhood distances determines the degree of a cluster's density; smaller distances reflect higher densities, and viceversa. The average distances between patterns(the Minimum
+Spanning Tree(\textit{MST}) distances) differentiate the densities of clusters in Fig. ~\ref{fig:mitosis_1}. Several other points important to build an efficient model are as follows:
 \begin{itemize}
-\item [1] Implementing collaborative and content-based methods separately and combining their predictions
-\item [2] incorporating some content-based characteristics into a collaborative approach
-\item [3] incorporating some collaborative characteristics into a content-based approach
-\item [4] constructing a general unifying model that incorporates both content-based and collaborative characteristics.
+\item Arbitrary shaped clusters can be detected by tracking connectivity between patterns' neighborhoods.
+\item The distances between a pattern and its neighbors determine the density of its cluster.
+\item Patterns of the same cluster, should have consistent neighborhood distances to preserve a consistent density thoughout the cluster.
+\end{itemize}
+\textbf{Distance relatedness measures:} Local and global measures for distance relatedness have been separately considered for clustering. Local relatedness refers to relatedness of distances in two neighboring patterns' neighborhoods, while global relatedness refers to relatedness of distances in a group of patterns' neighborhoods to those in a neighboring group's neighborhoods. Thus global relatedness considers relating the neighborhoods of two patterns that may not be in each other's neighborhoods, but can be reached from one another through a group of neighbor patterns. Global distance relatedness does not guarantee local distance relatedness. Yet considering both local and global relatedness aims at increasing the distance consistency of each cluster, and avoiding the effect of outliers which may merge two clusters together.
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics{./Figures/Mitosis_1.png}
+		\rule{35em}{0.5pt}
+	\caption[Distances between patterns reflect the density structure.]{Distances between patterns reflect the density structure.}
+	\label{fig:mitosis_1}
+\end{figure}
+
+\section{Proposed distance relatedness dynamic model}
+The dynamic model proposed in \textit{Mitosis} aims at maintaining the consistency of distances between patterns in each cluster.It defines a
+distance-relatedness clustering criterion based on the following:
+\begin{itemize}
+\item A dynamic range neighborhood that depends on the density context of the pattern.
+\item Measures that reflect the distance structure of the data.
 \end{itemize}
 
-\subsection{Combining separate recommenders}
-One way to build hybrid recommender systems is to implement separate collaborative and content-based systems. Then we can have two different scenarios.
-First, we can combine the outputs (ratings) obtained from individual recommender systems into one final recommendation using either a linear combination of ratings [21] or a voting scheme [76]. 
-Alternatively, we can use one of the individual recommenders, at any given moment choosing to use the one that is "better" than others based on some recommendation "quality" metric 
-For example, the DailyLearner system [13] selects the recommender system that can give the recommendation with the higher level of confidence, while [104] chooses the one whose recommendation is more consistent with past ratings of the user.
+Mitosis distance relatedness model combines both local and global distance relatedness. 
+It attempts to cluster the data starting from local measures and extending that to global ones in the course of the algorithm. 
+Let the symbols $x$, $y$, $p$, and $q$ denote a pattern, $d(x,y)$ denotes the distance between patterns $x$ and $y$, $a$ denotes the association between two patterns $x$ and $y$, which is the tuple $(x,y,d(x,y))$, $A$ denotes a set of associations, $f$ and $k$ denote user parameters, and $\mu$ denotes the average value of distances.
 
-\subsection{Adding content-based characteristics to collaborative models}
-Several hybrid recommender systems, including Fab [8] and the “collaboration via content” approach, described in [76], are based on traditional collaborative techniques but also maintain the content-based profiles for each user. These content-based profiles, and not the commonly rated items, are then used to calculate the similarity between two users. As mentioned in [76], this allows to overcome some sparsity-related problems of a purely collaborative approach, since typically not many pairs of users will have a significant number of commonly rated items. Another benefit of this approach is that users can be recommended an item not only when this item is rated highly by users with similar profiles, but also directly, i.e., when this item scores highly against the user’s profile [8]. [40] employs a somewhat similar approach in using the variety of different filterbots – specialized content-analysis agents that act as additional participants in a collaborative filtering community. As a result, the users whose ratings agree with some of the filterbots’ ratings would be able to receive better recommendations [40]. Similarly, [65] uses a collaborative approach where the traditional user’s ratings vector is augmented with additional ratings, which are calculated using a pure content-based predictor.
-
-\subsection{Adding collaborative characteristics to content-based models}
-The most popular approach in this category is to use some dimensionality reduction technique on a group of content-based profiles. For example, [100] use latent semantic indexing (LSI) to create a collaborative view of a collection of user profiles, where user profiles are represented by term vectors  resulting in a performance improvement.
-
-\subsection{Developing a single unifying recommendation model}
-Many researchers have followed this approach in recent years. For instance, [9] propose to use content-based and collaborative characteristics (e.g., the age or gender of users or the genre of movies) in a single rule-based classifier. [80] And [94] propose a unified probabilistic method for combining collaborative and content-based recommendations, which is based on the probabilistic latent semantic analysis [46]. Yet another approach is proposed by [25] and [5], where Bayesian mixed-effects regression models are used that employ Markov chain Monte Carlo methods for parameter estimation and prediction.
-
-\section{Demographic-based Methods}
-Demographic information can be used to identify the types of users that like a certain object. For example, Table 3 shows information on the age, gender, education, etc. of people that rated a restaurant together with their rating of the restaurant. One might expect to learn the type of person that likes a certain restaurant. Similarly, Lifestyle Finder (Kruwlich 1997) attempts to identify one of 62 pre-existing clusters to which a user belongs and to tailor recommendations to user based upon information about others in the cluster. Obtaining demographic information can be difficult. Lifestyle Finder enters into dialog with the user to help categorize the user.
-In this work, we consider an alternative approach to obtaining demographic information in which we minimize the effort required to obtain information about users by leveraging the work the user has already expended in creating a home page on the World Wide Web . Therefore, instead of using approaches to learning from a structured database, we use text classification to classify users. The positive examples are the HTML home pages of users that like a particular restaurant and the negative examples are the HTML home pages of users that do not like that restaurant. The Winnow algorithm can be used to learn the characteristics of home pages associated with users that like a particular restaurant. While it might be preferable to obtain (or extract) structured information about users, we argue that there is a trade-off between the quality of the demographic information obtained and the amount of effort required to obtain it.
-
-\section{Collaboration via content}
-Collaborative methods look for similarities between users to make predictions. Typically, the pattern of ratings of individual users is used to determine similarity. Such a correlation is most meaningful when there are many objects rated in common between users.
-The content-based profile of each user is exploited to detect similarities among users. Recall that the user’s content-based profile contains weights for the terms that indicate that a user will like an object. Before calculating the similarity between profiles, terms that are irrelevant are deleted from each profile. This avoids considering two users to be very similar if they share a large number of terms that are irrelevant and have low weights. When computing Pearson’s r between two profiles, any word in one profile but not another is treated as having a weight of 0 in the other profile. As in collaborative filtering, the prediction made is determined by a weighted average of all user’s predictions for that item using the correlation between profiles as the weight.
-
-\section{Building user Profile}
-For the content-based approach which we are taking, there are four essential requirements:
-\begin{table}[ht]
-\caption{The four essential requirements} % title of Table
-\centering  % used for centering table
-\begin{tabular}{c c} % centered columns (5 columns)
-\hline\hline                        %inserts double horizontal lines
-Requirement & Description\\ [0.5ex] % inserts table 
-%heading
-\hline                  % inserts single horizontal line
-w & A representation of a web page. \\ % inserting body of the table
-m & A representation of the user's interests.\\
-r(w,m)& A function to determine the pertinence of a web page given a user's interests.\\
-u(w,m,s)& A function returning an updated user profile m given the user's feedback s on a page w. \\[1ex]      % [1ex] adds vertical space
-\hline %inserts single line
-\end{tabular}
-\label{table:2} % is used to refer this table in the text
-\end{table}
-The assumption underlying content-based systems is that the content (rather than appearance, interactivity, speed of loading, etc.) of a page is what determines the user's interest. Now we make the further assumption that we can represent the content of a page purely by considering the words contained in the text. We ignore all mark-up tags, images and other multimedia information.
-The vector-space model of information retrieval (Salton & McGill 1983) provides us with an appropriate representation for documents based on their constituent words. This model has been used and studied extensively, forms the basis for commercial web search systems and has been shown to be competitive with alternative IR methods (Harman 1995).\\
-In this model documents and queries are represented as vectors. Assume some dictionary vector d, where each element $d_i$ is a word. Each document then has a vector w, where element $w_i$ is the weight of word $d_i$ for that document. If the document does not contain $d_i$ then $w_i = 0$.
-In our formulation we reduce words to their stems, ignore words from a stop list words, and calculate a TFIDF weight.\\
-In an attempt to avoid over-fitting, and reduce memory and communications load, we use just the 100 highest-weighted words from any document. Recent experiments described in (Pazzani, Muramatsu, \& Billsus 1996) have shown that using too many words leads to a decrease in performance when classifying web pages using supervised learning methods. So, the top N informative words are chosen using TFIDF weighting to determine them.\\
-Once the top N words have been picked we normalize w to be of unit length, to allow comparisons between documents of different lengths.
-This vector representation is used both for pages, as explained, and for the model of the user's interests, the user profile m (which corresponds to the query in a retrospective IR system). In order to measure how well a page w matches a profile m, we use a variant of the standard IR cosine measure:
-
-\begin{equation}\label{eq:13}
-r(w,m)= w.m
-\end{equation}
-Updating m also corresponds to a normal operation in retrospective IR: relevance feedback (Rocchio 1971).We use a simple update rule:
-
-
-\begin{equation}\label{eq:13}
-u(w,m,s) =m+sw
-\end{equation}
-where s is the user's score for page w (we translate the scale shown in following Figure to the integers 3, 2, 1, 0, -1,-2, -3).
-
-We assume that a user's interests change over time, and furthermore that this happens in real time, regardless of the number of recommendations requested per day. This process is modeled using a simple decay function-each night all the weights in the profiles are multiplied by 0.97.
- 
-\section{User's Feedback}
-
-\section{Collaboration via content}
-\subsection{Explicit feedback}
-Explicit feedback is not a good choice for two reasons. Users will have to rate items frequently and will be very reluctant in doing so as their ratings expire quickly.
-
-\subsection{Implicit feedback}
-Acquiring feedback by observing the users’ actions is favorable. A user that selects and reads a document for a certain amount of time provides a strong indication that the document contains information a user is interested in. After such action the documents is therefore classified as a positive example. Finding negative examples is much more problematic. Users ignoring links to documents could be seen as a clue. This action does not provide strong evidence however as users might not have noticed the link or visit the document later. Another possible clue is a document that is being read for a very short time but this could be caused by the fact that the document is similar to what the user has already seen although the topic of the document is still interesting to the user. Classifying documents as negative based on weak assumptions leads to much noise in the training data and may result in inaccurate predictions. Negative examples will therefore not be used. In short, the user model has to be dynamic and learned from positive examples only.
-\section{Using LSA in Recommendation}
-Latent semantic analysis provides a vector of a predefined length (the number of documents used in building the term versus document matrix) for representing documents.
-So, we proposed using LSA vector representation to represent both documents and users profile.
-\subsection{Advantage of using LSA}
+\textbf{Local distance relatedness}: Any cluster is initially formed from singleton patterns that are related with respect to their neighborhood
+average distance measure, and have an in-between distance related to this measure as well. This local merging criterion is a modification of Zahn'sinconsistencymodel.
+The rules proposed here are as follows, considering that an average local distance measure is the average of distances in a neighborhood of a pattern as given later
 \begin{itemize}
-\item  The length of both user profile vector and document is the same
-\item  Calculating correlation between users is done in constant time
-\item  Updating user profile is done in constant time just by adding the vector of the document multiplied by user feedback to the user vector
+\item The distance between two patterns is related to each of the patterns' average local distance measure, by a factor k.
+\item The two patterns' average local distance measures are related by factor k.
+\end{itemize}
+
+Figure ~\ref{fig:mitosis_2} illustrates the importance of the mutual consistency between the three entities associated with the local relatedness
+criterion; two patterns and a nin-between distance. It shows two examples, the first example ($p_1, p_2, d_1$) has two patterns with distance $d_1$related to each patterns' neighborhood distances, yet the two neighborhood distance averages are not related. The second case ($p_3, p_4, d_2$)gives an example of two related neighborhood distance averages, but an unrelated in-between distance $d_2$. The two patterns do not merge in any of these cases, justifying the above proposed local criterion that imposes the mutual consistency between the two neighborhoods and the in between distance. 
+The same rationale is used when merging two clusters, but this time considering the clusters' global characteristics.
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics{./Figures/Mitosis_2.png}
+		\rule{35em}{0.5pt}
+	\caption[Effect of distance inconsistency on merging of patterns]{Effect of distance inconsistency on merging of patterns}
+	\label{fig:mitosis_2}
+\end{figure}
+
+
+\textbf{Global distance relatedness}: The property of distance consistency
+extends from local relations between neighborhood patterns to global relations between neighboring clusters. The global distance relatedness model follows the same rules of the local relatedness, but with replacing patterns with clusters, a pattern's local average distance with a cluster's average distance, and the distance between two singleton patterns with the distance between the two patterns in the two neighboring clusters. A cluster's average distance(only distances approved to be consistent to the cluster)is used to reflect the distance behavior inside the cluster.
+
+\subsection{Distance consistency definitions}
+The rules governing consistency of one distance to another cluster's/pattern's average distance, or two clusters'/patterns' average
+distance to each other are as follows. given an input parameter $k > 1$:
+\begin{itemize}
+\item A distance $d(x,y)$ is \textit{k-consistent} to an average $\mu$ of distances if
+$d(x, y)<k. \mu$
+\item Two distance averages $\mu_1$ and $\mu_2$ are \textit{k-consistent} to each other if $\mu_1 < k.\mu_2 \wedge \mu_2 <k.\mu_1$ or equivalently min$(\mu_1, \mu_2)< k.max(\mu_1, \mu_2)$
+\item A distance $d(x,y)$ is \textit{k-consistent} to two averages if $d(x, y)< k.\mu_1 \wedge d(x, y)< k.\mu_2$  i.e. $d(x, y)< k.min(\mu_1, \mu_2)$
+\end{itemize}
+According to the above definitions the merge criteria are proposed.
+
+\section{Algorithms phases}
+
+The algorithm takes as an input the dataset $P$, and 2 main parameters $f$ and $k$. The main steps are as follows:
+\begin{itemize}
+
+\item {Get associations:
+\begin{itemize}
+	\item For each pattern get its dynamic range nearest neighbors using parameter $f$, and calculate local average distance.
+	\item Order the associationsascendingly on distances-between patterns inalist L.
+\end{itemize}
+}
+
+
+\item {Merge patterns in to clusters: For each association in L (visited in order), if the merging criterion is satisfiedaccording to k-, merge
+associated patterns/clusters, and update the clusters'measures.}
+\item {Refine clusters:
+\begin{itemize}
+\item For each cluster, add any internal association consistent to the cluster'saverage.
+\item For each cluster, calculate the Harmonic average of distances, and remove associations not consistent to this measure.
+\end{itemize}
+}
 \end{itemize}
 
 
+\section{Implementation Details}
+The class diagram of the implementation of Mitosis is illustrated in figure ~\ref{fig:mitosis_6} where class \textit{Pattern} is an abstract class represents the object to be clustered, in our work the class \textit{Document} implements it, this class sotores the representation of the document which is an N-dimentional feature vector each pattern has a reference to its cluster.
+The \textit{Asscaition} class contains the relations between the pattern \textit{p} and all other patterns within its dynamic range. Each \textit{Cluster} object contains a list of all patterns and associations consisting it, the \textit{Cluster} object contains the mean value of distances of associations in the cluster $\mu$, and keep updating it while more associations is added to it.
 
+\begin{figure}[htbp]
+	\centering
+		\includegraphics{./Figures/Mitosis_6.png}
+		\rule{25em}{0.3pt}
+	\caption[Mitosis class Diagram]{Mitosis class Diagram}
+	\label{fig:mitosis_6}
+\end{figure}
 
+\section{Loading associations}
+Mitosis requires loading the associations of each pattern which have distance less than $f.min{dist}$ where $f$ is mitosis factor and $min_{dist}$ is the minimum distance betweeen the pattern and all its neighbours.
 
+Given a databse that stores all the distances between all pairs of patterns, loading associations that are in dynamic range for a given patterns $p$ is performed on two steps, first the database is queried to obtain the the nearst pattern to $p$ which is at distance $min{dist}$, then the pattern's threshold is calculated as $threshold_{dist} = f \dot dist_{min}$ the database is queried again to obtain all the association with distance less than or equal to $threshold{dist}$.
 
+The clustering algorithm is first applied on two different sets of 2D points (the data set could be found at \citep{Mitosis_2}) for verifying the correctness of the implementation, the results are illustrated in figures ~\ref{fig:mitosis_7} and ~\ref{fig:mitosis_8}.
+\begin{figure}[htbp]
+	\centering
+		\includegraphics{./Figures/Mitosis_7.png}
+		\rule{25em}{0.3pt}
+	\caption[Mitosis result on 2D points]{Mitosis result on 2D points}
+	\label{fig:mitosis_7}
+\end{figure}
 
+\begin{figure}[htbp]
+	\centering
+		\includegraphics{./Figures/Mitosis_8.png}
+		\rule{25em}{0.3pt}
+	\caption[Mitosis result on 2D points]{Mitosis result on 2D points}
+	\label{fig:mitosis_8}
+\end{figure}
 
+Merging phase is a transitive operation, so equivalence classes must be implemented efficiently to avoid any perofrmance bottleneck.
+This can be achieved by using \textit{Disjoint sets data structures}
+\subsection{Disjoint set}
+
+A disjoint-set is a collection $C={S_1, S_2,..., S_k}$ of distinct dynamic sets.
+Each set is identified by a member of the set, called representative.
+Disjoint set operations:
+\begin{itemize}
+\item MAKE-SET(x): create a new set with only x. assume x is not already in some other set.
+\item UNION(x,y): combine the two sets containing x and y into one new set. A new representative is selected.
+\item FIND-SET(x): return the representative of the set containing x.
+\end{itemize}
+Obviously the \textit{MAKE-SET(x)} operation can be used at the beginning of the algorithm as each pattern will be in a cluster, and the \textit{UNION(x,y)} will be used to marge to clusters.
+Next sub-sections will illustrate different implementations
+\subsubsection{Linked-List Implementation}
+Each set as a linked-list, with head and tail, and each node contains value, next node pointer and back-to-representative pointer.
+Figure ~\ref{fig:mitosis_3} ~\ref{fig:mitosis_4} shows the operations of the disgoint set.
+\begin{itemize}
+\item MAKE-SET costs \BigO{1}: just create a single element list.
+\item FIND-SET costs \BigO{1}: just return back-to-representative pointer.
+\item {UNION(x,y) 
+\begin{itemize}
+\item {A simple implementation: just appends x to the end of y, updates all back-to-representative pointers in x to the head of y.
+Each UNION takes time linear in the xs length}
+\item {Instead appending x to y, appending the shorter list to the longer list.
+Associated a length with each list, which indicates how many elements in the list.
+}
+\end{itemize}
+}
+\end{itemize}
+
+\begin{figure}[ht]
+\begin{minipage}[b]{0.5\linewidth}
+\centering
+\includegraphics[width=\textwidth]{./Figures/Mitosis_3.png}
+\caption{Two sets}
+\label{fig:mitosis_3}
+\end{minipage}
+\hspace{0.5cm}
+\begin{minipage}[b]{0.5\linewidth}
+\centering
+\includegraphics[width=\textwidth]{./Figures/Mitosis_4.png}
+\caption{Union of two sets}
+\label{fig:mitosis_4}
+\end{minipage}
+\end{figure}
+
+\subsubsection{Disjoint-set Implementation: Forests}
+Rooted trees, each tree is a set, root is the representative. Each node points to its parent. Root points to itself.
+
+Three operations
+\begin{itemize}
+\item MAKE-SET(x): create a tree containing x.  \BigO{1}
+\item FIND-SET(x): follow the chain of parent pointers until to the root. \BigO{height of xs tree}
+\item UNION(x,y): let the root of one tree point to the root of the other.  \BigO{1}
+\end{itemize}
+
+\textbf{Union by Rank and  Path Compression}
+\textit{Union by Rank}: Each node is associated with a rank, which is the upper bound on the height of the node (i.e., the height of subtree rooted at the node), then when UNION, let the root with smaller rank point to the root with larger rank. 
+\textit{Path Compression}: used in FIND-SET(x) operation, make each node in the path from x to the root  directly point to the root. Thus reduce the tree height.
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics{./Figures/Mitosis_5.png}
+		\rule{25em}{0.3pt}
+	\caption[Path compression]{Path compression}
+	\label{fig:mitosis_5}
+\end{figure}
 %----------------------------------------------------------------------------------------
 

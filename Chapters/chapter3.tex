@@ -1,269 +1,196 @@
-% Chapter 3
+Chapter 3
 
-\chapter{Document Similarity} % Main chapter title
+\chapter{System Architecture} % Main chapter title
 
-\label{Chapter 3} % For referencing the chapter elsewhere, use \ref{Chapter1} 
+\label{sysArch} % For referencing the chapter elsewhere, use \ref{Chapter7} 
 
-\lhead{Chapter 3. \emph{Document Similarity}} % This is for the header on each page - perhaps a shortened title
+\lhead{Chapter 3. \emph{System Architecture}} % This is for the header on each page - perhaps a shortened title
 
 %----------------------------------------------------------------------------------------
+\section{Overall system architecture}
+In this section we provide an overall explanation of our system.  Initially, we tried to explore different techniques and approaches for applying Semantic Similarity on Arabic text. The Semantic Similarity is then used as a affinity (similarity distance) between documents which allowed clustering documents into categories. We applied different clustering algorithms to news articles. The results of clustering news articles are then used to feed a recommendation system. The recommendation system role appears in combining the user profile and the results of the clusters to recommend articles to the user that probably will be of interest to him. Figure \ref{fig:arch_1} shows the overall system architecture.
+The rest of the chapter is organized as follows ~\ref{sec:crowlers} describe the module that retrieve different documents from different sources. The preprocessing of the documents is showed in section ~\ref{sec:preprocessing}, after preprocessing one of similarity metrics is used as showed in section ~\ref{sec:similarity}
 
-\section{Lexical Similarity}
-Similarity Measures for Text Document Clustering
-                  Anna Huang
-       Department of Computer Science
-The University of Waikato, Hamilton, New Zealand
-             lh92@waikato.ac.nz\\
+\begin{figure}[htb]
+\begin{center}
+%left,bottom,right,top
+\includegraphics[totalheight=.5\textheight,
+width=.5\textwidth]{./Figures/arch_1.png}
+\end{center}
+\caption{Overall System Architecture}
+\label{fig:arch_1}
+\end{figure}
 
-In linguistics, lexical similarity is a measure of the degree to which the word sets of two given languages  are similar. A lexical similarity of 1 (or 100\%) would mean a total overlap between vocabularies, whereas 0 means there are no common words. (wiki)\\
 
 
-\subsection{Document Represenatation}
-There are several ways to model a text document. For example, it can be represented as a bag of words, where words are assumed to appear independently and the order is immaterial. The bag of word model is widely used in information retrieval and text mining [21]. Words are counted in the bag, which differs from the mathematical definition of set. Each word corresponds to a dimension in the resulting data space and each document then becomes a  vector consisting of non-negative values on each dimension. Here we use the frequency of each term as its weight, which means terms that appear more frequently are more important and descriptive for the document.
-Let D = $\{d_1 , . . . , d_n \}$ be a set of documents and T = $\{t_1 , . . . ,t_m \}$ the set of distinct terms occurring in D. We discuss more precisely what we mean by "terms" below: for the moment just assume they are words. A document is then represented as a m-dimensional vector $t_d$.\\
-Let tf (d, t) denote the frequency of term $t \,\epsilon\, T$ in document $d \, \epsilon\, D$. Then the vector representation of a document d is
-\begin{equation}
-\vec{t_{a}} = (tf(d,t_1,.....,tf(d,t_m))
-\end{equation}
-Although more frequent words are assumed to be more important as mentioned above, this is not usually the case in practice. For example, words like a and the are probably the most frequent words that appear in English text, but neither are descriptive nor important for the document’s subject.
+\section{Web crawlers}\label{sec:crowlers}
+A part of our system is collecting the news articles that will be later processed. An approach would be manually feeding the system with these articles. However, this approach has a very low throughput and scalability with respect to the tremendous increase in the news streams day after day. A more practical approach is autonomous web crawlers that starts at some URL and then moves to all the outgoing links. Web crawlers also parses the web page and extracts the textual content which will be later processed. In our system we used Web Harvest [REF Web Harvest in tools section] project. Web Harvest, given a parsing XML file and some starting URLs, starts the crawling process at the starting URLs. Web Harvest parses the web page according to the given XML file and extracts all the URLs in the current page, URLs that belong to the same domain name as the page being processed, it saves the page content to an external directory and moves to the new URLs. The web pages’ content that the crawler saved is then fed into the preprocessing module of the system for further processing.
+\section{Preprocessing}\label{sec:preprocessing}
+After each document is retrieved some pre-processing is performed, where each term is assigned a part of speech tag(POS), then stop words are removed where a whitlist of stopwords is used(it contains the words that occur in most of documents) after this step each document will be represented by a vector of terms and the corresponding POS, this vector is used in the stemming step, where each term is first normalized by removing diacritics then one of two stemmer is used (i)Elkhoja stemmer (ii)Light stemmer).Figure ~\ref{fig:arch_1} shows the overall architecture of the system
+The final representation of the document is obtained by concatinating the term to its POS as showed in figure ~\ref{fig:arch_3}.
+
+\begin{figure}[htb]
+\begin{center}
+%left,bottom,right,top
+\includegraphics[totalheight=1\textheight,
+width=1\textwidth]{./Figures/arch_2.png}
+\end{center}
+\caption{Preprocessing Module}
+\label{fig:arch_1}
+\end{figure}
+
+
+\begin{figure}[htb]
+\begin{center}
+%left,bottom,right,top
+\includegraphics[totalheight=.75\textheight,
+width=.75\textwidth]{./Figures/arch_3.png}
+\end{center}
+\caption{Example of preprocessing}
+\label{fig:arch_3}
+\end{figure}
+
+\section{Similarity Module}~\label{sec:similarity}
+A core module of our system is the \textit{similarity module}. In the similarity module we examined various approaches. First we examined the lexical similarity approach where each document is represented by a vector of terms in which each cell in this vector represents the TF-IDF value for this term in the document and the input corpus. 
+Finally, Document-to-Document similarity is calculated using cosine similarity measure by comparing the vectors of terms representing each document.
+
+Then we examined the Semantic Similarity approach. Here we investigated the two major approaches the Corpus based and the knowledge based.
+
+\subsection{Corpus based}
+For the corpus based we chose to work with the Latent Semantic Analysis (LSA) to calculate the semantic similarity between two given documents. The documents collected are then represented using the term-by-document matrix. In the term-by-document matrix every column vector represents a document and every row represents a term that occurred at least once in the whole corpus. Every cell in the document vector represents the frequency by which the corresponding term appeared in that document. In other words, the term-by-document matrix represents the TF-IDF of the term of the whole corpus and the documents in the corpus. Another way to think of this is that LSA represents the meaning of a word as a kind of average of the meaning of all the documents in which it appears, and the meaning of a document as a kind of average of the meaning of all the words it contains.
+Next we apply Singular Value Decomposition (SVD), a well known operation in Linear Algebra. This step is used to lower the dimensionality of the term-by-document matrix.
+After that we represent each document as the mean of the vectors of the terms that appeared in this document. And for any two given documents we can calculate the semantic similarity by calculating the Cosine Similarity between their vectors.
+
+\subsection{Knowledge based}
+Here we used Arabic WordNet as Ontology to calculate the Document-to-Document Similarity we used the Wu-Palmer techniques as it utilizes the existence of the hierarchical of the Ontology to great extent.
+AWN lacks to any performance optimization for example it took around 15 min. to computer single Document-to-Document Similarity, this performance forced us to modify the AWN core a little bit so we managed to decrease the running time to reach the range of 3-4 min.. Unfortunately this wasn’t good enough as our system target domain is characterized by the high dynamicity of the dataset which makes it difficult to cope with it using AWN poor performance.
+Next, we thought about using Wikipedia as an Ontology due to its tremendous growth, so we investigate the Semantic Similarity approaches related to Wikipedia.There are many approaches but we used only 2 of them, First one uses wikipedia Articles each as a new Concept, using some inverted index on all the article, we could find the specific Concept(articles) where any term appeared, collecting these results in a global vector and finally perform cosine similarity measure.
+Second one used the categories of the wikipedia articles instead of the wikipedia article itself, and the rest like the previous one.
+
+\section{Document clustering}
+Using the simialrity metric explained in the previous section different clustering algorithms can be applied to group the similar document or neighbour users to increase the system scalability.
+
+The pairwise similarity between documents is stored in a database and is fed to the clustering algorithm, one of the clustering algorithms showed in chapter ~\ref{clustering} is used to assign a cluster ID to each document.
+Mitosis clustering algorithm which explained in chapter ~\ref{clustering} is used to cluster document and users
+\section{Implementation Details}
+Merging phase is a transitive operation, so equivalence classes must be implemented efficiently to avoid any perofrmance bottleneck.
+This can be achieved by using \textit{Disjoint sets data structures}
+\subsection{Disjoint set}
+
+A disjoint-set is a collection $C={S_1, S_2,..., S_k}$ of distinct dynamic sets.
+Each set is identified by a member of the set, called representative.
+Disjoint set operations:
+\begin{itemize}
+\item MAKE-SET(x): create a new set with only x. assume x is not already in some other set.
+\item UNION(x,y): combine the two sets containing x and y into one new set. A new representative is selected.
+\item FIND-SET(x): return the representative of the set containing x.
+\end{itemize}
+Obviously the \textit{MAKE-SET(x)} operation can be used at the beginning of the algorithm as each pattern will be in a cluster, and the \textit{UNION(x,y)} will be used to marge to clusters.
+Next sub-sections will illustrate different implementations
+\subsubsection{Linked-List Implementation}
+Each set as a linked-list, with head and tail, and each node contains value, next node pointer and back-to-representative pointer.
+Figure ~\ref{fig:mitosis_3} ~\ref{fig:mitosis_4} shows the operations of the disgoint set.
+\begin{itemize}
+\item MAKE-SET costs \BigO{1}: just create a single element list.
+\item FIND-SET costs \BigO{1}: just return back-to-representative pointer.
+\item {UNION(x,y) 
+\begin{itemize}
+\item {A simple implementation: just appends x to the end of y, updates all back-to-representative pointers in x to the head of y.
+Each UNION takes time linear in the xs length}
+\item {Instead appending x to y, appending the shorter list to the longer list.
+Associated a length with each list, which indicates how many elements in the list.
+}
+\end{itemize}
+}
+\end{itemize}
+
+\begin{figure}[ht]
+\begin{minipage}[b]{0.5\linewidth}
+\centering
+\includegraphics[width=\textwidth]{./Figures/Mitosis_3.png}
+\caption{Two sets}
+\label{fig:mitosis_3}
+\end{minipage}
+\hspace{0.5cm}
+\begin{minipage}[b]{0.5\linewidth}
+\centering
+\includegraphics[width=\textwidth]{./Figures/Mitosis_4.png}
+\caption{Union of two sets}
+\label{fig:mitosis_4}
+\end{minipage}
+\end{figure}
+
+\subsubsection{Disjoint-set Implementation: Forests}
+Rooted trees, each tree is a set, root is the representative. Each node points to its parent. Root points to itself.
+
+Three operations
+\begin{itemize}
+\item MAKE-SET(x): create a tree containing x.  \BigO{1}
+\item FIND-SET(x): follow the chain of parent pointers until to the root. \BigO{height of xs tree}
+\item UNION(x,y): let the root of one tree point to the root of the other.  \BigO{1}
+\end{itemize}
+
+\textbf{Union by Rank and  Path Compression}
+\textit{Union by Rank}: Each node is associated with a rank, which is the upper bound on the height of the node (i.e., the height of subtree rooted at the node), then when UNION, let the root with smaller rank point to the root with larger rank. 
+\textit{Path Compression}: used in FIND-SET(x) operation, make each node in the path from x to the root  directly point to the root. Thus reduce the tree height.
+
 \begin{figure}[htbp]
 	\centering
-		\includegraphics{./Figures/a.png}
-		\rule{35em}{0.5pt}
-	\caption[Angle Between Documents]{Angle Between Documents}
-	\label{fig:Angle Between Documents}
+		\includegraphics{./Figures/Mitosis_5.png}
+		\rule{25em}{0.3pt}
+	\caption[Path compression]{Path compression}
+	\label{fig:mitosis_5}
 \end{figure}
-In fact, more complicated strategies such as the tfidf weighting scheme as described below is normally used instead.
-With documents presented as vectors, we measure the degree of similarity of two documents as the correlation between their corresponding vectors, which can be further quantified as the cosine of the angle between the two vectors.
-Figure 1 shows the angle in two-dimensional space but in practice the document space usually has tens and thousands of dimensions. Some useful properties of the cosine measure are discussed in Section 3.3.
-\subsection{Similarity Measures}
-\subsubsection{Eculidean Distance}
-Euclidean distance is a standard metric for geometrical problems. It is the ordinary distance between two points and can be easily measured with a ruler in two- or three-dimensional space. Euclidean distance is widely used in clustering problems, including clustering text. It satisfies all the above four conditions and therefore is a true metric. It is also the default distance measure used with the K-means algorithm.\\
-Measuring distance between text documents, given two documents $d_{a} and  d_{b}$ represented by their term vectors  $\overrightarrow{t_{a}} \,and\, \overrightarrow{t_{b}}$ respectively, the Euclidean distance of the two documents is defined as
-where the term set is T = {t1 , . . . , tm }. As mentioned previously, we use the tf idf value as term weights, that is
-crucial for cluster analysis, especially for a particular type w_{t,a} = tf idf (d_{a} , t).
-
-
-\subsubsection{Cosine Similarity}
-\When documents are represented as term vectors, the similarity of two documents corresponds to the correlation between the vectors. This is quantified as the cosine of the angle between vectors, that is, the so-called cosine similarity. Cosine similarity is one of the most popular similarity measure applied to text documents, such as in numerous information retrieval applications [21] and clustering too [9].
-Given two documents $\overrightarrow{t_{a}} \,and\, \overrightarrow{t_{b}}$, their cosine similarity is
-
-\begin{equation}
-SIM_{c}(\vec{t_{a}},\vec{t_{b}}) =\frac{\vec{t_{a}}.\vec{t_{b}}}{|\vec{t_{a}}|\times|\vec{t_{b}}|}
-\end{equation}
-
-where $\overrightarrow{t_{a}} \,and\, \overrightarrow{t_{b}}$ are m-dimensional vectors over the term set T = \{t1 , . . . , tm \}. Each dimension represents a term with its weight in the document, which is non-negative. As a result, the cosine similarity is non-negative and bounded between [0,1].
-An important property of the cosine similarity is its independence of document length. For example, combining two identical copies of a document d to get a new pseudo document d , the cosine similarity between d and d is 1, which means that these two documents are regarded to be identical. Meanwhile, given another document l, d and d will
 
 
 
-%----------------------------------------------------------------------------------------
 
-\section{Semantic Similarity}
-            Corpus-based and Knowledge-based Measures
-                           of Text Semantic Similarity
-Rada Mihalcea and Courtney Corley                      Carlo Strapparava
-     Department of Computer Science       Istituto per la Ricerca Scientifica e Tecnologica
-        University of North Texas                              ITC – irst
-        {rada,corley}@cs.unt.edu                            strappa@itc.it
+\section{Recommender system}
+\subsection{Recommending Approach}
+We have implemented the recommender using collaborative via content approach (chapter ~\ref{recommender}) where users profile are build using the content based representation of their rated items.
+
+As illustrated in figure ~\ref{fig:reco_1}, the user profile is examined against the user's neighbour and the correlation between the user and each of his neighbours is calculated and stored in a database for a certain time then it expires and has to be updated as the taste of the user may deviate than the current neighbours. where users profile are build using the content based representation of their rated items, the profile is saved in an array of fixed width (LSA concepts number). The document metadata is saved in the documents table while its vector representation is derived from the LSA's term vs. document matrix.
+The system obtains the items read by user's neighbours and not read by the user (potential interesting items). 
+Based on the correlation and neighbour's rate for the new documents the system can rank the documents and show the top $N$ recommendations to the user.
+After showing the recommendations to the user the system measures the user \textit{feedback} implicitly by watching the time the user read a document and compare it to its average reading time, if it is bigger than the average so it will be considered as positive feedback. Sharing a document implies being interested in it and therefore will be considered as a positive feedback, also there exist a like and dislike option which implies positive and negative feedback respectively. this feedback to update the user's profile based on this feedback and document content.
+\begin{figure}[htb]
+\begin{center}
+%left,bottom,right,top
+\includegraphics[totalheight=1\textheight,
+width=1\textwidth]{./Figures/reco_1.png}
+\end{center}
+\caption{Overview of Recommender system}
+\label{fig:reco_1}
+\end{figure}
+
+\subsection{User's correlation}
+Correlation between users is time stamped so that we don't have to recalculate the correlation every time a recommendation is required and in case invalidation occurs i.e. the time stamp period has expired, correlation is recalculated again and then clustering is applied to keep track of the user's taste change.
+User's recommendations are saved in database in order to avoid recommending a seen item again to the user. Figure ~\ref{fig:reco_2} shows the ERD of the database used.
+
+\subsection{User Profile}
+Each user is represented by a vector similar to that of the document where both of them have the same length that is equal to the number of documents in the corpus used in performing LSA
+\subsection{User's neighbors}
+When a user enters the system a user profile is created then these profile is fed with his social activates. The user profile is compared to other users profile using person's correlation or cosine similarity, and then users are clustered based on these similarities.
+\subsection{Get Recommendations}
+After determining user's cluster, documents that have been rated by the neighbors and not by that user. The expected rating of the user to the unseen documents is then calculated using a combination between user's votes and their correlation to that particular user, then top N documents with highest expected rating are chosen to be recommended to the user.
 
 
-Measures of semantic similarity have been traditionally defined between words or concepts, and much less between text segments consisting of two or more words. The emphasis on word-to-word similarity metrics is probably due to the availability of resources that specifically encode relations between words or concepts (e.g. WordNet), and the various testbeds that allow for their evaluation (e.g. TOEFL or SAT analogy/synonymy tests). Moreover, the derivation of a text-to-text measure of similarity starting with a word based semantic similarity metric may not be straightforward,and consequently most of the work in this area has considered mainly applications of the traditional vectorial model,occasionally extended to n-gram language models.
-Given two input text segments, we want to automatically derive a score that indicates their similarity at semantic level,thus going beyond the simple lexical matching methods traditionally used for this task. Although we acknowledge the fact that a comprehensive metric of text semantic similarity  should also take into account the structure of the text, we take a first rough cut at this problem and attempt to model the semantic similarity of texts as a function of the semantic similarity of the component words. We do this by combining metrics of word-to-word similarity and word specificity into a formula that is a potentially good indicator of the semantic similarity of the two input texts.\\
-   The following section provides details on eight different corpus-based and knowledge-based measures of word semantic similarity. In addition to the similarity of words, we also take into account the specificity of words, so that we can give a higher weight to a semantic matching identified between two specific words (e.g. collie and sheepdog), and give less importance to the similarity measured between generic concepts (e.g. get and become). While the specificity of words is already measured to some extent by their depth in the semantic hierarchy, we are reinforcing this factor with a corpus-based measure of word specificity, based on distributional information learned from large corpora.The specificity of a word is determined using the inverse document frequency (idf) introduced by Sparck-Jones (1972), defined as the total number of documents in the corpus divided by the total number of documents including that word. The idf measure was selected based on previous work that theoretically proved the effectiveness of this weighting approach (Papineni 2001). In the experiments reported here, document frequency counts are derived starting with the British National Corpus – a 100 million words corpus of modern English including both spoken and written genres.\\
-   Given a metric for word-to-word similarity and a measure of word specificity, we define the semantic similarity of two text segments T1 and T2 using a metric that combines the semantic similarities of each text segment in turn with respect to the other text segment. First, for each word w in the segment T1 we try to identify the word in the segment T2 that has the highest semantic similarity (maxSim(w, T2 )), according to one of the word-to-word similarity measures described in the following section. Next, the same process is applied to determine the most similar word in T1 starting with words in T2 . The word similarities are then weighted with the corresponding word specificity, summed up, and normalized with the length of each text segment. Finally the resulting similarity scores are combined using a simple average. Note that only open-class words and cardinals can participate in this semantic matching process. As done in previous work on text similarity using vector-based models, all function words are discarded.
-    The similarity between the input text segments $T_1 and T_2$ is therefore determined using the following scoring function:
-    
-\begin{equation}
-SIM({T_{1}},{T_{2}}) =\frac{1}{2}(\frac{\sum_{w\in \{T_1\}} (maxSim(w,T_2 * idf(w)))}{\sum_{w\in \{T_1\}} idf(w)} + \frac{\sum_{w\in \{T_2\}} (maxSim(w,T_1 * idf(w)))}{\sum_{w\in \{T_2\}} idf(w)})
-\end{equation}
+\begin{figure}[htb]
+\begin{center}
+%left,bottom,right,top
+\includegraphics[totalheight=.75\textheight,
+width=.75\textwidth]{./Figures/reco_2.png}
+\end{center}
+\caption{ERD of Recommender system}
+\label{fig:reco_2}
+\end{figure}
 
-   This similarity score has a value between 0 and 1, with a score of 1 indicating identical text segments, and a score of 0 indicating no semantic overlap between the two segments.Note that the maximum similarity is sought only within classes of words with the same part-of-speech. The rea-
-son behind this decision is that most of the word-to-word knowledge-based measures cannot be applied across parts-of-speech, and consequently, for the purpose of consistency,we imposed the “same word-class” restriction to all the word-to-word similarity measures. This means that, for instance, the most similar word to the noun flower within the text “There are many green plants next to the house” will be sought among the nouns plant and house, and will ignore the words with a different part-of-speech (be, green, next). Moreover, for those parts-of-speech for which a word-to-word semantic similarity cannot be measured (e.g. some knowledge-based measures are not defined among adjectives or adverbs), we use instead a lexical match measure,
-which assigns a maxSim of 1 for identical occurrences of a word in the two text segments.
-
-
-\subsection{Corpus Based}
-
-This \LaTeX{} Thesis Template is originally based and created around a \LaTeX{} style file created by Steve R.\ Gunn from the University of Southampton (UK), department of Electronics and Computer Science. You can find his original thesis style file at his site, here:\\
-\href{http://www.ecs.soton.ac.uk/~srg/softwaretools/document/templates/}{\texttt{http://www.ecs.soton.ac.uk/$\sim$srg/softwaretools/document/templates/}}
-
-My thesis originally used the `\texttt{ecsthesis.cls}' from his list of styles. However, I knew \LaTeX{} could still format better. To get the look I wanted, I modified his style and also created a skeleton framework and folder structure to place the thesis files in.
-
-This Thesis Template consists of that modified style, the framework and the folder structure. All the work that has gone into the preparation and groundwork means that all you have to bother about is the writing.
-
-Before you begin using this template you should ensure that its style complies with the thesis style guidelines imposed by your institution. In most cases this template style and layout will be suitable. If it is not, it may only require a small change to bring the template in line with your institution's recommendations.
-\subsubsection{LSA for Semantic Similarity}
-LSA is a fully automatic mathematical/statistical technique for extracting and inferring relations of expected contextual usage of words in passages of discourse. It is not a traditional natural language processing or artificial intelligence program; it uses no humanly constructed dictionaries, knowledge bases, semantic networks, grammars, syntactic parsers, or morphologies, or the like, and takes as its input only raw text parsed into words defined as unique character strings and separated into meaningful passages or samples such as sentences or paragraphs.
-Another way to think of this is that LSA represents the meaning of a word as a kind of average of the meaning of all the passages in which it appears, and the meaning of a passage as a kind of average of the meaning of all the words it contains. LSA's ability to simultaneously derive representations of these two interrelated kinds of meaning depends on an aspect of its mathematical machinery.
-\subsubsubsection{How LSA works}
-The first step is to represent the text as a matrix (the term-by-document matrix T)in which each row stands for a unique word and each column stands for a text passage or other context. Each cell contains the frequency with which the word of its row appears in the passage denoted by its column. Next, the cell entries are subjected to a preliminary transformation, whose details we will describe later, in which each cell frequency is weighted by a function that expresses both the word's importance in the particular passage and the degree to which the word type carries information in the domain of discourse in general.
-Next, LSA applies singular value decomposition (SVD) to the matrix. This is a form of factor analysis, or more properly the mathematical generalization of which factor analysis is a special case. In SVD, a rectangular matrix is decomposed into the product of three other matrices. One component matrix (U) describes the original row entities as vectors of derived orthogonal factor values, another (V) describes the original column entities in the same way, and the third is a diagonal matrix (SIGMA) containing scaling values such that when the three components are matrix-multiplied, the original matrix (T) is reconstructed. 
-There is a mathematical proof that any matrix can be so decomposed perfectly, using no more factors than the smallest dimension of the original matrix. When fewer than the necessary number of factors are used, the reconstructed matrix is a least-squares best fit. 
-
-One can reduce the dimensionality of the solution simply by deleting coefficients in the diagonal matrix (SIGMA), ordinarily starting with the smallest. (In practice, for computational reasons, for very large corpora only a limited number of dimensions, currently a few thousands can be constructed). The SVD equations can be derived as follows:\\
-
-SVD Equation \\
-
-\subsubsubsection{Stop-listing and stemming}
-These are very rarely used. In keeping with the underlying theory and model, neither stemming nor stop-listing is appropriate or usually effective. As in natural language, the meaning of passages cannot be accurately reconstructed or understood without all of its words. However, when LSA is used to compare word strings shorter than normal text paragraphs, e.g. short sentences, zero weighting of function words is often pragmatically useful.
-\subsubsubsection{Similarity in the reduced space}
-Since both passages (documents) and terms (words) are represented as vectors, it is straight forward to compute the similarity between passage-passage, term-term, and term-passage. In addition, terms and/or passages can be combined to create new vectors in the space. The process by which new vectors can be added to an existing LSA space is called folding-in. The cosine distance between vectors is used as the measure of their similarity for many applications because of its relation to the dot-product criterion and has been found effective in practice, although other metrics, such as Euclidean distance or City-Block (Manhattan) distance are sometimes used.
-\subsubsubsection{Shortfalls, objections, evidence and arguments}
-otential limitations should be noted:
-1. It is likely, of course, that LSA's “bag of words” method, that ignores all syntactical, logical and nonlinguistic pragmatic entailments, sometimes misses meanings or gets it scrambled.
-2. LSA became practical only when computational power and algorithm efficiency improved sufficiently to support SVD of thousands of words-by-thousands of contexts matrices; it is still impossible to perform SVD on the hundreds of thousands by tens of millions matrices that would be needed to truly represent the sum of an adult's language exposure.
-
-Some commentators have also argued that LSA must be fundamentally wrong as theory because is not grounded in perception and intention. The strength of this objection is considerably reduced by the observation that language must veridically reflect these sources or it would be nearly useless, and by the human ability to generate, use and understand words as abstract and unrelated to perception as the word abstract itself, and by LSA’s varied successes.
-
-Indeed, one should not think of LSA as a fixed mechanism or its representations as
-fixed quantities, but rather, as evolving approximations.
-
-\subsection{Knowledge Based}
-Evaluating semantic relatedness using network representations is a problem with a long history in arti cial intelligence and psychology, dating back to the spreading activation approach of Quillian (1968) and Collins and Loftus (1975). Semantic similarity represents a special case of semantic relatedness: for example, cars and gasoline would seem to be more closely related than, say, cars and bicycles, but the latter pair are certainly more similar.\\
-Rada et al. (Rada, Mili, Bicknell, & Blettner, 1989) suggest that the assessment of similarity in semantic networks can in fact be thought of as involving just taxonomic (is-a) links, to the exclusion of other link types; that view will also be taken here, although admittedly links such as part-of can also be viewed as attributes that contribute to similarity (cf.Richardson, Smeaton, & Murphy, 1994; Sussna, 1993).\\
-
-Although many measures of similarity are de ned in the literature, they are seldom accompanied by an independent characterization of the phenomenon they are measuring, particularly when the measure is proposed in service of a computational application (e.g.,similarity of documents in information retrieval, similarity of cases in case-based reasoning).\\
-Rather, the worth of a similarity measure is in its utility for the given task. In the cognitive domain, similarity is treated as a property characterized by human perception and intuition,in much the same way as notions like \plausibility" and \typicality." As such, the worth of a similarity measure is in its delity to human behavior, as measured by predictions of human performance on experimental tasks. The latter view underlies the work in this article, although the results presented comprise not only direct comparison with human performance but also practical application to problems in natural language processing.\\
-    A natural, time-honored way to evaluate semantic similarity in a taxonomy is to measure the distance between the nodes corresponding to the items being compared | the shorter the path from one node to another, the more similar they are. Given multiple paths, one
-takes the length of the shortest one (Lee, Kim, & Lee, 1993; Rada & Bicknell, 1989; Rada et al., 1989).\\
-    A widely acknowledged problem with this approach, however, is that it relies on the notion that links in the taxonomy represent uniform distances. Unfortunately, uniform link distance is di cult to de ne, much less to control. In real taxonomies, there is wide
-variability in the \distance" covered by a single taxonomic link, particularly when certain sub-taxonomies (e.g., biological categories) are much denser than others. For example, in WordNet (Miller, 1990; Fellbaum, 1998), a widely used, broad-coverage semantic network for English, it is not at all di cult to nd links that cover an intuitively narrow distance (rabbit ears is-a television antenna) or an intuitively wide one (phytoplankton
-is-a living thing). The same kinds of examples can be found in the Collins COBUILD Dictionary (Sinclair, ed., 1987), which identi es superordinate terms for many words (e.g.,safety valve is-a valve seems much narrower than knitting machine is-a machine).\\
-    In the rst part of this article, I describe an alternative way to evaluate semantic similarity in a taxonomy, based on the notion of information content. Like the edge-counting method, it is conceptually quite simple. However, it is not sensitive to the problem of varying link distances. In addition, by combining a taxonomic structure with empirical probability estimates, it provides a way of adapting a static knowledge structure to mul-
-tiple contexts. Section 2 sets up the probabilistic framework and de nes the measure of semantic similarity in information-theoretic terms, and Section 3 presents an evaluation of the similarity measure against human similarity judgments, using the simple edge-counting method as a baseline.
-    In the second part of the article, Sections 4 and 5, I describe two applications of semantic similarity to problems of ambiguity in natural language. The rst concerns a particular case of syntactic ambiguity that involves both coordination and nominal compounds, each of which is a pernicious source of structural ambiguity in English. Consider the phrase food handling and storage procedures: does it represent a conjunction of food handling and storage procedures, or does it refer to the handling and storage of food? The second application concerns the resolution of word sense ambiguity | not for words in running text, which is a large open problem (though cf. Wilks & Stevenson, 1996), but for groups of related words
-as are often discovered by distributional analysis of text corpora or found in dictionaries and thesauri. Finally, Section 6 discusses related work.
-\subsubsection{Wu \& Palmer}
-    If words can be defined with concepts in a hierarchical structure, it is possible to measure the meaning similarity between words with an information measure based on WordNet (Resnik,1993), or structure level information based on a thesaurus (Kurohashi and Nagao, 1992). How-
-ever, verb meanings are difficult to organize in a hierarchical structure.\\
-In each conceptual domain, lexicalized concepts can be organized in a hierarchical structure. Within one conceptual domain, the similarity of two concepts is defined by how closely they are related in the hierarchy, i.e., their structural relations.\\
-
-The Wu and Palmer (Wu & Palmer 1994) similarity metric measures the depth of two given concepts in the WordNet taxonomy, and the depth of the least common subsumer (LCS), and combines these figures into a similarity score:
-\begin{equation}
-SIM({T_{1}},{T_{2}}) =\frac{2 * depth(LCS)}{depth(concept_1)+ depth(concept_2)} 
-\end{equation}
-
-REfer: VERB SEMANTICS AND LEXICAL  SELECTION,Zhibiao Wu Martha Palmer
-
-\subsubsection{AWN}
-
-AWN is constructed according to the methods developed for EuroWordNet (EWN;Vossen 1998) and since applied to dozens of languages around the world. The EuroWordNet approach maximizes compatibility across wordnets and focuses on manual encoding of the most complicated and important concepts. 
-Language-specific concepts and relations are encoded as needed or desired. This results in a so-called core wordnet for Arabic with the most important synsets, embedded in a solid semantic framework. From this core wordnet, it is possible to automatically extend the coverage with high precision. Specific concepts can be linked and translated with great accuracy because the base building blocks are manually defined and translated. 
-The approach follows a top-down procedure. Arabic Base Concepts are defined and extended via hyponymic relations to derive a core wordnet. The set of Common Base Concepts (CBCs) from the 12 languages in EWN and BalkaNet (Tufis 2004) are encoded as synsets; other language-specific concepts are added and translated manually to the closest synset(s) in Arabic. The same step is performed for all English synsets that currently have an equivalence relation in Suggested Upper Merged Ontology (SUMO).
-The first layers of hyponyms are chosen on the basis of linguistic and applications based criteria; the final phase completes the target set of concepts/synsets, including specific domains and named entities. Each synset construction step is followed by a validation phase, where formal consistency is checked and the coverage is evaluated in terms of frequency of occurrence and domain distribution.
-
-\subsubsubsection{Structure and organization of AWN}
-Because AWN is to be aligned not just to Princeton WordNet (PWN) (Fellbaum 1998) but to every wordnet aligned to PWN, the database design supports multiple languages, and the user interface will be explicitly multilingual rather than bilingual as was the one described in Black and Elkateb (2004).
-The database structure comprises four principal entity types, item, word, form and link.
-\begin{itemize}
-\item [1.] Items are conceptual entities, including synsets, ontology classes and instances. Besides a unique identifier, an item has descriptive information such as a gloss. Items lexicalized in different languages are distinct.
-\item [2.]A word entity is a word sense, where the citation form of the word is associated with an item via its identifier.
-\item [3.]A form is a special form that is considered dictionary information (not merely an inflectional variant). The forms of Arabic words that go in this table are the root and/or the broken plural form, where applicable.
-\item [4.]A link relates two items, and has a type such as "equivalence," "subsuming," etc. Links connect sense items to other sense items, e.g. a PWN synset to an AWN synset, a synset to a SUMO concept, etc.
-\end{itemize}
-This data model has been specified in XML as an interchange format, but is also implemented in a MySQL database hosted by one of the partners. The database will be the primary deliverable of the project, and will be distributed freely to the community.
-
-\subsubsubsection{Constructing AWN}
-The basic criteria for selecting synsets to be covered in AWN are: 
-\begin{itemize}
-\item Connectivity: AWN should be as densely connected as possible by hyperonymy / hyponymy chains, etc. Most of the synsets of AWN should correspond to English WN counterparts and the overall topology of both wordnets should be similar.
-\item Relevance: Frequent and salient concepts have priority. Criteria will include the frequency of lexical items (both in Arabic and English) and the frequency of Arabic roots in their respective reference corpora.
-\item Generality: Synsets on the highest levels of WN are preferred. These criteria suggest two ways for proceeding:
-\item From English to Arabic: Given an English synset, all corresponding Arabic variants (if any) will be selected.
-\item From Arabic to English: Given an Arabic word, all its senses have to be found, and for each of these senses the corresponding English synsets have to be selected.
-\end{itemize}
-
-Both steps have to be followed throughout the construction of AWN. All AWN synsets must be manually validated (and eventually locked, when all their variants have been found) but advantage should be taken as much as possible of the available resources for guiding the construction and validation process. Once a new Arabic verb is added to AWN, several possibilities for extension arise: extensions from verbal entries, including verbal derivatives, nominalizations, verbal nouns, etc. We also consider the most productive forms of deriving broken plurals. This can be done using a set of lexical and morphological rules. To take full advantage of these extensions short iterations will be performed. As stated in the introduction, the starting point of AWN is the manual construction of its Base Concept (BC) set from EWN and BalkaNet's CBCs. We concentrate on the most relevant terms for obtaining about 1,000 nominal and 500 verbal synsets. 
-The second step consists of the top-down vertical extension of BC, following Farreres 2005, Diab 2004). Some preprocessing is required for this and the next phase. We mention two tasks, preparation and extension. Preparation includes the processing of the available bilingual resources and the compilation of a set of lexical and morphological rules. From the set of available bilingual dictionaries we construct a homogeneous bilingual dictionary (HBIL) that contains for each entry information on the Arabic/English word pair, the Arabic root (added manually), POS, relative frequencies and sources supporting the pairing.
-The set of 17 heuristic methods used in the development of EWN will be applied to HBIL (following Farreres 2005) to derive candidate Arabic words/English synsets mappings. For each mapping the information attached includes the Arabic word and root, the English synset, POS, relative frequencies, mapping score, absolute depth in WN, number of gaps between the synset and the top of the WN hierarchy, and sources containing the pair.
-Arabic words in bilingual resources must be normalized and lemmatized (Diab et al. 2004, Habash and Rambow 2005) but vowels and diacritics must be maintained. Arabic roots are not vowelized.
-Following pre-processing, the set of scored Arabic word/English synset pairs becomes the input to the manual validation step. We proceed by chunks of related units (sets of related WN synsets, e.g. hyponymy chains and sets of related Arabic words, i.e., words having the same root) instead of individual units (synsets, senses, words).
-Finally, AWN will be completed by filling gaps in its structure, covering specific domains, adding terminology and named entities, etc.
-
-\subsubsubsection{Shortfalls of AWN:}
-\begin{itemize}
-\item high Coupling with UI\\
-AWN suffers a very poor design that resulted in a high coupling between the Core Module and the Graphical User Interface (GUI) of the AWN, which made it very difficult to use the code module and the database without the GUI. However, we managed to decouple the GUI from the core modules of the AWN to allow its integration with other modules of semantic similarity. The decoupling process exerted a lot of time tracing and reverse engineering the code.
-\item shortage of unique terms/word i.e there is so little number of words in database\\
-       One reasonable limitation of AWN, assuming it is an initial version, is that it doesn’t contain a broad collection of Arabic words and terms. It contains only 17561 unique word, distributed among 7822 synsets.This leads to a lot of missing words that have no record in AWN’s database. e.g.  جنوب افريقيا, أحمد, محمد
-\item running time is too damn large\\
-Since AWN depends on the Tree Concept (a hierarchical organization of the synsets), it has an arabic tree with nodes that represent synsets, each synset contains set of words. So every time the AWN is queried by a term, in order to retrieve its synset, the whole tree is first searched for this term. If the term was not found in the tree, we seek it from database. If the term is found in the database, then the retrieved results from the database would include the path of the term in the hierarchical tree. The final step, that is to expand the retrieved path into the tree, exhausts a substantial amount of time. The time consumption is due to the way the path expansion work. The path expansion starts at the tree root node and traverses the tree through the path retrieved from the database. If a node on the path was not found in the current tree, the node is added to the tree and all its children are fetched from the database and added to the tree. The last step consumes a lot of time because it expands all the node’s children, although only one child is needed. This caused the tree expansion for some words to consume up to 15 minutes.
-Another issue that consumes a lot of time is the path retrieval from the database. When a term needs to be fetched from the database, first its synset needs to be find. After the synset is found, the path of the synset in the hierarchical tree also needs to be found. The path is assembled starting from the term’s synset traversing its parent up until the root is reached (you can think of the process traversing up the tree using Forwarding Pointers). 
-\item Bugs in the code\\
-\begin{itemize}
-\item There was missing logic in the code probably bec. these methods were never called by the GUI.
-\item //TODO========================>
-\end{itemize}
-\end{itemize}
-  
-\subsubsubsection{What we have done?}
-\begin{itemize}
-\item We managed to decouple the Code module from the GUI to be able to use each one separately .
-\item We fixed some bugs in the code 
-\begin{itemize}
-\item missing logic in the code ==>code snippets
-\item missing constants ⇒ msh fakerha
-\end{itemize}
-\item we modified the expansion algorithm and managed to reduce expansion time to 20\% of the original running time.
-\end{itemize}
-
-\subsubsubsection{How we Use it?}
-
-\begin{itemize}
-\item [1.] Search for both terms in the Arabic Tree in the AWN if found get there’s  depth and their least common ancestor.
-\item [2.] if not found search database to get their synsets and expand them in the tree. This is the most expensive operation in the whole procedure due to the database request also due to the expansion operation.
-\item [3.] then get the depths of both synsets and their least common ancestor 
-\item [4.] Finally use Wu & Palmer to get the similarity using the Wu & Palmer equation ========>ref 3laha 
-\item [5.] Apply the semantic similarity equation ===>reference 3laha 
-\end{itemize}
-
-\subsubsection{Wikipedia}
-Using the traditional approach of a controlled, designed ontology has many disadvantages beginning with the often difficult task of designing and implementing the ontology. Once that it done, it must be maintained and modified, an important process in domains where the underlying concepts are evolving rapidly. ACM’s CCS, for example, undergoes periodic reorganization and redesign and yet as a classification of computer science concepts, it always seems to be out of date or even quaint. As a final problem, consider the process a person must follow in assigning ontology terms to a document. She has to be familiar with all of the possible choices or have some way to browse or search through them. She has to understand what each of the terms means, either the original meaning intended by the ontology designer or the possibly different current meaning as used by her community. Finally, she has to select the best set of terms from among the many relevant choices the ontology may present to her. The use of an implicit ontology emerging from the tagging choices of a community of individuals solves some of these problems, but also has significant disadvantages.
-Some of these are inherent and others are being addressed in the research community and may ultimately admit good solutions. These problems are worth addressing because the result will be an ontology that (1) represents a consensus view of a community of users and (2) is constructed and maintained by the community without cost to any organization. 
-It remains unclear how the terms in such an ontology should be organized structurally, understood informally
-by end users, or mapped to a more formal ontology such as Cyc (Lenat 1995) or popular Semantic Web
-ontologies like FOAF (Ding et al. 2005). 
-We are developing a system that is a blend of the two approaches based on the idea of using Wikipedia as an ontology. Specifically, each non-administrative Wikipedia page is used as a term in an ontology. These include Wikipedia articles describing individuals (Alan Turing), concepts (Emissions trading), locations (Barbados), events (collapse of the World trade Center), and categories (microbiology). 
-Using Wikipedia as an ontology has many advantages: it is broad and fairly comprehensive, of generally high quality, constructed and maintained by tens of thousands of users, evolves and adapts rapidly as events and knowledge change, and free and “open sourced”. Moreover, the meaning of any term in the ontology is easy for a person to understand from the content on the Web page. Finally, the Wikipedia pages are already linked to many existing formal ontologies through efforts like DBpedia (Auer et al. 2007) and Semantic MediaWiki (Krotzsch et al. 2006) and in commercial systems like Freebase and Powerset.
-The underlying concept of an article cannot be assessed by merely considering the words that appear in that article, in addition to that, finding out if two articles are conceptually related is an even more challenging problem and requires a lot of background domain knowledge, common sense as well as information about the context. Humans have the inborn ability to relate concepts semantically however it is still a very difficult problem for computers, which can be made easier by augmenting background domain knowledge for such tasks, which would certainly improve the accuracy and quality of prediction. Wikipedia proves to be an invaluable source for such background domain knowledge.
-
-Wikipedia is a freely available online encyclopedia developed by a community of users. Wikipedia is growing exponentially and new content is being added to it daily by users around the globe. This encyclopedia comprises of millions of articles. The corpus is composed of several collections in different languages such as: English, French, German, Dutch, Chinese, Spanish, Arabic and Japanese. 
-Each collection is a set of XML documents built using Wikipedia. Documents of the Wikipedia XML collections are organized in a hierarchy of categories defined by the authors of the articles. The Wikipedia category and article network has been studied in detail with respect to different graph properties. The Wikipedia category system is a taxonomy for arranging articles into categories and subcategories.
-However, this taxonomy is not a strict hierarchy or tree of categories, but allows multiple categorizations of topics simultaneously, i.e., some categories might have more than one super-category. It is shown that Wikipedia’s category system is a thesaurus that is collaboratively developed and used for indexing Wikipedia articles (Voss 2006). The articles within Wikipedia are inter-linked. However, these links do not impose any subcategory or super-category relationships. It has been observed that the Wikipedia article links graph generally resembles the World Wide Web graph (Zlatic et al. 2006).
-We downloaded the Wikipedia XML snapshot of 4 November 2006 and extracted 2,557,939 Wikipedia articles. The text of each article was indexed using the Lucene text search engine library (Gospodnetic et al. 2004) under the standard configuration. We ignored the history, talk pages, user pages, etc. We also downloaded the Wikipedia database tables in order to create the category links graph and the article links graph. Major administrative categories (e.g., “All articles with unsourced statements”) were identified and removed from the category links graph. Any remaining administrative categories appearing in the prediction results were excluded. We implemented three different methods for our study, which are described and discussed below.
-\subsubsubsection{How we Use it?}
-In the first method we use the test document or set of related documents as search query to the Lucene Wikipedia index. After getting top N matching Wikipedia articles (based on cosine similarity) for each document in the set, we extract their Wikipedia categories and score them based on two simple scoring schemes.
-\begin{itemize}
-\item In scoring scheme one we simply count the number of times that each Wikipedia category was associated with one of the N results.
-\item In scoring scheme two we take into account the cosine similarity score between the test document and matching Wikipedia articles. The score for each category is the sum of the cosine similarity scores of the matching articles that are linked to the category.
-\end{itemize}
-
-\subsection{Term Weigthing using Specificity}
-The following section provides more insight into term Specificity, which is the idea that some words carry more semantic content than others which is also referred to as Semantic Informativeness. Computational estimation of this quantity, term specificity, is important for various applications such as information retrieval. Here in addition to the similarity of words, we also take into account the specificity of words, so that we can give a higher weight to a semantic matching identified between two specific words (e.g. collie and sheepdog), and give less importance to the similarity measured between generic concepts (e.g. get and become). While the specificity of words is already measured to some extent by their depth in the semantic hierarchy, we are reinforcing this factor with a corpus-based measure of word specificity, based on distributional information learned from large corpora.
-We use two methods of computing term specificity. The first method based on modeling the rate of learning of word meaning in Latent Semantic Analysis (LSA), LSA-Specificity. The second method is TF/IDF-Specificity.
-
-\subsubsection{Latent Semantic Analysis:}
-In the following section we explain using Latent Semantic Analysis for approximating term Informativeness. Latent Semantic Analysis (LSA) is a language model that represents semantic word meaning as vectors in high-dimensional space. Word vectors are positioned in such a way that semantically-related words vectors point in similar directions or have a smaller angle / higher cosine between them. The representation is derived in an unsupervised manner, by observing occurrence patterns of words in a large corpus of natural language documents. Singular Value Decomposition (SVD) on the matrix of word/document occurrence counts is used to derive the optimal set of dimensions of the space in which all of the words can be represented as vectors. The number of dimensions is then artificially reduced to a smaller number (typically around 300) of most important dimensions, which has the effect of smoothing out incidental relationships and preserving significant ones between words. The resulting geometric space allows for straightforward representation of meaning of words and/or documents; the latter are simply a weighted geometric composition of constituent word vectors. Similarity in meaning between a pair of words or documents can be obtained by computing the cosine between their corresponding vectors. For details of LSA, please see (Landauer et al., 2007), and others.\\
-LSA applications almost always focus on computing the semantic similarity between words (terms). However, another property of LSA, that has a significant effect, is the term vector length. The vector length plays a very important role in many LSA calculations, in particular – in giving relative weights to the word vectors that constitute a particular text passage. As (Kintsch, 2001) wrote, “Intuitively, the vector length tells us how much information LSA has about this vector. [...] Words that LSA knows a lot about (because they appear frequently in the training corpus [...]) have greater vector lengths than words LSA does not know well. Function words that are used frequently in many different contexts have low vector lengths -- LSA knows nothing about them and cannot tell them apart since they appear in all contexts”.
-The metric of term Informativeness, or specificity, which we call LSAspec, is simply the ratio of LSA word vector length to the number of documents in the LSA training corpus that contain a particular word;
-Missing Equation\\
-Paper section 3.3\\
-The value can be interpreted as the rate of vector length growth. We argue that more specific, or informative, words have the greatest rate of vector length growth; LSA learns about their meaning faster, with relatively fewer exposures. To illustrate this concept, let's look at a few examples that were obtained by controlling the number of occurrences of a particular word in the LSA training corpus. \\
-@Mohsen: Should provide a graph for the relation of Vector lengths for some words vs. the number of documents containing those words.\\
-
-\subsubsection{Inverse Document Frequency:}
-The specificity of a word is determined using the inverse document frequency (IDF) introduced by (Sparck-Jones, 1972), defined as the total number of documents in the corpus divided by the total number of documents including that word. The IDF measure was selected based on previous work that theoretically proved the effectiveness of this weighting approach (Papineni, 2001). Sparck Jones (1973) defines IDF as the probability of occurrence of documents containing a particular word.\\
-IDF equation and definition of its terms\\
-Where D is the total number of documents in the corpus. The assumption behind it is that low frequency words tend to be rich in content, and vice versa.
-The term count in the given document is simply the number of times a given term appears in that document. This count is usually normalized to prevent a bias towards longer documents (which may have a higher term count regardless of the actual importance of that term in the document) to give a measure of the importance of the term t within the particular document d. One well-studied technique is to normalize the TF weights of all terms occurring in a document by the maximum TF in that document.\\
-http://nlp.stanford.edu/IR-book/html/htmledition/maximum-tf-normalization-1.html
-%----------------------------------------------------------------------------------------
-\subsection{Disambiguation}
-                                             
-Word Sense Disambiguation (WSD) is traditionally considered an AI-hard problem.A breakthrough in this field would have a significant impact on many relevant web-based applications, such as information retrieval and information extraction. This paper describes JIGSAW, a knowledge-based  WSD system that attemps to disambiguate all words in a text by exploiting WordNet1   senses. The main assumption is that a specific strategy for each Part-Of-Speech (POS)  is better than a single strategy. We evaluated the accuracy of JIGSAW on SemEval-2007 task 1 competition2 . This task is an  application-driven one, where the application is a fixed cross-lingual information retrieval system. Participants disambiguate text by assigning WordNet synsets, then the  system has to do the expansion to other languages, index the expanded documents and run the retrieval for all the languages in batch. The retrieval results are taken as a measure for the effectiveness of the disambiguation.
-
-\subsubsection{JIGSAW Algorithm}
-The goal of a WSD algorithm consists in assigninga word wi occurring in a document d with its appropriate meaning or sense s, by exploiting the context C in where wi is found. The context C for wi is defined as a set of words that precede and follow $w_i$ .The sense s is selected from a predefined set of possibilities, usually known as sense inventory. In the proposed algorithm, the sense inventory is obtained from WordNet 1.6, according to SemEval-2007 task 1 instructions. JIGSAW is a WSD algorithm based on the idea of combining three different strategies to with sense sij . The intuition behind this algorithm disambiguate nouns, verbs, adjectives and adverbs.The main motivation behind our approach is that the effectiveness of a WSD algorithm is strongly influenced by the POS tag of the target word. An adaptation of Lesk dictionary-based WSD algorithm has been used to disambiguate adjectives and adverbs (Banerjee and Pedersen, 2002), an adaptation of the Resnik algorithm has been used to disambiguate nouns (Resnik, 1995), while the algorithm we developed for disambiguating verbs exploits the nouns in the context of the verb as well as the nouns both in the glosses and in the phrases that WordNet utilizes to describe the usage of a verb. JIGSAW takes as input a document d = {w1 , w2 , . . . , wh } and returns a list of WordNet synsets X = {s1 , s2 , . . . ,sk } in which each element si is obtained by disambiguating the target word wi based on the information obtained from WordNet about a few immediately surrounding words. We define the context C of the target word to be a window of n words to the left and another n words to the right, for a total of 2n surrounding words. The algorithm is based on three different procedures for nouns, verbs, adverbs and adjectives, called JIGSAWnouns , JIGSAWverbs , JIGSAWothers , respectively. More details for each one of the above mentioned procedures follow.
-you may check code here \ref{jigsaw}     
+{Document Representation}
+Each document in the system is represented as a vector of concepts. These vectors are driven by aggregating the vector representing words placed in the document via LSA's term vs. document matrix 
+\section{User Profile}
+Each user is represented by a vector similar to that of the document where both of them have the same length that is equal to the number of documents in the corpus used in performing LSA
+\section{User's neighbors}
+When a user enters the system a user profile is created then these profile is fed with his social activates. The user profile is compared to other users profile using person's correlation or cosine similarity, and then users are clustered based on these similarities.
+\section{Get Recommendations}
+After determining user's cluster, documents that have been rated by the neighbors and not by that user. The expected rating of the user to the unseen documents is then calculated using a combination between user's votes and their correlation to that particular user, then top N documents with highest expected rating are chosen to be recommended to the user.
 

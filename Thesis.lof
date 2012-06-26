@@ -2,13 +2,30 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {2.1}{\ignorespaces Clustering techniques}}{3}{figure.23}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Angle Between Documents}}{13}{figure.47}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Overall System Architecture}}{13}{figure.45}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Preprocessing Module}}{19}{figure.48}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Example of preprocessing}}{20}{figure.49}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Two sets}}{20}{figure.57}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Union of two sets}}{20}{figure.58}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Path compression}}{21}{figure.60}
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Overview of Recommender system}}{22}{figure.63}
+\contentsline {figure}{\numberline {3.8}{\ignorespaces ERD of Recommender system}}{23}{figure.68}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Distances between patterns reflect the density structure.}}{33}{figure.70}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Effect of distance inconsistency on merging of patterns}}{34}{figure.72}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Two sets}}{36}{figure.78}
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Union of two sets}}{36}{figure.79}
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Path compression}}{37}{figure.81}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Angle Between Documents}}{25}{figure.76}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Distances between patterns reflect the density structure.}}{45}{figure.99}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Effect of distance inconsistency on merging of patterns}}{46}{figure.101}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Mitosis class Diagram}}{48}{figure.105}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Mitosis result on 2D points}}{49}{figure.107}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Mitosis result on 2D points}}{50}{figure.108}
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Two sets}}{50}{figure.111}
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Union of two sets}}{50}{figure.112}
+\contentsline {figure}{\numberline {5.8}{\ignorespaces Path compression}}{52}{figure.114}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\addvspace {10\p@ }
+\contentsline {figure}{\numberline {7.1}{\ignorespaces Normalization for Arabic text.}}{72}{figure.171}
+\contentsline {figure}{\numberline {7.2}{\ignorespaces Arabic affixes.}}{73}{figure.172}
+\contentsline {figure}{\numberline {7.3}{\ignorespaces Arabic affixes.}}{74}{figure.173}
+\contentsline {figure}{\numberline {7.4}{\ignorespaces Derivatives of the Arabic trilateral root ‘k t b’.}}{75}{figure.175}
+\contentsline {figure}{\numberline {7.5}{\ignorespaces Derivatives of the Arabic trilateral root ‘k t b’.}}{76}{figure.176}
+\contentsline {figure}{\numberline {7.6}{\ignorespaces Web-Harvest}}{79}{figure.181}

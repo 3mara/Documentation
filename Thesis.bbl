@@ -1,30 +1,303 @@
-\begin{thebibliography}{3}
+\begin{thebibliography}{52}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
 
-\bibitem[Arnold et~al.(1998)Arnold, Wilson, and Boshier]{Reference3}
-A.~S. Arnold, J.~S. Wilson, and M.~G. Boshier.
-\newblock A simple extended-cavity diode laser.
-\newblock \emph{Review of Scientific Instruments}, 69\penalty0 (3):\penalty0
-  1236--1239, March 1998.
-\newblock URL \url{http://link.aip.org/link/?RSI/69/1236/1}.
+\bibitem[Michael~Steinbach(2000)]{clustering_15}
+Vipin~Kumar Michael~Steinbach, George~Karypis.
+\newblock A comparison of document clustering techniques.
+\newblock \emph{KDD workshop on text}, 2000.
 
-\bibitem[Wieman and Hollberg(1991)]{Reference2}
-Carl~E. Wieman and Leo Hollberg.
-\newblock Using diode lasers for atomic physics.
-\newblock \emph{Review of Scientific Instruments}, 62\penalty0 (1):\penalty0
-  1--20, January 1991.
-\newblock URL \url{http://link.aip.org/link/?RSI/62/1/1}.
+\bibitem[A.K.Jain(1999)]{clustering_1}
+P.J.Flyn A.K.Jain, M.N.Murty.
+\newblock Data clustering: areview.
+\newblock \emph{ACMComput.Surveys}, 1999.
 
-\bibitem[Hawthorn et~al.(2001)Hawthorn, Weber, and Scholten]{Reference1}
-C.~J. Hawthorn, K.~P. Weber, and R.~E. Scholten.
-\newblock Littrow configuration tunable external cavity diode laser with fixed
-  direction output beam.
-\newblock \emph{Review of Scientific Instruments}, 72\penalty0 (12):\penalty0
-  4477--4479, December 2001.
-\newblock URL \url{http://link.aip.org/link/?RSI/72/4477/1}.
+\bibitem[M.A.Ismail(1999)]{clustering_2}
+M.A.Ismail.
+\newblock Softclustering: algorithms and validity of solutions.
+\newblock \emph{Elservier Science PublishersB.V.,North-Holland,Amsterdam},
+  1999.
+
+\bibitem[S.Z.Selim(1984)]{clustering_3}
+M.A.Ismail S.Z.Selim.
+\newblock Soft clustering of multidimensional data: asemi-fuzzy approach.
+\newblock \emph{PatternRecognition17}, 1984.
+
+\bibitem[T.Hastie(2001)]{clustering_4}
+J.Friedman T.Hastie, R.Tibshirani.
+\newblock The elements of statistical learning. data mining.
+\newblock \emph{Inference and Prediction}, 2001.
+
+\bibitem[L.Kaufman(1990)]{clustering_5}
+P.J.Rousseeuw L.Kaufman.
+\newblock Finding groups in data.
+\newblock \emph{An Introduction to Cluster Analysis, Wiley, NewYork}, 1990.
+
+\bibitem[T.Zhang(1997)]{clustering_6}
+M.Linvy~BIRCH T.Zhang, R.Ramakrishnan.
+\newblock an efficient data clustering method for very large data sets.
+\newblock \emph{Data Mining Knowl.Discovery}, 1997.
+
+\bibitem[R.T.Ng(2002)]{clustering_7}
+CLARANS R.T.Ng, J.Han.
+\newblock A method for clustering objects for spatial data mining.
+\newblock \emph{IEEETrans.Knowl.DataEng}, 2002.
+
+\bibitem[W.Wang(1997)]{clustering_8}
+M.Muntz~STING W.Wang, J.Yang.
+\newblock a statistical information grid approach to spatial data mining.
+\newblock \emph{International Conferenceon Very Large DataBases}, 1997.
+
+\bibitem[R.Agrawal(1998)]{clustering_9}
+D.Gunopulos~P.Raghavan R.Agrawal, J.Gehrke.
+\newblock Automatic subspace clustering of highdimensional data for data mining
+  applications.
+\newblock \emph{ACM-SIGMOD Conference on the Management of Data}, 1998.
+
+\bibitem[G.Sheikholeslami(1998)]{clustering_10}
+A.Zhang~WaveCluster G.Sheikholeslami, S.Chatterjee.
+\newblock a multi resolution clustering approach for very large spatial
+  databases.
+\newblock \emph{International Conference on Very Large DataBases}, 1998.
+
+\bibitem[A.Hinneburg(1998)]{clustering_11}
+D.A.Keim A.Hinneburg.
+\newblock An efficient approach to clustering in large multimedia databases
+  withnoise.
+\newblock \emph{Knowledge Discovery and Data Mining}, 1998.
+
+\bibitem[M.Ester(1997)]{clustering_12}
+J.Sander~X.Xu M.Ester, H.-P.Kriegel.
+\newblock A density-based algorithm for discovering clusters in large spatial
+  datasets with noise.
+\newblock \emph{Proceedings of the Second International Conference on Knowledge
+  Discovery and Data Mining,Portland}, 1997.
+
+\bibitem[L.Ert ¨~oz(2003)]{clustering_13}
+V.Kumar L.Ert ¨~oz, M.Steinbach.
+\newblock Finding clusters of different sizes,shapes, and densities in noisy,
+  high dimensional data.
+\newblock \emph{Proceedings of Second SIAM International Conference on Data
+  Mining, SanFrancisco}, 2003.
+
+\bibitem[G.Karypis(1999)]{clustering_14}
+V.Kumar G.Karypis, E.H.Han.
+\newblock Chameleon:a hierarchical clustering algorithm using dynamic modeling.
+\newblock 1999.
+
+\bibitem[Noha~A.Yousri(2008)]{Mitosis_1}
+MohamedA.Ismail Noha~A.Yousri, MohamedS.Kamel.
+\newblock A distance-relatedness dynamic model for clustering high dimensional
+  data of arbitrary shapes and densities.
+\newblock \emph{Elsevier}, 2008.
+
+\bibitem[Mit(2012)]{Mitosis_2}
+\emph{[Online]http://glaros.dtc.umn.edu/gkhome/cluto/cluto/download[Accessed
+  26/6/2012]}, 2012.
+
+\bibitem[Hill(1995)]{recom_45}
+L.~Stead M. Rosenstein G.~Furnas Hill, W.
+\newblock Recommending and evaluating choices.
+\newblock \emph{Recommending and evaluating choices}, 1995.
+
+\bibitem[Resnick(1994)]{recom_86}
+N.~Iakovou M. Sushak P. Bergstrom J.~Riedl Resnick, P.
+\newblock Grouplens: An open architecture for collaborative filtering of
+  netnews.
+\newblock \emph{Proceedings of the 1994 Computer Supported Cooperative Work
+  Conference}, 1994.
+
+\bibitem[Shardanand(1995)]{recom_97}
+P.~Maes Shardanand, U.
+\newblock Social information filtering: Algorithms for automating ‘word of
+  mouth’.
+\newblock \emph{In Proc. of the Conf. on Human Factors in Computing Systems},
+  1995.
+
+\bibitem[Linden(2003)]{recom_61}
+B.~Smith J.~York Linden, G.
+\newblock Ieee internet computing, jan.-feb.
+\newblock \emph{In Proc. of the Conf. on Human Factors in Computing Systems},
+  2003.
+
+\bibitem[Miller(2003)]{recom_67}
+I.~Albert S. K. Lam J. A. Konstan J.~Riedl Miller, B.~N.
+\newblock Movielens unplugged: Experiences with an occasionally connected
+  recommender system.
+\newblock \emph{International Conference on Intelligent User Interfaces, Miami,
+  Florida}, 2003.
+
+\bibitem[Billsus(2002)]{recom_14}
+C.~A. Brunk C. Evans B. Gladish M.~Pazzani Billsus, D.
+\newblock Adaptive interfaces for ubiquitous web access.
+\newblock \emph{Commnications of the ACM, 45(5):34-38}, 2002.
+
+\bibitem[Peddy(2003)]{recom_78}
+D.~Armentrout Peddy, C.~C.
+\newblock Building solutions with microsoft commerce server 2002.
+\newblock \emph{Microsoft Press}, 2003.
+
+\bibitem[Baeza-Yates(1999)]{recom_7}
+B.~Ribeiro-Neto Baeza-Yates, R.
+\newblock Modern information retrieval. addison-wesley.
+\newblock 1999.
+
+\bibitem[Salton(1989)]{recom_89}
+G~Salton.
+\newblock Automatic text processing. addison-wesley.
+\newblock \emph{Communications of the ACM, 35(12):29-37}, 1989.
+
+\bibitem[Belkin(1992)]{recom_10}
+B.~Croft Belkin, N.
+\newblock Information filtering and information retrieval.
+\newblock \emph{Communications of the ACM, 35(12):29-37}, 1992.
+
+\bibitem[Balabanovic(1997)]{recom_8}
+Y.~Shoham Balabanovic, M.
+\newblock Fab: Content-based, collaborative recommendation.
+\newblock \emph{Communications of the ACM, 40(3):66-72}, 1997.
+
+\bibitem[Pazzani(1997)]{recom_77}
+D.~Billsus Pazzani, M.
+\newblock Learning and revising user profiles: The identification of
+  interesting web sites.
+\newblock \emph{Machine Learning, 27:313-331}, 1997.
+
+\bibitem[Lang(1995)]{recom_56}
+K.~Newsweeder Lang.
+\newblock Learning to filter netnews.
+\newblock \emph{The 12th International Conference on Machine Learning}, 1995.
+
+\bibitem[Mooney and Roy(1999)]{recom_69}
+R.~J. Mooney and L.~Roy.
+\newblock Content-based book recommending using learning for text
+  categorization.
+\newblock \emph{In ACM SIGIR'99. Workshop on Recommender Systems: Algorithms
+  and Evaluation}, 1999.
+
+\bibitem[Rocchio(1971)]{recom_85}
+J.~J Rocchio.
+\newblock Relevance feedback in information retrieval.
+\newblock \emph{SMART Retrieval System – Experiments in Automatic Document
+  Processing, G. Salton ed., PrenticeHall, Ch. 14}, 1971.
+
+\bibitem[Littlestone and Warmuth(1994)]{recom_62}
+N.~Littlestone and M.~Warmuth.
+\newblock The weighted majority algorithm.
+\newblock \emph{Information and Computation, 108(2):212-261}, 1994.
+
+\bibitem[Pazzani(1999)]{recom_76}
+M.~A framework for~collaborative Pazzani.
+\newblock content-based and demographic filtering.
+\newblock \emph{Artificial Intelligence Review, pages 393-408}, 1999.
+
+\bibitem[Mooney(1998)]{recom_70}
+P.~N. Bennett L.~Roy Mooney, R.~J.
+\newblock Book recommending using text categorization with extracted
+  information.
+\newblock \emph{In Recommender Systems. Papers from 1998 Workshop. Technical
+  Report WS-98-08. AAAI Press}, 1998.
+
+\bibitem[Duda(2001)]{recom_31}
+P.~E. Hart D. G.~Stork Duda, R.~O.
+\newblock Pattern classification, john wiley, sons.
+\newblock 2001.
+
+\bibitem[Somlo(2001)]{recom_101}
+A.~Howe Somlo, G.
+\newblock Adaptive lightweight text filtering. in proceedings of the 4th.
+\newblock \emph{International Symposium on Intelligent Data Analysis, Lisbon,
+  Portugal}, 2001.
+
+\bibitem[Zhang and Minka(2002)]{recom_112}
+J.~Callan Zhang, Y and T.~Minka.
+\newblock Novelty and redundancy detection in adaptive filtering.
+\newblock \emph{the 25th Annual International ACM SIGIR Conference, pp. 81-88},
+  2002.
+
+\bibitem[Robertson~S.(2000)]{recom_84}
+S.~Walker Robertson~S.
+\newblock Threshold setting in adaptive filtering.
+\newblock \emph{Journal of Documentation, 56:312-331}, 2000.
+
+\bibitem[Zhang~Y.(2001)]{recom_111}
+J.~Callan Zhang~Y.
+\newblock Maximum likelihood estimation for filtering thresholds.
+\newblock \emph{24th Annual International ACM SIGIR Conference, New Orleans},
+  2001.
+
+\bibitem[Sheth(1993)]{recom_98}
+Maes~P Sheth, B.
+\newblock Evolving agents for personalized information filtering.
+\newblock \emph{9th IEEE Conference on Artificial Intelligence for
+  Applications}, 1993.
+
+\bibitem[Billsus(2000)]{recom_13}
+M.~Pazzani Billsus, D.
+\newblock User modeling and user modeling for adaptive news access.
+\newblock \emph{User-Adapted Interaction, 10(2-3):147-180}, 2000.
+
+\bibitem[Silva~C.(2003)]{pre_8}
+Ribeiro Silva~C.
+\newblock The importance of stop word removal on recall values in text
+  categorization.
+\newblock \emph{Neural Networks, 2003. Proceedings of the International Joint
+  Conference on}, 2003.
+
+\bibitem[Chaoming~Song(2005)]{pre_9}
+Hernan A.~Makse Chaoming~Song, Shlomo~Havlin.
+\newblock Self-similarity of complex networks. nature.
+\newblock 2005.
+
+\bibitem[Kristina~Toutanova(2000{\natexlab{a}})]{pre_1}
+Christopher D.~Manning Kristina~Toutanova.
+\newblock Enriching the knowledge sources used in a maximum entropy
+  part-of-speech tagger.
+\newblock \emph{Communications of the ACM, 40(3):59-62}, 2000{\natexlab{a}}.
+
+\bibitem[Kristina~Toutanova(2000{\natexlab{b}})]{pre_2}
+Christopher D.~Manning Kristina~Toutanova.
+\newblock Enriching the knowledge sources used in a maximum entropy
+  part-of-speech tagger.
+\newblock \emph{the 38th Annual Meeting of the Association for Computational
+  Linguistics - Volume 13}, 2000{\natexlab{b}}.
+
+\bibitem[Khoia(No date)]{pre_3}
+Shereen Khoia.
+\newblock Apt: Arabic part-if-speech tagger.
+\newblock \emph{Available from:
+  http://archimedes.fas.harvard.edu/mdh/arabic/NAACL.pdf [Accessed 17/07/03]},
+  No date.
+
+\bibitem[Debole and Sebastiani(2005)]{pre_10}
+Franca Debole and Fabrizio Sebastiani.
+\newblock An analysis of the relative difficulty of reuters-21578 subsets.
+\newblock 2005.
+
+\bibitem[Leah S.~Larkey(2002)]{pre_11}
+Margaret E.~Connell Leah S.~Larkey, Lisa~Ballesteros.
+\newblock Sigir '02 proceedings of the 25th annual international acm sigir
+  conference on research and development in information retrieval.
+\newblock 2002.
+
+\bibitem[pre(2005)]{pre_4}
+Arabic grammer.
+\newblock \emph{[online]. www.mesiti.it. Available from:
+  http://www.mesiti.it/arabic/grammar/lessons/lesson2/roots.html [Accessed
+  18/05/05]}, 2005.
+
+\bibitem[Crystal(1997)]{pre_5}
+David Crystal.
+\newblock A dictionary of linguistics and phonetics” (language library).
+\newblock \emph{4th ed. Blackwell Publishers}, 1997.
+
+\bibitem[Owens(1988)]{pre_6}
+Jonathan Owens.
+\newblock The foundations of grammar: an introduction to medieval arabic
+  grammatical theory.
+\newblock \emph{John Benjamins Publishing Company}, 1988.
 
 \end{thebibliography}

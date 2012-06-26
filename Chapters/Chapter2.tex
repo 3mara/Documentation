@@ -124,7 +124,8 @@ Recommender systems that utilize memory-based algorithms and utilize a user-item
 3.Recommendation Generation
 \subsubsection{User‐Based Recommendation}
 A user-based recommendation system involves seeing how well users correlate to each other and using this information to derive predictions. A running example will demonstrate how a user-based recommendation can easily generate a prediction using a mathematical algorithm.
-\subsubsubsection{Representation}
+
+\textit{Representation}
 Since there are two aspects to a recommender system as noted above. The users and the items can be placed as a collection of numerical ratings into a user-item matrix.\\
 \begin{table}[ht]
 \caption{User Item Matrix} % title of Table
@@ -147,7 +148,8 @@ As seen in Table 1, a user-item matrix allows for the creation of a neighborhood
 Sparsity can be an issue that can lead to weak recommendations. Two common processes that can reduce the sparsity issue and improve the satisfaction of the recommender system are:
 1.Default Voting: Setting an appropriate rating for all items that have not been rated. The cost of applying a default rating is low (Vozalis and Margaritis 2003).   - Table 1: Providing Lucy with a default value of 3 for Item 3.
 2.Pre-processing using averages: Scan through missing items and either averaging user’s votes or averaging the item votes and placing the resulting average as the rating value for the missing user-item matrix entry (Vozalis and Margaritis 2003)    - Table 1: Lucy’s other items provide an average of 3.5. Therefore, we can pre-process her rating for Item 3.
-\subsubsubsection{Neighbourhood Formation}
+
+\textit{Neighbourhood Formation}
 Generating a neighborhood involved calculating the similarity between the given users within the user-item matrix. Similarity will be used to generate a recommendation for a specific user.
 The algorithm follows these steps:
 1.Compare the similarity between all users with the active user.
@@ -172,7 +174,7 @@ Lucy &  & & 1 \\[1ex]      % [1ex] adds vertical space
 \label{table:3} % is used to refer this table in the text
 \end{table}
 
-\subsubsubsection{Generate Prediction}
+\textit{Generate Prediction}
 The prediction is a numerical value that represents a predicted opinion of the active user about a specific item. The prediction for a user-based collaborative filtering algorithm needs both the user-item matrix (Table 1) and the similarity matrix (Table 2).
 \subsubsection{Item‐Based Recommendation}
 This form of collaborative filtering is computed based on item relations and not on user relations. An item-based collaborative filtering algorithm looks at the set of items that an active user has rated and computes how similar the set of items are to the target item. Using this data, the item-based algorithm then uses the similarity and calculates the prediction based on weighted averages of the active user’s ratings on those similar items. (Sarwar, et al. 2001)
