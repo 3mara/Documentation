@@ -7,9 +7,9 @@
 \lhead{Chapter 5. \emph{Document Clustering}} % This is for the header on each page - perhaps a shortened title
 
 %----------------------------------------------------------------------------------------
-In this chapter we discuess the choosed clustering algorithms and implementation details, section \ref{sec:background} introduces the dynamic modeling and distance relatedness concepts which are used in the Mitosis algorithm, Mitosis distance relatdness model is introduced in section ~\ref{sec:mitosis_proposed}, algorithms steps are explained in section ~\ref{sec:phases}, where implementation details are given in section ~\ref{sec:implementation}
+In this chapter we discuess the choosed clustering algorithms and implementation details, An introduction to document clustering is provided in section ~\ref{sec:intro}, section \ref{sec:background} introduces the dynamic modeling and distance relatedness concepts which are used in the Mitosis algorithm, Mitosis distance relatdness model is introduced in section ~\ref{sec:mitosis_proposed}, algorithms steps are explained in section ~\ref{sec:phases}, where implementation details are given in section ~\ref{sec:implementation}
 
-
+\section{Introduction} \label{sec:intro}
 Document clustering has been investigated for use in a number of different areas of text
 mining and information retrieval. Initially, document clustering was investigated for improving
 the precision or recall in information retrieval systems and as an efficient way of
@@ -30,7 +30,7 @@ Yet,they depend on using a static model for clustering, which deteriorates when 
 other hand, uses a dynamic model to be able to merge clusters of related densities together. Yet, Chameleon suffers some drawbacks.
 
 For the reasons mentioned above we applied the model proposed in \textbf{Mitosis} \citep{Mitosis_1} which introduces a dynamic model based on distance relatedness concepts to overcome drawbacks of related algorithms. Mitosis discovers clusters of arbitrary shapes and densities. It uses distance relatedness between patterns (in this case documents)as a measure to identify clusters of different densities.
-Mitosis overcomes the traditional clustering algorithms in the following points
+Mitosis overcomes the traditional clustering algorithms in the following points.
 \begin{itemize}
 \item{Combining both local and global novel distance-consistency measures in a dynamic model to cluster the data.}
 \item{Introducing a greedy clustering approach to keep up with the linear time performance of simple algorithms.}

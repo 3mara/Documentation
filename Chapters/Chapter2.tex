@@ -2,15 +2,47 @@
 
 \chapter{Literature} % Main chapter title
 
-\label{Chapter2} % For referencing the chapter elsewhere, use \ref{Chapter1} 
+\label{literature} % For referencing the chapter elsewhere, use \ref{Chapter1} 
 
-\lhead{Chapter 2. \emph{Chapter Title Here}} % This is for the header on each page - perhaps a shortened title
+\lhead{Chapter 2. \emph{Literature}} % This is for the header on each page - perhaps a shortened title
+
+%----------------------------------------------------------------------------------------
+\section{Semantic Similarity}
+The problem of formalizing and quantifying the intuitive notion of similarity has a long history in philosophy, psychology, and artificial intelligence, and many different perspectives have been suggested. Recent research on the topic in computational linguistics has emphasized the perspective of semantic relatedness of two lexemes in a lexical resource, or its inverse, semantic distance. It’s important to note that semantic relatedness is a more general concept than similarity; similar entities are usually assumed to be related by virtue of their likeness (bank - trust company), but dissimilar entities may also be semantically related by lexical relationships such as metonymy (car - wheel) and antonymy (hot - cold), or just by any kind of functional relationship or frequent association (pencil - paper, penguin - Antarctica).\\
+
+Measures of text similarity have been used for a long time in applications in natural language processing and related areas. Text similarity has been also used for relevance feedback and text classification (Rocchio, 1971), word sense disambiguation (Lesk, 1986), and more recently for extractive summarization (Salton et al., 1997b), and methods for automatic evaluation of machine translation (Papineni et al., 2002) or text summarization (Lin and Hovy, 2003). \\
+The typical approach to finding the similarity between two text segments is to use a simple lexical matching method, and produce a similarity score based on the number of lexical units that occur in both input segments. \\
+Improvements to this simple method have considered stemming, stop-word removal, part-of-speech tagging, longest subsequence matching, as well as various weighting and normalization factors (Salton et al., 1997a).\\
+While successful to a certain degree, these lexical matching similarity methods fail to identify the semantic similarity of texts. For instance, there is an obvious similarity between the text segments I own a dog and I have an animal, but most of the current text similarity metrics will fail in identifying any kind of connection between these texts. \\
+
+The only exception to this trend is perhaps the latent semantic analysis (LSA) method (Landauer et al., 1998), which represents an improvement over earlier attempts to use measures of semantic similarity for information retrieval (Voorhees, 1993), (Xu and Croft, 1996). LSA aims to find similar terms in large text collections, and measure similarity between texts by including these additional related words. \\
+However, to date LSA has not been used on a large scale, due to the complexity and computational cost associated with the algorithm, and perhaps also due to the “black-box” effect that does not allow for any deep insights into why some terms are selected as similar during the singular value decomposition process.\\
+
+On the other hand, another group of approaches that gaines wide approval is the Knowledge-based group. Knowledge-based can be explained as a measure of semantic similarity between words, and an indication of the word specificity.\\
 
 %----------------------------------------------------------------------------------------
 \section{Clustering}
 Clustering is the unsupervised classification of patterns (observations, data items, or feature vectors) into groups \textit{clusters}, such that items within a cluster are very similar and items in different clusters are very different.
-In this work we used clustering to group similar documents together and to determine the user neighborhood which affects the scalability of large scale recommender system.
 
+\subsection{Document clustering}
+Document clustering has been investigated for use in a number of different areas of text
+mining and information retrieval. Initially, document clustering was investigated for improving
+the precision or recall in information retrieval systems and as an efficient way of
+finding the nearest neighbors of a document. More recently, clustering has been
+proposed for use in browsing a collection of documents or in organizing the results
+returned by a search engine in response to a user’s query. Document clustering has
+also been used to automatically generate hierarchical clusters of documents. The
+automatic generation of a taxonomy of Web documents like that provided by Yahoo!
+
+\citep{clustering_15} For most of clustering algorithms documents are represented using the vector-space model. In
+this model, each document, $d$, is considered to be a vector, $d$, in the term-space (set of document
+“words”). In its simplest form, each document is represented by the (TF) vector,
+$d_{tf} = (tf_1, tf_2,..., tf_n)$, where $tf_i$ is the frequency of the $i^{th}$ term in the document. (Normally very common words are
+stripped out completely and different forms of a word are reduced to one canonical form.) In
+addition, other variation of this model that weights each term based on its inverse document is used.
+
+In this work we used clustering to group similar documents together and to determine the user neighborhood which affects the scalability of large scale recommender system. The clustering uses one of the different similarity metrics introduced in chapter ~\ref{sim} which reflects the semantic relatedness between articles.
+\subsection{Clustering algorithms types}
 Different approaches to clustering data can be described with the help of the hierarchy shown in Figure ~\ref{fig:clustering_approaches}
 
 \begin{figure}[htbp]
@@ -21,17 +53,18 @@ Different approaches to clustering data can be described with the help of the hi
 	\label{fig:clustering_approaches}
 \end{figure}
 
-\begin{itemize}
-\item{Partitional : Given a database of objects, a partitional clustering algorithm constructs
+\subsubsection{Partitional}
+Given a database of objects, a partitional clustering algorithm constructs
 partitions of the data, where each cluster optimizes a clustering criterion, such as the minimization of the sum of squared distance from the mean within each cluster.
 One of the issues with such algorithms is their high complexity, as some of them exhaustively enumerate
 all possible groupings and try to find the global optimum. Even for a small number of objects,
 the number of partitions is huge. That’s why, common solutions start with an initial, usually
 random, partition and proceed with its refinement. A better practice would be to run the partitional algorithm for different sets of initial points (considered as representatives) and investigate whether all solutions lead to the same final partition.
 Partitional Clustering algorithms try to locally improve a certain criterion. First, they compute the
-values of the similarity or distance, they order the results, and pick the one that optimizes the criterion.Hence, the majority of them could be considered as greedy-like algorithms.}
+values of the similarity or distance, they order the results, and pick the one that optimizes the criterion.Hence, the majority of them could be considered as greedy-like algorithms.
 
-\item{Hierarchical algorithms create a hierarchical decomposition of the objects. They are either
+\subsubsection{Hierarchical}
+Hierarchical algorithms create a hierarchical decomposition of the objects. They are either
 agglomerative (bottom-up) or divisive (top-down):
 \begin{itemize}
 \item{Agglomerative algorithms start with each object being a separate cluster itself, and successively
@@ -48,50 +81,63 @@ method can be improved via a partitional step, which refines the result via iter
 of points.
 }
 \end{itemize}
-}
-\end{itemize}
+
+
 Apart from the two main categories of  partitional and hierarchical clustering algorithms, many other methods
 have emerged in cluster analysis, and are mainly focused on specific problems or specific data sets
 available. These methods include:
-\begin{itemize}
-\item
-Density-Based Clustering : These algorithms group objects according to specific density objective functions.
-Density is usually defined as the number of objects in a particular neighborhood of a data objects.
-In these approaches a given cluster continues growing as long as the number of objects in the
-neighborhood exceeds some parameter. This is considered to be different from the idea in partitional
-algorithms that use iterative relocation of points given a certain number of clusters.
-\item
-Grid-Based Clustering : The main focus of these algorithms is spatial data, i.e., data that model the geometric
+
+\subsubsection{Grid-Based Clustering} The main focus of these algorithms is spatial data, i.e., data that model the geometric
 structure of objects in space, their relationships, properties and operations. The objective of
 these algorithms is to quantize the data set into a number of cells and then work with objects belonging
 to these cells. They do not relocate points but rather build several hierarchical levels of groups of
 objects. In this sense, they are closer to hierarchical algorithms but the merging of grids, and consequently
 clusters, does not depend on a distance measure but it is decided by a predefined parameter.
-\item
-Model-Based Clustering : These algorithms find good approximations of model parameters that best fit
+
+\subsubsection{Model-Based Clustering} These algorithms find good approximations of model parameters that best fit
 the data. They can be either partitional or hierarchical, depending on the structure or model they
 hypothesize about the data set and the way they refine this model to identify partitionings. They
 are closer to density-based algorithms, in that they grow particular clusters so that the preconceived
 model is improved. However, they sometimes start with a fixed number of clusters and they do not
 use the same concept of density.
-\item
-Categorical Data Clustering : These algorithms are specifically developed for data where Euclidean, or
+\subsubsection{Categorical Data Clustering} These algorithms are specifically developed for data where Euclidean, or
 other numerical-oriented, distance measures cannot be applied. In the literature, we find approaches
 close to both partitional and hierarchical methods.
+
+\subsubsection{Density-Based Clustering} 
+The problem of detecting clusters of points in data is challenging when the clusters are of 
+different size, density and shape. Many of these issues become even more significant when 
+the data is of very high dimensionality and when it includes noise and outliers. 
+
+Density-Based Clustering algorithms group objects according to specific density objective functions.
+Density is usually defined as the number of objects in a particular neighborhood of a data objects.
+In these approaches a given cluster continues growing as long as the number of objects in the
+neighborhood exceeds some parameter. This is considered to be different from the idea in partitional
+algorithms that use iterative relocation of points given a certain number of clusters.
+
+
+\paragraph{(DBSCAN) Density-Based Spatial Clustering of Applications with Noise} DBSCAN is most widely used density based algorithm. It uses the concept of  density reachability and density connectivity\citep{literature_1}. where
+\begin{itemize}
+\item{Density Reachability} A point $p$ is said to be density reachable from a point $q$ if point $p$ is within $\epsilon$ distance from point $q$ and $q$ has sufficient number of points in its neighbors which are within distance $\epsilon$ .
+
+\item{Density Connectivity} A point $p$ and $q$ are said to be density connected if there exist a point $r$ which has sufficient number of points in its neighbors and both the points $p$ and $q$ are within the $\epsilon$ distance. This is chaining process. So, if $q$ is neighbor of $r$, $r$ is neighbor of $s$, $s$ is neighbor of $t$ which in turn is neighbor of $p$ implies that $q$ is neighbor of $p$.
 \end{itemize}
-%----------------------------------------------------------------------------------------
-\section{Semantic Similarity}
-The problem of formalizing and quantifying the intuitive notion of similarity has a long history in philosophy, psychology, and artificial intelligence, and many different perspectives have been suggested. Recent research on the topic in computational linguistics has emphasized the perspective of semantic relatedness of two lexemes in a lexical resource, or its inverse, semantic distance. It’s important to note that semantic relatedness is a more general concept than similarity; similar entities are usually assumed to be related by virtue of their likeness (bank - trust company), but dissimilar entities may also be semantically related by lexical relationships such as metonymy (car - wheel) and antonymy (hot - cold), or just by any kind of functional relationship or frequent association (pencil - paper, penguin - Antarctica).\\
 
-Measures of text similarity have been used for a long time in applications in natural language processing and related areas. Text similarity has been also used for relevance feedback and text classification (Rocchio, 1971), word sense disambiguation (Lesk, 1986), and more recently for extractive summarization (Salton et al., 1997b), and methods for automatic evaluation of machine translation (Papineni et al., 2002) or text summarization (Lin and Hovy, 2003). \\
-The typical approach to finding the similarity between two text segments is to use a simple lexical matching method, and produce a similarity score based on the number of lexical units that occur in both input segments. \\
-Improvements to this simple method have considered stemming, stop-word removal, part-of-speech tagging, longest subsequence matching, as well as various weighting and normalization factors (Salton et al., 1997a).\\
-While successful to a certain degree, these lexical matching similarity methods fail to identify the semantic similarity of texts. For instance, there is an obvious similarity between the text segments I own a dog and I have an animal, but most of the current text similarity metrics will fail in identifying any kind of connection between these texts. \\
+\paragraph{The algorithm}: \citep{literature_2} The key idea of the DBSCAN algorithm is that, for each point of a cluster, the neighbourhood 
+of a given radius has to contain at least a minimum number of points, that is, the density in 
+the neighbourhood has to exceed some predefined threshold. This algorithm needs three 
+input parameters:
+\begin{itemize}  
+\item{$k$, the neighbour list size} 
+\item{$Eps$, the radius that delimitate the neighbourhood area of a point ($Epsneighbourhood$)}
+\item{MinPts, the minimum number of points that must exist in the Eps-neighbourhood.}
+\end{itemize} 
+The clustering process is based on the classification of the points in the dataset as  core 
+points,  border points and  noise points, and on the use of density relations between points 
+(directly density-reachable,  density-reachable,  density-connected) to form the 
+clusters. 
 
-The only exception to this trend is perhaps the latent semantic analysis (LSA) method (Landauer et al., 1998), which represents an improvement over earlier attempts to use measures of semantic similarity for information retrieval (Voorhees, 1993), (Xu and Croft, 1996). LSA aims to find similar terms in large text collections, and measure similarity between texts by including these additional related words. \\
-However, to date LSA has not been used on a large scale, due to the complexity and computational cost associated with the algorithm, and perhaps also due to the “black-box” effect that does not allow for any deep insights into why some terms are selected as similar during the singular value decomposition process.\\
-
-On the other hand, another group of approaches that gaines wide approval is the Knowledge-based group. Knowledge-based can be explained as a measure of semantic similarity between words, and an indication of the word specificity.\\
+\subsubsection{}
 
 %----------------------------------------------------------------------------------------
 \section{Recommendation}
@@ -122,7 +168,7 @@ Recommender systems that utilize memory-based algorithms and utilize a user-item
 1.Representation
 2.Neighborhood Formation
 3.Recommendation Generation
-\subsubsection{User‐Based Recommendation}
+\subsubsection{User Based Recommendation}
 A user-based recommendation system involves seeing how well users correlate to each other and using this information to derive predictions. A running example will demonstrate how a user-based recommendation can easily generate a prediction using a mathematical algorithm.
 
 \textit{Representation}
