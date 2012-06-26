@@ -63,15 +63,43 @@ random, partition and proceed with its refinement. A better practice would be to
 Partitional Clustering algorithms try to locally improve a certain criterion. First, they compute the
 values of the similarity or distance, they order the results, and pick the one that optimizes the criterion.Hence, the majority of them could be considered as greedy-like algorithms.
 
+
+A major drawback of both of these schemes is that they fail for data in which points in a given cluster are closer
+to the center of another cluster than to the center of their own cluster \citep{clustering_14}, as shown in figure ~\ref{fig:kmeans_fail}
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics{./Figures/clustering_2.png}
+		\rule{35em}{0.5pt}
+	\caption[Data sets on which centroid and medoid approaches fail.]{Data sets on which centroid and medoid approaches fail.}
+	\label{fig:kmeans_fail}
+\end{figure}
+
+
 \subsubsection{Hierarchical}
 Hierarchical algorithms create a hierarchical decomposition of the objects. They are either
 agglomerative (bottom-up) or divisive (top-down):
-\begin{itemize}
-\item{Agglomerative algorithms start with each object being a separate cluster itself, and successively
+\paragraph{Agglomerative algorithms}
+Agglomerative algorithms start with each object being a separate cluster itself, and successively
 merge groups according to a distance measure. The clustering may stop when all objects are in
 a single group or at any other point the user wants.
-These methods generally follow a greedy-like bottom-up merging.}
-\item{Divisive algorithms follow the opposite strategy. They start with one group of all objects and
+These methods generally follow a greedy-like bottom-up merging.
+A major limitation of existing agglomerative hierarchical schemes such as the Group Averaging Method,
+ROCK, and CURE is that the merging decisions are based upon static modeling of the clusters to
+be merged. The selection mechanism of CURE (and of the single link method) (as illustrated in figure ~\ref{fig:hir_fail})will prefer merging clusters (a) and (b) over merging clusters (c) and (d), since the minimum distances between the representative points of (a) and (b) will be smaller than those for clusters (c) and
+(d). But clusters (c) and (d) are better candidates for merging because the minimum distances between the boundary
+points of (c) and (d) are of the same order as the average of the minimum distances of any points within these clusters
+to other points. Hence, merging (c) and (d) will lead to a more homogeneous and natural cluster than merging (a) and
+(b).
+\begin{figure}[htbp]
+	\centering
+		\includegraphics{./Figures/clustering_3.png}
+		\rule{35em}{0.5pt}
+	\caption[Example of clusters for merging choices.]{Example of clusters for merging choices.}
+	\label{fig:hir_fail}
+\end{figure}
+
+\paragraph{Divisive algorithms} Divisive algorithms follow the opposite strategy. They start with one group of all objects and
 successively split groups into smaller ones, until each object falls in one cluster, or as desired.
 Divisive approaches divide the data objects in disjoint groups at every step, and follow the same
 pattern until all objects fall into a separate cluster. This is similar to the approach followed by
@@ -79,8 +107,7 @@ divide-and-conquer algorithms.
 Partitional and hierarchical methods can be integrated. This would mean that a result given by a hierarchical
 method can be improved via a partitional step, which refines the result via iterative relocation
 of points.
-}
-\end{itemize}
+
 
 
 Apart from the two main categories of  partitional and hierarchical clustering algorithms, many other methods
@@ -123,7 +150,9 @@ algorithms that use iterative relocation of points given a certain number of clu
 \item{Density Connectivity} A point $p$ and $q$ are said to be density connected if there exist a point $r$ which has sufficient number of points in its neighbors and both the points $p$ and $q$ are within the $\epsilon$ distance. This is chaining process. So, if $q$ is neighbor of $r$, $r$ is neighbor of $s$, $s$ is neighbor of $t$ which in turn is neighbor of $p$ implies that $q$ is neighbor of $p$.
 \end{itemize}
 
-\paragraph{The algorithm}: \citep{literature_2} The key idea of the DBSCAN algorithm is that, for each point of a cluster, the neighbourhood 
+\paragraph{The algorithm:}
+
+\citep{literature_2}  The key idea of the DBSCAN algorithm is that, for each point of a cluster, the neighbourhood 
 of a given radius has to contain at least a minimum number of points, that is, the density in 
 the neighbourhood has to exceed some predefined threshold. This algorithm needs three 
 input parameters:
@@ -132,12 +161,20 @@ input parameters:
 \item{$Eps$, the radius that delimitate the neighbourhood area of a point ($Epsneighbourhood$)}
 \item{MinPts, the minimum number of points that must exist in the Eps-neighbourhood.}
 \end{itemize} 
+
+\subsubsection{Dynamic-model clustering algorithms}
 The clustering process is based on the classification of the points in the dataset as  core 
 points,  border points and  noise points, and on the use of density relations between points 
 (directly density-reachable,  density-reachable,  density-connected) to form the 
 clusters. 
 
-\subsubsection{}
+The previous algorithms use a static model which refers to using user-defined parameters for defining density thresholds without referring to the characteristics of the underlying data. These algorithms can breakdown if the choice of parameters in the static model is incorrect with respect to the data set being clustered, or if the model is not adequate to capture the characteristics of clusters. Furthermore, most of these
+algorithms breakdown when the data consists of clusters that are of diverse shapes, densities, and sizes
+
+The authors in \citep{clustering_14} and \cite{Mitosis_1} measure the similarity of two clusters based on
+a dynamic model. In the clustering process, two clusters are merged only if the inter-connectivity and closeness
+(proximity) between two clusters are high relative to the internal inter-connectivity of the clusters and closeness of
+items within the clusters. The methodology of dynamic modeling of clusters used is applicable to all types of data as long as a similarity matrix can be constructed.
 
 %----------------------------------------------------------------------------------------
 \section{Recommendation}
