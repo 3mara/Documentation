@@ -29,7 +29,23 @@ est Neighbors) \citep{clustering_13} have introduced new clustering criteria tha
 Yet,they depend on using a static model for clustering, which deteriorates when arbitrary densities are present in data. Chameleon  \citep{clustering_14}, on the
 other hand, uses a dynamic model to be able to merge clusters of related densities together. Yet, Chameleon suffers some drawbacks.
 
-For the reasons mentioned above we applied the model proposed in \textbf{Mitosis} \citep{Mitosis_1} which introduces a dynamic model based on distance relatedness concepts to overcome drawbacks of related algorithms. Mitosis discovers clusters of arbitrary shapes and densities. It uses distance relatedness between patterns (in this case documents)as a measure to identify clusters of different densities.
+\section{DBSCAN}
+DBSCAN stands for \textbf{D}ensity-\textbf{B}ased \textbf{S}patial \textbf{C}lustering of \textbf{A}pplications with \textbf{N}oise, it is a denisty based clustering algorithm which uses the concepts of density reachability and density connectivity\citep{literature_1} as showed in chapter ~\ref{literature}, DBSCAN works as followos
+\subsection{The algorithm:}
+\citep{literature_2}  The key idea of the DBSCAN algorithm is that, for each point of a cluster, the neighbourhood 
+of a given radius has to contain at least a minimum number of points, that is, the density in 
+the neighbourhood has to exceed some predefined threshold. This algorithm needs three 
+input parameters:
+\begin{itemize}  
+\item{$k$, the neighbour list size} 
+\item{$Eps$, the radius that delimitate the neighbourhood area of a point ($Eps_neighbourhood$)}
+\item{MinPts, the minimum number of points that must exist in the Eps-neighbourhood.}
+\end{itemize} 
+
+In our work $k$ is obtained by \textit{first} constructing a similarity matrix between all pairs of documents using one of the techniques explained in chapter ~\ref{sim}, the similarity matrix is stored in a database where for each document its id, location and source are stored too. Adter that for each document if the number of neighbours that are not more than $Eps_neighbourhood$ apart is greater than $MinPts$ they are considered as one cluster.
+
+\section{Mitosis}
+For the shortcomings of other clustering algorithms mentioned above we applied the model proposed in \textbf{Mitosis} \citep{Mitosis_1} which introduces a dynamic model based on distance relatedness concepts to overcome drawbacks of related algorithms. Mitosis discovers clusters of arbitrary shapes and densities. It uses distance relatedness between patterns (in this case documents)as a measure to identify clusters of different densities.
 Mitosis overcomes the traditional clustering algorithms in the following points.
 \begin{itemize}
 \item{Combining both local and global novel distance-consistency measures in a dynamic model to cluster the data.}
@@ -38,12 +54,12 @@ Mitosis overcomes the traditional clustering algorithms in the following points.
 \item{The use of a parameter selection procedure to guide the clustering algorithm.}
 \item{Suitability for high dimensional data, where the discovery of arbitrary shape and density clusters reveals other relations not revealed by traditional clustering algorithms.}
 \end{itemize}
-Section ~\ref{sec:background} introduces background needed to explain the algorithm.
-\section{Dynamic modeling and distance relatedness concepts}\label{sec:background}
+The following subsection will introduce the background needed to explain the algorithm.
+\subsection{Dynamic modeling and distance relatedness concepts}\label{sec:background}
 
 The significance of a dynamic model of clustering is first explained ~\ref{subsec:dynamic_static}, and the theoretical background of distance relatedness is then discussed ~\ref{subsec:dist_density}.
 
-\subsection{Dynamic vs. static models}\label{subsec:dynamic_static}
+\subsubsection{Dynamic vs. static models}\label{subsec:dynamic_static} 
 A static model refers to using user-defined parameters for defining density thresholds without referring to the characteristics of the underlying data.DBScan, DenClue, WaveClusterandSNN, are examples of algorithms that use a static model and are unable to find clusters of arbitrary densities.For example, DBScan uses two parameters \textit{Eps} and \textit{Minpts}, where \textit{Eps} specifies a threshold on range distance,
 and Minpts specifies the minimum number of neighbors.
 Apattern with a number of neighbors more than Minpts at adistance less than Eps, is considered a corepoint(\textit{pattern}) and is used to track clusters. Chameleon,on the other hand introduced a dynamic modelfor
@@ -54,7 +70,7 @@ clustering based on the following:
 \end{itemize}
 
 
-\subsection{Distance-based density}\label{subsec:dist_density}
+\subsubsection{Distance-based density}\label{subsec:dist_density} 
 Clusters can be visually detected by recognizing relatively higher density regions in data separated by regions of relatively lower densities. It is observed that the behavior of neighborhood distances determines the degree of a cluster's density; smaller distances reflect higher densities, and viceversa. The average distances between patterns(the Minimum
 Spanning Tree(\textit{MST}) distances) differentiate the densities of clusters in Fig. ~\ref{fig:mitosis_1}. Several other points important to build an efficient model are as follows:
 \begin{itemize}
@@ -72,7 +88,7 @@ Spanning Tree(\textit{MST}) distances) differentiate the densities of clusters i
 	\label{fig:mitosis_1}
 \end{figure}
 
-\section{Mitosis Proposed distance relatedness dynamic model}\label{sec:mitosis_proposed}
+\subsection{Mitosis Proposed distance relatedness dynamic model}\label{sec:mitosis_proposed}
 The dynamic model proposed in \textit{Mitosis} aims at maintaining the consistency of distances between patterns in each cluster.It defines a
 distance-relatedness clustering criterion based on the following:
 \begin{itemize}
@@ -108,7 +124,7 @@ The same rationale is used when merging two clusters, but this time considering 
 \textbf{Global distance relatedness}: The property of distance consistency
 extends from local relations between neighborhood patterns to global relations between neighboring clusters. The global distance relatedness model follows the same rules of the local relatedness, but with replacing patterns with clusters, a pattern's local average distance with a cluster's average distance, and the distance between two singleton patterns with the distance between the two patterns in the two neighboring clusters. A cluster's average distance(only distances approved to be consistent to the cluster)is used to reflect the distance behavior inside the cluster.
 
-\subsection{Distance consistency definitions}
+\subsubsection{Distance consistency definitions}
 The rules governing consistency of one distance to another cluster's/pattern's average distance, or two clusters'/patterns' average
 distance to each other are as follows. given an input parameter $k > 1$:
 \begin{itemize}
@@ -119,7 +135,7 @@ $d(x, y)<k. \mu$
 \end{itemize}
 According to the above definitions the merge criteria are proposed.
 
-\section{Algorithms phases}\label{sec:phases}
+\subsubsection{Algorithms phases}\label{sec:phases}
 
 The algorithm takes as an input the dataset $P$, and 2 main parameters $f$ and $k$. The main steps are as follows:
 \begin{itemize}
@@ -143,7 +159,7 @@ associated patterns/clusters, and update the clusters'measures.}
 \end{itemize}
 
 
-\section{Implementation Details}\label{sec:implementation}
+\subsection{Implementation Details}\label{sec:implementation}
 The class diagram of the implementation of Mitosis is illustrated in figure ~\ref{fig:mitosis_6} where class \textit{Pattern} is an abstract class represents the object to be clustered, in our work the class \textit{Document} implements it, this class sotores the representation of the document which is an N-dimentional feature vector each pattern has a reference to its cluster.
 The \textit{Asscaition} class contains the relations between the pattern \textit{p} and all other patterns within its dynamic range. Each \textit{Cluster} object contains a list of all patterns and associations consisting it, the \textit{Cluster} object contains the mean value of distances of associations in the cluster $\mu$, and keep updating it while more associations is added to it.
 
@@ -155,7 +171,7 @@ The \textit{Asscaition} class contains the relations between the pattern \textit
 	\label{fig:mitosis_6}
 \end{figure}
 
-\subsection{Loading associations}
+\subsubsection{Loading associations} 
 Mitosis requires loading the associations of each pattern which have distance less than $f.min{dist}$ where $f$ is mitosis factor and $min_{dist}$ is the minimum distance betweeen the pattern and all its neighbours.
 
 Given a databse that stores all the distances between all pairs of patterns, loading associations that are in dynamic range for a given patterns $p$ is performed on two steps, first the database is queried to obtain the the nearst pattern to $p$ which is at distance $min{dist}$, then the pattern's threshold is calculated as $threshold_{dist} = f \dot dist_{min}$ the database is queried again to obtain all the association with distance less than or equal to $threshold{dist}$.
@@ -179,7 +195,7 @@ The clustering algorithm is first applied on two different sets of 2D points (th
 
 Merging phase is a transitive operation, so equivalence classes must be implemented efficiently to avoid any perofrmance bottleneck.
 This can be achieved by using \textit{Disjoint sets data structures}
-\subsection{Disjoint set}
+\subsubsection{Disjoint set}
 
 A disjoint-set is a collection $C={S_1, S_2,..., S_k}$ of distinct dynamic sets.
 Each set is identified by a member of the set, called representative.
@@ -191,7 +207,7 @@ Disjoint set operations:
 \end{itemize}
 Obviously the \textit{MAKE-SET(x)} operation can be used at the beginning of the algorithm as each pattern will be in a cluster, and the \textit{UNION(x,y)} will be used to marge to clusters.
 Next sub-sections will illustrate different implementations
-\subsubsection{Linked-List Implementation}
+\paragraph{Linked-List Implementation}
 Each set as a linked-list, with head and tail, and each node contains value, next node pointer and back-to-representative pointer.
 Figure ~\ref{fig:mitosis_3} ~\ref{fig:mitosis_4} shows the operations of the disgoint set.
 \begin{itemize}
@@ -224,7 +240,7 @@ Associated a length with each list, which indicates how many elements in the lis
 \end{minipage}
 \end{figure}
 
-\subsubsection{Disjoint-set Implementation: Forests}
+\paragraph{Disjoint-set Implementation: Forests}
 Rooted trees, each tree is a set, root is the representative. Each node points to its parent. Root points to itself.
 
 Three operations
