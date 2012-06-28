@@ -1,4 +1,4 @@
-\begin{thebibliography}{76}
+\begin{thebibliography}{68}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -288,17 +288,6 @@ B.~Croft Belkin, N.
 \newblock Information filtering and information retrieval.
 \newblock \emph{Communications of the ACM, 35(12):29-37}, 1992.
 
-\bibitem[Balabanovic(1997)]{recom_8}
-Y.~Shoham Balabanovic, M.
-\newblock Fab: Content-based, collaborative recommendation.
-\newblock \emph{Communications of the ACM, 40(3):66-72}, 1997.
-
-\bibitem[Pazzani(1997)]{recom_77}
-D.~Billsus Pazzani, M.
-\newblock Learning and revising user profiles: The identification of
-  interesting web sites.
-\newblock \emph{Machine Learning, 27:313-331}, 1997.
-
 \bibitem[Lang(1995)]{recom_56}
 K.~Newsweeder Lang.
 \newblock Learning to filter netnews.
@@ -311,67 +300,33 @@ R.~J. Mooney and L.~Roy.
 \newblock \emph{In ACM SIGIR'99. Workshop on Recommender Systems: Algorithms
   and Evaluation}, 1999.
 
+\bibitem[Pazzani(1997)]{recom_77}
+D.~Billsus Pazzani, M.
+\newblock Learning and revising user profiles: The identification of
+  interesting web sites.
+\newblock \emph{Machine Learning, 27:313-331}, 1997.
+
 \bibitem[Rocchio(1971)]{recom_85}
 J.~J Rocchio.
 \newblock Relevance feedback in information retrieval.
 \newblock \emph{SMART Retrieval System – Experiments in Automatic Document
   Processing, G. Salton ed., PrenticeHall, Ch. 14}, 1971.
 
-\bibitem[Littlestone and Warmuth(1994)]{recom_62}
-N.~Littlestone and M.~Warmuth.
-\newblock The weighted majority algorithm.
-\newblock \emph{Information and Computation, 108(2):212-261}, 1994.
-
-\bibitem[Pazzani(1999)]{recom_76}
-M.~A framework for~collaborative Pazzani.
-\newblock content-based and demographic filtering.
-\newblock \emph{Artificial Intelligence Review, pages 393-408}, 1999.
-
-\bibitem[Mooney(1998)]{recom_70}
-P.~N. Bennett L.~Roy Mooney, R.~J.
-\newblock Book recommending using text categorization with extracted
-  information.
-\newblock \emph{In Recommender Systems. Papers from 1998 Workshop. Technical
-  Report WS-98-08. AAAI Press}, 1998.
-
-\bibitem[Duda(2001)]{recom_31}
-P.~E. Hart D. G.~Stork Duda, R.~O.
-\newblock Pattern classification, john wiley, sons.
-\newblock 2001.
-
-\bibitem[Somlo(2001)]{recom_101}
-A.~Howe Somlo, G.
-\newblock Adaptive lightweight text filtering. in proceedings of the 4th.
-\newblock \emph{International Symposium on Intelligent Data Analysis, Lisbon,
-  Portugal}, 2001.
-
-\bibitem[Zhang and Minka(2002)]{recom_112}
-J.~Callan Zhang, Y and T.~Minka.
-\newblock Novelty and redundancy detection in adaptive filtering.
-\newblock \emph{the 25th Annual International ACM SIGIR Conference, pp. 81-88},
-  2002.
-
-\bibitem[Robertson~S.(2000)]{recom_84}
-S.~Walker Robertson~S.
-\newblock Threshold setting in adaptive filtering.
-\newblock \emph{Journal of Documentation, 56:312-331}, 2000.
-
-\bibitem[Zhang~Y.(2001)]{recom_111}
-J.~Callan Zhang~Y.
-\newblock Maximum likelihood estimation for filtering thresholds.
-\newblock \emph{24th Annual International ACM SIGIR Conference, New Orleans},
-  2001.
-
-\bibitem[Sheth(1993)]{recom_98}
-Maes~P Sheth, B.
-\newblock Evolving agents for personalized information filtering.
-\newblock \emph{9th IEEE Conference on Artificial Intelligence for
-  Applications}, 1993.
+\bibitem[Balabanovic(1997)]{recom_8}
+Y.~Shoham Balabanovic, M.
+\newblock Fab: Content-based, collaborative recommendation.
+\newblock \emph{Communications of the ACM, 40(3):66-72}, 1997.
 
 \bibitem[Billsus(2000)]{recom_13}
 M.~Pazzani Billsus, D.
 \newblock User modeling and user modeling for adaptive news access.
 \newblock \emph{User-Adapted Interaction, 10(2-3):147-180}, 2000.
+
+\bibitem[Balabanovi(1996)]{recom_1003}
+Marko Balabanovi.
+\newblock An adaptive web page recommendation service.
+\newblock \emph{Stanford University Digital Libraries Project Working Paper
+  SIDL-WP-1996-004}, 1996.
 
 \bibitem[Silva~C.(2003)]{pre_8}
 Ribeiro Silva~C.

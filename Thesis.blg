@@ -54,12 +54,6 @@ Too many commas in name 1 of "Billsus, D., C. A. Brunk, C. Evans, B. Gladish, M.
 while executing---line 1233 of file unsrtnat.bst
 Too many commas in name 1 of "Billsus, D., C. A. Brunk, C. Evans, B. Gladish, M. Pazzani" for entry recom_14
 while executing---line 1233 of file unsrtnat.bst
-Too many commas in name 1 of "Mooney, R. J., P. N. Bennett, L. Roy" for entry recom_70
-while executing---line 1233 of file unsrtnat.bst
-Too many commas in name 1 of "Duda, R. O., P. E. Hart, D. G. Stork" for entry recom_31
-while executing---line 1233 of file unsrtnat.bst
-Name 1 in "Zhang, Y, J. Callan, and T. Minka" has a comma at the end for entry recom_112
-while executing---line 1233 of file unsrtnat.bst
 Too many commas in name 1 of "P. Basile,M. de Gemmis,A.L. Gentile,P. Lops,G. Semeraro" for entry disambiguation
 while executing---line 1315 of file unsrtnat.bst
 Too many commas in name 1 of "P. Basile,M. de Gemmis,A.L. Gentile,P. Lops,G. Semeraro" for entry disambiguation
@@ -182,21 +176,8 @@ while executing---line 1315 of file unsrtnat.bst
 Too many commas in name 1 of "Billsus, D., C. A. Brunk, C. Evans, B. Gladish, M. Pazzani" for entry recom_14
 while executing---line 1315 of file unsrtnat.bst
 Warning--empty journal in recom_7
-Too many commas in name 1 of "Mooney, R. J., P. N. Bennett, L. Roy" for entry recom_70
-while executing---line 1315 of file unsrtnat.bst
-Too many commas in name 1 of "Mooney, R. J., P. N. Bennett, L. Roy" for entry recom_70
-while executing---line 1315 of file unsrtnat.bst
-Too many commas in name 1 of "Duda, R. O., P. E. Hart, D. G. Stork" for entry recom_31
-while executing---line 1315 of file unsrtnat.bst
-Too many commas in name 1 of "Duda, R. O., P. E. Hart, D. G. Stork" for entry recom_31
-while executing---line 1315 of file unsrtnat.bst
-Warning--empty journal in recom_31
-Name 1 in "Zhang, Y, J. Callan, and T. Minka" has a comma at the end for entry recom_112
-while executing---line 1315 of file unsrtnat.bst
-Name 1 in "Zhang, Y, J. Callan, and T. Minka" has a comma at the end for entry recom_112
-while executing---line 1315 of file unsrtnat.bst
 Warning--empty journal in pre_9
 Warning--empty journal in pre_10
 Warning--empty journal in pre_11
 Warning--empty author in pre_4
-(There were 87 error messages)
+(There were 78 error messages)
