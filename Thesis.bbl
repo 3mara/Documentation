@@ -1,14 +1,158 @@
-\begin{thebibliography}{52}
+\begin{thebibliography}{76}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
 
+\bibitem[P.~Basile(2007)]{disambiguation}
+A.L. Gentile P. Lops G.~Semeraro P.~Basile, M. de~Gemmis.
+\newblock Uniba: Jigsawalgorithm forword sense disambiguation.
+\newblock \emph{Association for Computational Linguistics}, 2007.
+
 \bibitem[Michael~Steinbach(2000)]{clustering_15}
 Vipin~Kumar Michael~Steinbach, George~Karypis.
 \newblock A comparison of document clustering techniques.
 \newblock \emph{KDD workshop on text}, 2000.
+
+\bibitem[G.Karypis(1999)]{clustering_14}
+V.Kumar G.Karypis, E.H.Han.
+\newblock Chameleon:a hierarchical clustering algorithm using dynamic modeling.
+\newblock 1999.
+
+\bibitem[lit(Accessed 17/07/03)]{literature_1}
+\emph{https://sites.google.com/site/dataclusteringalgorithms/density-based-clu%
+stering-algorithm}, Accessed 17/07/03.
+
+\bibitem[Jorg~Sander(1998)]{literature_2}
+Hans-Peter Kriegel Xiaowei~Xu Jorg~Sander, Martin~Ester.
+\newblock Density-based clustering in spatial databases: The algorithm gdbscan
+  and its applications.
+\newblock \emph{Principles of Data Mining and Knowledge Discovery}, 1998.
+
+\bibitem[Noha~A.Yousri(2008)]{Mitosis_1}
+MohamedA.Ismail Noha~A.Yousri, MohamedS.Kamel.
+\newblock A distance-relatedness dynamic model for clustering high dimensional
+  data of arbitrary shapes and densities.
+\newblock \emph{Elsevier}, 2008.
+
+\bibitem[J.~Ben~Schafer(1999)]{literature_3}
+John~Riedi J.~Ben~Schafer, Joseph~Konstan.
+\newblock Recommender systems in e-commerce.
+\newblock \emph{EC '99 Proceedings of the 1st ACM conference on Electronic
+  commerce}, 1999.
+
+\bibitem[Hansen(2007)]{literature_4}
+Ricci~F. Hansen, H.R.
+\newblock Recommender systems.
+\newblock \emph{System Sciences, 2007. HICSS 2007. 40th Annual Hawaii
+  International}, 2007.
+
+\bibitem[Manolis G.~Vozalis(2007)]{literature_5}
+Konstantinos G.~Margaritis Manolis G.~Vozalis.
+\newblock A recommender system using principal component analysis.
+\newblock 2007.
+
+\bibitem[Prem~Melville(2002)]{literature_6}
+Ramadass~Nagarajan Prem~Melville, Raymond J.~Mooney.
+\newblock Content-boosted collaborative filtering for improved recommendations.
+\newblock \emph{Eighteenth National Conference on Artificial
+  Intelligence(AAAI-2002)}, 2002.
+
+\bibitem[Jones(2010)]{tfidf}
+Karen~Sparck Jones.
+\newblock A statistical interpretation of term specificity and its application
+  in retrieval.
+\newblock \emph{Journal of Documentation}, 2010.
+
+\bibitem[Huang(No Date)]{lexical}
+Anna Huang.
+\newblock Similarity measures for text document clustering.
+\newblock No Date.
+
+\bibitem[Rada~Mihalcea(No Date)]{semantic}
+Courtney Corley Carlo~Strapparava Rada~Mihalcea.
+\newblock Corpus-based and knowledge-based measures of text semantic
+  similarity.
+\newblock No Date.
+
+\bibitem[Landauer T.~K.(1998)]{lsa}
+Laham~D. Landauer T.~K., Foltz P.~W.
+\newblock An introduction to latent semantic analysis.
+\newblock 1998.
+
+\bibitem[Rada et~al.(1989)Rada, Mili, Bicknell, and
+  Blettner]{rada1989development}
+Roy Rada, Hafedh Mili, Ellen Bicknell, and Maria Blettner.
+\newblock Development and application of a metric on semantic nets.
+\newblock \emph{IEEE Transactions on Systems, Man and Cybernetics}, 1989.
+
+\bibitem[philip resnik(1999)]{semantic_2}
+philip resnik.
+\newblock Semantic similarityin taxonomy: An information-based measure and it's
+  application to problems of amiguity in natural language.
+\newblock \emph{Journal of Artificial intelligence}, 1999.
+
+\bibitem[awn(No Date)]{awn_0}
+Arabic wordnet.
+\newblock \emph{{[online]. http://www.globalwordnet.org/AWN [Accessed
+  04/16/2012]},}, No Date.
+
+\bibitem[Bouzoubaa(No Date)]{awn_1}
+Karim Bouzoubaa.
+\newblock Arabic wordnet use and enrichment.
+\newblock No Date.
+
+\bibitem[Sabri~Elkateb(No Date)]{awn_2}
+Piek Vossen Horacio Rodr?guez Musa Alkhalifa Adam Pease Christiane~Fellbaum
+  Sabri~Elkateb, William~Black.
+\newblock Building a wordnet for arabic.
+\newblock No Date.
+
+\bibitem[Zhibiao~Wu(No Date)]{wu}
+Martha~Palmer Zhibiao~Wu.
+\newblock Verb semantics and lexical selection.
+\newblock No Date.
+
+\bibitem[Evgeniy~Gabrilovich(2007)]{wiki_1}
+Shaul~Markovitch Evgeniy~Gabrilovich.
+\newblock Computing semantic relatedness using wikipedia-based explicit
+  semantic analysis.
+\newblock \emph{International Joint Conference on Artificial Intelligence},
+  2007.
+
+\bibitem[MICHAEL~MCCANDLESS(2010)]{lucene}
+OTIS~GOSPODNETI MICHAEL~MCCANDLESS, ERIK~HATCHER.
+\newblock Lucene in action.
+\newblock 2010.
+
+\bibitem[Wilhelm~Burger(No Date)]{acadjstment}
+Mark J.~Burge Wilhelm~Burger.
+\newblock Digital image processing an algorithmatic introduction using java.
+\newblock No Date.
+
+\bibitem[Zareen Saba~Syed(2008)]{wiki_2}
+Anupam~Joshi Zareen Saba~Syed, Tim~Finin.
+\newblock Wikipedia as an ontology for describing documents.
+\newblock \emph{Association for the Advancement of Artificial Intelligence},
+  2008.
+
+\bibitem[Kireyev(2009)]{spec}
+Kirill Kireyev.
+\newblock Semantic-based estimation of term informativeness.
+\newblock \emph{Annual Conference of the North American Chapter of the ACL},
+  2009.
+
+\bibitem[tfi(No Date)]{tfidf_1}
+Inverse document frequency.
+\newblock
+  \emph{{[online].http://nlp.stanford.edu/IR-book/html/htmledition/maximum-tf-%
+normalization-1.html},}, No Date.
+
+\bibitem[Hervé~Abdi1(No Date)]{pca}
+Lynne J.~Williama Hervé~Abdi1.
+\newblock Principal component analysis.
+\newblock No Date.
 
 \bibitem[A.K.Jain(1999)]{clustering_1}
 P.J.Flyn A.K.Jain, M.N.Murty.
@@ -82,17 +226,6 @@ V.Kumar L.Ert ¨~oz, M.Steinbach.
   high dimensional data.
 \newblock \emph{Proceedings of Second SIAM International Conference on Data
   Mining, SanFrancisco}, 2003.
-
-\bibitem[G.Karypis(1999)]{clustering_14}
-V.Kumar G.Karypis, E.H.Han.
-\newblock Chameleon:a hierarchical clustering algorithm using dynamic modeling.
-\newblock 1999.
-
-\bibitem[Noha~A.Yousri(2008)]{Mitosis_1}
-MohamedA.Ismail Noha~A.Yousri, MohamedS.Kamel.
-\newblock A distance-relatedness dynamic model for clustering high dimensional
-  data of arbitrary shapes and densities.
-\newblock \emph{Elsevier}, 2008.
 
 \bibitem[Mit(2012)]{Mitosis_2}
 \emph{[Online]http://glaros.dtc.umn.edu/gkhome/cluto/cluto/download[Accessed

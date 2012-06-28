@@ -2,6 +2,22 @@ This is BibTeX, Version 0.99cThe top-level auxiliary file: Thesis.aux
 The style file: unsrtnat.bst
 Database file #1: Bibliography.bib
 Warning--I didn't find a database entry for "pre_20"
+Too many commas in name 1 of "P. Basile,M. de Gemmis,A.L. Gentile,P. Lops,G. Semeraro" for entry disambiguation
+while executing---line 1233 of file unsrtnat.bst
+Too many commas in name 1 of "P. Basile,M. de Gemmis,A.L. Gentile,P. Lops,G. Semeraro" for entry disambiguation
+while executing---line 1233 of file unsrtnat.bst
+Too many commas in name 1 of "Jorg Sander, Martin Ester, Hans-Peter Kriegel, Xiaowei Xu" for entry literature_2
+while executing---line 1233 of file unsrtnat.bst
+Too many commas in name 1 of "Hansen, H.R., Ricci, F." for entry literature_4
+while executing---line 1233 of file unsrtnat.bst
+Too many commas in name 1 of "Sabri Elkateb, William Black,Piek Vossen,Horacio Rodr?guez,Musa Alkhalifa,Adam Pease,Christiane Fellbaum" for entry awn_2
+while executing---line 1233 of file unsrtnat.bst
+Too many commas in name 1 of "Sabri Elkateb, William Black,Piek Vossen,Horacio Rodr?guez,Musa Alkhalifa,Adam Pease,Christiane Fellbaum" for entry awn_2
+while executing---line 1233 of file unsrtnat.bst
+Too many commas in name 1 of "Sabri Elkateb, William Black,Piek Vossen,Horacio Rodr?guez,Musa Alkhalifa,Adam Pease,Christiane Fellbaum" for entry awn_2
+while executing---line 1233 of file unsrtnat.bst
+Too many commas in name 1 of "Sabri Elkateb, William Black,Piek Vossen,Horacio Rodr?guez,Musa Alkhalifa,Adam Pease,Christiane Fellbaum" for entry awn_2
+while executing---line 1233 of file unsrtnat.bst
 Name 1 in "A.K.Jain, M.N.Murty, P.J.Flyn," has a comma at the end for entry clustering_1
 while executing---line 1233 of file unsrtnat.bst
 Too many commas in name 1 of "T.Zhang,R.Ramakrishnan,M.Linvy,BIRCH" for entry clustering_6
@@ -44,31 +60,77 @@ Too many commas in name 1 of "Duda, R. O., P. E. Hart, D. G. Stork" for entry re
 while executing---line 1233 of file unsrtnat.bst
 Name 1 in "Zhang, Y, J. Callan, and T. Minka" has a comma at the end for entry recom_112
 while executing---line 1233 of file unsrtnat.bst
-Name 1 in "A.K.Jain, M.N.Murty, P.J.Flyn," has a comma at the end for entry clustering_1
+Too many commas in name 1 of "P. Basile,M. de Gemmis,A.L. Gentile,P. Lops,G. Semeraro" for entry disambiguation
 while executing---line 1315 of file unsrtnat.bst
-Name 1 in "A.K.Jain, M.N.Murty, P.J.Flyn," has a comma at the end for entry clustering_1
+Too many commas in name 1 of "P. Basile,M. de Gemmis,A.L. Gentile,P. Lops,G. Semeraro" for entry disambiguation
 while executing---line 1315 of file unsrtnat.bst
-Too many commas in name 1 of "T.Zhang,R.Ramakrishnan,M.Linvy,BIRCH" for entry clustering_6
+Too many commas in name 1 of "P. Basile,M. de Gemmis,A.L. Gentile,P. Lops,G. Semeraro" for entry disambiguation
 while executing---line 1315 of file unsrtnat.bst
-Too many commas in name 1 of "T.Zhang,R.Ramakrishnan,M.Linvy,BIRCH" for entry clustering_6
-while executing---line 1315 of file unsrtnat.bst
-Too many commas in name 1 of "W.Wang,J.Yang,M.Muntz,STING" for entry clustering_8
-while executing---line 1315 of file unsrtnat.bst
-Too many commas in name 1 of "W.Wang,J.Yang,M.Muntz,STING" for entry clustering_8
-while executing---line 1315 of file unsrtnat.bst
-Too many commas in name 1 of "R.Agrawal,J.Gehrke,D.Gunopulos,P.Raghavan" for entry clustering_9
-while executing---line 1315 of file unsrtnat.bst
-Too many commas in name 1 of "R.Agrawal,J.Gehrke,D.Gunopulos,P.Raghavan" for entry clustering_9
-while executing---line 1315 of file unsrtnat.bst
-Too many commas in name 1 of "G.Sheikholeslami,S.Chatterjee,A.Zhang,WaveCluster" for entry clustering_10
-while executing---line 1315 of file unsrtnat.bst
-Too many commas in name 1 of "G.Sheikholeslami,S.Chatterjee,A.Zhang,WaveCluster" for entry clustering_10
-while executing---line 1315 of file unsrtnat.bst
-Too many commas in name 1 of "M.Ester,H.-P.Kriegel,J.Sander,X.Xu" for entry clustering_12
-while executing---line 1315 of file unsrtnat.bst
-Too many commas in name 1 of "M.Ester,H.-P.Kriegel,J.Sander,X.Xu" for entry clustering_12
+Too many commas in name 1 of "P. Basile,M. de Gemmis,A.L. Gentile,P. Lops,G. Semeraro" for entry disambiguation
 while executing---line 1315 of file unsrtnat.bst
 Warning--empty journal in clustering_14
+Warning--empty author in literature_1
+Warning--empty title in literature_1
+Too many commas in name 1 of "Jorg Sander, Martin Ester, Hans-Peter Kriegel, Xiaowei Xu" for entry literature_2
+while executing---line 1315 of file unsrtnat.bst
+Too many commas in name 1 of "Jorg Sander, Martin Ester, Hans-Peter Kriegel, Xiaowei Xu" for entry literature_2
+while executing---line 1315 of file unsrtnat.bst
+Too many commas in name 1 of "Hansen, H.R., Ricci, F." for entry literature_4
+while executing---line 1315 of file unsrtnat.bst
+Too many commas in name 1 of "Hansen, H.R., Ricci, F." for entry literature_4
+while executing---line 1315 of file unsrtnat.bst
+Warning--empty journal in literature_5
+Warning--empty journal in lexical
+Warning--empty journal in semantic
+Warning--empty journal in lsa
+Warning--empty author in awn_0
+Warning--empty journal in awn_1
+Too many commas in name 1 of "Sabri Elkateb, William Black,Piek Vossen,Horacio Rodr?guez,Musa Alkhalifa,Adam Pease,Christiane Fellbaum" for entry awn_2
+while executing---line 1315 of file unsrtnat.bst
+Too many commas in name 1 of "Sabri Elkateb, William Black,Piek Vossen,Horacio Rodr?guez,Musa Alkhalifa,Adam Pease,Christiane Fellbaum" for entry awn_2
+while executing---line 1315 of file unsrtnat.bst
+Too many commas in name 1 of "Sabri Elkateb, William Black,Piek Vossen,Horacio Rodr?guez,Musa Alkhalifa,Adam Pease,Christiane Fellbaum" for entry awn_2
+while executing---line 1315 of file unsrtnat.bst
+Too many commas in name 1 of "Sabri Elkateb, William Black,Piek Vossen,Horacio Rodr?guez,Musa Alkhalifa,Adam Pease,Christiane Fellbaum" for entry awn_2
+while executing---line 1315 of file unsrtnat.bst
+Too many commas in name 1 of "Sabri Elkateb, William Black,Piek Vossen,Horacio Rodr?guez,Musa Alkhalifa,Adam Pease,Christiane Fellbaum" for entry awn_2
+while executing---line 1315 of file unsrtnat.bst
+Too many commas in name 1 of "Sabri Elkateb, William Black,Piek Vossen,Horacio Rodr?guez,Musa Alkhalifa,Adam Pease,Christiane Fellbaum" for entry awn_2
+while executing---line 1315 of file unsrtnat.bst
+Too many commas in name 1 of "Sabri Elkateb, William Black,Piek Vossen,Horacio Rodr?guez,Musa Alkhalifa,Adam Pease,Christiane Fellbaum" for entry awn_2
+while executing---line 1315 of file unsrtnat.bst
+Too many commas in name 1 of "Sabri Elkateb, William Black,Piek Vossen,Horacio Rodr?guez,Musa Alkhalifa,Adam Pease,Christiane Fellbaum" for entry awn_2
+while executing---line 1315 of file unsrtnat.bst
+Warning--empty journal in awn_2
+Warning--empty journal in wu
+Warning--empty journal in lucene
+Warning--empty journal in acadjstment
+Warning--empty author in tfidf_1
+Warning--empty journal in pca
+Name 1 in "A.K.Jain, M.N.Murty, P.J.Flyn," has a comma at the end for entry clustering_1
+while executing---line 1315 of file unsrtnat.bst
+Name 1 in "A.K.Jain, M.N.Murty, P.J.Flyn," has a comma at the end for entry clustering_1
+while executing---line 1315 of file unsrtnat.bst
+Too many commas in name 1 of "T.Zhang,R.Ramakrishnan,M.Linvy,BIRCH" for entry clustering_6
+while executing---line 1315 of file unsrtnat.bst
+Too many commas in name 1 of "T.Zhang,R.Ramakrishnan,M.Linvy,BIRCH" for entry clustering_6
+while executing---line 1315 of file unsrtnat.bst
+Too many commas in name 1 of "W.Wang,J.Yang,M.Muntz,STING" for entry clustering_8
+while executing---line 1315 of file unsrtnat.bst
+Too many commas in name 1 of "W.Wang,J.Yang,M.Muntz,STING" for entry clustering_8
+while executing---line 1315 of file unsrtnat.bst
+Too many commas in name 1 of "R.Agrawal,J.Gehrke,D.Gunopulos,P.Raghavan" for entry clustering_9
+while executing---line 1315 of file unsrtnat.bst
+Too many commas in name 1 of "R.Agrawal,J.Gehrke,D.Gunopulos,P.Raghavan" for entry clustering_9
+while executing---line 1315 of file unsrtnat.bst
+Too many commas in name 1 of "G.Sheikholeslami,S.Chatterjee,A.Zhang,WaveCluster" for entry clustering_10
+while executing---line 1315 of file unsrtnat.bst
+Too many commas in name 1 of "G.Sheikholeslami,S.Chatterjee,A.Zhang,WaveCluster" for entry clustering_10
+while executing---line 1315 of file unsrtnat.bst
+Too many commas in name 1 of "M.Ester,H.-P.Kriegel,J.Sander,X.Xu" for entry clustering_12
+while executing---line 1315 of file unsrtnat.bst
+Too many commas in name 1 of "M.Ester,H.-P.Kriegel,J.Sander,X.Xu" for entry clustering_12
+while executing---line 1315 of file unsrtnat.bst
 Warning--empty author in Mitosis_2
 Warning--empty title in Mitosis_2
 Too many commas in name 1 of "Hill, W., L. Stead, M. Rosenstein, G. Furnas" for entry recom_45
@@ -137,4 +199,4 @@ Warning--empty journal in pre_9
 Warning--empty journal in pre_10
 Warning--empty journal in pre_11
 Warning--empty author in pre_4
-(There were 63 error messages)
+(There were 87 error messages)

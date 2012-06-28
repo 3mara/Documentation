@@ -108,27 +108,33 @@ Note that all the word similarity measures are normalized so that they fall with
 \label {corpus}
 \subsubsection{LSA for Semantic Similarity}
 LSA is a fully automatic mathematical/statistical technique for extracting and inferring relations of expected contextual usage of words in passages of discourse. It is not a traditional natural language processing or artificial intelligence program; it uses no humanly constructed dictionaries, knowledge bases, semantic networks, grammars, syntactic parsers, or morphologies, or the like, and takes as its input only raw text parsed into words defined as unique character strings and separated into meaningful passages or samples such as sentences or paragraphs.
-Another way to think of this is that LSA represents the meaning of a word as a kind of average of the meaning of all the passages in which it appears, and the meaning of a passage as a kind of average of the meaning of all the words it contains. LSA's ability to simultaneously derive representations of these two interrelated kinds of meaning depends on an aspect of its mathematical machinery\citep{lsa}.
+Another way to think of this is that LSA represents the meaning of a word as a kind of average of the meaning of all the passages in which it appears, and the meaning of a passage as a kind of average of the meaning of all the words it contains. LSA's ability to simultaneously derive representations of these two interrelated kinds of meaning depends on an aspect of its mathematical machinery.\\
 
-\textit{How LSA works}
+A rough analogy of how this can happen is as follows. Read the following sentence:\\
+"John is Bob's father and Mary is Ann's mother." Now read this one: "Mary is Bob's mother."\\
+Because of the relations between the words mother, father, son, daughter, brother and sister that you already knew, adding the second sentence probably tended to make you think that that Bob and Ann were brother and sister, Ann the daughter of John, John the father of Ann, and Bob the son of Mary, even though none of these relations is explicitly expressed (and none follow necessarily from the presumed formal rules of English kinship naming.) The relationships inferred by LSA are also not logically defined, nor are they assumed to be consciously rationalizable as these could be. Instead, they are relations only of similarityãor of context sensitive similarityãbut they nevertheless have mutual entailments of the same general nature, and also give rise to fuzzy indirect inferences that may be weak or strong and logically right or wrong\citep{lsa}.
+
+\textit{How LSA works}\\
 The first step is to represent the text as a matrix (the term-by-document matrix T)in which each row stands for a unique word and each column stands for a text passage or other context. Each cell contains the frequency with which the word of its row appears in the passage denoted by its column. Next, the cell entries are subjected to a preliminary transformation, whose details we will describe later, in which each cell frequency is weighted by a function that expresses both the word's importance in the particular passage and the degree to which the word type carries information in the domain of discourse in general.
 Next, LSA applies singular value decomposition (SVD) to the matrix. This is a form of factor analysis, or more properly the mathematical generalization of which factor analysis is a special case. In SVD, a rectangular matrix is decomposed into the product of three other matrices. One component matrix (U) describes the original row entities as vectors of derived orthogonal factor values, another (V) describes the original column entities in the same way, and the third is a diagonal matrix (SIGMA) containing scaling values such that when the three components are matrix-multiplied, the original matrix (T) is reconstructed. 
 There is a mathematical proof that any matrix can be so decomposed perfectly, using no more factors than the smallest dimension of the original matrix. When fewer than the necessary number of factors are used, the reconstructed matrix is a least-squares best fit. 
 
-One can reduce the dimensionality of the solution simply by deleting coefficients in the diagonal matrix (SIGMA), ordinarily starting with the smallest. (In practice, for computational reasons, for very large corpora only a limited number of dimensions, currently a few thousands can be constructed). The SVD equations can be derived as follows:\\
+One can reduce the dimensionality of the solution simply by deleting coefficients in the diagonal matrix (SIGMA), ordinarily starting with the smallest. (In practice, for computational reasons, for very large corpora only a limited number of dimensions, currently a few thousands can be constructed). The SVD equations can be derived as follows\citep{lsa}:\\
+\begin{equation}
+\{X\} = \{W\}\{S\}\{P\}^T
+\end{equation}
 
-SVD Equation \\
-
-\textit{Stop-listing and stemming}
+\textit{Stop-listing and stemming}\\
 These are very rarely used. In keeping with the underlying theory and model, neither stemming nor stop-listing is appropriate or usually effective. As in natural language, the meaning of passages cannot be accurately reconstructed or understood without all of its words. However, when LSA is used to compare word strings shorter than normal text paragraphs, e.g. short sentences, zero weighting of function words is often pragmatically useful.
-\textit{Similarity in the reduced space}
+\textit{Similarity in the reduced space}\\
 Since both passages (documents) and terms (words) are represented as vectors, it is straight forward to compute the similarity between passage-passage, term-term, and term-passage. In addition, terms and/or passages can be combined to create new vectors in the space. The process by which new vectors can be added to an existing LSA space is called folding-in. The cosine distance between vectors is used as the measure of their similarity for many applications because of its relation to the dot-product criterion and has been found effective in practice, although other metrics, such as Euclidean distance or City-Block (Manhattan) distance are sometimes used.
 
-\textit{Shortfalls, objections, evidence and arguments}
-otential limitations should be noted:
-1. It is likely, of course, that LSA's “bag of words” method, that ignores all syntactical, logical and nonlinguistic pragmatic entailments, sometimes misses meanings or gets it scrambled.
-2. LSA became practical only when computational power and algorithm efficiency improved sufficiently to support SVD of thousands of words-by-thousands of contexts matrices; it is still impossible to perform SVD on the hundreds of thousands by tens of millions matrices that would be needed to truly represent the sum of an adult's language exposure.
-
+\textit{Shortfalls, objections, evidence and arguments}\\
+potential limitations should be noted:
+\begin{itemize}
+\item [1.] It is likely, of course, that LSA's “bag of words” method, that ignores all syntactical, logical and nonlinguistic pragmatic entailments, sometimes misses meanings or gets it scrambled.
+\item[2.] LSA became practical only when computational power and algorithm efficiency improved sufficiently to support SVD of thousands of words-by-thousands of contexts matrices; it is still impossible to perform SVD on the hundreds of thousands by tens of millions matrices that would be needed to truly represent the sum of an adult's language exposure.
+\end{itemize}
 Some commentators have also argued that LSA must be fundamentally wrong as theory because is not grounded in perception and intention. The strength of this objection is considerably reduced by the observation that language must veridically reflect these sources or it would be nearly useless, and by the human ability to generate, use and understand words as abstract and unrelated to perception as the word abstract itself, and by LSA’s varied successes.
 
 Indeed, one should not think of LSA as a fixed mechanism or its representations as
@@ -147,7 +153,7 @@ Language-specific concepts and relations are encoded as needed or desired. This 
 The approach follows a top-down procedure. Arabic Base Concepts are defined and extended via hyponymic relations to derive a core wordnet. The set of Common Base Concepts (CBCs) from the 12 languages in EWN and BalkaNet (Tufis 2004) are encoded as synsets; other language-specific concepts are added and translated manually to the closest synset(s) in Arabic. The same step is performed for all English synsets that currently have an equivalence relation in Suggested Upper Merged Ontology (SUMO).\\
 The first layers of hyponyms are chosen on the basis of linguistic and applications based criteria; the final phase completes the target set of concepts/synsets, including specific domains and named entities. Each synset construction step is followed by a validation phase, where formal consistency is checked and the coverage is evaluated in terms of frequency of occurrence and domain distribution.\\
 
-\textit{Structure and organization of AWN}
+\textit{Structure and organization of AWN}\\
 Because AWN is to be aligned not just to Princeton WordNet (PWN) (Fellbaum 1998) but to every wordnet aligned to PWN, the database design supports multiple languages, and the user interface will be explicitly multilingual rather than bilingual as was the one described in Black and Elkateb (2004)\citep{awn_1}.
 The database structure comprises four principal entity types, item, word, form and link.
 \begin{itemize}
@@ -158,7 +164,7 @@ The database structure comprises four principal entity types, item, word, form a
 \end{itemize}
 This data model has been specified in XML as an interchange format, but is also implemented in a MySQL database hosted by one of the partners. The database will be the primary deliverable of the project, and will be distributed freely to the community.
 
-\textit{Constructing AWN}
+\textit{Constructing AWN}\\
 The basic criteria for selecting synsets to be covered in AWN are\citep{awn_2}: 
 \begin{itemize}
 \item Connectivity: AWN should be as densely connected as possible by hyperonymy / hyponymy chains, etc. Most of the synsets of AWN should correspond to English WN counterparts and the overall topology of both wordnets should be similar.
@@ -173,7 +179,7 @@ The second step consists of the top-down vertical extension of BC, following Far
 The set of 17 heuristic methods used in the development of EWN will be applied to HBIL to derive candidate Arabic words/English synsets mappings. For each mapping the information attached includes the Arabic word and root, the English synset, POS, relative frequencies, mapping score, absolute depth in WN, number of gaps between the synset and the top of the WN hierarchy, and sources containing the pair.
 Arabic words in bilingual resources must be normalized and lemmatized (Diab et al. 2004, Habash and Rambow 2005) but vowels and diacritics must be maintained. Arabic roots are not vowelized.
 Following pre-processing, the set of scored Arabic word/English synset pairs becomes the input to the manual validation step. We proceed by chunks of related units (sets of related WN synsets, e.g. hyponymy chains and sets of related Arabic words, i.e., words having the same root) instead of individual units (synsets, senses, words).\\
-\textit{Shortfalls of AWN:}
+\textit{Shortfalls of AWN:}\\
 \begin{itemize}
 \item High Coupling with UI\\
 AWN suffers a very poor design that resulted in a high coupling between the Core Module and the Graphical User Interface (GUI) of the AWN, which made it very difficult to use the code module and the database without the GUI. However, we managed to decouple the GUI from the core modules of the AWN to allow its integration with other modules of semantic similarity. The decoupling process exerted a lot of time tracing and reverse engineering the code.
@@ -190,7 +196,7 @@ Another issue that consumes a lot of time is the path retrieval from the databas
 \end{itemize}
 \end{itemize}
   
-\textit{What we have done}
+\textit{What we have done}\\
 \begin{itemize}
 \item We managed to decouple the Code module from the GUI to be able to use each one separately.
 \item We fixed some bugs in the code.
@@ -346,8 +352,9 @@ We use two methods of computing term specificity. The first method based on mode
 In the following section we explain using Latent Semantic Analysis for approximating term Informativeness. Latent Semantic Analysis (LSA) is a language model that represents semantic word meaning as vectors in high-dimensional space. Word vectors are positioned in such a way that semantically-related words vectors point in similar directions or have a smaller angle / higher cosine between them. The representation is derived in an unsupervised manner, by observing occurrence patterns of words in a large corpus of natural language documents. Singular Value Decomposition (SVD) on the matrix of word/document occurrence counts is used to derive the optimal set of dimensions of the space in which all of the words can be represented as vectors. The number of dimensions is then artificially reduced to a smaller number (typically around 300) of most important dimensions, which has the effect of smoothing out incidental relationships and preserving significant ones between words. The resulting geometric space allows for straightforward representation of meaning of words and/or documents; the latter are simply a weighted geometric composition of constituent word vectors. Similarity in meaning between a pair of words or documents can be obtained by computing the cosine between their corresponding vectors. For details of LSA, please see (Landauer et al., 2007), and others.\\
 LSA applications almost always focus on computing the semantic similarity between words (terms). However, another property of LSA, that has a significant effect, is the term vector length. The vector length plays a very important role in many LSA calculations, in particular – in giving relative weights to the word vectors that constitute a particular text passage. As (Kintsch, 2001) wrote, “Intuitively, the vector length tells us how much information LSA has about this vector. [...] Words that LSA knows a lot about (because they appear frequently in the training corpus [...]) have greater vector lengths than words LSA does not know well. Function words that are used frequently in many different contexts have low vector lengths -- LSA knows nothing about them and cannot tell them apart since they appear in all contexts”.
 The metric of term Informativeness, or specificity, which we call LSAspec, is simply the ratio of LSA word vector length to the number of documents in the LSA training corpus that contain a particular word;
-Missing Equation\\
-Paper section 3.3\\
+\begin{equation}
+LSAspec(w)=\frac{\| \overrightarrow{w}\|}{df_w}
+\end{equation}
 The value can be interpreted as the rate of vector length growth. We argue that more specific, or informative, words have the greatest rate of vector length growth; LSA learns about their meaning faster, with relatively fewer exposures. To illustrate this concept, let's look at a few examples that were obtained by controlling the number of occurrences of a particular word in the LSA training corpus. \\
 @Mohsen: Should provide a graph for the relation of Vector lengths for some words vs. the number of documents containing those words.\\
 
@@ -358,12 +365,14 @@ Where D is the total number of documents in the corpus. The assumption behind it
 The term count in the given document is simply the number of times a given term appears in that document. This count is usually normalized to prevent a bias towards longer documents (which may have a higher term count regardless of the actual importance of that term in the document) to give a measure of the importance of the term t within the particular document d. One well-studied technique is to normalize the TF weights of all terms occurring in a document by the maximum TF in that document\citep{tfidf_1}.\\
 %----------------------------------------------------------------------------------------
 \subsection{Disambiguation}                                            
-Word Sense Disambiguation (WSD) is traditionally considered an AI-hard problem.A breakthrough in this field would have a significant impact on many relevant web-based applications, such as information retrieval and information extraction. This paper describes JIGSAW, a knowledge-based  WSD system that attemps to disambiguate all words in a text by exploiting WordNet1   senses. The main assumption is that a specific strategy for each Part-Of-Speech (POS)  is better than a single strategy. We evaluated the accuracy of JIGSAW on SemEval-2007 task 1 competition2 . This task is an  application-driven one, where the application is a fixed cross-lingual information retrieval system. Participants disambiguate text by assigning WordNet synsets, then the  system has to do the expansion to other languages, index the expanded documents and run the retrieval for all the languages in batch. The retrieval results are taken as a measure for the effectiveness of the disambiguation.
+Word Sense Disambiguation (WSD) is traditionally considered an AI-hard problem.A breakthrough in this field would have a significant impact on many relevant web-based applications, such as information retrieval and information extraction. next Section ~\ref{jigsawSec} describes JIGSAW, a knowledge-based  WSD algorithm that attemps to disambiguate all words in a text by exploiting WordNet senses. The main assumption is that a specific strategy for each Part-Of-Speech (POS)  is better than a single strategy.\\
+Participants disambiguate text by assigning WordNet synsets, then the  system has to do the expansion to other languages, index the expanded documents and run the retrieval for all the languages in batch. The retrieval results are taken as a measure for the effectiveness of the disambiguation.
 
 \subsubsection{JIGSAW Algorithm\citep{disambiguation}}
-The goal of a WSD algorithm consists in assigninga word wi occurring in a document d with its appropriate meaning or sense s, by exploiting the context C in where wi is found. The context C for wi is defined as a set of words that precede and follow $w_i$ .The sense s is selected from a predefined set of possibilities, usually known as sense inventory. In the proposed algorithm, the sense inventory is obtained from WordNet 1.6, according to SemEval-2007 task 1 instructions. \\
+\label{jigsawSec}
+The goal of a WSD algorithm consists in assigninga word wi occurring in a document d with its appropriate meaning or sense s, by exploiting the context $C$ in where wi is found. The context C for wi is defined as a set of words that precede and follow $w_i$ .The sense s is selected from a predefined set of possibilities, usually known as sense inventory. In the proposed algorithm, the sense inventory is obtained from WordNet, according to SemEval-2007 task 1 instructions. \\
 JIGSAW is a WSD algorithm based on the idea of combining three different strategies to with sense sij . The intuition behind this algorithm disambiguate nouns, verbs, adjectives and adverbs.The main motivation behind our approach is that the effectiveness of a WSD algorithm is strongly influenced by the POS tag of the target word. An adaptation of Lesk dictionary-based WSD algorithm has been used to disambiguate adjectives and adverbs (Banerjee and Pedersen, 2002), an adaptation of the Resnik algorithm has been used to disambiguate nouns (Resnik, 1995), while the algorithm we developed for disambiguating verbs exploits the nouns in the context of the verb as well as the nouns both in the glosses and in the phrases that WordNet utilizes to describe the usage of a verb. \\
-JIGSAW takes as input a document $d = {w_1 , w_2 , . . . , w_h }$ and returns a list of WordNet synsets $X = {s_1 , s_2 , . . . ,s_k }$ in which each element si is obtained by disambiguating the target word wi based on the information obtained from WordNet about a few immediately surrounding words. We define the context C of the target word to be a window of n words to the left and another n words to the right, for a total of 2n surrounding words. The algorithm is based on three different procedures for nouns, verbs, adverbs and adjectives, called JIGSAWnouns , JIGSAWverbs , JIGSAWothers , respectively. More details for each one of the above mentioned procedures follow.
+JIGSAW takes as input a document $d = {w_1 , w_2 , . . . , w_h }$ and returns a list of WordNet synsets $X = {s_1 , s_2 , . . . ,s_k }$ in which each element si is obtained by disambiguating the target word wi based on the information obtained from WordNet about a few immediately surrounding words. We define the context C of the target word to be a window of n words to the left and another n words to the right, for a total of $2n$ surrounding words. The algorithm is based on three different procedures for nouns, verbs, adverbs and adjectives, called JIGSAWnouns , JIGSAWverbs , JIGSAWothers , respectively. More details for each one of the above mentioned procedures follow.
 you may check code here \ref{jigsaw}     
 
 \subsection{Principal component analysis}\label{pca}
