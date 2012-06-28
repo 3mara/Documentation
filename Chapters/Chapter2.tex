@@ -179,36 +179,34 @@ items within the clusters. The methodology of dynamic modeling of clusters used 
 %----------------------------------------------------------------------------------------
 \section{Recommendation}
 As the World Wide Web grows, recommender systems are becoming an increasingly important aspect to all e-commerce portals. Popular purchasing sites such as Amazon (www.amazon.com) and eBay (www.ebay.com) represent some of the businesses that have integrated recommendations into their shopping experience. These systems help to overcome excess information overload by providing customers with recommendations or suggestions based on their likes and dislikes relative to other customers.
-Recommendations have become an integral aspect of these e-commerce platforms and have shown to personalize the shopping experience.(Schafer, Konstan and Riedi 1999) 
+Recommendations have become an integral aspect of these e-commerce platforms and have shown to personalize the shopping experience \citep{literature_3}.
 \subsection{Definition of a Recommender System}
-Recommender systems are a type of information filtering system that gives advice on products, information, or services that a user may be interested in. They assist users ith the decision making process when choosing items with multiple alternatives(Werthner, Hansen and Ricci 2007). Recommender systems are popular due to their e-commerce application purposes. Within the e-commerce world, recommendations provide aid to customers and help them find what they may be looking for, thus increasing business. In addition, it can be used as a tool to predict user's behavior, but should not be used to select recommendations on their behalf.
+Recommender systems are a type of information filtering system that gives advice on products, information, or services that a user may be interested in. They assist users ith the decision making process when choosing items with multiple alternatives \citep{literature_4}. Recommender systems are popular due to their e-commerce application purposes. Within the e-commerce world, recommendations provide aid to customers and help them find what they may be looking for, thus increasing business. In addition, it can be used as a tool to predict user's behavior, but should not be used to select recommendations on their behalf.
 There are two basic entities that appear in any recommender system are the user and the item of interest. The user can be a customer in an e-commerce platform or an avid book reader looking for a recommendation for the next book they should read. The users provide their ratings on items and are used to aid other users with their recommendations. The item is the second piece of a recommender system. Users give items ratings and the algorithm outputs recommended items based on new user queries.
 \subsection{Basics to a Recommender System}
-All recommender systems, whether they are in the e-commerce world or any other application, all have three things in common: they all take in inputs; they all have a goal; and they all produce and output (Vozalis and Margaritis 2003).
+All recommender systems, whether they are in the e-commerce world or any other application, all have three things in common: they all take in inputs; they all have a goal; and they all produce and output \citep{literature_5}.
 The input in a recommender system can depend on the type of recommender system algorithm. Generally, inputs belong to one of the following categories:
-1.Votes/Ratings: Ratings are based on the opinions of users on specific items that they have reviewed.
-2.Demographic data: Information such as age, gender, education, and location of the user are factors that a recommender system can utilize.
-3.Content data: textual analysis of documents related to the item that has been rated by the user. This information will also assist in the recommender system.
+\begin{itemize}
+\item {Votes/Ratings: Ratings are based on the opinions of users on specific items that they have reviewed.}
+\item {Demographic data: Information such as age, gender, education, and location of the user are factors that a recommender system can utilize.}
+\item {Content data: textual analysis of documents related to the item that has been rated by the user. This information will also assist in the recommender system.}
+\end{itemize}
 The goal of a recommender system is to predict what the user will rate an item or generate suggestions about these items. The goal is generated based on the input of previous users within a user-item matrix. This matrix is used to correlate users/items to the current user/item and generate a recommendation. 
 Finally, the output of a recommender system can either be a prediction or the expected rating score the active user will give the current item. A recommendation is a single or list of items that have the highest prediction.
 \subsection{Challenges of Recommender Systems}
 \subsubsection{Quality of a recommender system}
-Can the recommender system be trusted to produce accurate recommendations? The recommender system must eliminate recommendations produced by the system that the system believes the user will like but in actually the user does not like. These are also known as false positives. (Vozalis and Margaritis 2003)
+Can the recommender system be trusted to produce accurate recommendations? The recommender system must eliminate recommendations produced by the system that the system believes the user will like but in actually the user does not like. These are also known as false positives \citep{literature_5}.
 \subsubsection{Sparsity}
-Since users may not rate some items, the user-item matrix may have many missing ratings and be very sparse. Therefore, finding correlations between users and items becomes quite difficult and can lead to weak recommendations. (Melleville,Mooney and Nagarajan 2002)
+Since users may not rate some items, the user-item matrix may have many missing ratings and be very sparse. Therefore, finding correlations between users and items becomes quite difficult and can lead to weak recommendations \citep{literature_6}. 
 \subsubsection{Synonymy}
 Recommender systems are usually not able to discover associations between similar items that may just have different names.
 \subsubsection{First Rater Problem}
-An item cannot be recommended unless it has been rated before. The problem usually occurs when new items are added to the system or when there are items that are rarely viewed and therefore may not have been rated. (Melleville, Mooney and Nagarajan 2002)
-\subsection{Memory Based Recommender Systems}
-Recommender systems that utilize memory-based algorithms and utilize a user-item matrix to generate a prediction fall under the memory based recommender systems category. The majority of such systems belong to Collaborative Filtering (CF) systems. There are three steps into processing a recommendation based on a CF system:
-1.Representation
-2.Neighborhood Formation
-3.Recommendation Generation
-\subsubsection{User Based Recommendation}
+An item cannot be recommended unless it has been rated before. The problem usually occurs when new items are added to the system or when there are items that are rarely viewed and therefore may not have been rated \citep{literature_6}.
+
+\subsection{User Based Recommendation}
 A user-based recommendation system involves seeing how well users correlate to each other and using this information to derive predictions. A running example will demonstrate how a user-based recommendation can easily generate a prediction using a mathematical algorithm.
 
-\textit{Representation}
+\subsubsection{Representation}
 Since there are two aspects to a recommender system as noted above. The users and the items can be placed as a collection of numerical ratings into a user-item matrix.\\
 \begin{table}[ht]
 \caption{User Item Matrix} % title of Table
@@ -227,17 +225,19 @@ Lucy & 5 & 2& Did not rate \\[1ex]      % [1ex] adds vertical space
 \label{table:3} % is used to refer this table in the text
 \end{table}
 
-As seen in Table 1, a user-item matrix allows for the creation of a neighborhood that can be used to create similarity between users whom we wish to generate recommendations for. The user-item matrix is usually sparse since most users do not rate every item or may not have used the specific item.
+As seen in Table ~\ref{table:3}, a user-item matrix allows for the creation of a neighborhood that can be used to create similarity between users whom we wish to generate recommendations for. The user-item matrix is usually sparse since most users do not rate every item or may not have used the specific item.
 Sparsity can be an issue that can lead to weak recommendations. Two common processes that can reduce the sparsity issue and improve the satisfaction of the recommender system are:
 1.Default Voting: Setting an appropriate rating for all items that have not been rated. The cost of applying a default rating is low (Vozalis and Margaritis 2003).   - Table 1: Providing Lucy with a default value of 3 for Item 3.
 2.Pre-processing using averages: Scan through missing items and either averaging user’s votes or averaging the item votes and placing the resulting average as the rating value for the missing user-item matrix entry (Vozalis and Margaritis 2003)    - Table 1: Lucy’s other items provide an average of 3.5. Therefore, we can pre-process her rating for Item 3.
 
-\textit{Neighbourhood Formation}
+\subsubsection{Neighbourhood Formation}
 Generating a neighborhood involved calculating the similarity between the given users within the user-item matrix. Similarity will be used to generate a recommendation for a specific user.
 The algorithm follows these steps:
-1.Compare the similarity between all users with the active user.
-2.Select n users that have the highest similarity to build a neighborhood
-3.Compute the prediction based on this similarity matrix.
+\begin{itemize}
+\item Compare the similarity between all users with the active user.
+\item Select n users that have the highest similarity to build a neighborhood
+\item Compute the prediction based on this similarity matrix.
+\end{itemize}
 Within the user-based recommendation system, similarity between two users is calculated using the Pearson’s correlation coefficient. Pearson’s correlation (also called the Pearson's product moment correlation after Karl Pearsons) has become a standard way of calculating correlation.
 
 \begin{table}[ht]
@@ -257,24 +257,36 @@ Lucy &  & & 1 \\[1ex]      % [1ex] adds vertical space
 \label{table:3} % is used to refer this table in the text
 \end{table}
 
-\textit{Generate Prediction}
+\subsubsection{Generate Prediction}
 The prediction is a numerical value that represents a predicted opinion of the active user about a specific item. The prediction for a user-based collaborative filtering algorithm needs both the user-item matrix and the similarity matrix.
-\subsubsection{Item Based Recommendation}
+\subsection{Item Based Recommendation}
 This form of collaborative filtering is computed based on item relations and not on user relations. An item-based collaborative filtering algorithm looks at the set of items that an active user has rated and computes how similar the set of items are to the target item. Using this data, the item-based algorithm then uses the similarity and calculates the prediction based on weighted averages of the active user’s ratings on those similar items. (Sarwar, et al. 2001)
 The prediction algorithm for item-based collaborative filtering follows the same procedure as the user-based collaborative filtering. Item-based collaborative filtering follows the same three procedures: representation, neighborhood formation, and prediction generation. Within representation, item-based CF uses the user-item matrix seen in Table 1. The neighborhood formation creates a similarity matrix. This  similarity matrix uses the Pearson Correlation coefficient, however, determines the correlation between two items
-\subsection{Comparison between User‐based and Item‐based recommender systems}
+\subsection{Comparison between User based and Item based recommender systems}
 There are two major factors that come into play when talking about how user-based recommender systems compare to item-based recommender systems - the quality of the results and the performance results. 
 In an experiment performed by the GroupLens Research group, it was conclusive that based on building a user-based and an item-based recommender system, the item-based recommender system provided better quality of results with a lower MAE (Mean Accuracy Error) than the user-based recommender system(Sarwar, et al. 2001). 
 In terms of performance, the GroupLens Research group has also concluded that an  item based recommender system also has better performance over a user-based system since the item neighborhood is fairly static and can potentially be pre-computed, which results in higher online performance(Sarwar, et al. 2001)
 \subsection{Content Based Recommender Systems}
 Content-based recommendation systems or content-based filtering is based on textual information such as documents. These items are typically described with keywords and weights. Using nearest neighbor functions or clustering methods can allow this recommendation system to analyze these keywords and document content and use it as a basis to recommend a suitable item. This will also be based on the items characteristics. The different techniques used in this method of information filtering follow two approaches: Heuristic-based and model-based methods. Heuristic-based methods include KNN algorithms and clustering methods while model-based methods include Bayesian filtering, artificial neural networks, and clustering. Content-based filtering systems are limited by their content. If they have limited keywords or overspecialization problems, they produce weak recommendations. (Wei, Jinghu and Shaohung 2007)
+
+\subsection{Memory Based Recommender Systems}
+Recommender systems that utilize memory-based algorithms and utilize a user-item matrix to generate a prediction fall under the memory based recommender systems category. The majority of such systems belong to Collaborative Filtering (CF) systems. There are three steps into processing a recommendation based on a CF system:
+\begin{itemize}
+\item Representation
+\item Neighborhood Formation
+\item Recommendation Generation
+\end{itemize}
+
 \subsection{Testing the Accuracy of a Recommender System}
 There are multiple ways to evaluate the predictive quality of recommender systems. We usually evaluate a recommender system based on accuracy.
 \subsubsection{Accuracy}
 To measure a recommender system’s accuracy, we usually measure how effective the system’s predictions are to actual results. A common way of measuring accuracy is by using a statistical accuracy metric called Mean Accuracy Error (MAE).
 \subsubsection{Mean Absolute Error}
 MAE is measured for items that the user has expressed opinions and given a rating to using the following equation (Vozalis and Margaritis 2003). The recommender system has to have generated its list of predictions and the actual ratings have to be provided as well. A lower MAE corresponds to a more accurate prediction.
-MAEi=j=1ni|arij-rij|ni
-Where ni is the number of items that the user has expressed ratings on, rij are the predictions generated for the chosen items and arij are the actual ratings provided by the user for those chosen items.
-In terms of grades, which will be the case in this study, a MAE of 5 will mean that the predicted grades are on average different from the actual grades by about 5 marks.
+\begin{equation} \label{eq:1}
+MAE_i= \frac{\sum\limits_{j=0}^{n_i} {\left|ar_{ij} - r_{ij} \right|} } {n_i}
+\end{equation}
+Where $n_i$ is the number of items that the user has expressed ratings on, $r_{ij}$ are the predictions generated for the chosen items and $ar_{ij}$ are the actual ratings provided by the user for those chosen items.
+
+In terms of grades, which will be the case in this study, a MAE of $5$ will mean that the predicted grades are on average different from the actual grades by about $5$ marks.
 We can use the MAE to determine if specific sets of data to determine if the model improves as we enter more ratings for that specific user. With these tests and assessments, we can determine if our recommender system is performing well or if adjustments need to be made in order to improve accuracy.

@@ -8,34 +8,40 @@
 
 %----------------------------------------------------------------------------------------
 \section{Introduction}
-Recommender systems became an important research area since the appearance of the first papers on collaborative filtering since the mid-1990s  \citep{recom_45} \citep{recom_86} \citep{recom_97}. There has been much work done both in the industry and academia on developing new approaches to recommender systems over the last decade. The interest in this area still remains high because it constitutes a problem-rich research area and because of the abundance of practical applications that help users to deal with information overload and provide personalized recommendations, content and services to them. Examples of such applications include recommending books, CDs and other products at Amazon.com \citep{recom_61}, movies by MovieLens \citep{recom_67}, and news at VERSIFI Technologies (formerly AdaptiveInfo.com) \citep{recom_14}. Moreover, some of the vendors have incorporated recommendation capabilities into their commerce servers \citep{recom_78}.
+Recommender systems became an important research area since the appearance of the first papers on collaborative filtering since the mid-1990s  \citep{recom_45} \citep{recom_86} \citep{recom_97}. There has been much work done both in the industry and academia on developing new approaches to recommender systems over the last decade. The interest in this area still remains high because it constitutes a problem-rich research area and because of the abundance of practical applications that help users to deal with information overload and provide personalized recommendations, content and services to them. Examples of such applications include recommending books, CDs and other products at Amazon.com \citep{recom_61}, movies by MovieLens \citep{recom_67}, and news at VERSIFI Technologies (formerly AdaptiveInfo.com) \citep{recom_14}. Moreover, some of the vendors have incorporated recommendation capabilities into their commerce servers \citep{recom_78}. However in this chapter we focus on recommending news articels to users.
 
 
 \section{Recommendation Problem}
-The recommendation problem is reduced to the problem of estimating ratings for the items that have not been seen by a user. Intuitively, this estimation is usually based on the ratings given by this user to other items and on some other information that will be formally described below. Once we can estimate ratings for the yet unrated items, we can recommend to the user the item(s) with the highest estimated rating(s).
-More formally, the recommendation problem can be formulated as follows. Let C be the set of all users and let S be the set of all possible items that can be recommended, such as books, movies, or restaurants. The space S of possible items can be very large, ranging in hundreds of thousands or even millions of items in some applications, such as recommending books or CDs.
-Similarly, the user space can also be very large millions in some cases. Let u be a utility function that measures usefulness of item s to user c, i.e., $u :C \times S \rightarrow R$ , where $R$ is a totally ordered set (e.g., non-negative integers or real numbers within a certain range). Then for each user $c\in C$ , we want to choose such item $s' \in S$ that maximizes the user's utility. More formally
+The recommendation is used in this work to formalize the problem of estimating ratings for the articles that have not been seen by a user. Intuitively, this estimation is usually based on the ratings given by this user to other articles and on some other information that will be formally described below. Once we can estimate ratings for the yet unrated articles, we can recommend to the user the articles with the highest estimated rating(s).
+
+More formally, int this work the recommendation problem can be formulated as follows. Let C be the set of all users in the system and let S be the set of all possible articles that can be recommended. The space S of possible articles can be very large, ranging in hundreds of thousands or even millions of items if the application is extended.
+Similarly, the user space can also be very large millions in some cases. Let $u$ be a utility function that measures usefulness of article $s$ to user $c$, i.e., $u :C \times S \rightarrow R$ , where $R$ is a totally ordered set (e.g., non-negative integers or real numbers within a certain range). Then for each user $c\in C$ , we want to choose such article $s' \in S$ that maximizes the user's utility. More formally
 \begin{equation} \label{eq:1}
 \forall c \in C,\, S'_c = arg_{max u} (c,s)_{s \in S}
 \end{equation}
 
-In recommender systems the utility of an item is usually represented by a rating, which indicates how a particular user liked a particular item, e.g., John Doe gave the movie Harry Potter the rating of 7 (out of 10). However, as indicated earlier, in general utility can be an arbitrary function, including a profit function. Depending on the application, utility u can either be specified by the user, as is often done for the user-defined ratings, or is computed by the application, as can be the case for a profit-based utility function.
+The utility of an article is usually represented by a rating, which indicates how a particular user liked a particular item, e.g., Ahmed gave the article "\RL{انتخابات الرئاسه}" the rating of 7 (out of 10). The utility u can either be specified by the user, as is often done for the user-defined ratings, or is computed by the application, as will be shown later.
+
+
 Each element of the user space C can be defined with a profile that includes various user characteristics, such as age, gender, income, marital status, etc. In the simplest case, the profile can contain only a single (unique) element, such as User ID. Similarly, each element of the item space S is defined with a set of characteristics. For example, in a movie  recommendation application, where S is a collection of movies, each movie can be represented not only by its ID, but also by its title, genre, director, year of release, leading actors, etc.
 
-The central problem of recommender systems lies in that utility u is usually not defined on the whole $C \times S$ space, but only on some subset of it. This means u needs to be extrapolated to the whole space $C \times S$ . In recommender systems, utility is typically represented by ratings and is initially defined only on the items previously rated by the users. For example, in a movie recommendation application (such as the one at MovieLens.org), users initially rate some subset of movies that they have already seen. An example of a user-item rating matrix for a movie recommendation application is presented in Table ~\ref{table:1}, where ratings are specified on the scale of 1 to 5. The $\phi$ symbol for some of the ratings in Table ~\ref{table:1} means that the users have not rated the corresponding movies. Therefore, the recommendation engine should be able to estimate (predict) the ratings of the non-rated movie/user combinations and issue appropriate recommendations based on these predictions.
+
+ An example of a user-item rating matrix is presented in Table ~\ref{table:1}, where ratings are specified on the scale of 1 to 5. The $\phi$ symbol for some of the ratings in table ~\ref{table:1} means that the users have not rated the corresponding articl. Therefore, the recommendation engine should be able to estimate (predict) the ratings of the non-rated article/user combinations and issue appropriate recommendations based on these predictions.
+
+The central problem of recommender systems lies in that utility u is usually not defined on the whole $C \times S$ space, but only on some subset of it. This means $u$ needs to be extrapolated to the whole space $C \times S$ . In recommender systems, utility is typically represented by ratings and is initially defined only on the items previously rated by the users. For example, users initially rate some subset of articles that they have already seen.
 
 \begin{table}[ht]
 \caption{A fragment of a rating matrix for a movie recommender system} % title of Table
 \centering  % used for centering table
 \begin{tabular}{c c c c c} % centered columns (5 columns)
 \hline\hline                        %inserts double horizontal lines
- & K PAX & Life of Brain & Memento & Notorious\\ [0.5ex] % inserts table 
+ & \RL{انتخابات الرئاسه} & \RL{مبارة الاهلى} & \RL{البورصه تحقق ارباح} & \RL{نتيجة الثانويه العامه} \\ [0.5ex] % inserts table 
 %heading
 \hline                  % inserts single horizontal line
-Alice & 4 & 3& 2 &4  \\ % inserting body of the table
-Bob & $\phi$ & 4 & 5 &5  \\
-Cindy & 2 & 2  & 4 &$\phi$  \\
-David & 3 & $\phi$& 5 &2 \\[1ex]      % [1ex] adds vertical space
+Ahmed & 4 & 3& 2 &4  \\ % inserting body of the table
+Mohamed & $\phi$ & 4 & 5 &5  \\
+Aly & 2 & 2  & 4 &$\phi$  \\
+Yahya & 3 & $\phi$& 5 &2 \\[1ex]      % [1ex] adds vertical space
 \hline %inserts single line
 \end{tabular}
 \label{table:1} % is used to refer this table in the text
@@ -48,7 +54,7 @@ Extrapolations from known to unknown ratings are usually done by:
 \item Estimating the utility function that optimizes certain performance criterion, such as the mean square error.
 \end{itemize}
 
-Once the unknown ratings are estimated, actual recommendations of an item to a user are made by selecting the highest rating among all the estimated ratings for that user, according to formula ~\ref{eq:1}. Alternatively, we can recommend N best items to a user or a set of users to an item.
+Once the unknown ratings are estimated, actual recommendations of an item to a user are made by selecting the highest rating among all the estimated ratings for that user, according to formula ~\ref{eq:1}. Alternatively, we can recommend $N$ best items to a user or a set of users to an item.
 The new ratings of the not-yet-rated items can be estimated in many different ways using the methods from machine learning, approximation theory and various heuristics. Recommender systems are usually classified according to their approach to rating estimation.
 
 Recommender systems are usually classified into the following categories, based on how recommendations are made:
