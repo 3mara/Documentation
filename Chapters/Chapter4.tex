@@ -234,6 +234,61 @@ The underlying concept of an article cannot be assessed by merely considering th
 Wikipedia is a freely available online encyclopedia developed by a community of users. Wikipedia is growing exponentially and new content is being added to it daily by users around the globe. This encyclopedia comprises of millions of articles. The corpus is composed of several collections in different languages such as: English, French, German, Dutch, Chinese, Spanish, Arabic and Japanese. \\
 Each collection is a set of XML documents built using Wikipedia. Documents of the Wikipedia XML collections are organized in a hierarchy of categories defined by the authors of the articles. The Wikipedia category and article network has been studied in detail with respect to different graph properties. The Wikipedia category system is a taxonomy for arranging articles into categories and subcategories.\\
 However, this taxonomy is not a strict hierarchy or tree of categories, but allows multiple categorizations of topics simultaneously, i.e., some categories might have more than one super-category. It is shown that Wikipedia’s category system is a thesaurus that is collaboratively developed and used for indexing Wikipedia articles (Voss 2006). The articles within Wikipedia are inter-linked. However, these links do not impose any subcategory or super-category relationships. It has been observed that the Wikipedia article links graph generally resembles the World Wide Web graph.\\
+
+\textit{Lucene}\\
+We used lucene to buuild an inverted index on whole Wikipedia Articles, so we could be able to search for any term within the wikipedia aricles efficiently, aslo to get the search results ranked according to the search query.\\
+Here is some Sample code for how we used Lucene the following one is sample indexing code, where Document object represents Wikipedia Articles to be indexed, Also ArabicAnalyzer is the Analyzer we used as it uses the light stemmer as we do in the datasets we used in our experiments.\\
+
+\lstset{ %
+  language=Java,                % the language of the code
+  basicstyle=\footnotesize,           % the size of the fonts that are used for the code
+  numbers=left,                   % where to put the line-numbers
+  numberstyle=\tiny\color{gray},  % the style that is used for the line-numbers
+  stepnumber=2,                   % the step between two line-numbers. If it's 1, each line 
+                                  % will be numbered
+  numbersep=5pt,                  % how far the line-numbers are from the code
+  backgroundcolor=\color{white},      % choose the background color. You must add \usepackage{color}
+  showspaces=false,               % show spaces adding particular underscores
+  showstringspaces=false,         % underline spaces within strings
+  showtabs=false,                 % show tabs within strings adding particular underscores
+  frame=single,                   % adds a frame around the code
+  rulecolor=\color{black},        % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. commens (green here))
+  tabsize=2,                      % sets default tabsize to 2 spaces
+  captionpos=b,                   % sets the caption-position to bottom
+  breaklines=true,                % sets automatic line breaking
+  breakatwhitespace=false,        % sets if automatic breaks should only happen at whitespace
+  title=\lstname,                   % show the filename of files included with \lstinputlisting;
+                                  % also try caption instead of title
+  keywordstyle=\color{blue},          % keyword style
+  commentstyle=\color{dkgreen},       % comment style
+  stringstyle=\color{mauve},         % string literal style
+  escapeinside={\%*}{*)},            % if you want to add a comment within your code
+  morekeywords={*,...}               % if you want to add more keywords to the set
+}
+\begin{lstlisting}
+MaxFieldLength mlf = MaxFieldLength.UNLIMITED;
+ArabicAnalyzer analyzer = new ArabicAnalyzer(Version.LUCENE_35);
+IndexWriter writer = new IndexWriter(directory, analyzer, true, mlf);
+Document doc;
+doc = new Document();
+doc.add(new Field("url", br.readLine(),	Field.Store.YES,Field.Index.NOT_ANALYZED));
+doc.add(new Field("title", line,Field.Store.YES,Field.Index.ANALYZED, Field.TermVector.YES));
+doc.add(new Field("contents", br.readLine(),Field.Store.YES,Field.Index.ANALYZED, Field.TermVector.YES));
+writer.addDocument(doc);
+writer.close();
+\end{lstlisting}
+
+While this code Snippet represents sample for searching the inverted index for a certain term that occured in the Contents of any document in the inverted index.\\
+
+\begin{lstlisting}
+IndexReader reader = IndexReader.open(new SimpleFSDirectory(new File("Index")));
+TermDocs documents;
+Term term = new Term("contents", doc[i]);
+documents = reader.termDocs(term);
+reader.docFreq(term);
+documents.read(docs, freqs);
+\end{lstlisting}
+
 We downloaded the Wikipedia XML snapshot of 21 June 2011 and extracted around 450,000 Wikipedia articles. The text of each article was indexed using the Lucene text search engine library \citep{lucene} under the standard configuration. We also downloaded the Wikipedia database tables in order to create the category links graph and the article links graph.\\
 \begin{figure}[htbp]
 	\centering
@@ -246,6 +301,22 @@ We downloaded the Wikipedia XML snapshot of 21 June 2011 and extracted around 45
 We have managed to implement two techniques based on the wikipedia structure as an Ontology, First technique we treated the Wikipedia Articles as Concepts\citep{wiki_1},then Every Document is represented with a vector containg around 450,000 concepts.
 For each term $w_i$ in document $d_1$ we search the wikipedia articles using the inverted index built by Lucene ~\ref{luceneTool} and get vector of Articles or Concepts $V = \{c_1,c_2,...,c_n\}$, for every result lucene returns $c_i$, this term $w_i$ votes for every Article (concept  vector $V$ in the document vector where it was found by the $TF-IDF$ value in this Article.
 finally we have a vetocr $d =\{\sum_{i=0}^{N} tfidf(w_1,c_i),\sum_{i=0}^{N} tfidf(w_2,c_i),...\sum_{i=0}^{N} tfidf(w_n,c_i)\} $ that represents each document we have then we apply cosine similarity to these vectors to calculate similarities ~\ref{cosine}.\\
+\begin{figure}[htbp]
+	\centering
+		\includegraphics{./Figures/wiki_1.png}
+		\rule{35em}{0.05pt}
+	\caption[Wikipedia Indexing]{Wikipedia Indexing}
+	\label{fig:Indexing}
+\end{figure}
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics{./Figures/wiki_3.png}
+		\rule{35em}{0.05pt}
+	\caption[Wikipedia Method one]{Wikipedia Method one}
+	\label{fig:Method one}
+\end{figure}
+
 \textit{Drawbacks}\\
 \begin{itemize}
 \item High Dimensionality may lead to inaccurate or even incorrect results due to the sparse vectors comparison.
@@ -259,7 +330,13 @@ f(a) =a_{min}+ (a- a_{low})\times \frac{a_{max}-a_{min}}{a_{high} - a_{low}}
 \end{equation}
 
 Concerning Second Approach using the Wikipedia,We utilized the wikipedia Database ~\ref{wiki_DB} and used the categories each articles belongs to to be our concepts instead of the Article it'self. Our scoring scheme was simply count the number of times that each Wikipedia category was associated with one of the N results returned by lucene ~\ref{lucene} inverted index \citep{wiki_2}.
-
+\begin{figure}[htbp]
+	\centering
+		\includegraphics{./Figures/wiki_2.png}
+		\rule{35em}{0.05pt}
+	\caption[Wikipedia Method Two]{Wikipedia Method Two}
+	\label{fig:Method Two}
+\end{figure}
 \subsection{Term Weigthing using Specificity}
 The following section provides more insight into term Specificity, which is the idea that some words carry more semantic content than others which is also referred to as Semantic Informativeness. Computational estimation of this quantity, term specificity, is important for various applications such as information retrieval. Here in addition to the similarity of words, we also take into account the specificity of words, so that we can give a higher weight to a semantic matching identified between two specific words (e.g. collie and sheepdog), and give less importance to the similarity measured between generic concepts (e.g. get and become).\\
  While the specificity of words is already measured to some extent by their depth in the semantic hierarchy, we are reinforcing this factor with a corpus-based measure of word specificity, based on distributional information learned from large corpora.
