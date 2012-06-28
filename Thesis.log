@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=pdflatex 2012.6.25)  28 JUN 2012 22:20
+This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=pdflatex 2012.6.25)  28 JUN 2012 22:40
 entering extended mode
 **C:/Users/3mara/GP/GP_Documentation/trunk/Thesis.tex
 (C:/Users/3mara/GP/GP_Documentation/trunk/Thesis.tex
@@ -1043,14 +1043,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 287--288
 
  []
 
-[42] <./Figures/wiki_DB.png, id=1271, 515.9275pt x 481.8pt>
+[42] <./Figures/wiki_DB.png, id=1271, 449.68pt x 293.095pt>
 File: ./Figures/wiki_DB.png Graphic file (type png)
 
 <use ./Figures/wiki_DB.png>
-Overfull \hbox (55.09073pt too wide) in paragraph at lines 301--303
- [][] 
- []
-
 <./Figures/wiki_1.png, id=1275, 129.48375pt x 118.041pt>
 File: ./Figures/wiki_1.png Graphic file (type png)
 
@@ -1063,19 +1059,20 @@ Underfull \hbox (badness 10000) in paragraph at lines 326--327
 
  []
 
+[43 <C:/Users/3mara/GP/GP_Documentation/trunk/Figures/wiki_DB.png>] [44 <C:/Use
+rs/3mara/GP/GP_Documentation/trunk/Figures/wiki_1.png (PNG copy)> <C:/Users/3ma
+ra/GP/GP_Documentation/trunk/Figures/wiki_3.png (PNG copy)>]
 
-LaTeX Warning: Reference `wiki_DB' on page 43 undefined on input line 338.
+LaTeX Warning: Reference `wiki_DB' on page 45 undefined on input line 338.
 
 
-LaTeX Warning: Reference `lucene' on page 43 undefined on input line 338.
+LaTeX Warning: Reference `lucene' on page 45 undefined on input line 338.
 
-<./Figures/wiki_2.png, id=1280, 272.217pt x 385.44pt>
+<./Figures/wiki_2.png, id=1292, 272.217pt x 385.44pt>
 File: ./Figures/wiki_2.png Graphic file (type png)
 
-<use ./Figures/wiki_2.png> [43] [44 <C:/Users/3mara/GP/GP_Documentation/trunk/F
-igures/wiki_DB.png>] [45 <C:/Users/3mara/GP/GP_Documentation/trunk/Figures/wiki
-_1.png (PNG copy)> <C:/Users/3mara/GP/GP_Documentation/trunk/Figures/wiki_3.png
- (PNG copy)>]
+<use ./Figures/wiki_2.png> [45 <C:/Users/3mara/GP/GP_Documentation/trunk/Figure
+s/wiki_2.png (PNG copy)>]
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ì in font cmr10!
@@ -1085,7 +1082,7 @@ Missing character: There is no ú in font cmr10!
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ù in font cmr10!
- [46 <C:/Users/3mara/GP/GP_Documentation/trunk/Figures/wiki_2.png (PNG copy)>]
+ [46]
 Underfull \hbox (badness 10000) in paragraph at lines 357--360
 
  []
@@ -1123,7 +1120,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 
 LaTeX Warning: Reference `jigsaw' on page 48 undefined on input line 376.
 
-[48]) (C:\Users\3mara\GP\GP_Documentation\trunk\Chapters\Chapter5.tex [49]
+) (C:\Users\3mara\GP\GP_Documentation\trunk\Chapters\Chapter5.tex [48] [49]
 Chapter 5.
 ------------------------------------------------------------------------------
  5 Document Clustering
@@ -1825,7 +1822,7 @@ ublic/amsfonts/cm/cmsy8.pfb><C:/Program Files/MikTex/fonts/type1/public/amsfont
 s/cm/cmti10.pfb><C:/Program Files/MikTex/fonts/type1/public/amsfonts/cm/cmti12.
 pfb><C:/Program Files/MikTex/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Prog
 ram Files/MikTex/fonts/type1/public/arabtex/xnsh14.pfb>
-Output written on Thesis.pdf (115 pages, 2358167 bytes).
+Output written on Thesis.pdf (115 pages, 2321344 bytes).
 PDF statistics:
  1891 PDF objects out of 2073 (max. 8388607)
  447 named destinations out of 1000 (max. 500000)

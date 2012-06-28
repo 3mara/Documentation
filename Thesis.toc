@@ -80,12 +80,12 @@
 \contentsline {subsection}{\numberline {4.2.3}Knowledge Based}{35}{subsection.110}
 \contentsline {subsubsection}{\numberline {4.2.3.1}AWN}{35}{subsubsection.111}
 \contentsline {subsubsection}{\numberline {4.2.3.2}Wikipedia}{40}{subsubsection.113}
-\contentsline {subsection}{\numberline {4.2.4}Term Weigthing using Specificity}{45}{subsection.137}
-\contentsline {subsubsection}{\numberline {4.2.4.1}Latent Semantic Analysis:}{47}{subsubsection.138}
-\contentsline {subsubsection}{\numberline {4.2.4.2}Inverse Document Frequency:}{48}{subsubsection.140}
-\contentsline {subsection}{\numberline {4.2.5}Disambiguation}{48}{subsection.141}
+\contentsline {subsection}{\numberline {4.2.4}Term Weigthing using Specificity}{46}{subsection.137}
+\contentsline {subsubsection}{\numberline {4.2.4.1}Latent Semantic Analysis:}{46}{subsubsection.138}
+\contentsline {subsubsection}{\numberline {4.2.4.2}Inverse Document Frequency:}{47}{subsubsection.140}
+\contentsline {subsection}{\numberline {4.2.5}Disambiguation}{47}{subsection.141}
 \contentsline {subsubsection}{\numberline {4.2.5.1}JIGSAW Algorithm\citep {disambiguation}}{48}{subsubsection.142}
-\contentsline {subsection}{\numberline {4.2.6}Principal component analysis}{49}{subsection.143}
+\contentsline {subsection}{\numberline {4.2.6}Principal component analysis}{48}{subsection.143}
 \contentsline {chapter}{\numberline {5}Document Clustering}{50}{chapter.144}
 \contentsline {section}{\numberline {5.1}Introduction}{50}{section.145}
 \contentsline {section}{\numberline {5.2}DBSCAN}{51}{section.146}
