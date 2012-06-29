@@ -21,8 +21,6 @@ width=1\textwidth]{./Figures/arch_1.png}
 \label{fig:arch_1}
 \end{figure}
 
-
-
 \section{Web crawlers}\label{sec:crowlers}
 A part of our system is collecting the news articles that will be later processed. An approach would be manually feeding the system with these articles. However, this approach has a very low throughput and scalability with respect to the tremendous increase in the news streams day after day. A more practical approach is autonomous web crawlers that starts at some URL and then moves to all the outgoing links. Web crawlers also parses the web page and extracts the textual content which will be later processed. In our system we used Web Harvest [REF Web Harvest in tools section] project. Web Harvest, given a parsing XML file and some starting URLs, starts the crawling process at the starting URLs. Web Harvest parses the web page according to the given XML file and extracts all the URLs in the current page, URLs that belong to the same domain name as the page being processed, it saves the page content to an external directory and moves to the new URLs. The web pages’ content that the crawler saved is then fed into the preprocessing module of the system for further processing.
 \section{Preprocessing}\label{sec:preprocessing}

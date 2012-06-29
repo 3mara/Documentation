@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=pdflatex 2012.6.25)  29 JUN 2012 02:20
+This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=pdflatex 2012.6.25)  29 JUN 2012 02:23
 entering extended mode
 **C:/Users/3mara/GP/GP_Documentation/trunk/Thesis.tex
 (C:/Users/3mara/GP/GP_Documentation/trunk/Thesis.tex
@@ -798,14 +798,14 @@ File: ./Figures/arch_2.png Graphic file (type png)
 
 <use ./Figures/arch_2.png>
 
-LaTeX Warning: Float too large for page by 39.21565pt on input line 40.
+LaTeX Warning: Float too large for page by 39.21565pt on input line 38.
 
 <./Figures/arch_3.png, id=952, 427.5975pt x 245.41687pt>
 File: ./Figures/arch_3.png Graphic file (type png)
 
 <use ./Figures/arch_3.png>
 
-LaTeX Warning: File `./Figures/Semantic module.png' not found on input line 60.
+LaTeX Warning: File `./Figures/Semantic module.png' not found on input line 58.
 
 
 <./Figures/Semantic module.png, id=953, 597.432pt x 844.95676pt>
@@ -819,7 +819,7 @@ Missing character: There is no ™ in font cmr10!
  [18]
 
 LaTeX Warning: File `./Figures/Clustering Module.png' not found on input line 8
-7.
+5.
 
 <./Figures/Clustering Module.png, id=964, 447.47176pt x 431.211pt>
 File: ./Figures/Clustering Module.png Graphic file (type png)
@@ -830,7 +830,7 @@ File: ./Figures/reco_1.png Graphic file (type png)
 
 <use ./Figures/reco_1.png>
 
-LaTeX Warning: Float too large for page by 40.25325pt on input line 109.
+LaTeX Warning: Float too large for page by 40.25325pt on input line 107.
 
 [19] <./Figures/reco_2.png, id=973, 818.05624pt x 519.9425pt>
 File: ./Figures/reco_2.png Graphic file (type png)
@@ -1702,7 +1702,7 @@ rogram Files/MikTex/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files
 /amsfonts/cm/cmti10.pfb><C:/Program Files/MikTex/fonts/type1/public/amsfonts/cm
 /cmti12.pfb><C:/Program Files/MikTex/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
 <C:/Program Files/MikTex/fonts/type1/public/arabtex/xnsh14.pfb>
-Output written on Thesis.pdf (102 pages, 2487863 bytes).
+Output written on Thesis.pdf (102 pages, 2487866 bytes).
 PDF statistics:
  1683 PDF objects out of 1728 (max. 8388607)
  393 named destinations out of 1000 (max. 500000)
