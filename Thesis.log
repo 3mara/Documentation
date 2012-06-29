@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=pdflatex 2012.6.25)  29 JUN 2012 01:39
+This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=pdflatex 2012.6.25)  29 JUN 2012 02:20
 entering extended mode
 **C:/Users/3mara/GP/GP_Documentation/trunk/Thesis.tex
 (C:/Users/3mara/GP/GP_Documentation/trunk/Thesis.tex
@@ -492,9 +492,6 @@ Package hyperref Info: Option `colorlinks' set `true' on input line 34.
 LaTeX Warning: Label `table:3' multiply defined.
 
 
-LaTeX Warning: Label `fig:arch_1' multiply defined.
-
-
 LaTeX Warning: Label `eq:1' multiply defined.
 
 
@@ -739,7 +736,7 @@ Missing character: There is no ú in font cmr10!
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ù in font cmr10!
-[4] <./Figures/clustering.png, id=857, 420.82219pt x 173.14688pt>
+[4] <./Figures/clustering.png, id=861, 420.82219pt x 173.14688pt>
 File: ./Figures/clustering.png Graphic file (type png)
 
 <use ./Figures/clustering.png>
@@ -747,11 +744,11 @@ Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ô in font cmr10!
  [5 <C:/Users/3mara/GP/GP_Documentation/trunk/Figures/clustering.png>]
-<./Figures/clustering_2.png, id=867, 330.48468pt x 107.65219pt>
+<./Figures/clustering_2.png, id=871, 330.48468pt x 107.65219pt>
 File: ./Figures/clustering_2.png Graphic file (type png)
 
 <use ./Figures/clustering_2.png>
-<./Figures/clustering_3.png, id=869, 403.5075pt x 167.87718pt>
+<./Figures/clustering_3.png, id=873, 403.5075pt x 167.87718pt>
 File: ./Figures/clustering_3.png Graphic file (type png)
 
 <use ./Figures/clustering_3.png> [6 <C:/Users/3mara/GP/GP_Documentation/trunk/F
@@ -786,7 +783,7 @@ Chapter 3.
 ------------------------------------------------------------------------------
  3 System Architecture
 ------------------------------------------------------------------------------
-<./Figures/arch_1.png, id=940, 794.97pt x 614.295pt>
+<./Figures/arch_1.png, id=944, 794.97pt x 614.295pt>
 File: ./Figures/arch_1.png Graphic file (type png)
 
 <use ./Figures/arch_1.png>
@@ -796,38 +793,57 @@ Missing character: There is no ô in font cmr10!
  [16
 
 ]
-<./Figures/arch_2.png, id=947, 1000.03612pt x 665.3357pt>
+<./Figures/arch_2.png, id=951, 1000.03612pt x 665.3357pt>
 File: ./Figures/arch_2.png Graphic file (type png)
 
 <use ./Figures/arch_2.png>
 
 LaTeX Warning: Float too large for page by 39.21565pt on input line 40.
 
-<./Figures/arch_3.png, id=948, 959.08313pt x 488.57532pt>
+<./Figures/arch_3.png, id=952, 427.5975pt x 245.41687pt>
 File: ./Figures/arch_3.png Graphic file (type png)
 
-<use ./Figures/arch_3.png> [17 <C:/Users/3mara/GP/GP_Documentation/trunk/Figure
-s/arch_1.png (PNG copy)>]
+<use ./Figures/arch_3.png>
+
+LaTeX Warning: File `./Figures/Semantic module.png' not found on input line 60.
+
+
+<./Figures/Semantic module.png, id=953, 597.432pt x 844.95676pt>
+File: ./Figures/Semantic module.png Graphic file (type png)
+
+<use ./Figures/Semantic module.png> [17 <C:/Users/3mara/GP/GP_Documentation/tru
+nk/Figures/arch_1.png (PNG copy)>]
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ô in font cmr10!
  [18]
-<./Figures/reco_1.png, id=961, 959.08313pt x 649.67719pt>
+
+LaTeX Warning: File `./Figures/Clustering Module.png' not found on input line 8
+7.
+
+<./Figures/Clustering Module.png, id=964, 447.47176pt x 431.211pt>
+File: ./Figures/Clustering Module.png Graphic file (type png)
+
+<use ./Figures/Clustering Module.png>
+<./Figures/reco_1.png, id=967, 959.08313pt x 649.67719pt>
 File: ./Figures/reco_1.png Graphic file (type png)
 
 <use ./Figures/reco_1.png>
 
-LaTeX Warning: Float too large for page by 40.25325pt on input line 92.
+LaTeX Warning: Float too large for page by 40.25325pt on input line 109.
 
-[19] <./Figures/reco_2.png, id=967, 818.05624pt x 519.9425pt>
+[19] <./Figures/reco_2.png, id=973, 818.05624pt x 519.9425pt>
 File: ./Figures/reco_2.png Graphic file (type png)
 
 <use ./Figures/reco_2.png> [20])
 (C:\Users\3mara\GP\GP_Documentation\trunk\Chapters\Chapter4.tex [21] [22 <C:/Us
 ers/3mara/GP/GP_Documentation/trunk/Figures/arch_2.png (PNG copy)>] [23 <C:/Use
 rs/3mara/GP/GP_Documentation/trunk/Figures/arch_3.png (PNG copy)>] [24 <C:/User
-s/3mara/GP/GP_Documentation/trunk/Figures/reco_1.png (PNG copy)>] [25 <C:/Users
-/3mara/GP/GP_Documentation/trunk/Figures/reco_2.png (PNG copy)>]
+s/3mara/GP/GP_Documentation/trunk/Figures/Semantic module.png (PNG copy)>]
+[25 <C:/Users/3mara/GP/GP_Documentation/trunk/Figures/Clustering Module.png (PN
+G copy)>] [26 <C:/Users/3mara/GP/GP_Documentation/trunk/Figures/reco_1.png (PNG
+ copy)>] [27 <C:/Users/3mara/GP/GP_Documentation/trunk/Figures/reco_2.png (PNG 
+copy)>]
 Chapter 4.
 ------------------------------------------------------------------------------
  4 Document Similarity
@@ -837,7 +853,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 15--16
 
  []
 
-[26
+[28
 
 ]
 LaTeX Font Info:    Try loading font information for U+xnsh on input line 26.
@@ -850,15 +866,15 @@ Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ô in font cmr10!
 
-<./Figures/a.png, id=1006, 263.98625pt x 116.435pt>
+<./Figures/a.png, id=1020, 263.98625pt x 116.435pt>
 File: ./Figures/a.png Graphic file (type png)
  <use ./Figures/a.png>
-[27 <C:/Users/3mara/GP/GP_Documentation/trunk/Figures/a.png>]
+[29 <C:/Users/3mara/GP/GP_Documentation/trunk/Figures/a.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 62--64
 
  []
 
-[28]
+[30]
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ú in font cmr10!
@@ -871,7 +887,7 @@ Missing character: There is no ú in font cmr10!
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ù in font cmr10!
- [29]
+ [31]
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ô in font cmr10!
@@ -883,12 +899,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 110--112
 
  []
 
-[30]
+[32]
 Missing character: There is no √ in font cmr10!
 Missing character: There is no £ in font cmr10!
 Missing character: There is no √ in font cmr10!
 Missing character: There is no £ in font cmr10!
- [31]
+ [33]
 Underfull \hbox (badness 10000) in paragraph at lines 122--123
 
  []
@@ -902,7 +918,7 @@ Missing character: There is no ù in font cmr10!
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ô in font cmr10!
-[32]
+[34]
 Underfull \hbox (badness 10000) in paragraph at lines 145--149
 
  []
@@ -912,12 +928,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 151--155
 
  []
 
-[33] [34]
+[35] [36]
 Underfull \hbox (badness 10000) in paragraph at lines 177--183
 
  []
 
-[35]
+[37]
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ô in font cmr10!
@@ -935,7 +951,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 188--192
 
  []
 
-[36]
+[38]
 Underfull \hbox (badness 10000) in paragraph at lines 192--193
 
  []
@@ -945,14 +961,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 199--200
 
  []
 
-[37]
+[39]
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ô in font cmr10!
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ô in font cmr10!
- [38]
+ [40]
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ú in font cmr10!
@@ -972,7 +988,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 240--243
 
  []
 
-[39]
+[41]
 Underfull \hbox (badness 10000) in paragraph at lines 244--247
 
  []
@@ -984,15 +1000,15 @@ Underfull \hbox (badness 10000) in paragraph at lines 287--288
 
  []
 
-[40] <./Figures/wiki_DB.png, id=1125, 449.68pt x 293.095pt>
+[42] <./Figures/wiki_DB.png, id=1139, 449.68pt x 293.095pt>
 File: ./Figures/wiki_DB.png Graphic file (type png)
 
 <use ./Figures/wiki_DB.png>
-<./Figures/wiki_1.png, id=1129, 129.48375pt x 118.041pt>
+<./Figures/wiki_1.png, id=1143, 129.48375pt x 118.041pt>
 File: ./Figures/wiki_1.png Graphic file (type png)
 
 <use ./Figures/wiki_1.png>
-<./Figures/wiki_3.png, id=1130, 248.127pt x 264.99pt>
+<./Figures/wiki_3.png, id=1144, 248.127pt x 264.99pt>
 File: ./Figures/wiki_3.png Graphic file (type png)
 
 <use ./Figures/wiki_3.png>
@@ -1000,19 +1016,19 @@ Underfull \hbox (badness 10000) in paragraph at lines 326--327
 
  []
 
-[41 <C:/Users/3mara/GP/GP_Documentation/trunk/Figures/wiki_DB.png>] [42 <C:/Use
+[43 <C:/Users/3mara/GP/GP_Documentation/trunk/Figures/wiki_DB.png>] [44 <C:/Use
 rs/3mara/GP/GP_Documentation/trunk/Figures/wiki_1.png (PNG copy)> <C:/Users/3ma
 ra/GP/GP_Documentation/trunk/Figures/wiki_3.png (PNG copy)>]
 
-LaTeX Warning: Reference `wiki_DB' on page 43 undefined on input line 338.
+LaTeX Warning: Reference `wiki_DB' on page 45 undefined on input line 338.
 
 
-LaTeX Warning: Reference `lucene' on page 43 undefined on input line 338.
+LaTeX Warning: Reference `lucene' on page 45 undefined on input line 338.
 
-<./Figures/wiki_2.png, id=1146, 272.217pt x 385.44pt>
+<./Figures/wiki_2.png, id=1161, 272.217pt x 385.44pt>
 File: ./Figures/wiki_2.png Graphic file (type png)
 
-<use ./Figures/wiki_2.png> [43 <C:/Users/3mara/GP/GP_Documentation/trunk/Figure
+<use ./Figures/wiki_2.png> [45 <C:/Users/3mara/GP/GP_Documentation/trunk/Figure
 s/wiki_2.png (PNG copy)>]
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
@@ -1023,7 +1039,7 @@ Missing character: There is no ú in font cmr10!
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ù in font cmr10!
- [44]
+ [46]
 Underfull \hbox (badness 10000) in paragraph at lines 357--360
 
  []
@@ -1033,7 +1049,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 362--367
 
  []
 
-[45]
+[47]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `\begingroup' on input line 371.
@@ -1059,47 +1075,43 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `\new@ifnextchar' on input line 371.
 
 
-LaTeX Warning: Reference `jigsaw' on page 46 undefined on input line 376.
+LaTeX Warning: Reference `jigsaw' on page 48 undefined on input line 376.
 
-) (C:\Users\3mara\GP\GP_Documentation\trunk\Chapters\Chapter5.tex [46] [47]
+) (C:\Users\3mara\GP\GP_Documentation\trunk\Chapters\Chapter5.tex [48] [49]
 Chapter 5.
 ------------------------------------------------------------------------------
  5 Document Clustering
 ------------------------------------------------------------------------------
-[48
+[50
 
-] [49] [50] <./Figures/Mitosis_1.png, id=1235, 306.39468pt x 137.01187pt>
+] [51] [52] <./Figures/Mitosis_1.png, id=1249, 306.39468pt x 137.01187pt>
 File: ./Figures/Mitosis_1.png Graphic file (type png)
 
-<use ./Figures/Mitosis_1.png> [51 <C:/Users/3mara/GP/GP_Documentation/trunk/Fig
+<use ./Figures/Mitosis_1.png> [53 <C:/Users/3mara/GP/GP_Documentation/trunk/Fig
 ures/Mitosis_1.png>]
-<./Figures/Mitosis_2.png, id=1242, 309.40594pt x 140.02313pt>
+<./Figures/Mitosis_2.png, id=1256, 309.40594pt x 140.02313pt>
 File: ./Figures/Mitosis_2.png Graphic file (type png)
 
-<use ./Figures/Mitosis_2.png> [52]
+<use ./Figures/Mitosis_2.png> [54]
 Missing character: There is no ¬ in font cmr10!
 Missing character: There is no ó in font cmr10!
- [53 <C:/Users/3mara/GP/GP_Documentation/trunk/Figures/Mitosis_2.png>]
+ [55 <C:/Users/3mara/GP/GP_Documentation/trunk/Figures/Mitosis_2.png>]
 Missing character: There is no ¬ in font cmr10!
 Missing character: There is no ó in font cmr10!
 
-<./Figures/Mitosis_6.png, id=1253, 959.08313pt x 554.82281pt>
+<./Figures/Mitosis_6.png, id=1267, 389.20406pt x 495.35063pt>
 File: ./Figures/Mitosis_6.png Graphic file (type png)
 
 <use ./Figures/Mitosis_6.png>
-Overfull \hbox (498.24529pt too wide) in paragraph at lines 168--170
- [][] 
- []
-
-<./Figures/Mitosis_7.png, id=1257, 365.86688pt x 264.23718pt>
+<./Figures/Mitosis_7.png, id=1271, 365.86688pt x 264.23718pt>
 File: ./Figures/Mitosis_7.png Graphic file (type png)
 
 <use ./Figures/Mitosis_7.png>
-<./Figures/Mitosis_8.png, id=1258, 367.3725pt x 250.68657pt>
+<./Figures/Mitosis_8.png, id=1272, 367.3725pt x 250.68657pt>
 File: ./Figures/Mitosis_8.png Graphic file (type png)
 
-<use ./Figures/Mitosis_8.png> [54] [55 <C:/Users/3mara/GP/GP_Documentation/trun
-k/Figures/Mitosis_6.png (PNG copy)>] [56 <C:/Users/3mara/GP/GP_Documentation/tr
+<use ./Figures/Mitosis_8.png> [56] [57 <C:/Users/3mara/GP/GP_Documentation/trun
+k/Figures/Mitosis_6.png (PNG copy)>] [58 <C:/Users/3mara/GP/GP_Documentation/tr
 unk/Figures/Mitosis_7.png> <C:/Users/3mara/GP/GP_Documentation/trunk/Figures/Mi
 tosis_8.png>]
 Missing character: There is no ¬ in font cmr10!
@@ -1110,11 +1122,11 @@ Overfull \hbox (17.07057pt too wide) in paragraph at lines 218--220
 f y, up-dates all back-to-representative
  []
 
-<./Figures/Mitosis_3.png, id=1277, 437.38406pt x 140.77594pt>
+<./Figures/Mitosis_3.png, id=1291, 437.38406pt x 140.77594pt>
 File: ./Figures/Mitosis_3.png Graphic file (type png)
 
 <use ./Figures/Mitosis_3.png>
-<./Figures/Mitosis_4.png, id=1278, 702.37407pt x 115.93312pt>
+<./Figures/Mitosis_4.png, id=1292, 702.37407pt x 115.93312pt>
 File: ./Figures/Mitosis_4.png Graphic file (type png)
 
 <use ./Figures/Mitosis_4.png>
@@ -1122,12 +1134,12 @@ Overfull \hbox (19.09303pt too wide) in paragraph at lines 228--241
 [][]   [] 
  []
 
-[57 <C:/Users/3mara/GP/GP_Documentation/trunk/Figures/Mitosis_3.png> <C:/Users/
+[59 <C:/Users/3mara/GP/GP_Documentation/trunk/Figures/Mitosis_3.png> <C:/Users/
 3mara/GP/GP_Documentation/trunk/Figures/Mitosis_4.png>]
 Missing character: There is no ¬ in font cmr10!
 Missing character: There is no í in font cmr10!
 
-<./Figures/Mitosis_5.png, id=1285, 959.08313pt x 488.57532pt>
+<./Figures/Mitosis_5.png, id=1299, 959.08313pt x 488.57532pt>
 File: ./Figures/Mitosis_5.png Graphic file (type png)
 
 <use ./Figures/Mitosis_5.png>
@@ -1135,18 +1147,18 @@ Overfull \hbox (498.24529pt too wide) in paragraph at lines 259--261
  [][] 
  []
 
-) (C:\Users\3mara\GP\GP_Documentation\trunk\Chapters\Chapter6.tex [58] [59 <C:/
+) (C:\Users\3mara\GP\GP_Documentation\trunk\Chapters\Chapter6.tex [60] [61 <C:/
 Users/3mara/GP/GP_Documentation/trunk/Figures/Mitosis_5.png (PNG copy)>]
 Chapter 6.
 ------------------------------------------------------------------------------
  6 Recommender Systems
 ------------------------------------------------------------------------------
-[60
+[62
 
-] [61]
+] [63]
 Missing character: There is no ¬ in font cmr10!
 Missing character: There is no í in font cmr10!
- [62]
+ [64]
 Missing character: There is no ¬ in font cmr10!
 Missing character: There is no í in font cmr10!
 
@@ -1156,7 +1168,7 @@ Overfull \hbox (5.58458pt too wide) detected at line 83
 
 Missing character: There is no ¬ in font cmr10!
 Missing character: There is no í in font cmr10!
-[63]
+[65]
 Missing character: There is no ¬ in font cmr10!
 Missing character: There is no í in font cmr10!
 Missing character: There is no ¬ in font cmr10!
@@ -1177,16 +1189,16 @@ Missing character: There is no Ä in font cmr10!
 Missing character: There is no ù in font cmr10!
 
 
-LaTeX Warning: Reference `10b' on page 64 undefined on input line 108.
+LaTeX Warning: Reference `10b' on page 66 undefined on input line 108.
 
-[64]
+[66]
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ô in font cmr10!
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ô in font cmr10!
- [65]
+ [67]
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ô in font cmr10!
@@ -1208,12 +1220,12 @@ Overfull \hbox (10.43723pt too wide) in paragraph at lines 170--173
 $(\OML/cmm/m/it/10.95 w[]; w[]; :::; w[]\OT1/cmr/m/n/10.95 )$
  []
 
-[66]
+[68]
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ô in font cmr10!
- [67]) (C:\Users\3mara\GP\GP_Documentation\trunk\Chapters\Chapter7.tex
-[68]
+ [69]) (C:\Users\3mara\GP\GP_Documentation\trunk\Chapters\Chapter7.tex
+[70]
 Chapter 7.
 ------------------------------------------------------------------------------
  7 Tools
@@ -1221,7 +1233,7 @@ Chapter 7.
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no î in font cmr10!
-[69
+[71
 
 ]
 Missing character: There is no ‚ in font cmr10!
@@ -1260,23 +1272,23 @@ Missing character: There is no ú in font cmr10!
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ù in font cmr10!
- [70] <./Figures/pre_1.png, id=1416, 363.60844pt x 168.63pt>
+ [72] <./Figures/pre_1.png, id=1430, 363.60844pt x 168.63pt>
 File: ./Figures/pre_1.png Graphic file (type png)
 
 <use ./Figures/pre_1.png>
-<./Figures/pre_3.png, id=1417, 423.83344pt x 488.57532pt>
+<./Figures/pre_3.png, id=1431, 423.83344pt x 488.57532pt>
 File: ./Figures/pre_3.png Graphic file (type png)
 
 <use ./Figures/pre_3.png>
-<./Figures/pre_4.png, id=1418, 355.3275pt x 487.8225pt>
+<./Figures/pre_4.png, id=1432, 355.3275pt x 487.8225pt>
 File: ./Figures/pre_4.png Graphic file (type png)
 
 <use ./Figures/pre_4.png>
 
-Package natbib Warning: Citation `pre_20' on page 71 undefined on input line 76
+Package natbib Warning: Citation `pre_20' on page 73 undefined on input line 76
 .
 
-<./Figures/pre_5.png, id=1424, 431.36156pt x 220.57407pt>
+<./Figures/pre_5.png, id=1438, 431.36156pt x 220.57407pt>
 File: ./Figures/pre_5.png Graphic file (type png)
 
 <use ./Figures/pre_5.png>
@@ -1292,10 +1304,10 @@ Missing character: There is no ò in font cmr10!
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ô in font cmr10!
- [71 <C:/Users/3mara/GP/GP_Documentation/trunk/Figures/pre_1.png>] [72 <C:/User
-s/3mara/GP/GP_Documentation/trunk/Figures/pre_3.png (PNG copy)>] [73 <C:/Users/
+ [73 <C:/Users/3mara/GP/GP_Documentation/trunk/Figures/pre_1.png>] [74 <C:/User
+s/3mara/GP/GP_Documentation/trunk/Figures/pre_3.png (PNG copy)>] [75 <C:/Users/
 3mara/GP/GP_Documentation/trunk/Figures/pre_4.png (PNG copy)>] <./Figures/pre_6
-.png, id=1441, 488.57532pt x 247.67531pt>
+.png, id=1456, 488.57532pt x 247.67531pt>
 File: ./Figures/pre_6.png Graphic file (type png)
 
 <use ./Figures/pre_6.png>
@@ -1315,16 +1327,16 @@ Missing character: There is no ò in font cmr10!
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ô in font cmr10!
-[74 <C:/Users/3mara/GP/GP_Documentation/trunk/Figures/pre_5.png (PNG copy)> <C:
+[76 <C:/Users/3mara/GP/GP_Documentation/trunk/Figures/pre_5.png (PNG copy)> <C:
 /Users/3mara/GP/GP_Documentation/trunk/Figures/pre_6.png (PNG copy)>]
-<./Figures/lucene.png, id=1447, 246.9225pt x 290.58563pt>
+<./Figures/lucene.png, id=1461, 246.9225pt x 290.58563pt>
 File: ./Figures/lucene.png Graphic file (type png)
 
 <use ./Figures/lucene.png>
-<./Figures/lucene_search.png, id=1448, 241.65282pt x 213.04594pt>
+<./Figures/lucene_search.png, id=1462, 241.65282pt x 213.04594pt>
 File: ./Figures/lucene_search.png Graphic file (type png)
 
-<use ./Figures/lucene_search.png> [75] [76 <C:/Users/3mara/GP/GP_Documentation/
+<use ./Figures/lucene_search.png> [77] [78 <C:/Users/3mara/GP/GP_Documentation/
 trunk/Figures/lucene.png> <C:/Users/3mara/GP/GP_Documentation/trunk/Figures/luc
 ene_search.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 163--164
@@ -1341,7 +1353,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 167--169
 
  []
 
-[77]
+[79]
 Underfull \hbox (badness 10000) in paragraph at lines 170--171
 
  []
@@ -1382,11 +1394,11 @@ Missing character: There is no ¬ in font cmr10!
 Missing character: There is no † in font cmr10!
 Missing character: There is no ¬ in font cmr10!
 Missing character: There is no † in font cmr10!
-<./Figures/AWNGUI.png, id=1465, 349.305pt x 256.70906pt>
+<./Figures/AWNGUI.png, id=1479, 349.305pt x 256.70906pt>
 File: ./Figures/AWNGUI.png Graphic file (type png)
 
 <use ./Figures/AWNGUI.png>
-<./Figures/AWNGUI_1.jpg, id=1466, 481.8pt x 242.40562pt>
+<./Figures/AWNGUI_1.jpg, id=1480, 481.8pt x 242.40562pt>
 File: ./Figures/AWNGUI_1.jpg Graphic file (type jpg)
 
 <use ./Figures/AWNGUI_1.jpg>
@@ -1397,9 +1409,9 @@ Overfull \hbox (20.9633pt too wide) in paragraph at lines 195--197
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ô in font cmr10!
-[78] [79 <C:/Users/3mara/GP/GP_Documentation/trunk/Figures/AWNGUI.png (PNG copy
+[80] [81 <C:/Users/3mara/GP/GP_Documentation/trunk/Figures/AWNGUI.png (PNG copy
 )> <C:/Users/3mara/GP/GP_Documentation/trunk/Figures/AWNGUI_1.jpg>]
-<./Figures/diagram1.png, id=1477, 480.79625pt x 201.75375pt>
+<./Figures/diagram1.png, id=1492, 480.79625pt x 201.75375pt>
 File: ./Figures/diagram1.png Graphic file (type png)
 
 <use ./Figures/diagram1.png>
@@ -1407,15 +1419,15 @@ Overfull \hbox (19.95955pt too wide) in paragraph at lines 212--214
  [][] 
  []
 
-[80 <C:/Users/3mara/GP/GP_Documentation/trunk/Figures/diagram1.png>]
+[82 <C:/Users/3mara/GP/GP_Documentation/trunk/Figures/diagram1.png>]
 
-LaTeX Warning: Reference `crawlersXML' on page 81 undefined on input line 222.
+LaTeX Warning: Reference `crawlersXML' on page 83 undefined on input line 222.
 
 Missing character: There is no ¬ in font cmr10!
 Missing character: There is no † in font cmr10!
 Missing character: There is no ¬ in font cmr10!
 Missing character: There is no † in font cmr10!
-[81] [82]
+[83] [84]
 Missing character: There is no ¬ in font cmr10!
 Missing character: There is no † in font cmr10!
 Missing character: There is no ¬ in font cmr10!
@@ -1430,7 +1442,7 @@ Missing character: There is no ¬ in font cmr10!
 Missing character: There is no † in font cmr10!
 Missing character: There is no ¬ in font cmr10!
 Missing character: There is no † in font cmr10!
- [83]) [84]
+ [85]) [86]
 ------------------------------------------------------------------------------
  Bibliography
 ------------------------------------------------------------------------------
@@ -1440,7 +1452,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 25--26
 nsity-based-clustering-algorithm\OT1/cmr/m/n/10.95 ,
  []
 
-[85
+[87
 
 
 ]
@@ -1456,7 +1468,7 @@ e].http://nlp.stanford.edu/IR-
  []
 
 Missing character: There is no È in font cmr10!
-[86]
+[88]
 Missing character: There is no ® in font cmr10!
 
 Underfull \hbox (badness 10000) in paragraph at lines 232--233
@@ -1466,9 +1478,9 @@ load[Accessed 26/6/2012]\OT1/cmr/m/n/10.95 ,
 
 Missing character: There is no ë in font cmr10!
 Missing character: There is no í in font cmr10!
-[87]
+[89]
 Missing character: There is no ñ in font cmti10!
- [88]
+ [90]
 Underfull \hbox (badness 10000) in paragraph at lines 357--362
 []\OT1/cmr/m/n/10.95 Shereen Khoia.  Apt: Ara-bic part-if-speech tag-ger.  \OT1
 /cmr/m/it/10.95 Avail-able from:
@@ -1498,12 +1510,12 @@ Missing character: There is no î in font cmr10!
 Package natbib Warning: There were undefined citations.
 
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 213.
-[89]
+[91]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 213.
  (C:\Users\3mara\GP\GP_Documentation\trunk\Thesis.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 213.
 Package rerunfilecheck Info: File `Thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 7746A8E121736651C6B6E8EB83C67974;26244.
+(rerunfilecheck)             Checksum: CC25E98A9C6FFC35673810D0BEB6058A;26245.
 
 
  *File List*
@@ -1622,6 +1634,8 @@ gettitlestring.sty    2009/12/18 v1.3 Cleanup title references (HO)
 ./Figures/arch_1.png
 ./Figures/arch_2.png
 ./Figures/arch_3.png
+./Figures/Semantic module.png
+./Figures/Clustering Module.png
 ./Figures/reco_1.png
 ./Figures/reco_2.png
 ./Chapters/Chapter4.tex
@@ -1664,10 +1678,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 12744 strings out of 495285
- 167435 string characters out of 3180738
- 447966 words of memory out of 3000000
- 15216 multiletter control sequences out of 15000+200000
+ 12764 strings out of 495285
+ 167897 string characters out of 3180738
+ 448282 words of memory out of 3000000
+ 15229 multiletter control sequences out of 15000+200000
  15645 words of font info for 57 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
  48i,14n,45p,1467b,1052s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1688,9 +1702,9 @@ rogram Files/MikTex/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files
 /amsfonts/cm/cmti10.pfb><C:/Program Files/MikTex/fonts/type1/public/amsfonts/cm
 /cmti12.pfb><C:/Program Files/MikTex/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
 <C:/Program Files/MikTex/fonts/type1/public/arabtex/xnsh14.pfb>
-Output written on Thesis.pdf (100 pages, 2229461 bytes).
+Output written on Thesis.pdf (102 pages, 2487863 bytes).
 PDF statistics:
- 1668 PDF objects out of 1728 (max. 8388607)
- 389 named destinations out of 1000 (max. 500000)
- 1265 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1683 PDF objects out of 1728 (max. 8388607)
+ 393 named destinations out of 1000 (max. 500000)
+ 1275 words of extra memory for PDF output out of 10000 (max. 10000000)
 

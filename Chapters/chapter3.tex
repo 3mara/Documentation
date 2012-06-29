@@ -52,9 +52,16 @@ width=.75\textwidth]{./Figures/arch_3.png}
 
 \section{Similarity Module}~\label{sec:similarity}
 A core module of our system is the \textit{similarity module}. In the similarity module we examined various approaches. First we examined the lexical similarity approach where each document is represented by a vector of terms in which each cell in this vector represents the TF-IDF value for this term in the document and the input corpus. 
-Finally, Document-to-Document similarity is calculated using cosine similarity measure by comparing the vectors of terms representing each document.
-
-Then we examined the Semantic Similarity approach. Here we investigated the two major approaches the Corpus based and the knowledge based.
+Finally, Document-to-Document similarity is calculated using cosine similarity measure by comparing the vectors of terms representing each document.Then we examined the Semantic Similarity approach. Here we investigated the two major approaches the Corpus based and the knowledge based.
+\begin{figure}[htb]
+\begin{center}
+%left,bottom,right,top
+\includegraphics[totalheight=.75\textheight,
+width=.75\textwidth]{./Figures/Semantic module.png}
+\end{center}
+\caption{Semantic Similarity Module}
+\label{fig:semanticModule}
+\end{figure}
 
 \subsection{Corpus based}
 For the corpus based we chose to work with the Latent Semantic Analysis (LSA) to calculate the semantic similarity between two given documents. The documents collected are then represented using the term-by-document matrix. In the term-by-document matrix every column vector represents a document and every row represents a term that occurred at least once in the whole corpus. Every cell in the document vector represents the frequency by which the corresponding term appeared in that document. In other words, the term-by-document matrix represents the TF-IDF of the term of the whole corpus and the documents in the corpus. Another way to think of this is that LSA represents the meaning of a word as a kind of average of the meaning of all the documents in which it appears, and the meaning of a document as a kind of average of the meaning of all the words it contains.
@@ -72,6 +79,16 @@ Using the simialrity metric explained in the previous section different clusteri
 
 The pairwise similarity between documents is stored in a database and is fed to the clustering algorithm, one of the clustering algorithms showed in chapter ~\ref{clustering} is used to assign a cluster ID to each document.
 Mitosis clustering algorithm which explained in chapter ~\ref{clustering} is used to cluster document and users
+
+\begin{figure}[htb]
+\begin{center}
+%left,bottom,right,top
+\includegraphics[totalheight=.75\textheight,
+width=.75\textwidth]{./Figures/Clustering Module.png}
+\end{center}
+\caption{Clustering Module}
+\label{fig:clustercModule}
+\end{figure}
 
 \section{Recommender system}
 \subsection{Recommending Approach}
