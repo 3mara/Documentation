@@ -1,0 +1,52 @@
+%Chapter 9
+
+\chapter{Conclusion and future work} % Main chapter title
+
+\label{future} % For referencing the chapter elsewhere, use \ref{future} 
+
+\lhead{Conclusion and future work. \emph{Conclusion and future work}} % This is for the header on each page - perhaps a shortened title
+%----------------------------------------------------------------------------------------
+
+\section{Future work}
+\subsection{Enhancing the semantic similarity module}
+\subsubsection{Spreading activity}
+Adding Spreading activity in wikipedia similarity module.
+Spreading Activation is a technique that has been widely
+adopted for associative retrieval (Crestani 1997). In associative
+retrieval the idea is that it is possible to retrieve
+relevant documents if they are associated with other
+documents that have been considered relevant by the user.
+In Wikipedia the links between articles show association
+between concepts of articles and hence can be used as such
+for finding related concepts to a given concept. The algorithm
+starts with a set of activated nodes and in each iteration
+the activation of nodes is spread to associated nodes.
+The spread of activation may be directed by addition of
+different constraints like distance constraints, fan out constraints,
+path constraints, threshold etc. These parameters
+are mostly domain specific.
+
+\subsubsection{Probabilistic Latent Analysis (PLSA)}
+PLSA models the probability of each co-occurrence as a mixture of conditionally independent multinomial distributions:
+\begin{equation}
+P(w,d) = \sum_{c} P(c)P(d|c)P(w|c)= P(d)\sum_{c}P(c|d)P(w|c)
+\end{equation}
+The first formulation is the symmetric formulation, where $w$ and $d$ are both generated from the latent class $c$ in similar ways (using the conditional probabilities $P(d|c)$ and $P(w|c)$), whereas the second formulation is the asymmetric formulation, where, for each document $d$, a latent class is chosen conditionally to the document according to $P(c|d)$, and a word is then generated from that class according to $P(w|c)$. Although we have used words and documents in this example, the co-occurrence of any couple of discrete variables may be modelled in exactly the same way.
+So, the number of parameters is equal to . The number of parameters grows linearly with the number of documents. In addition, although PLSA is a generative model of the documents in the collection it is estimated on, it is not a generative model of new documents.
+
+Other enhancements can be obtained by giving name entities(NER), titles, first statements of the article higher weight in the similarity.\newline
+Or by using the database of Arabic wordNet(not the whole the project), as the existing modules that load from database have poor performance.
+
+\subsection{Recommendation system}
+\subsubsection{Naïve Bayes Profile Model}
+The model estimates the a posteriori probability, $P (c|d)$, of document $d$ belonging to class $c$. This estimation is based on the a priori probability, $P(c)$, the probability of observing a document in class $c$, $P (d|c)$, the probability of observing the document $d$ given $c$ and, $P (d)$, the probability of observing the instance $d$. Using these probabilities, the Bayes theorem is applied to calculate $P (c|d)$ as follows:
+\begin{equation}
+P(c|d) = \frac{P(c)P(d|c)}{P(d)}
+\end{equation}
+\subsection{System evaluation}
+Evaluating more combinations of the used modules (Elkhoja stemmer, DBSCAN for clustering, wikipedia similarity module with feature reduction technique PCA)
+\begin{itemize}
+\item Using different clustering algorithms (CHAMELEON, hierarchical clustering).
+\item Integrating the recommendation system with the social network.
+\item Adding incremental clustering.
+\end{itemize}
