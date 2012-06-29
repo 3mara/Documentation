@@ -25,6 +25,8 @@
 
 \graphicspath{{./Pictures/}} % Specifies the directory where pictures are stored
 \newcommand{\BigO}[1]{\ensuremath{\operatorname{O}\bigl(#1\bigr)}}
+\usepackage{algorithm}% http://ctan.org/pkg/algorithm
+\usepackage{algpseudocode}% http://ctan.org/pkg/algorithmicx
 \usepackage{arabtex,utf8}
 \usepackage{color}
 \definecolor{dkgreen}{rgb}{0,0.6,0}
@@ -167,7 +169,7 @@ We would like to gratefully acknowledge the enthusiastic supervision of Prof. Dr
 % Include the appendices of the thesis as separate files from the Appendices folder
 % Uncomment the lines as you write the Appendices
 
-%\input{./Appendices/AppendixA}
+\input{./Appendices/AppendixA}
 %\input{./Appendices/AppendixB}
 %\input{./Appendices/AppendixC}
 
