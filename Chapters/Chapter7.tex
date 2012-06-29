@@ -7,7 +7,8 @@
 \lhead{Chapter 7. \emph{Tools}} % This is for the header on each page - perhaps a shortened title
 
 %----------------------------------------------------------------------------------------
-\section{Text Preprocessing}
+This chapter discussed the tools and data sets used, it starts by section ~\ref{pre} which discusses the pre-processing tools used, sections ~\ref{lucene}, ~\ref{awn} and ~\ref{crawlers} demonestrates the usage of \textit{lucene}, \textbf{A}rabic \textbf{W}ord \textbf{N}et (\textit{AWN}), section ~\ref{corpus} discusses the data sets used, finally section ~\ref{lsa} shows the tools used to implement \textit{LSA}.
+\section{Text Preprocessing}\label{pre}
 There has been a debate among researchers about the benefits of using morphological tools in Text Analysis. Studies in the \textit{English}
 language illustrated that performing stemming during the preprocessing step degrades the performance slightly \citep{pre_8} \citep{pre_9}. 
 In this work, the preprocssing consists of three steps:First stop words are removed, second a part of speech tag is assigned to each term and then each term is stemmed.
@@ -115,7 +116,7 @@ of a verb; and genitive when it is the object of a preposition. The form of an A
 determined by its gender, cardinality, and grammatical case. Light Stemmers remove only prefixes and suffixes. Five pre-defined groups of removable
 prefixes and suffixes were offered.
 
-\section{Lucene}
+\section{Lucene}\label{lucene}
 \label{luceneTool}
 Apache Lucene(TM) is a high-performance, full-featured text search engine library written entirely in Java. It is a technology suitable for nearly any application that requires full-text search, especially cross-platform.
 \begin{figure}[htbp]
@@ -163,7 +164,7 @@ Cross-Platform Solution
 \textit{The Apache Software Foundation}\\
 
 The Apache Software Foundation provides support for the Apache community of open-source software projects. The Apache projects are defined by collaborative consensus based processes, an open, pragmatic software license and a desire to create high quality software that leads the way in its field. Apache Lucene, Apache Solr, Apache PyLucene, Apache Open Relevance Project and their respective logos are trademarks of The Apache Software Foundation. All other marks mentioned may be trademarks or registered trademarks of their respective owners.\\
-\section{AWN}
+\section{AWN}\label{awn}
 Arabic WordNet is the Arabic analogue to the widely used WordNet for the English language. The Arabic WordNet (AWN) is a lexical database of the Arabic language following the development process of Princeton English WordNet and Euro WordNet. It utilizes the Suggested Upper Merged Ontology as an interlingua to link Arabic WordNet to previously developed wordnets. Christiane Fellbaum at Princeton was the project lead. The project was sponsored by DOI/REFLEX.\\
 From http://www.globalwordnet.org/AWN/DataSpec.html you can get the XML data exchange specifications of the database. AWN contains about 11,000 synsets (including 1,000 NE).\\
 
@@ -200,7 +201,7 @@ Innovation:\\
 \end{figure}
 %-----------------------------------------------------------------------------------------
 
-\section{Crawlers}
+\section{Crawlers}\label{crawlers}
 we used Web-Harvest for web pages crawling and retrieving the desired data.It’s an Open Source Web Data Extraction tool written in Java. It offers a way to collect desired Web pages and extract useful data from them. In order to do that, it leverages well established techniques and technologies for text/xml manipulation such as XSLT, XQuery and Regular Expressions. Web-Harvest mainly focuses on HTML/XML based web sites which still make vast majority of the Web content. On the other hand, it could be easily supplemented by custom Java libraries in order to augment its extraction capabilities.
 Process of extracting data from Web pages is also referred as Web Scraping or Web Data Mining. World Wide Web, as the largest database, often contains various data that we would like to consume for our needs. The problem is that this data is in most cases mixed together with formatting code - that way making human-friendly, but not machine-friendly content. Doing manual copy-paste is error prone, tedious and sometimes even impossible. Web software designers usually discuss how to make clean separation between content and style, using various frameworks and design patterns in order to achieve that. Anyway, some kind of merge occurs usually at the server side, so that the bunch of HTML is delivered to the web client.
 Web-Harvest is distributed under BSD License. It gives the freedom for anyone to use, explore, modify, and distribute Web-Harvest, but without any warranty. 
@@ -236,12 +237,12 @@ The second pipeline uses result of the previous execution in order to collect al
 \end{itemize}
 
 
-\section{Corpus}
+\section{Corpus}\label{corpus}
 We used two corpora one of them is Al Jazeera, which contains 4462 article from various categories like Arts,culture,Economy, International, locals, Medical, Society, Sport.
 The other corpus is upto-date corpus extracted using crawling tool with predefined XML files from specific News agency Like: Reuters, CNN, BBC, Al Arabiya, Youm7.This corpus was around 160 articles from many categories.
 
 
-\section{LSA Tools}
+\section{LSA Tools}\label{lsa}
 \subsection{Python}
 \subsubsection{Description}
 Python is a remarkably powerful dynamic programming language that is used in a wide variety of application domains. Python is often compared to Tcl, Perl, Ruby, Scheme or Java. Some of its key distinguishing features include:

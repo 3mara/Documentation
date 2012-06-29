@@ -1,17 +1,20 @@
 % Chapter 6
 
-\chapter{Recommender Systems} % Main chapter title
+\chapter{Proposed Recommender System} % Main chapter title
 
 \label{recommender} % For referencing the chapter elsewhere, use \ref{recommender} 
 
-\lhead{Chapter 6. \emph{Recommender Systems}} % This is for the header on each page - perhaps a shortened title
+\lhead{Chapter 6. \emph{Proposed Recommender System}} % This is for the header on each page - perhaps a shortened title
 
 %----------------------------------------------------------------------------------------
+
 \section{Introduction}
 Recommender systems became an important research area since the appearance of the first papers on collaborative filtering since the mid-1990s  \citep{recom_45} \citep{recom_86} \citep{recom_97}. There has been much work done both in the industry and academia on developing new approaches to recommender systems over the last decade. The interest in this area still remains high because it constitutes a problem-rich research area and because of the abundance of practical applications that help users to deal with information overload and provide personalized recommendations, content and services to them. Examples of such applications include recommending books, CDs and other products at Amazon.com \citep{recom_61}, movies by MovieLens \citep{recom_67}, and news at VERSIFI Technologies (formerly AdaptiveInfo.com) \citep{recom_14}. Moreover, some of the vendors have incorporated recommendation capabilities into their commerce servers \citep{recom_78}. However in this chapter we focus on recommending news articels to users.
 
+The rest of this chapter is organized as follows section ~\ref{problem} defines the recommendation problem formally,  while section ~\ref{content} discusses the content based recommendation and its disadvantages, tne collaborative recommendation system is presented in section ~\ref{sec:coll}, section ~\ref{coll_content} discusses the content via collaorative technique, section ~\ref{feedback} discusses how to measure user feedback, finally section ~\ref{adv_lsa} discusses the advantages of using LSA as a similarity metric.
 
-\section{Recommendation Problem}
+
+\section{Recommendation Problem}\label{problem}
 The recommendation is used in this work to formalize the problem of estimating ratings for the articles that have not been seen by a user. Intuitively, this estimation is usually based on the ratings given by this user to other articles and on some other information that will be formally described below. Once we can estimate ratings for the yet unrated articles, we can recommend to the user the articles with the highest estimated rating(s).
 
 More formally, int this work the recommendation problem can be formulated as follows. Let C be the set of all users in the system and let A be the set of all possible articles that can be recommended. The space A of possible articles can be very large, ranging in hundreds of thousands or even millions of items if the application is extended.
@@ -53,7 +56,7 @@ Recommender systems are usually classified into the following categories, based 
 \end{itemize}
 
 
-\section{Content-Based Methods}
+\section{Content-Based Methods}\label{content}
 The content-based approach to recommendation has its roots in information retrieval \citep{recom_7} \citep{recom_89} and information filtering \citep{recom_10} research.
 
 By using content-based recommendation methods for recommending news articles, the system tries to use the rating of the user for previously read articles (the rate could be implicit or explicit as will be shown later) and the semantic relatedness between rated items and non-read ones to predect her rate for the unread documents and recommend the top $N$ document, more formally the utility $u(c, a)$ of article $a$ for user $c$ is estimated based on the utilities $u(c ,a_i)$  assigned by user $c$ to articles $a_i \in S$ that are \textit{similar} to item $a_i$ (depending on semantic documents representation as showed in chapter ~\ref{sim}). This means the system tries to understand the commonalities among the articles user $c$ has rated high in the past. Then, only the articles that have a high degree of similarity to whatever users preferences are would get recommended.
@@ -85,7 +88,7 @@ When the system can only recommend articles that score highly against a users 
 \subsubsection{New User Problem}
 The user has to rate a sufficient number of articles before a content-based recommender system can really understand users preferences and present the user with reliable recommendations. Therefore, a new user, having very few ratings, would not be able to get accurate recommendations, this problem is addressed later.
 
-\section{Collaborative Methods}
+\section{Collaborative Methods}\label{sec:coll}
 In the collaborative-based recommendation(or collaborative filtering systems), the articles previously rated by other users are used to predict the utility of article for a particular user. More formally, the utility $u(c, a)$ of item $a$ for user $c$ is estimated based on the utilities $u(c_j, a)$ assigned to item $a$ by those users $c_j \in C$ who are "similar" to user c. So we have to find other "peers" of user c, i.e., other users that have similar tastesFor (rate the same articles similarly). Then, only the articles that are most liked by the peers of user $c$ would get recommended. 
 That is, the value of the unknown rating $r_c$, for user c and article $a$ is usually computed as an aggregate of the ratings of some other (usually the N most similar) users for the same item $a$:
 
@@ -127,7 +130,7 @@ sim(x,y)= \frac {\sum_{s\in S_{xy}}(r_{x,s}-\bar{r_x})(r_{y,s}- \bar{r_y})}{\sqr
 In the cosine-based approach [15, 91], the two users x and y are treated as two vectors in m-dimensional space, where $m=|S_{xy} |$. Then, the similarity between two vectors can be measured by computing the cosine of the angle between them:
 \begin{equation}\label{eq:13}
 sim(x,y)= cos(\vec{x}  ,\vec {y}) = \frac{\vec{x} . \vec {y}} {\|\vec{x}\|_2 \times \|\vec{y}\|_2 } = 
-\frac{\sum _{i=1}^{k}r_{x,s}r_{y,s} }{\sqrt {\sum_{s\in S_{xy}}r^{2}_{x,s}}{\sqrt {\sum_{s\in S_{xy}}r^{2}_{y,s}}}}
+\frac{\sum _{i=1}^{k}r_{x,a}r_{y,a} }{\sqrt {\sum_{a\in S_{xy}}r^{2}_{x,a}}{\sqrt {\sum_{a\in A_{xy}}r^{2}_{y,a}}}}
 \end{equation}
 where $\vec{x} . \vec {y}$  denotes the dot-product between the vectors $\vec{x} \,and \,\vec {y}$ .
 \end{itemize}
@@ -144,7 +147,7 @@ New articles are added regularly to recommender systems. Collaborative systems r
 In any recommender system, the number of ratings already obtained is usually very small compared to the number of ratings that need to be predicted. Effective prediction of ratings from a small number of examples is important. Also, the success of the collaborative recommender system depends on the availability of a critical mass of users. For example, there may be many articles that have been rated only by few people and these articles would be recommended very rarely, even if those few users gave high ratings to them. Also, for the user whose tastes are unusual compared to the rest of the population there will not be any other users who are particularly similar, leading to poor recommendations \citep{recom_8}.}
 \end{itemize}
 
-\section{Collaboration via content}
+\section{Collaboration via content}\label{coll_content}
 Collaborative methods look for similarities between users to make predictions. Typically, the pattern of ratings of individual users is used to determine similarity. Such a correlation is most meaningful when there are many objects rated in common between users.
 The content-based profile of each user is exploited to detect similarities among users. Recall that the user’s content-based profile contains weights for the concepts that indicate that a user will like an article. When computing Pearson’s r between two profiles, any word in one profile but not another is treated as having a weight of 0 in the other profile. As in collaborative filtering, the prediction made is determined by a weighted average of all user’s predictions for that item using the correlation between profiles as the weight.
 
@@ -185,14 +188,35 @@ u(a,m,s) =m+sa
 \end{equation}
 
 We assume that a user's interests change over time, and furthermore that this happens in real time, regardless of the number of recommendations requested per day. This process is modeled using a simple decay function-each night all the weights in the profiles are multiplied by 0.97.
+
+\subsection{Recommending articles}
+ When the user requires a recommendation, the system starts first by retrieving the unread documents $U$(the system keeps track of the documents that the user read before), let correlation between the user $x$ and her neighbour $y$ be $corr_{i,j}$ which is computed using Pearson correlation coefficient formula ~\ref{eq:corr}, after that the system checks the rate given by each neighbor $j$ to each unread document $U_i$ which is dentoed by $r_{j,U_i}$. 
  
-\section{User's Feedback}
+ \begin{equation}\label{eq:corr}
+sim(x,y)= cos(\vec{x}  ,\vec {y}) = \frac{\vec{x} . \vec {y}} {\|\vec{x}\|_2 \times \|\vec{y}\|_2 } = 
+\frac{\sum _{i=1}^{k}r_{x,a}r_{y,a} }{\sqrt {\sum_{a\in A_{xy}}r^{2}_{x,a}}{\sqrt {\sum_{s\in A_{xy}}r^{2}_{y,a}}}}
+\end{equation}
+
+The system expect the user rate given by the user to each unread document $a$ using equation ~\ref{eq:reco_val}, hence the top $N$ documents can be obtained.
+
+\begin{equation}\label{eq:reco_val}
+r_{c,a}= k\sum_{ c'\in \hat{C}} sim(c,c')\times r_{c',a}
+\end{equation}
+
+
+where multiplier k serves as a normalizing factor and is usually selected as shown in formula ~\ref{k}
+\begin{equation}\label{k}
+k = \frac{1}{\sum_{c' \in \hat{C}} |sim(c,c')|}
+\end{equation}
+
+ 
+\section{User's Feedback}\label{feedback}
 \subsection{Explicit feedback}
 Explicit feedback is not a good choice for two reasons. Users will have to rate items frequently and will be very reluctant in doing so as their ratings expire quickly.
 
 \subsection{Implicit feedback}
 Acquiring feedback by observing the users’ actions is favorable. A user that selects and reads a document for a certain amount of time provides a strong indication that the document contains information a user is interested in. After such action the documents is therefore classified as a positive example. Finding negative examples is much more problematic. Users ignoring links to documents could be seen as a clue. This action does not provide strong evidence however as users might not have noticed the link or visit the document later. Another possible clue is a document that is being read for a very short time but this could be caused by the fact that the document is similar to what the user has already seen although the topic of the document is still interesting to the user. Classifying documents as negative based on weak assumptions leads to much noise in the training data and may result in inaccurate predictions. Negative examples will therefore not be used. In short, the user model has to be dynamic and learned from positive examples only.
-\section{Using LSA in Recommendation}
+\section{Using LSA in Recommendation}\label{adv_lsa}
 Latent semantic analysis provides a vector of a predefined length (the number of documents used in building the term versus document matrix) for representing documents.
 So, we proposed using LSA vector representation to represent both documents and users profile.
 \subsection{Advantage of using LSA}

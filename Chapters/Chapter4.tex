@@ -1,14 +1,14 @@
 % Chapter 4
 
-\chapter{Document Similarity} % Main chapter title
+\chapter{Used Semantic Similarity Measures} % Main chapter title
 
 \label{sim} % For referencing the chapter elsewhere, use \ref{Chapter1} 
 
-\lhead{Chapter 4. \emph{Document Similarity}} % This is for the header on each page - perhaps a shortened title
+\lhead{Chapter 4. \emph{Used Semantic Similarity Measures}} % This is for the header on each page - perhaps a shortened title
 
 %----------------------------------------------------------------------------------------
 
-This chapter is organized as follows Section ~\ref{lexicalsim} for Lexical Similarity which contains subsection ~\ref{documentrep}for document representation techniques, ~\ref{euclidean} for Eucledian Distance Measure  and ~\ref{cosine} for Cosine Distance measure, then Section ~\ref{semanticSim} for semantic similarity, Section~\ref{corpus} for corpus-based semantic similarity and Section~\ref{knowledge}.
+This chapter is organized as follows Section ~\ref{lexicalsim} discusses the Lexical Similarity, semantic similarity is presented in section ~\ref{semanticSim}, which discuss corpus-based semantic similarity, and knowledge based similarity.
 
 \section{Lexical Similarity}
 \label {lexicalsim}
@@ -114,7 +114,7 @@ A rough analogy of how this can happen is as follows. Read the following sentenc
 "John is Bob's father and Mary is Ann's mother." Now read this one: "Mary is Bob's mother."\\
 Because of the relations between the words mother, father, son, daughter, brother and sister that you already knew, adding the second sentence probably tended to make you think that that Bob and Ann were brother and sister, Ann the daughter of John, John the father of Ann, and Bob the son of Mary, even though none of these relations is explicitly expressed (and none follow necessarily from the presumed formal rules of English kinship naming.) The relationships inferred by LSA are also not logically defined, nor are they assumed to be consciously rationalizable as these could be. Instead, they are relations only of similarityãor of context sensitive similarityãbut they nevertheless have mutual entailments of the same general nature, and also give rise to fuzzy indirect inferences that may be weak or strong and logically right or wrong\citep{lsa}.
 
-\textit{How LSA works}\\
+\paragraph{How LSA works}
 The first step is to represent the text as a matrix (the term-by-document matrix T)in which each row stands for a unique word and each column stands for a text passage or other context. Each cell contains the frequency with which the word of its row appears in the passage denoted by its column. Next, the cell entries are subjected to a preliminary transformation, whose details we will describe later, in which each cell frequency is weighted by a function that expresses both the word's importance in the particular passage and the degree to which the word type carries information in the domain of discourse in general.
 Next, LSA applies singular value decomposition (SVD) to the matrix. This is a form of factor analysis, or more properly the mathematical generalization of which factor analysis is a special case. In SVD, a rectangular matrix is decomposed into the product of three other matrices. One component matrix (U) describes the original row entities as vectors of derived orthogonal factor values, another (V) describes the original column entities in the same way, and the third is a diagonal matrix (SIGMA) containing scaling values such that when the three components are matrix-multiplied, the original matrix (T) is reconstructed. 
 There is a mathematical proof that any matrix can be so decomposed perfectly, using no more factors than the smallest dimension of the original matrix. When fewer than the necessary number of factors are used, the reconstructed matrix is a least-squares best fit. 
@@ -124,12 +124,12 @@ One can reduce the dimensionality of the solution simply by deleting coefficient
 \{X\} = \{W\}\{S\}\{P\}^T
 \end{equation}
 
-\textit{Stop-listing and stemming}\\
+\paragraph{Stop-listing and stemming}
 These are very rarely used. In keeping with the underlying theory and model, neither stemming nor stop-listing is appropriate or usually effective. As in natural language, the meaning of passages cannot be accurately reconstructed or understood without all of its words. However, when LSA is used to compare word strings shorter than normal text paragraphs, e.g. short sentences, zero weighting of function words is often pragmatically useful.
-\textit{Similarity in the reduced space}\\
+\paragraph{Similarity in the reduced space}
 Since both passages (documents) and terms (words) are represented as vectors, it is straight forward to compute the similarity between passage-passage, term-term, and term-passage. In addition, terms and/or passages can be combined to create new vectors in the space. The process by which new vectors can be added to an existing LSA space is called folding-in. The cosine distance between vectors is used as the measure of their similarity for many applications because of its relation to the dot-product criterion and has been found effective in practice, although other metrics, such as Euclidean distance or City-Block (Manhattan) distance are sometimes used.
 
-\textit{Shortfalls, objections, evidence and arguments}\\
+\paragraph{Shortfalls, objections, evidence and arguments}
 potential limitations should be noted:
 \begin{itemize}
 \item [1.] It is likely, of course, that LSA's “bag of words” method, that ignores all syntactical, logical and nonlinguistic pragmatic entailments, sometimes misses meanings or gets it scrambled.
@@ -153,7 +153,7 @@ Language-specific concepts and relations are encoded as needed or desired. This 
 The approach follows a top-down procedure. Arabic Base Concepts are defined and extended via hyponymic relations to derive a core wordnet. The set of Common Base Concepts (CBCs) from the 12 languages in EWN and BalkaNet (Tufis 2004) are encoded as synsets; other language-specific concepts are added and translated manually to the closest synset(s) in Arabic. The same step is performed for all English synsets that currently have an equivalence relation in Suggested Upper Merged Ontology (SUMO).\\
 The first layers of hyponyms are chosen on the basis of linguistic and applications based criteria; the final phase completes the target set of concepts/synsets, including specific domains and named entities. Each synset construction step is followed by a validation phase, where formal consistency is checked and the coverage is evaluated in terms of frequency of occurrence and domain distribution.\\
 
-\textit{Structure and organization of AWN}\\
+\paragraph{Structure and organization of AWN}
 Because AWN is to be aligned not just to Princeton WordNet (PWN) (Fellbaum 1998) but to every wordnet aligned to PWN, the database design supports multiple languages, and the user interface will be explicitly multilingual rather than bilingual as was the one described in Black and Elkateb (2004)\citep{awn_1}.
 The database structure comprises four principal entity types, item, word, form and link.
 \begin{itemize}
@@ -164,7 +164,7 @@ The database structure comprises four principal entity types, item, word, form a
 \end{itemize}
 This data model has been specified in XML as an interchange format, but is also implemented in a MySQL database hosted by one of the partners. The database will be the primary deliverable of the project, and will be distributed freely to the community.
 
-\textit{Constructing AWN}\\
+\paragraph{Constructing AWN}
 The basic criteria for selecting synsets to be covered in AWN are\citep{awn_2}: 
 \begin{itemize}
 \item Connectivity: AWN should be as densely connected as possible by hyperonymy / hyponymy chains, etc. Most of the synsets of AWN should correspond to English WN counterparts and the overall topology of both wordnets should be similar.
@@ -179,7 +179,8 @@ The second step consists of the top-down vertical extension of BC, following Far
 The set of 17 heuristic methods used in the development of EWN will be applied to HBIL to derive candidate Arabic words/English synsets mappings. For each mapping the information attached includes the Arabic word and root, the English synset, POS, relative frequencies, mapping score, absolute depth in WN, number of gaps between the synset and the top of the WN hierarchy, and sources containing the pair.
 Arabic words in bilingual resources must be normalized and lemmatized (Diab et al. 2004, Habash and Rambow 2005) but vowels and diacritics must be maintained. Arabic roots are not vowelized.
 Following pre-processing, the set of scored Arabic word/English synset pairs becomes the input to the manual validation step. We proceed by chunks of related units (sets of related WN synsets, e.g. hyponymy chains and sets of related Arabic words, i.e., words having the same root) instead of individual units (synsets, senses, words).\\
-\textit{Shortfalls of AWN:}\\
+
+\paragraph{Shortfalls of AWN:}
 \begin{itemize}
 \item High Coupling with UI\\
 AWN suffers a very poor design that resulted in a high coupling between the Core Module and the Graphical User Interface (GUI) of the AWN, which made it very difficult to use the code module and the database without the GUI. However, we managed to decouple the GUI from the core modules of the AWN to allow its integration with other modules of semantic similarity. The decoupling process exerted a lot of time tracing and reverse engineering the code.
@@ -196,7 +197,7 @@ Another issue that consumes a lot of time is the path retrieval from the databas
 \end{itemize}
 \end{itemize}
   
-\textit{What we have done}\\
+\paragraph{What we have done}
 \begin{itemize}
 \item We managed to decouple the Code module from the GUI to be able to use each one separately.
 \item We fixed some bugs in the code.
@@ -241,7 +242,7 @@ Wikipedia is a freely available online encyclopedia developed by a community of 
 Each collection is a set of XML documents built using Wikipedia. Documents of the Wikipedia XML collections are organized in a hierarchy of categories defined by the authors of the articles. The Wikipedia category and article network has been studied in detail with respect to different graph properties. The Wikipedia category system is a taxonomy for arranging articles into categories and subcategories.\\
 However, this taxonomy is not a strict hierarchy or tree of categories, but allows multiple categorizations of topics simultaneously, i.e., some categories might have more than one super-category. It is shown that Wikipedia’s category system is a thesaurus that is collaboratively developed and used for indexing Wikipedia articles (Voss 2006). The articles within Wikipedia are inter-linked. However, these links do not impose any subcategory or super-category relationships. It has been observed that the Wikipedia article links graph generally resembles the World Wide Web graph.\\
 
-\textit{Lucene}\\
+\paragraph{Lucene}
 We used lucene to buuild an inverted index on whole Wikipedia Articles, so we could be able to search for any term within the wikipedia aricles efficiently, aslo to get the search results ranked according to the search query.\\
 Here is some Sample code for how we used Lucene the following one is sample indexing code, where Document object represents Wikipedia Articles to be indexed, Also ArabicAnalyzer is the Analyzer we used as it uses the light stemmer as we do in the datasets we used in our experiments.\\
 
@@ -323,7 +324,7 @@ finally we have a vetocr $d =\{\sum_{i=0}^{N} tfidf(w_1,c_i),\sum_{i=0}^{N} tfid
 	\label{fig:Method one}
 \end{figure}
 
-\textit{Drawbacks}\\
+\paragraph{Drawbacks}	
 \begin{itemize}
 \item High Dimensionality may lead to inaccurate or even incorrect results due to the sparse vectors comparison.
 \item Long Running time, however it's not too long like the AWN-based Technique. 

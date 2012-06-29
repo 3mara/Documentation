@@ -1,4 +1,4 @@
- Chapter 2
+%Chapter 2
 
 \chapter{Literature} % Main chapter title
 
@@ -7,7 +7,8 @@
 \lhead{Chapter 2. \emph{Literature}} % This is for the header on each page - perhaps a shortened title
 
 %----------------------------------------------------------------------------------------
-\section{Semantic Similarity}
+This chapter gives a background and a literature of the previous work, ~\ref{sec:sim} shows different existing similarity techniques, while section ~\ref{sec:clustering}  shows the exiting clustering algorithms and the advantages and disadvantages of each one, finally chapter ~\ref{sec:reco} discuss the existing recommending systems.
+\section{Semantic Similarity}\label{sec:sim}, 
 The problem of formalizing and quantifying the intuitive notion of similarity has a long history in philosophy, psychology, and artificial intelligence, and many different perspectives have been suggested. Recent research on the topic in computational linguistics has emphasized the perspective of semantic relatedness of two lexemes in a lexical resource, or its inverse, semantic distance. It’s important to note that semantic relatedness is a more general concept than similarity; similar entities are usually assumed to be related by virtue of their likeness (bank - trust company), but dissimilar entities may also be semantically related by lexical relationships such as metonymy (car - wheel) and antonymy (hot - cold), or just by any kind of functional relationship or frequent association (pencil - paper, penguin - Antarctica).\\
 
 Measures of text similarity have been used for a long time in applications in natural language processing and related areas. Text similarity has been also used for relevance feedback and text classification (Rocchio, 1971), word sense disambiguation (Lesk, 1986), and more recently for extractive summarization (Salton et al., 1997b), and methods for automatic evaluation of machine translation (Papineni et al., 2002) or text summarization (Lin and Hovy, 2003). \\
@@ -21,7 +22,7 @@ However, to date LSA has not been used on a large scale, due to the complexity a
 On the other hand, another group of approaches that gaines wide approval is the Knowledge-based group. Knowledge-based can be explained as a measure of semantic similarity between words, and an indication of the word specificity.\\
 
 %----------------------------------------------------------------------------------------
-\section{Clustering}
+\section{Clustering}\label{sec:clustering}
 Clustering is the unsupervised classification of patterns (observations, data items, or feature vectors) into groups \textit{clusters}, such that items within a cluster are very similar and items in different clusters are very different.
 
 \subsection{Document clustering}
@@ -177,7 +178,7 @@ a dynamic model. In the clustering process, two clusters are merged only if the 
 items within the clusters. The methodology of dynamic modeling of clusters used is applicable to all types of data as long as a similarity matrix can be constructed.
 
 %----------------------------------------------------------------------------------------
-\section{Recommendation}
+\section{Recommendation}\label{sec:reco}
 As the World Wide Web grows, recommender systems are becoming an increasingly important aspect to all e-commerce portals. Popular purchasing sites such as Amazon (www.amazon.com) and eBay (www.ebay.com) represent some of the businesses that have integrated recommendations into their shopping experience. These systems help to overcome excess information overload by providing customers with recommendations or suggestions based on their likes and dislikes relative to other customers.
 Recommendations have become an integral aspect of these e-commerce platforms and have shown to personalize the shopping experience \citep{literature_3}.
 \subsection{Definition of a Recommender System}

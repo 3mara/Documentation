@@ -1,14 +1,12 @@
 % Chapter 5
 
-\chapter{Document Clustering} % Main chapter title
+\chapter{Used Clustering Technique} % Main chapter title
 
 \label{clustering} % For referencing the chapter elsewhere, use \ref{Chapter4} 
 
-\lhead{Chapter 5. \emph{Document Clustering}} % This is for the header on each page - perhaps a shortened title
+\lhead{Chapter 5. \emph{"Used Clustering Technique}} % This is for the header on each page - perhaps a shortened title
 
 %----------------------------------------------------------------------------------------
-In this chapter we discuess the choosed clustering algorithms and implementation details, An introduction to document clustering is provided in section ~\ref{sec:intro}, section \ref{sec:background} introduces the dynamic modeling and distance relatedness concepts which are used in the Mitosis algorithm, Mitosis distance relatdness model is introduced in section ~\ref{sec:mitosis_proposed}, algorithms steps are explained in section ~\ref{sec:phases}, where implementation details are given in section ~\ref{sec:implementation}
-
 \section{Introduction} \label{sec:intro}
 Document clustering has been investigated for use in a number of different areas of text
 mining and information retrieval. Initially, document clustering was investigated for improving
@@ -17,7 +15,10 @@ finding the nearest neighbors of a document. More recently, clustering has been
 proposed for use in browsing a collection of documents or in organizing the results
 returned by a search engine in response to a user's query. Document clustering has
 also been used to automatically generate hierarchical clusters of documents. (The
-automatic generation of a taxonomy of Web documents like that provided by Yahoo! \citep{clustering_15}
+automatic generation of a taxonomy of Web documents like that provided by Yahoo! \citep{clustering_15}.
+
+The rest of this chapter is organized as follows, the details and implementation of DBSCAN and Mitosis are explained in sections ~\ref{dbscan} and ~\ref{mitosis} respectively.
+
 
 In this work we used clustring to group similar articles together for to ease user browsing and to determine the user neighborhood to enhance the performance of the system as we don't need to use all users' profiles in the system in the recommendation algorithm to determine the recommendations to a specified user, but instead we only investigate the profiles of the user's neighborhood which are other users who are in the same cluster.
 
@@ -29,7 +30,7 @@ est Neighbors) \citep{clustering_13} have introduced new clustering criteria tha
 Yet,they depend on using a static model for clustering, which deteriorates when arbitrary densities are present in data. Chameleon  \citep{clustering_14}, on the
 other hand, uses a dynamic model to be able to merge clusters of related densities together. Yet, Chameleon suffers some drawbacks.
 
-\section{DBSCAN}
+\section{DBSCAN}\label{dbscan}
 DBSCAN stands for \textbf{D}ensity-\textbf{B}ased \textbf{S}patial \textbf{C}lustering of \textbf{A}pplications with \textbf{N}oise, it is a denisty based clustering algorithm which uses the concepts of density reachability and density connectivity\citep{literature_1} as showed in chapter ~\ref{literature}, DBSCAN works as followos
 \subsection{The algorithm:}
 \citep{literature_2}  The key idea of the DBSCAN algorithm is that, for each point of a cluster, the neighbourhood 
@@ -44,7 +45,7 @@ input parameters:
 
 In our work $k$ is obtained by \textit{first} constructing a similarity matrix between all pairs of documents using one of the techniques explained in chapter ~\ref{sim}, the similarity matrix is stored in a database where for each document its id, location and source are stored too. Adter that for each document if the number of neighbours that are not more than $Eps_neighbourhood$ apart is greater than $MinPts$ they are considered as one cluster.
 
-\section{Mitosis}
+\section{Mitosis}\label{mitosis}
 For the shortcomings of other clustering algorithms mentioned above we applied the model proposed in \textbf{Mitosis} \citep{Mitosis_1} which introduces a dynamic model based on distance relatedness concepts to overcome drawbacks of related algorithms. Mitosis discovers clusters of arbitrary shapes and densities. It uses distance relatedness between patterns (in this case documents)as a measure to identify clusters of different densities.
 Mitosis overcomes the traditional clustering algorithms in the following points.
 \begin{itemize}
