@@ -11,23 +11,24 @@
 \section{Introduction}
 Recommender systems became an important research area since the appearance of the first papers on collaborative filtering since the mid-1990s  \citep{recom_45} \citep{recom_86} \citep{recom_97}. There has been much work done both in the industry and academia on developing new approaches to recommender systems over the last decade. The interest in this area still remains high because it constitutes a problem-rich research area and because of the abundance of practical applications that help users to deal with information overload and provide personalized recommendations, content and services to them. Examples of such applications include recommending books, CDs and other products at Amazon.com \citep{recom_61}, movies by MovieLens \citep{recom_67}, and news at VERSIFI Technologies (formerly AdaptiveInfo.com) \citep{recom_14}. Moreover, some of the vendors have incorporated recommendation capabilities into their commerce servers \citep{recom_78}. However in this chapter we focus on recommending news articels to users.
 
-The rest of this chapter is organized as follows section ~\ref{problem} defines the recommendation problem formally,  while section ~\ref{content} discusses the content based recommendation and its disadvantages, tne collaborative recommendation system is presented in section ~\ref{sec:coll}, section ~\ref{coll_content} discusses the content via collaorative technique, section ~\ref{feedback} discusses how to measure user feedback, finally section ~\ref{adv_lsa} discusses the advantages of using LSA as a similarity metric.
+The rest of this chapter is organized as follows section ~\ref{problem} defines the recommendation problem formally,  while section ~\ref{content} discusses the content based recommendation and its disadvantages, then collaborative recommendation system is presented in section ~\ref{sec:coll}, section ~\ref{coll_content} discusses the content via collaorative technique, section ~\ref{feedback} discusses how to measure user feedback, finally section ~\ref{adv_lsa} discusses the advantages of using LSA as a similarity metric.
 
 
 \section{Recommendation Problem}\label{problem}
 The recommendation is used in this work to formalize the problem of estimating ratings for the articles that have not been seen by a user. Intuitively, this estimation is usually based on the ratings given by this user to other articles and on some other information that will be formally described below. Once we can estimate ratings for the yet unrated articles, we can recommend to the user the articles with the highest estimated rating(s).
 
-More formally, int this work the recommendation problem can be formulated as follows. Let C be the set of all users in the system and let A be the set of all possible articles that can be recommended. The space A of possible articles can be very large, ranging in hundreds of thousands or even millions of items if the application is extended.
+More formally, in this work the recommendation problem can be formulated as follows. Let $C$ be the set of all users in the system and let $A$ be the set of all possible articles that can be recommended. The space $A$ of possible articles can be very large, ranging in hundreds of thousands or even millions of items if the application is extended.
 Similarly, the user space can also be very large millions in some cases. Let $u$ be a utility function that measures usefulness of article $a$ to user $c$, i.e., $u :C \times S \rightarrow R$ , where $R$ is a totally ordered set (e.g., non-negative integers or real numbers within a certain range). Then for each user $c\in C$ , we want to choose such article $a \in A$ that maximizes the user's utility. More formally
 \begin{equation} \label{eq:1}
 \forall c \in C,\, A_c = arg_{max u} (c,a)_{a \in A}
 \end{equation}
 
-The utility of an article is usually represented by a rating, which indicates how a particular user liked a particular item, e.g., Ahmed gave the article "\RL{انتخابات الرئاسه}" the rating of 7 (out of 10). The utility u can either be specified by the user, as is often done for the user-defined ratings, or is computed by the application, as will be shown later.
+The utility of an article is usually represented by a rating, which indicates how a particular user liked a particular article, e.g., \textit{Ahmed} gave the article "\RL{انتخابات الرئاسه}" the rating of $7$ (out of $10$). The utility $u$ can either be specified by the user, as is often done for the user-defined ratings, or is computed by the application, as will be shown later.
 
 
- As utility $u$ is usually not defined on the whole $C \times S$ space, but only on some subset of it. This means $u$ needs to be extrapolated to the whole space $C \times S$. In this system given users initially rate some subset of articles that they have already seen. An example of a user-article rating matrix is presented in Table ~\ref{table:1}, where ratings are specified on the scale of 1 to 5. The $\phi$ symbol for some of the ratings means that the users have not rated the corresponding article. Therefore, the recommendation engine should be able to estimate (predict) the ratings of the non-rated article/user combinations and issue appropriate recommendations based on these predictions.
+ As utility $u$ is usually not defined on the whole $C \times S$ space, but only on some subset of it. This means $u$ needs to be extrapolated to the whole space $C \times S$. In this system given users initially rate some subset of articles that they have already seen. An example of a user-article rating matrix is presented in Table ~\ref{table:1}, where ratings are specified on the scale of $1$ to $5$. The $\phi$ symbol for some of the ratings means that the users have not rated the corresponding article. Therefore, the recommendation engine should be able to estimate (predict) the ratings of the non-rated article/user combinations and issue appropriate recommendations based on these predictions.
 
+ 
 \begin{table}[ht]
 \caption{A fragment of a rating matrix for a movie recommender system} % title of Table
 \centering  % used for centering table
@@ -45,38 +46,36 @@ Yahya & 3 & $\phi$& 5 &2 \\[1ex]      % [1ex] adds vertical space
 \label{table:1} % is used to refer this table in the text
 \end{table}
 
-Once the unknown ratings are estimated, actual recommendations of an item to a user are made by selecting the highest rating among all the estimated ratings for that user, according to formula ~\ref{eq:1}. Alternatively, we can recommend $N$ best items to a user or a set of users to an item.
-The new ratings of the not-yet-rated items can be estimated in many different ways using the methods from machine learning, approximation theory and various heuristics. Recommender systems are usually classified according to their approach to rating estimation.
-
-Recommender systems are usually classified into the following categories, based on how recommendations are made:
+Once the unknown ratings are estimated, actual recommendations of an article to a user are made by selecting the highest rating among all the estimated ratings for that user, according to formula ~\ref{eq:1}. Alternatively, we can recommend the $N$ best articles to a user.
+The new ratings of the not-yet-rated articles can be estimated in many different ways which are usually classified into the following categories, based on how recommendations are made:
 \begin{itemize}
-	\item Content-based recommendations: the user is recommended items similar to the ones the user preferred in the past
-	\item Collaborative recommendations: the user is recommended items that people with similar tastes and preferences liked in the past
-	\item Hybrid approaches: these methods combine collaborative and content-based methods
+	\item Content-based recommendations: the user is recommended articles similar to the ones the user preferred in the past.
+	\item Collaborative recommendations: the user is recommended articles that people with similar tastes and preferences liked in the past.
+	\item Hybrid approaches: these methods combine collaborative and content-based methods.
 \end{itemize}
 
 
 \section{Content-Based Methods}\label{content}
 The content-based approach to recommendation has its roots in information retrieval \citep{recom_7} \citep{recom_89} and information filtering \citep{recom_10} research.
 
-By using content-based recommendation methods for recommending news articles, the system tries to use the rating of the user for previously read articles (the rate could be implicit or explicit as will be shown later) and the semantic relatedness between rated items and non-read ones to predect her rate for the unread documents and recommend the top $N$ document, more formally the utility $u(c, a)$ of article $a$ for user $c$ is estimated based on the utilities $u(c ,a_i)$  assigned by user $c$ to articles $a_i \in S$ that are \textit{similar} to item $a_i$ (depending on semantic documents representation as showed in chapter ~\ref{sim}). This means the system tries to understand the commonalities among the articles user $c$ has rated high in the past. Then, only the articles that have a high degree of similarity to whatever users preferences are would get recommended.
+By using content-based recommendation methods for recommending news articles, the system tries to use the rating of the user for previously read articles (the rate could be implicit or explicit as will be shown later) also the system uses the semantic relatedness between rated items and non-read ones to predect her rate for the unread documents and recommend the top $N$ document, more formally the utility $u(c, a)$ of article $a$ for user $c$ is estimated based on the utilities $u(c ,a_i)$  assigned by user $c$ to articles $a_i \in A$ that are \textit{similar} to item $a$ (depending on semantic documents representation as showed in chapter ~\ref{sim}). This means the system tries to understand the commonalities among the articles user $c$ has rated high in the past. Then, only the articles that have a high degree of similarity to whatever users preferences are would get recommended.
 
-As stated earlier, content-based systems recommend articles similar to those that a user liked in the past  \citep{recom_56}  \citep{recom_69}  \citep{recom_77}. In particular, various candidate articles are compared with articles previously rated by the user (by one of different semantic similarity metrics showed in chapter ~\ref{sim}), and the best-matching articles(s) are recommended.let ($w_{i_1},...,w_{i_k}$) be the semantic representation of document $i$, where each weight $w_{i_k}$ dentoes the importance of the concept $k$ in document $a_i$, the ContentBasedProfile(c) of user c which contains tastes and preferences of this user can be obtained from  the concepts of the documents seen and rated by the user. ContentBasedProfile(c) can be defined as a vector of weights ($w_{c_1},...,w_{c_k}$), where each weight $w_{c_i}$ denotes the importance of concept $i$ to user $c$ and can be computed from individually rated documents representation using Rocchio algorithm  \citep{recom_85}, which computes ContentBasedProfile(c) as an \textit{average} vector from an individual content vectors  \citep{recom_8}  \citep{recom_56}.
-In content-based systems, the utility function $u(c, s)$ is usually defined as:
+As stated earlier, content-based systems recommend articles similar to those that a user liked in the past  \citep{recom_56}  \citep{recom_69}  \citep{recom_77}. In particular, various candidate articles are compared with articles previously rated by the user (by one of different semantic similarity metrics showed in chapter ~\ref{sim}), and the best-matching articles(s) are recommended. Let ($w_{i_1},...,w_{i_k}$) be the semantic representation of document $i$, where each weight $w_{i_k}$ dentoes the importance of the concept $k$ in document $a_i$, the ContentBasedProfile(c) of user c which contains tastes and preferences of this user can be obtained from  the concepts of the documents seen and rated by the user. ContentBasedProfile(c) can be defined as a vector of weights ($w_{c_1},...,w_{c_k}$), where each weight $w_{c_i}$ denotes the importance of concept $i$ to user $c$ and can be computed from individually rated documents representation using Rocchio algorithm  \citep{recom_85}, which computes ContentBasedProfile(c) as an \textit{average} vector from an individual content vectors  \citep{recom_8}  \citep{recom_56}.
+In content-based systems, the utility function $u(c, a)$ is usually defined as:
 \begin{equation}\label{eq:5}
 u(c,a)= score(ContentBasedProfile(c),Content(a))
 \end{equation}
 
 
-Moreover, utility function $u(c, s)$ is represented in terms of vectors $\vec{W}_{c_i}$   and $\vec{W}_{a_i}$ (importance of the concept $i$ to the user $c$ and in the article $a$ respectively), such as cosine similarity measure \citep{recom_7} \citep{recom_89}:
+Moreover, utility function $u(c, a)$ is represented in terms of vectors $\vec{W}_{c_i}$   and $\vec{W}_{a_i}$ (importance of the concept $i$ to the user $c$ and in the article $a$ respectively), such as cosine similarity measure \citep{recom_7} \citep{recom_89}:
 \begin{equation}\label{eq:6}
-	u(c,s) = cos(\vec{W}_c, \vec{W}_S) = \frac{\vec{W}_c \cdot \vec{W}_S}{ \|\vec{W}_c\|_2 \times \|\vec{W}_S\|_2} = 
-	\frac{\sum\limits_{i=1}^k w_{i,c} \cdot w_{i,s}}{\sqrt{\sum\limits_{i=1}^k w_{i,c}^2} \sqrt{\sum\limits_{i=1}^k w_{i,s}^2}}
+	u(c,a) = cos(\vec{W}_c, \vec{W}_A) = \frac{\vec{W}_c \cdot \vec{W}_A}{ \|\vec{W}_c\|_2 \times \|\vec{W}_A\|_2} = 
+	\frac{\sum\limits_{i=1}^k w_{i,c} \cdot w_{i,a}}{\sqrt{\sum\limits_{i=1}^k w_{i,c}^2} \sqrt{\sum\limits_{i=1}^k w_{i,a}^2}}
 \end{equation}
 
 
 where $K$ is the total number of concepts in the system.
-For example, if user $c$ reads online articles entitled (\RL{انتخابات الرئاسه},\RL{مجلس الشعب}, \RL{المجلس العسكرى},\RL{الوضع السورى},\RL{اللجنه التأسيسية}) so it can be said that this user is interested in politics, and her profile will contains high weights to the concepts related to politics realtive to other topics, hence content-based recommendation techniques will be able to recommend other politics articles to user $c$. This is the case, because these articles will have more politics-related concepts than articles on other topics (sports, technology ....), also ContentBasedProfile(c) which is defined by vector $\vec{W}_c$, will represent such concepts $k_i$ with high weights $w_{ic}$. Consequently, a recommender system using the cosine or a related similarity measure will assign higher utility $u(c, s)$ to those articles $s$ that have high-weighted politics concepts in $\vec{w}_s $ and lower utility to the ones where politics terms are weighted less.
+For example, if user $c$ reads online articles entitled (\RL{انتخابات الرئاسه},\RL{مجلس الشعب}, \RL{المجلس العسكرى},\RL{الوضع السورى},\RL{اللجنه التأسيسية}) so it can be said that this user is interested in politics, and her profile will contains high weights to the concepts related to politics realtive to other topics, hence content-based recommendation techniques will be able to recommend other politics articles to user $c$. This is the case, because these articles will have more politics-related concepts than articles on other topics (sports, technology ....), also ContentBasedProfile(c) which is defined by vector $\vec{W}_c$, will represent such concepts $k_i$ with high weights $w_{ic}$. Consequently, a recommender system using the cosine or a related similarity measure will assign higher utility $u(c, a)$ to those articles $a$ that have high-weighted politics concepts in $\vec{w}_a $ and lower utility to the ones where politics terms are weighted less.
 
 \subsection{Limitation}
 \subsubsection{Limited Content Analysis}
@@ -89,8 +88,8 @@ When the system can only recommend articles that score highly against a users 
 The user has to rate a sufficient number of articles before a content-based recommender system can really understand users preferences and present the user with reliable recommendations. Therefore, a new user, having very few ratings, would not be able to get accurate recommendations, this problem is addressed later.
 
 \section{Collaborative Methods}\label{sec:coll}
-In the collaborative-based recommendation(or collaborative filtering systems), the articles previously rated by other users are used to predict the utility of article for a particular user. More formally, the utility $u(c, a)$ of item $a$ for user $c$ is estimated based on the utilities $u(c_j, a)$ assigned to item $a$ by those users $c_j \in C$ who are "similar" to user c. So we have to find other "peers" of user c, i.e., other users that have similar tastesFor (rate the same articles similarly). Then, only the articles that are most liked by the peers of user $c$ would get recommended. 
-That is, the value of the unknown rating $r_c$, for user c and article $a$ is usually computed as an aggregate of the ratings of some other (usually the N most similar) users for the same item $a$:
+In the collaborative-based recommendation(or collaborative filtering systems), the articles previously rated by other users are used to predict the utility of article for a particular user. More formally, the utility $u(c, a)$ of item $a$ for user $c$ is estimated based on the utilities $u(c_j, a)$ assigned to item $a$ by those users $c_j \in C$ who are "similar" to user c. So we have to find other "peers" of user c, i.e., other users that have similar tastes (rate the same articles similarly). Then, only the articles that are most liked by the peers of user $c$ would get recommended. 
+That is, the value of the unknown rating $r_c$, for user c and article $a$ is usually computed as an aggregate of the ratings of some other (usually the $N$ most similar) users for the same item $a$ as shown in equation ~\ref{eq:9}:
 
 \begin{equation}\label{eq:9}
 r_{c,s}=aggr_{c'\in \hat{C}} r_{c',s} 
@@ -108,7 +107,7 @@ where multiplier k serves as a normalizing factor and is usually selected as sho
 k = \frac{1}{\sum_{c' \in \hat{C}} |sim(c,c')|}
 \end{equation}
 
-The similarity measure between the users $c$ and $c'$, $sim(c, c')$, is essentially a distance measure and is used as a weight, i.e., the more similar users $c$ and $c'$ are, the more weight rating $r_{c'}$, a will carry in the prediction of $r{c,s}$. Note that sim(x,y) is introduced in order to be able to differentiate between levels of user similarity (i.e., to be able to find a set of “closest peers” or “nearest neighbors” for each user) and at the same time simplify the rating estimation procedure. As shown in ~\ref{10b}.
+The similarity measure between the users $c$ and $c'$, $sim(c, c')$, is essentially a distance measure and is used as a weight, i.e., the more similar users $c$ and $c'$ are, the more weight rating $r_{c'}$, $a$ will carry in the prediction of $r{c,s}$. Note that sim(x,y) is introduced in order to be able to differentiate between levels of user similarity (i.e., to be able to find a set of “closest peers” or “nearest neighbors” for each user) and at the same time simplify the rating estimation procedure. As shown in ~\ref{10b}. The next section will show how to compute similarity between two users.
 
 
 
