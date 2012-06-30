@@ -1,18 +1,28 @@
 % Appendix A
 
-\chapter{Appendix Title Here} % Main appendix title
+\chapter{Used algorithms Pseudocode} % Main appendix title
 
 \label{AppendixA} % For referencing this appendix elsewhere, use \ref{AppendixA}
 
-\lhead{Appendix A. \emph{Appendix Title Here}} % This is for the header on each page - perhaps a shortened title
+\lhead{Used algorithms Pseudocode\emph{Used algorithms Pseudocode}} % This is for the header on each page - perhaps a shortened title
 
-\section{JIGSAW Disambiguation}
+\section{Mitosis}
+
+
 \begin{algorithmic}
-\If {$i\geq maxval$}
-    \State $i\gets 0$
-\Else
-    \If {$i+k\leq maxval$}
-        \State $i\gets i+k$
-    \EndIf
-\EndIf
+\State //Phase 1:Get associations
+\State BuildTree($P$)		\Comment{Builds Metric Tree T for data set P}
+\State GetDynamicNearestNeighbors($P$) \Comment{uses T and range value r(p) = f.mindist(p) and updates minimum distances for p}
+\State GetAverageDistance($P$)		\Comment {calculates average neighborhood distances for all  patterns}
+\State $L_1\gets$ SortNeighborhoodDistances($P$)	\Comment{Sorts list of associations between neighbors ascendingly on distances}
+
+\State //Phase 2: Merge Patterns in to clusters
+\State $L_1\gets$ \{\}
+\State InitializeLables
+\Repeat  \newline
+	$(p,q) \gets$ GetNextAssociation($L_1$)
+\Until{All associations}
+\State $c_1$ = Label($p$), $c_2$ = Label($q$)
+\State InitializeAverageDistances(p,q)	  	
+
 \end{algorithmic}
