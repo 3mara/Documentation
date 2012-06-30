@@ -37,7 +37,7 @@ Figure ~\ref{fig:Angle_Between_Documents} shows the angle in two-dimensional spa
 \subsubsection{Eculidean Distance}
 \label {euclidean}
 Euclidean distance is a standard metric for geometrical problems. It is the ordinary distance between two points and can be easily measured with a ruler in two- or three-dimensional space. Euclidean distance is widely used in clustering problems, including clustering text. It satisfies all the above four conditions and therefore is a true metric. It is also the default distance measure used with the K-means algorithm.\\
-Measuring distance between text documents, given two documents $d_{a} and  d_{b}$ represented by their term vectors  $\overrightarrow{t_{a}} \,and\, \overrightarrow{t_{b}}$ respectively, the Euclidean distance of the two documents is defined as
+Measuring distance between text documents, given two documents $d_{a}$ and  $d_{b}$ represented by their term vectors  $\overrightarrow{t_{a}} \,and\, \overrightarrow{t_{b}}$ respectively, the Euclidean distance of the two documents is defined as
 where the term set is $T = {t1 , . . . , tm }$. As mentioned previously, we use the tf-idf value as term weights, that is
 crucial for cluster analysis, especially for a particular type $w_{t,a} = tf idf (d_{a} , t)$.
 
@@ -329,7 +329,7 @@ finally we have a vetocr $d =\{\sum_{i=0}^{N} tfidf(w_1,c_i),\sum_{i=0}^{N} tfid
 \item High Dimensionality may lead to inaccurate or even incorrect results due to the sparse vectors comparison.
 \item Long Running time, however it's not too long like the AWN-based Technique. 
 \end{itemize}
-To Overcome these problems we faced we tried two improvments on this technique, first we tried to compute the global uniopn vector for each dataset we used in the experiments to truncate those concepts that never appeared in our dataset to avoid any misleading values.With this modification only we managed to reduce the 450,000 concepts to around 8600 concepts.\\
+To overcome these problems we faced, we tried two improvments on this technique. First, we tried to compute the global union vector for each dataset we used in the experiments to truncate those concepts that never appeared in our dataset to avoid any misleading values.With this modification only we managed to reduce the 450,000 concepts to around 8600 concepts.\\
 second we applied the PCA ~\ref{pca} to reduce the high dimensionality, however this technique introduced another problem that PCA matrix result from the decomposition may contains negative values leading to negative similarities values.
 To solve this new problem we tried the Automated contrast Adjustment Technique \citep{acadjstment} a used the folowing equation to map the range [-1,1] of cosine probable output and the desired range [0,1].
 \begin{equation}

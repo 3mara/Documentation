@@ -22,10 +22,10 @@ The rest of this chapter is organized as follows, the details and implementation
 
 In this work we used clustring to group similar articles together for to ease user browsing and to determine the user neighborhood to enhance the performance of the system as we don't need to use all users' profiles in the system in the recommendation algorithm to determine the recommendations to a specified user, but instead we only investigate the profiles of the user's neighborhood which are other users who are in the same cluster.
 
-Partitioning algorithms as K-Means \citep{clustering_1}, itsvariants \citep{clustering_2} \citep{clustering_3}, K-Medoids \citep{clustering_4}, PAM \citep{clustering_5} (Partitioning AroundMedoids),BIRCH \citep{clustering_6} and
-CLARANS \citep{clustering_7}, tend to use a center-based clustering objective,re-sulting in clusters of known geometrical shape,e.g. asphereoran ellipse. Grid based clustering algorithms include STING \citep{clustering_8}, CliQue \citep{clustering_9},WaveCluster \citep{clustering_10}, andDenClue \citep{clustering_11}.
+Partitioning algorithms as K-Means \citep{clustering_1}, variants \citep{clustering_2} \citep{clustering_3}, K-Medoids \citep{clustering_4}, PAM \citep{clustering_5} (Partitioning AroundMedoids),BIRCH \citep{clustering_6} and
+CLARANS \citep{clustering_7}, tend to use a center-based clustering objective,resulting in clusters of known geometrical shape,e.g. a sphere or an ellipse. Grid based clustering algorithms include STING \citep{clustering_8}, CliQue \citep{clustering_9},WaveCluster \citep{clustering_10}, andDenClue \citep{clustering_11}.
 However,density-based
-algorithms asDBScan \citep{clustering_12}, DenClue \citep{clustering_11}, andSNN(SharedNear-
+algorithms as DBSCAN \citep{clustering_12}, DenClue \citep{clustering_11}, andSNN(SharedNear-
 est Neighbors) \citep{clustering_13} have introduced new clustering criteria that do not restrict the shape of clusters, and thus are able to obtain what is called \textit{arbitrary} shaped clusters.
 Yet,they depend on using a static model for clustering, which deteriorates when arbitrary densities are present in data. Chameleon  \citep{clustering_14}, on the
 other hand, uses a dynamic model to be able to merge clusters of related densities together. Yet, Chameleon suffers some drawbacks.
@@ -43,7 +43,7 @@ input parameters:
 \item{MinPts, the minimum number of points that must exist in the Eps-neighbourhood.}
 \end{itemize} 
 
-In our work $k$ is obtained by \textit{first} constructing a similarity matrix between all pairs of documents using one of the techniques explained in chapter ~\ref{sim}, the similarity matrix is stored in a database where for each document its id, location and source are stored too. Adter that for each document if the number of neighbours that are not more than $Eps_neighbourhood$ apart is greater than $MinPts$ they are considered as one cluster.
+In our work $k$ is obtained by \textit{first} constructing a similarity matrix between all pairs of documents using one of the techniques explained in chapter ~\ref{sim}, the similarity matrix is stored in a database where for each document its id, location and source are stored too. After that for each document if the number of neighbors  that are not more than $Eps_neighbourhood$ apart is greater than $MinPts$ they are considered as one cluster.
 
 \section{Mitosis}\label{mitosis}
 For the shortcomings of other clustering algorithms mentioned above we applied the model proposed in \textbf{Mitosis} \citep{Mitosis_1} which introduces a dynamic model based on distance relatedness concepts to overcome drawbacks of related algorithms. Mitosis discovers clusters of arbitrary shapes and densities. It uses distance relatedness between patterns (in this case documents)as a measure to identify clusters of different densities.
@@ -61,7 +61,7 @@ The following subsection will introduce the background needed to explain the alg
 The significance of a dynamic model of clustering is first explained ~\ref{subsec:dynamic_static}, and the theoretical background of distance relatedness is then discussed ~\ref{subsec:dist_density}.
 
 \subsubsection{Dynamic vs. static models}\label{subsec:dynamic_static} 
-A static model refers to using user-defined parameters for defining density thresholds without referring to the characteristics of the underlying data.DBScan, DenClue, WaveClusterandSNN, are examples of algorithms that use a static model and are unable to find clusters of arbitrary densities.For example, DBScan uses two parameters \textit{Eps} and \textit{Minpts}, where \textit{Eps} specifies a threshold on range distance,
+A static model refers to using user-defined parameters for defining density thresholds without referring to the characteristics of the underlying data.DBSCAN, DenClue, WaveClusterandSNN, are examples of algorithms that use a static model and are unable to find clusters of arbitrary densities.For example, DBSCAN uses two parameters \textit{Eps} and \textit{Minpts}, where \textit{Eps} specifies a threshold on range distance,
 and Minpts specifies the minimum number of neighbors.
 Apattern with a number of neighbors more than Minpts at adistance less than Eps, is considered a corepoint(\textit{pattern}) and is used to track clusters. Chameleon,on the other hand introduced a dynamic modelfor
 clustering based on the following:
@@ -102,7 +102,7 @@ It attempts to cluster the data starting from local measures and extending that 
 Let the symbols $x$, $y$, $p$, and $q$ denote a pattern, $d(x,y)$ denotes the distance between patterns $x$ and $y$, $a$ denotes the association between two patterns $x$ and $y$, which is the tuple $(x,y,d(x,y))$, $A$ denotes a set of associations, $f$ and $k$ denote user parameters, and $\mu$ denotes the average value of distances.
 
 \textbf{Local distance relatedness}: Any cluster is initially formed from singleton patterns that are related with respect to their neighborhood
-average distance measure, and have an in-between distance related to this measure as well. This local merging criterion is a modification of Zahn'sinconsistencymodel.
+average distance measure, and have an in-between distance related to this measure as well. This local merging criterion is a modification of Zahn's inconsistency model.
 The rules proposed here are as follows, considering that an average local distance measure is the average of distances in a neighborhood of a pattern as given later
 \begin{itemize}
 \item The distance between two patterns is related to each of the patterns' average local distance measure, by a factor k.
@@ -110,7 +110,7 @@ The rules proposed here are as follows, considering that an average local distan
 \end{itemize}
 
 Figure ~\ref{fig:mitosis_2} illustrates the importance of the mutual consistency between the three entities associated with the local relatedness
-criterion; two patterns and a nin-between distance. It shows two examples, the first example ($p_1, p_2, d_1$) has two patterns with distance $d_1$related to each patterns' neighborhood distances, yet the two neighborhood distance averages are not related. The second case ($p_3, p_4, d_2$)gives an example of two related neighborhood distance averages, but an unrelated in-between distance $d_2$. The two patterns do not merge in any of these cases, justifying the above proposed local criterion that imposes the mutual consistency between the two neighborhoods and the in between distance. 
+criterion; two patterns and a in-between distance. It shows two examples, the first example ($p_1, p_2, d_1$) has two patterns with distance $d_1$related to each patterns' neighborhood distances, yet the two neighborhood distance averages are not related. The second case ($p_3, p_4, d_2$)gives an example of two related neighborhood distance averages, but an unrelated in-between distance $d_2$. The two patterns do not merge in any of these cases, justifying the above proposed local criterion that imposes the mutual consistency between the two neighborhoods and the in between distance. 
 The same rationale is used when merging two clusters, but this time considering the clusters' global characteristics.
 
 \begin{figure}[htbp]
@@ -136,7 +136,7 @@ $d(x, y)<k. \mu$
 \end{itemize}
 According to the above definitions the merge criteria are proposed.
 
-\subsubsection{Algorithms phases}\label{sec:phases}
+\subsubsection{Algorithm's phases}\label{sec:phases}
 
 The algorithm takes as an input the dataset $P$, and 2 main parameters $f$ and $k$. The main steps are as follows:
 \begin{itemize}
@@ -149,11 +149,11 @@ The algorithm takes as an input the dataset $P$, and 2 main parameters $f$ and $
 }
 
 
-\item {Merge patterns in to clusters: For each association in L (visited in order), if the merging criterion is satisfiedaccording to k-, merge
+\item {Merge patterns in to clusters: For each association in L (visited in order), if the merging criterion is satisfied according to k-, merge
 associated patterns/clusters, and update the clusters'measures.}
 \item {Refine clusters:
 \begin{itemize}
-\item For each cluster, add any internal association consistent to the cluster'saverage.
+\item For each cluster, add any internal association consistent to the cluster's average.
 \item For each cluster, calculate the Harmonic average of distances, and remove associations not consistent to this measure.
 \end{itemize}
 }
@@ -161,8 +161,8 @@ associated patterns/clusters, and update the clusters'measures.}
 
 
 \subsection{Implementation Details}\label{sec:implementation}
-The class diagram of the implementation of Mitosis is illustrated in figure ~\ref{fig:mitosis_6} where class \textit{Pattern} is an abstract class represents the object to be clustered, in our work the class \textit{Document} implements it, this class sotores the representation of the document which is an N-dimentional feature vector each pattern has a reference to its cluster.
-The \textit{Asscaition} class contains the relations between the pattern \textit{p} and all other patterns within its dynamic range. Each \textit{Cluster} object contains a list of all patterns and associations consisting it, the \textit{Cluster} object contains the mean value of distances of associations in the cluster $\mu$, and keep updating it while more associations is added to it.
+The class diagram of the implementation of Mitosis is illustrated in figure ~\ref{fig:mitosis_6} where class \textit{Pattern} is an abstract class represents the object to be clustered, in our work the class \textit{Document} implements it, this class stores the representation of the document which is an N-dimentional feature vector each pattern has a reference to its cluster.
+The \textit{Association} class contains the relations between the pattern \textit{p} and all other patterns within its dynamic range. Each \textit{Cluster} object contains a list of all patterns and associations consisting it, the \textit{Cluster} object contains the mean value of distances of associations in the cluster $\mu$, and keep updating it while more associations is added to it.
 
 \begin{figure}[htbp]
 	\centering
@@ -175,7 +175,7 @@ The \textit{Asscaition} class contains the relations between the pattern \textit
 \subsubsection{Loading associations} 
 Mitosis requires loading the associations of each pattern which have distance less than $f.min{dist}$ where $f$ is mitosis factor and $min_{dist}$ is the minimum distance betweeen the pattern and all its neighbours.
 
-Given a databse that stores all the distances between all pairs of patterns, loading associations that are in dynamic range for a given patterns $p$ is performed on two steps, first the database is queried to obtain the the nearst pattern to $p$ which is at distance $min{dist}$, then the pattern's threshold is calculated as $threshold_{dist} = f \dot dist_{min}$ the database is queried again to obtain all the association with distance less than or equal to $threshold{dist}$.
+Given a databse that stores all the distances between all pairs of patterns, loading associations that are in dynamic range for a given pattern $p$ is performed on two steps, first the database is queried to obtain the the instead pattern to $p$ which is at distance $min{dist}$, then the pattern's threshold is calculated as $threshold_{dist} = f \dot dist_{min}$ the database is queried again to obtain all the association with distance less than or equal to $threshold{dist}$.
 
 The clustering algorithm is first applied on two different sets of 2D points (the data set could be found at \citep{Mitosis_2}) for verifying the correctness of the implementation, the results are illustrated in figures ~\ref{fig:mitosis_7} and ~\ref{fig:mitosis_8}.
 \begin{figure}[htbp]
@@ -206,7 +206,7 @@ Disjoint set operations:
 \item UNION(x,y): combine the two sets containing x and y into one new set. A new representative is selected.
 \item FIND-SET(x): return the representative of the set containing x.
 \end{itemize}
-Obviously the \textit{MAKE-SET(x)} operation can be used at the beginning of the algorithm as each pattern will be in a cluster, and the \textit{UNION(x,y)} will be used to marge to clusters.
+Obviously the \textit{MAKE-SET(x)} operation can be used at the beginning of the algorithm as each pattern will be in a cluster, and the \textit{UNION(x,y)} will be used to marge two clusters.
 Next sub-sections will illustrate different implementations
 \paragraph{Linked-List Implementation}
 Each set as a linked-list, with head and tail, and each node contains value, next node pointer and back-to-representative pointer.

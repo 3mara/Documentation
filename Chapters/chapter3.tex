@@ -8,7 +8,7 @@
 
 %----------------------------------------------------------------------------------------
 \section{Overall system architecture}
-In this section we provide an overall explanation of our system.  Initially, we tried to explore different techniques and approaches for applying Semantic Similarity on Arabic text. The Semantic Similarity is then used as a affinity (similarity distance) between documents which allowed clustering documents into categories. We applied different clustering algorithms to news articles. The results of clustering news articles are then used to feed a recommendation system. The recommendation system role appears in combining the user profile and the results of the clusters to recommend articles to the user that probably will be of interest to him. Figure \ref{fig:arch_1} shows the overall system architecture.
+In this section we provide an overall explanation of our system.  Initially, we tried to explore different techniques and approaches for applying Semantic Similarity on Arabic text. The Semantic Similarity is then used as an affinity (similarity distance) between documents which allowed clustering documents into categories. We applied different clustering algorithms to news articles. The results of clustering news articles are then used to feed a recommendation system. The recommendation system role appears in combining the user profile and the results of the clusters to recommend articles to the user that probably will be of interest to him. Figure \ref{fig:arch_1} shows the overall system architecture.
 
 As shown in figure ~\ref{fig:arch_1} the system starts first by crawling news resources and stores the content of the articles in a database, after that the pre-processing module processes the document by removing stop words, stemming and assigning Part of Speech Tag to each term, the processed document is stored in a database for next modules. The system builds a matrix of the pair wise similarity between all the documents using one of the  metrics presented in the semantic module. Based on the similarities the system clsuters the similar articles in to the same group and clusters the users also to groups which is useful in increasing the recommender scalability. According to the similarities between documents and user clusters the system recommends news articles to users based on user's rating to previously read items and the user's neighbors. Finally the results are viewed to the user as a web service which records the user feedback(explicitly or implicitly) and uses these information to update user's profile
 
@@ -78,8 +78,8 @@ Second one used the categories of the wikipedia articles instead of the wikipedi
 \section{Document clustering}
 Using the simialrity metric explained in the previous section different clustering algorithms can be applied to group the similar document or neighbour users to increase the system scalability.
 
-The pairwise similarity between documents is stored in a database and is fed to the clustering algorithm, one of the clustering algorithms showed in chapter ~\ref{clustering} is used to assign a cluster ID to each document.
-Mitosis clustering algorithm which explained in chapter ~\ref{clustering} is used to cluster document and users
+The pairwise similarity between documents is stored in a database and is fed to the clustering algorithm, one of the clustering algorithms that will be shown in chapter ~\ref{clustering} is used to assign a cluster ID to each document.
+Mitosis clustering algorithm (chapter ~\ref{clustering}) is used to cluster document and users
 
 \begin{figure}[htb]
 \begin{center}
@@ -95,7 +95,7 @@ width=.75\textwidth]{./Figures/Clustering_Module.png}
 \subsection{Recommending Approach}
 We have implemented the recommender using collaborative via content approach (chapter ~\ref{recommender}) where users profile are build using the content based representation of their rated items.
 
-As illustrated in figure ~\ref{fig:reco_1}, the user profile is examined against the user's neighbour and the correlation between the user and each of his neighbours is calculated and stored in a database for a certain time then it expires and has to be updated as the taste of the user may deviate than the current neighbours. where users profiles are built using the content based representation of their rated items, the profile is saved in an array of fixed width (LSA concepts number). The document metadata is saved in the documents table while its vector representation is derived from the LSA's term vs. document matrix.
+As illustrated in figure ~\ref{fig:reco_1}, the user profile is examined against the user's neighbours and the correlation between the user and each of his neighbours is calculated and stored in a database for a certain time then it expires and has to be updated as the taste of the user may deviate than the current neighbours. where users profiles are built using the content based representation of their rated items, the profile is saved in an array of fixed width (LSA concepts number). The document metadata is saved in the documents table while its vector representation is derived from the LSA's term vs. document matrix.
 The system obtains the items read by user's neighbours and not read by the user (potential interesting items). 
 Based on the correlation and neighbour's rate for the new documents the system can rank the documents and show the top $N$ recommendations to the user.
 After showing the recommendations to the user the system measures the user \textit{feedback} implicitly by watching the time the user read a document and compare it to its average reading time, if it is bigger than the average so it will be considered as positive feedback. Sharing a document implies being interested in it and therefore will be considered as a positive feedback, also there exist a like and dislike option which implies positive and negative feedback respectively. this feedback to update the user's profile based on this feedback and document content.
@@ -132,11 +132,5 @@ width=.75\textwidth]{./Figures/reco_2.png}
 \end{figure}
 
 {Document Representation}
-Each document in the system is represented as a vector of concepts. These vectors are driven by aggregating the vector representing words placed in the document via LSA's term vs. document matrix 
-\section{User Profile}
-Each user is represented by a vector similar to that of the document where both of them have the same length that is equal to the number of documents in the corpus used in performing LSA
-\section{User's neighbors}
-When a user enters the system a user profile is created then these profile is fed with his social activates. The user profile is compared to other users profile using person's correlation or cosine similarity, and then users are clustered based on these similarities.
-\section{Get Recommendations}
-After determining user's cluster, documents that have been rated by the neighbors and not by that user. The expected rating of the user to the unseen documents is then calculated using a combination between user's votes and their correlation to that particular user, then top N documents with highest expected rating are chosen to be recommended to the user.
+Each document in the system is represented as a vector of concepts. These vectors are driven by aggregating the vector representing words placed in the document via LSA's term vs. document matrix.
 
