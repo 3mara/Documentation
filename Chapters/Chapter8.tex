@@ -10,13 +10,13 @@ In this chapter we present our system\'s performance evaluation and performance 
 
 \section{Challenges}\label{sec:challenges}
 This is section we give an overall discussion of the resources for Arabic language and its limitations from the perspective of performance. The main components of our system are Web Crawlers, Pre-processing tools, Similarity measure, Clustering algorithms and Recommender System. \\
-We used Web Harvest as our web crawler which surfs some given URL domains and retrieve web pages’ content. Web Harvest has a good performance and a plausible throughput given the number of web pages that were crawled. \\For the Pre-processing part we used Stanford’s POS which gave a very good performance for Arabic language. We also used different Stemmers, light stemmer like the Arabic stemmer used by Lucene. However, we also used El-Khoga stemmer as different type of stemmer. All the Pre-processing components gave a plausible output and could scale-up to processing thousands of documents.\\ 
+We used Web Harvest as our web crawler which surfs some given URL domains and retrieves web pages\' content. Web Harvest has a good performance and a plausible throughput given the number of web pages that were crawled. \\For the Pre-processing part we used Stanford\'s POS which gave a very good performance for Arabic language. We also used different Stemmers, light stemmer like the Arabic stemmer used by Lucene. However, we also used El-Khoga stemmer as different type of stemmer. All the Pre-processing components gave a plausible output and could scale-up to processing thousands of documents.\\ 
 For the Similarity part, we examined different approaches; Lexical, Knowledge-based and Corpus-based similarities. For Lexical similarity, we used Lucene to build inverted index on the retrieved documents and calculate the TF-IDF. \\
 Lucene is proved to be highly optimized and it gave a very good performance with processing Arabic text. For Knowledge-based approach, first we tried Arabic WordNet (AWN) to model the concepts and the knowledge of the Arabic language. \\
-Unfortunately, AWN was a performance bottleneck in our system. The running time of AWN resulted in a significant degradation in the system’s performance. AWN could not scale-up to handle large data-sets. Wikipedia as ontology was our alternative to AWN. Wikipedia approach was very promising when compared to AWN, but, due to time constraints, we could not investigate this new approach as much as we did with the AWN approach. The Wikipedia’s approach scaled-up to relatively large data-sets of documents and allowed us to compute hundreds of thousands of documents similarities. Indeed, Wikipedia wasn’t computationally expensive when compared to AWN. 
-Another resource that affected our performance evaluation process was the existence of a labeled training set for Arabic language. Another thing was that, we had to run the web crawlers on News websites as it’s almost the only on-line content that is written in formal Arabic language. \\
+Unfortunately, AWN was a performance bottleneck in our system. The running time of AWN resulted in a significant degradation in the system\'s performance. AWN could not scale-up to handle large data-sets. Wikipedia as ontology was our alternative to AWN. Wikipedia approach was very promising when compared to AWN, but, due to time constraints, we could not investigate this new approach as much as we did with the AWN approach. The Wikipedia approach scaled-up to relatively large data-sets of documents and allowed us to compute hundreds of thousands of documents similarities. Indeed, Wikipedia wasn\'t computationally expensive when compared to AWN. 
+Another resource that affected our performance evaluation process was the existence of a labeled training set for Arabic language. Another thing was that, we had to run the web crawlers on News websites as it\'s almost the only on-line content that is written in formal Arabic language. \\
 
-Also Arabic language is used by more than $330$ million Arabic speakers, there are few systems that we can compare our system with, also there are no human-judged dataset for Arabic text. We used Aljazeera data set \footnote[1]{Available online at http://filebox.vt.edu/users/dsaid/AljNews.tar.gz} that is categorized in to $8$ categories to measure the accurace of the different clustering algorithms.
+Although Arabic language is used by more than $330$ million Arabic speakers, there are few systems that we can compare our system with, also there are no human-judged dataset for Arabic text. We used Aljazeera data set \footnote[1]{Available online at http://filebox.vt.edu/users/dsaid/AljNews.tar.gz} that is categorized in to $8$ categories to measure the accuracy of the different clustering algorithms.
 
 Due to all the previously explained issues, with the addition of our hardware resources’ capabilities and the wide set of alternatives to almost each of the system’s components, we were limited by a few number of experiments. A single run might take more than 12 hours to produce an output. These, previously mentioned, reasons also limited our ability to run the clustering algorithms like Mitosis and DBSCAN with a wide range of parameters’ values to be able to tune the algorithms with the best parameter set.\\
 However, we were able to test the whole system on two different randomly selected data-sets. The data-set was collected from Aljazeera news website. Some of the system techniques were tested on three different data-sets. We examined, as large as possible, different ranges of parameters for the Mitosis clustering algorithm. We also considered different performance measures like Purity and Confusion Matrix.\\
@@ -24,7 +24,7 @@ However, we were able to test the whole system on two different randomly selecte
 
 \section{Evaluation techniques}\label{sec:tech}
 We chose to evaluate the performance of the system by evaluating the performance of the clustering algorithms. We tested every component of the system individually before integrating it with the other system components. However, many test runs were conducted to evaluate the overall system, which was achieved by evaluating the clustering algorithm. We also chose Purity and Confusion Matrix as performance measure techniques. In this section we will discuss the performance measurement technique that we used. \\
-The cluster hypothesis states the fundamental assumption we make when using clustering in information retrieval. “Documents in the same cluster behave similarly with respect to relevance to information needs.” The hypothesis states that if there is a document from a cluster that is relevant to a search request, then it is likely that other documents from the same cluster are also relevant. This is because clustering puts together documents that share many terms.\\
+The cluster hypothesis states the fundamental assumption we make when using clustering in information retrieval,\textit{"Documents in the same cluster behave similarly with respect to relevance to information needs."} The hypothesis states that if there is a document from a cluster that is relevant to a search request, then it is likely that other documents from the same cluster are also relevant. This is because clustering puts together documents that share many terms.\\
 Typical objective functions in clustering formalize the goal of attaining high intra-cluster similarity (documents within a cluster are similar) and low inter-cluster similarity (documents from different clusters are dissimilar). This is an internal criterion for the quality of a clustering. But good scores on an internal criterion do not necessarily translate into good effectiveness in an application. An alternative to internal criteria is direct evaluation in the application of interest. For search result clustering, we may want to measure the time it takes users to find an answer with different clustering algorithms. This is the most direct evaluation, but it is expensive, especially if large user studies are necessary.\\
 As a surrogate for user judgments, we can use a set of classes in an evaluation benchmark or gold standard. The gold standard is ideally produced by human judges with a good level of inter-judge agreement. We can then compute an external criterion that evaluates how well the clustering matches the gold standard classes.\\
 
@@ -78,10 +78,107 @@ Recall =\frac{TP}{TP + FN}
 F-Score = 2\times \frac {Recall\times Precision}{Recall + Precision}
 \end{equation}
 
-\section{Esperiments Design}\label{sec:test}
+\section{Experiments Design}\label{sec:test}
 In this Section we describes how our experiments were performed, what parameters we changed and what variations of modules we used.
 Our Experiment is divided to three main variations which are: Lexical-Based Similarity, Semantic Wiki-based Similarity and finally LSA-based Similarity. In each case we compute the $N\times N$ similarities between the documents of the three datasets used.\\
 Next we feed these results to our Clustering module based on Mitosis Clustering Technique, where this algorithm takes two parameters as input $(f,k)$ you may refer to section ~\ref{mitosis} for further information.
 Finally we try to Cluster the input documents according to the input similarity measure and with various ranges for the Mitosis paramters$(f,k)$, to get the parameters where maximum results are given.
 
 \section{Results and discussion}\label{sec:results}
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics{./Figures/lexical_F_DS1.png}
+		\rule{35em}{0.5pt}
+	\caption[F-Measure for Lexical Similarity on Dataset one]{F-Measure for Lexical Similarity on Dataset one}
+	\label{fig:purity1}
+\end{figure}
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics{./Figures/lexical_F_DS2.png}
+		\rule{35em}{0.5pt}
+	\caption[F-Measure for Lexical Similarity on Dataset Two]{F-Measure for Lexical Similarity on Dataset Two}
+	\label{fig:purity2}
+\end{figure}
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics{./Figures/lexical_Purity_DS1.png}
+		\rule{35em}{0.5pt}
+	\caption[Purity for Lexical Similarity on Dataset one]{Purity for Lexical Similarity on Dataset one}
+	\label{fig:purity3}
+\end{figure}
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics{./Figures/lexical_Purity_DS2.png}
+		\rule{35em}{0.5pt}
+	\caption[Purity for Lexical Similarity on Dataset two]{Purity for Lexical Similarity on Dataset two}
+	\label{fig:F1}
+\end{figure}
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics{./Figures/lsa_F_DS1.png}
+		\rule{35em}{0.5pt}
+	\caption[F-Measure for LSA Similarity on Dataset one]{F-Measure for LSA Similarity on Dataset one}
+	\label{fig:F2}
+\end{figure}
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics{./Figures/lsa_F_DS2.png}
+		\rule{35em}{0.5pt}
+	\caption[F-Measure for LSA Similarity on Dataset Two]{F-Measure for LSA Similarity on Dataset Two}
+	\label{fig:F3}
+\end{figure}
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics{./Figures/lsa_Purity_DS1.png}
+		\rule{35em}{0.5pt}
+	\caption[Purity for LSA Similarity on Dataset one]{Purity for LSA Similarity on Dataset one}
+	\label{fig:F2}
+\end{figure}
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics{./Figures/lsa_Purity_DS2.png}
+		\rule{35em}{0.5pt}
+	\caption[Purity for LSA Similarity on Dataset Two]{Purity for LSA Similarity on Dataset Two}
+	\label{fig:F3}
+\end{figure}
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics{./Figures/wiki_F_DS1.png}
+		\rule{35em}{0.5pt}
+	\caption[F-Measure for Wikipedia Similarity on Dataset one]{F-Measure for Wikipedia Similarity on Dataset one}
+	\label{fig:F2}
+\end{figure}
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics{./Figures/wiki_F_DS2.png}
+		\rule{35em}{0.5pt}
+	\caption[F-Measure for Wikipedia Similarity on Dataset Two]{F-Measure for Wikipedia Similarity on Dataset Two}
+	\label{fig:F3}
+\end{figure}
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics{./Figures/wiki_Purity_DS1.png}
+		\rule{35em}{0.5pt}
+	\caption[Purity for Wikipedia Similarity on Dataset one]{Purity for Wikipedia Similarity on Dataset one}
+	\label{fig:F2}
+\end{figure}
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics{./Figures/wiki_Purity_DS2.png}
+		\rule{35em}{0.5pt}
+	\caption[Purity for Wikipedia Similarity on Dataset one]{Purity for Wikipedia Similarity on Dataset one}
+	\label{fig:F3}
+\end{figure}
+

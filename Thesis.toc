@@ -3,7 +3,7 @@
 \contentsline {chapter}{Acknowledgements}{ii}{dummy.2}
 \vspace {1em}
 \contentsline {chapter}{List of Figures}{viii}{dummy.4}
-\contentsline {chapter}{List of Tables}{ix}{dummy.6}
+\contentsline {chapter}{List of Tables}{x}{dummy.6}
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.8}
 \contentsline {section}{\numberline {1.1}Motivation}{1}{section.9}
 \contentsline {section}{\numberline {1.2}Goals and Scoop}{2}{section.10}
@@ -153,18 +153,18 @@
 \contentsline {subsection}{\numberline {8.2.1}Purity}{89}{subsection.273}
 \contentsline {subsection}{\numberline {8.2.2}F - Score}{90}{subsection.277}
 \contentsline {subsection}{\numberline {8.2.3}Confusion Matrix}{90}{subsection.278}
-\contentsline {section}{\numberline {8.3}Esperiments Design}{91}{section.284}
+\contentsline {section}{\numberline {8.3}Experiments Design}{91}{section.284}
 \contentsline {section}{\numberline {8.4}Results and discussion}{91}{section.285}
-\contentsline {chapter}{\numberline {9}Conclusion and future work}{92}{chapter.286}
-\contentsline {section}{\numberline {9.1}Future work}{92}{section.287}
-\contentsline {subsection}{\numberline {9.1.1}Enhancing the semantic similarity module}{92}{subsection.288}
-\contentsline {subsubsection}{\numberline {9.1.1.1}Spreading activity}{92}{subsubsection.289}
-\contentsline {subsubsection}{\numberline {9.1.1.2}Probabilistic Latent Analysis (PLSA)}{92}{subsubsection.290}
-\contentsline {subsection}{\numberline {9.1.2}Recommendation system}{93}{subsection.292}
-\contentsline {subsubsection}{\numberline {9.1.2.1}Naïve Bayes Profile Model}{93}{subsubsection.293}
-\contentsline {subsection}{\numberline {9.1.3}System evaluation}{93}{subsection.295}
+\contentsline {chapter}{\numberline {9}Conclusion and future work}{97}{chapter.310}
+\contentsline {section}{\numberline {9.1}Future work}{97}{section.311}
+\contentsline {subsection}{\numberline {9.1.1}Enhancing the semantic similarity module}{97}{subsection.312}
+\contentsline {subsubsection}{\numberline {9.1.1.1}Spreading activity}{97}{subsubsection.313}
+\contentsline {subsubsection}{\numberline {9.1.1.2}Probabilistic Latent Analysis (PLSA)}{97}{subsubsection.314}
+\contentsline {subsection}{\numberline {9.1.2}Recommendation system}{98}{subsection.316}
+\contentsline {subsubsection}{\numberline {9.1.2.1}Naïve Bayes Profile Model}{98}{subsubsection.317}
+\contentsline {subsection}{\numberline {9.1.3}System evaluation}{98}{subsection.319}
 \vspace {2em}
-\contentsline {chapter}{\numberline {A}Used algorithms Pseudocode}{94}{appendix.296}
-\contentsline {section}{\numberline {A.1}Mitosis}{94}{section.297}
+\contentsline {chapter}{\numberline {A}Used algorithms Pseudocode}{99}{appendix.320}
+\contentsline {section}{\numberline {A.1}Mitosis}{99}{section.321}
 \vspace {2em}
-\contentsline {chapter}{Bibliography}{95}{dummy.298}
+\contentsline {chapter}{Bibliography}{100}{dummy.322}
