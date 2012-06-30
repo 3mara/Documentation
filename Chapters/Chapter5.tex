@@ -63,8 +63,7 @@ The significance of a dynamic model of clustering is first explained ~\ref{subse
 \subsubsection{Dynamic vs. static models}\label{subsec:dynamic_static} 
 A static model refers to using user-defined parameters for defining density thresholds without referring to the characteristics of the underlying data.DBSCAN, DenClue, WaveClusterandSNN, are examples of algorithms that use a static model and are unable to find clusters of arbitrary densities.For example, DBSCAN uses two parameters \textit{Eps} and \textit{Minpts}, where \textit{Eps} specifies a threshold on range distance,
 and Minpts specifies the minimum number of neighbors.
-Apattern with a number of neighbors more than Minpts at adistance less than Eps, is considered a corepoint(\textit{pattern}) and is used to track clusters. Chameleon,on the other hand introduced a dynamic modelfor
-clustering based on the following:
+A pattern with a number of neighbors more than $Minpts$ at a distance less than Eps, is considered a corepoint(\textit{pattern}) and is used to track clusters. Chameleon,on the other hand introduced a dynamic model for clustering based on the following:
 \begin{itemize}
 \item The use of k-nearest neighbors(\textit{k-NN}).
 \item Merging of clusters based on relative closeness and relative interconnectivity measures, weighed by user defined parameters.
@@ -72,7 +71,7 @@ clustering based on the following:
 
 
 \subsubsection{Distance-based density}\label{subsec:dist_density} 
-Clusters can be visually detected by recognizing relatively higher density regions in data separated by regions of relatively lower densities. It is observed that the behavior of neighborhood distances determines the degree of a cluster's density; smaller distances reflect higher densities, and viceversa. The average distances between patterns(the Minimum
+Clusters can be visually detected by recognizing relatively higher density regions in data separated by regions of relatively lower densities. It is observed that the behavior of neighborhood distances determines the degree of a cluster's density; smaller distances reflect higher densities, and vice versa. The average distances between patterns(the Minimum
 Spanning Tree(\textit{MST}) distances) differentiate the densities of clusters in Fig. ~\ref{fig:mitosis_1}. Several other points important to build an efficient model are as follows:
 \begin{itemize}
 \item Arbitrary shaped clusters can be detected by tracking connectivity between patterns' neighborhoods.
@@ -149,7 +148,7 @@ The algorithm takes as an input the dataset $P$, and 2 main parameters $f$ and $
 }
 
 
-\item {Merge patterns in to clusters: For each association in L (visited in order), if the merging criterion is satisfied according to k-, merge
+\item {Merge patterns into clusters: For each association in L (visited in order), if the merging criterion is satisfied according to factor $k$, merge
 associated patterns/clusters, and update the clusters'measures.}
 \item {Refine clusters:
 \begin{itemize}
@@ -175,7 +174,7 @@ The \textit{Association} class contains the relations between the pattern \texti
 \subsubsection{Loading associations} 
 Mitosis requires loading the associations of each pattern which have distance less than $f.min{dist}$ where $f$ is mitosis factor and $min_{dist}$ is the minimum distance betweeen the pattern and all its neighbours.
 
-Given a databse that stores all the distances between all pairs of patterns, loading associations that are in dynamic range for a given pattern $p$ is performed on two steps, first the database is queried to obtain the the instead pattern to $p$ which is at distance $min{dist}$, then the pattern's threshold is calculated as $threshold_{dist} = f \dot dist_{min}$ the database is queried again to obtain all the association with distance less than or equal to $threshold{dist}$.
+Given a databse that stores all the distances between all pairs of patterns, loading associations that are in dynamic range for a given pattern $p$ is performed on two steps, first the database is queried to obtain the the instead pattern to $p$ which is at distance $min{dist}$, then the pattern's threshold is calculated as $threshold_{dist} = f \dot dist_{min}$ the database is queried again to obtain all the association with distance less than or equal to $threshold_{dist}$.
 
 The clustering algorithm is first applied on two different sets of 2D points (the data set could be found at \citep{Mitosis_2}) for verifying the correctness of the implementation, the results are illustrated in figures ~\ref{fig:mitosis_7} and ~\ref{fig:mitosis_8}.
 \begin{figure}[htbp]
@@ -217,7 +216,7 @@ Figure ~\ref{fig:mitosis_3} ~\ref{fig:mitosis_4} shows the operations of the dis
 \item {UNION(x,y) 
 \begin{itemize}
 \item {A simple implementation: just appends x to the end of y, updates all back-to-representative pointers in x to the head of y.
-Each UNION takes time linear in the xs length}
+Each UNION takes time linear in the x's length}
 \item {Instead appending x to y, appending the shorter list to the longer list.
 Associated a length with each list, which indicates how many elements in the list.
 }

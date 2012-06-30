@@ -7,18 +7,18 @@
 \lhead{Chapter 7. \emph{Tools}} % This is for the header on each page - perhaps a shortened title
 
 %----------------------------------------------------------------------------------------
-This chapter discussed the tools and data sets used, it starts by section ~\ref{pre} which discusses the pre-processing tools used, sections ~\ref{lucene}, ~\ref{awn} and ~\ref{crawlers} demonestrates the usage of \textit{lucene}, \textbf{A}rabic \textbf{W}ord \textbf{N}et (\textit{AWN}), section ~\ref{corpus} discusses the data sets used, finally section ~\ref{lsa} shows the tools used to implement \textit{LSA}.
+This chapter discussed the tools and data sets used, it starts by section ~\ref{pre} which discusses the pre-processing tools used, sections ~\ref{lucene}, ~\ref{awn} and ~\ref{crawlers} demonestrates the usage of \textit{lucene}, \textbf{A}rabic \textbf{W}ord \textbf{N}et (AWN), section ~\ref{corpus} discusses the data sets used, finally section ~\ref{lsa} shows the tools used to implement \textit{LSA}.
 \section{Text Preprocessing}\label{pre}
 There has been a debate among researchers about the benefits of using morphological tools in Text Analysis. Studies in the \textit{English}
 language illustrated that performing stemming during the preprocessing step degrades the performance slightly \citep{pre_8} \citep{pre_9}. 
-In this work, the preprocssing consists of three steps:First stop words are removed, second a part of speech tag is assigned to each term and then each term is stemmed.
-The output of the preprocessing module is the stem of each term concatenated with its part of speech, to distinguish between noun and verb. for example this sentence \RL{مجلس الأمن يدرس بياناً يدعو إلى رفع الحصار واقتراح أوروبي} is mapped to \RL{مجلس}n, \RL{أمن}n, \RL{يدرس}v, \RL{بيانا}n, \RL{يدعو}v, \RL{رفع}n, \RL{حصار}n, \RL{اقتراح}n, \RL{أوروب}n.
+In this work, the preprocssing consists of three steps: First stop words are removed, second a part of speech tag is assigned to each term and then each term is stemmed.
+The output of the preprocessing module is the stem of each term concatenated with its part of speech, to distinguish between noun and verb. for example this sentence "\RL{مجلس الأمن يدرس بياناً يدعو إلى رفع الحصار واقتراح أوروبي}" is mapped to (\RL{مجلس}n, \RL{أمن}n, \RL{يدرس}v, \RL{بيانا}n, \RL{يدعو}v, \RL{رفع}n, \RL{حصار}n, \RL{اقتراح}n, \RL{أوروب}n).
 
-In this work we used two different techniques are used for stemming: Elkhoja stemmer and Light stemming.
+In this work two different techniques are used for stemming: Elkhoja stemmer and Light stemming.
 
 \subsection{Part of speech tagging}
 
-The part of speech tagging is defined as  the process of marking up a word in a text (corpus) as corresponding to a particular part of speech, based on both its definition, as well as its context—i.e. relationship with adjacent and related words in a phrase, sentence, or paragraph. 
+The part of speech tagging is defined as  the process of marking up a word in a text (corpus) as corresponding to a particular part of speech, based on both its definition, as well as its context i.e. relationship with adjacent and related words in a phrase, sentence, or paragraph. 
 Stanford Log-linear Part-Of-Speech Tagger \citep{pre_1} \citep{pre_2} is used to tag each term in the document.
 
 
