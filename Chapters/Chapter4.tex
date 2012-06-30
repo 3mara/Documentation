@@ -304,7 +304,7 @@ We downloaded the Wikipedia XML snapshot of 21 June 2011 and extracted around 45
 	\caption[Wikipedia Database Schema]{Wikipedia Database Schema}
 	\label{fig:wiki_DB}
 \end{figure}
-\paragraph{How we Use it}
+\paragraph{How we Use it}	
 We have managed to implement two techniques based on the wikipedia structure as an Ontology, First technique we treated the Wikipedia Articles as Concepts\citep{wiki_1},then Every Document is represented with a vector containg around 450,000 concepts.
 For each term $w_i$ in document $d_1$ we search the wikipedia articles using the inverted index built by Lucene ~\ref{luceneTool} and get vector of Articles or Concepts $V = \{c_1,c_2,...,c_n\}$, for every result lucene returns $c_i$, this term $w_i$ votes for every Article (concept  vector $V$ in the document vector where it was found by the $TF-IDF$ value in this Article.
 finally we have a vetocr $d =\{\sum_{i=0}^{N} tfidf(w_1,c_i),\sum_{i=0}^{N} tfidf(w_2,c_i),...\sum_{i=0}^{N} tfidf(w_n,c_i)\} $ that represents each document we have then we apply cosine similarity to these vectors to calculate similarities ~\ref{cosine}.\\
@@ -360,8 +360,11 @@ The value can be interpreted as the rate of vector length growth. We argue that 
 
 \subsubsection{Inverse Document Frequency:}
 The specificity of a word is determined using the inverse document frequency (IDF) introduced by (Sparck-Jones, 1972), defined as the total number of documents in the corpus divided by the total number of documents including that word. The IDF measure was selected based on previous work that theoretically proved the effectiveness of this weighting approach (Papineni, 2001). Sparck Jones (1973) defines IDF as the probability of occurrence of documents containing a particular word.\\
-IDF equation and definition of its terms\\
+IDF equation ~\ref{eq:tfidf} and definition of its terms. 
 Where D is the total number of documents in the corpus. The assumption behind it is that low frequency words tend to be rich in content, and vice versa.
+\begin{equation} \label{eq:tfidf}
+idf(t,D) = log \frac{|D|}{|\{d \in D: t \in d\}|}
+\end{equation}
 The term count in the given document is simply the number of times a given term appears in that document. This count is usually normalized to prevent a bias towards longer documents (which may have a higher term count regardless of the actual importance of that term in the document) to give a measure of the importance of the term t within the particular document d. One well-studied technique is to normalize the TF weights of all terms occurring in a document by the maximum TF in that document\citep{tfidf_1}.\\
 %----------------------------------------------------------------------------------------
 \subsection{Disambiguation}                                            
@@ -370,8 +373,8 @@ Participants disambiguate text by assigning WordNet synsets, then the  system ha
 
 \subsubsection{JIGSAW Algorithm\citep{disambiguation}}
 \label{jigsawSec}
-The goal of a WSD algorithm consists in assigning a word $w_i$ occurring in a document d with its appropriate meaning or sense s, by exploiting the context $C$ in where wi is found. The context C for $w_i$ is defined as a set of words that precede and follow $w_i$ .The sense $s$ is selected from a predefined set of possibilities, usually known as sense inventory. In the proposed algorithm, the sense inventory is obtained from WordNet, according to SemEval-2007 task 1 instructions. \\
-JIGSAW is a WSD algorithm based on the idea of combining three different strategies to with sense $s_{ij}$ . The intuition behind this algorithm disambiguate nouns, verbs, adjectives and adverbs.The main motivation behind our approach is that the effectiveness of a WSD algorithm is strongly influenced by the POS tag of the target word. An adaptation of Lesk dictionary-based WSD algorithm has been used to disambiguate adjectives and adverbs (Banerjee and Pedersen, 2002), an adaptation of the Resnik algorithm has been used to disambiguate nouns (Resnik, 1995), while the algorithm we developed for disambiguating verbs exploits the nouns in the context of the verb as well as the nouns both in the glosses and in the phrases that WordNet utilizes to describe the usage of a verb. \\
+The goal of a WSD algorithm consists in assigning a word $w_i$ occurring in a document d with its appropriate meaning or sense $s$, by exploiting the context $C$ in where $w_i$ is found. The context C for $w_i$ is defined as a set of words that precede and follow $w_i$ .The sense $s$ is selected from a predefined set of possibilities, usually known as sense inventory. In the proposed algorithm, the sense inventory is obtained from WordNet, according to SemEval-2007 task 1 instructions. \\
+JIGSAW is a WSD algorithm based on the idea of combining three different strategies to with sense $s_{ij}$ . The intuition behind this algorithm disambiguate nouns, verbs, adjectives and adverbs. The main motivation behind our approach is that the effectiveness of a WSD algorithm is strongly influenced by the POS tag of the target word. An adaptation of Lesk dictionary-based WSD algorithm has been used to disambiguate adjectives and adverbs (Banerjee and Pedersen, 2002), an adaptation of the Resnik algorithm has been used to disambiguate nouns (Resnik, 1995), while the algorithm we developed for disambiguating verbs exploits the nouns in the context of the verb as well as the nouns both in the glosses and in the phrases that WordNet utilizes to describe the usage of a verb. \\
 JIGSAW takes as input a document $d = {w_1 , w_2 , . . . , w_h }$ and returns a list of WordNet synsets $X = {s_1 , s_2 , . . . ,s_k }$ in which each element $s_i$ is obtained by disambiguating the target word wi based on the information obtained from WordNet about a few immediately surrounding words. We define the context C of the target word to be a window of n words to the left and another n words to the right, for a total of $2n$ surrounding words. The algorithm is based on three different procedures for nouns, verbs, adverbs and adjectives, called $JIGSAW_{nouns}$ , $JIGSAW_{verbs}$ , $JIGSAW_{others}$ , respectively.
 
 
