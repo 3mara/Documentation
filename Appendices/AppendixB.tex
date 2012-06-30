@@ -1,0 +1,146 @@
+% Appendix B
+
+\chapter{Used algorithms Pseudocode} % Main appendix title
+
+\label{AppendixB} % For referencing this appendix elsewhere, use \ref{AppendixA}
+
+\lhead{Used algorithms Pseudocode\emph{Used algorithms Pseudocode}} % This is for the header on each page - perhaps a shortened title
+
+
+\begin{center}
+\captionof{algorithm}{Mitosis algorithm}\label{mitosis}
+\begin{algorithmic}
+\State \textbf{//Phase 1:Get associations}
+\State BuildTree($P$)		\Comment{Builds Metric Tree T for data set P}
+\State GetDynamicNearestNeighbors($P$) \Comment{uses T and range value r(p) = f.mindist(p) and updates minimum distances for p}
+\State GetAverageDistance($P$)		\Comment {calculates average neighborhood distances for all  patterns}
+\State $L_1\gets$ SortNeighborhoodDistances($P$)	\Comment{Sorts list of associations between neighbors ascendingly on distances}
+
+\State \textbf{//Phase 2: Merge Patterns in to clusters}
+\State $L_1\gets$ \{\}
+\State InitializeLables
+\Repeat
+	\State $(p,q) \gets$ GetNextAssociation($L_1$)
+\State $c_1$ = Label($p$), $c_2$ = Label($q$)
+\State InitializeAverageDistances(p,q)	
+  	
+\algblock{If}{EndIf}
+\algcblock[If]{If}{Else}{EndIf}
+\algcblock{If}{Else}{EndIf}
+\algcblockdefx[Strange]{If}{Eeee}{Oooo}
+[1]{\textbf{Eeee} "#1"}
+{\textbf{Wuuuups\dots}}
+\If {($d(p,q) <k\cdot min(\mu(c_1), \mu(c_2)) And max(\mu(c_1),\mu(c_2))< k\cdot max(\mu(c_1),\mu(c_2))$)}
+	\State $c_3 \gets$ GetNewLabel($c_1,c_2$)
+\If {($c_1 \neq c_2$)}
+	 \State$\mu(c_3) \gets d(p,q)+ \mu(c_1)\dot |Dist(c_1)| + \mu(c_2)\dot |Dist(c_2)|$
+	 \State$Dist|c_3| \gets Dist|c_1| \cup Dist|c_2| \cup d(p,q)$
+\Else
+	\State $\mu(c_3) = d(p, q) + \mu(c_1).|Dist(c_1)|$
+	\State $Dist(c_3) = Dist(c1) \mu d(p, q)$
+	\State $\mu(c_3) = \mu(c_3)/|Dist(c_3)|$
+\EndIf
+\State $L1 = L1\cup a, L2= L2 \cup a$
+\EndIf
+\Until{All associations in $L_1$ are visited}
+\State \textbf{//Phase 3: Refine Clusters}
+\State sort($L_2$) \Comment{Sort list of accepted associations $L_2$}
+\State Initializ\_Clusters 
+\State Add\_Associations\_To\_Clusters($L_2$) 
+\State Initialize\_Labels 
+\State $L_2 \gets$\{\} \Comment{Set list $L_2$ to empty}
+\For{each cluster $c$} 
+	\State Get\_Harmonic\_Average($c$)
+	\State $i \gets i + 1$
+	\For{each\_association $a$ = $(p,q,d(p,q))$ in cluster list Clusterlist($c$)}
+		\If {($d(p, q) < k\cdot \mu H(c)$)}
+			\State $c_3 \gets$ Get\_Label $(c_1,c_2)$
+			\State $L_2 \gets L_2 \cup a$ 
+		\EndIf 
+	\EndFor
+\EndFor
+\For{each cluster $c$}
+	\State ClusterList($c$) = \{\}
+\EndFor	
+\For {each association $a$ = $(p,q,d(p,q))$ in $L_2$}
+	\State $c_1 = Label(p)$, $c_2 = Label(q)$
+	\If {$c_1 = c2$}\newline
+		$Clusterlist(c_1) \gets Clusterlist(c_1) \cup a$
+	\EndIf
+\EndFor
+
+\pagebreak
+
+\State \textbf{Outlier DetectionandHandling}
+\State \textbf{Begin}
+\State $O \gets \{\}$
+\For {each cluster $c$}
+	\If {$size_c < \gamma\cdot size P$}
+		\State $O \gets O \cup c$
+	\EndIf
+\EndFor	
+
+\For {each pattern $p$ in $O$}
+	\Repeat
+		\State $c \gets$ cluster assigned to the majority of p's neighbors
+		\If {$size_c > 1$}
+			\State Assign $p$ to cluster $c$
+		\Else
+			\State $f \gets 2\cdot f$
+			\State Retrieve dynamic range neighbors for $p$ in range $f\cdot mindistp$
+		\EndIf
+	\Until{$p$ is assigned to a cluster}
+\EndFor
+
+\pagebreak
+
+\end{algorithmic}
+\end{center}
+\begin{center}
+\captionof{algorithm}{JIGSAW Algorithm for Word Sense Disambiguation}\label{JIGSAW}
+\begin{algorithmic}
+\State procedure JIGSAWnouns(W, depth1, depth2) \Comment {finds the proper synset for each polysemous noun in the set
+$W = {w_1, w_2, . . . , w_n}$, $depth_1$ and $depth_2$ are used in the computation of MSS}
+
+\For {\textbf{all} $w_i, w_j \in W$}
+	\If $i < j$
+		$sim \gets sim(w_i, w_j, depth_1) \cdot G(pos(w_i), pos(w_j))$ \Comment{$G(x, y)$ is a Gaussian
+		function which takes into account the difference between the positions of $w_i$ and $w_j$}
+	\EndIf
+\EndFor
+
+\State 	$MSS_ij \gets MSS(w_i, w_j, depth_2)$ \Comment{$MSS_{ij}$ is the most specific subsumer between $w_i$ and $w_j$, search for $MSS$ restricted to $depth_2$ ancestors}
+
+\For {$s_ik \in S_i$}
+	\If is-ancestor($MSS_{ij}, s_{ik}$)	\Comment{if $MSS_{ij}$ is an ancestor of $s_{ik}$}
+		$sup_{ik} \gets sup_{ik} + sim$
+	\EndIf
+\EndFor
+
+\For {$s_{jh} \in S_j$}
+	\If {is-ancestor($MSS_{ij} ,s_{jh}$)}
+		$sup_{jh} \gets sup_{jh} + sim$
+	\EndIf
+\EndFor
+
+\State $norm_i \gets norm_i + sim$
+\State $norm_j \gets norm_j + sim$
+
+\algblock{If}{EndIf}
+\algcblock[If]{If}{Else}{EndIf}
+\algcblock{If}{Else}{EndIf}
+\algcblockdefx[Strange]{If}{Eeee}{Oooo}
+[1]{\textbf{Eeee} "#1"}
+{\textbf{Wuuuups\dots}}
+
+\For {$w_i \in W$}
+	\For {$s_{ik} \in S_i$}
+		\If {$norm_i > 0$}
+			$\phi(i,k) \gets \alpha \cdot \frac{sup_{ik}}{norm_i} + \beta \cdot R(k)$
+		\Else
+			$\phi(i,k) \gets \frac{\alpha}{|S_i|} + \beta \cdot R(k) $	
+		\EndIf
+	\EndFor
+\EndFor
+\end{algorithmic}
+\end{center}
