@@ -208,10 +208,10 @@ Another issue that consumes a lot of time is the path retrieval from the databas
 \item we modified the expansion algorithm and managed to reduce expansion time to 20\% of the original running time.
 \end{itemize}
 
-\textit{How we Use it?}\\
-\textit{Wu and Palmer}\\
-    If words can be defined with concepts in a hierarchical structure, it is possible to measure the meaning similarity between words with an information measure based on WordNet (Resnik,1993), or structure level information based on a thesaurus (Kurohashi and Nagao, 1992). How-
-ever, verb meanings are difficult to organize in a hierarchical structure.\\
+\paragraph{How we Use it?}
+\subparagraph{Wu and Palmer}
+If words can be defined with concepts in a hierarchical structure, it is possible to measure the meaning similarity between words with an information measure based on WordNet (Resnik,1993), or structure level information based on a thesaurus (Kurohashi and Nagao, 1992). However, verb meanings are difficult to organize in a hierarchical structure.\\
+
 In each conceptual domain, lexicalized concepts can be organized in a hierarchical structure. Within one conceptual domain, the similarity of two concepts is defined by how closely they are related in the hierarchy, i.e., their structural relations.\\
 The Wu and Palmer \citep{wu} similarity metric measures the depth of two given concepts in the WordNet taxonomy, and the depth of the least common subsumer (LCS), and combines these figures into a similarity score:
 \begin{equation}
@@ -221,7 +221,7 @@ SIM({T_{1}},{T_{2}}) =\frac{2 * depth(LCS)}{depth(concept_1)+ depth(concept_2)}
 
 so we utilized the Wu\&Palmer Technique and AWN to measure the semantic similarity according to the following stpes:
 \begin{itemize}
-\item [1.] Search for both terms in the Arabic Tree in the AWN if found get there’s  depth and their least common ancestor.
+\item [1.] Search for both terms in the Arabic Tree in the AWN if found get their depth and their least common ancestor.
 \item [2.] if not found search database to get their synsets and expand them in the tree. This is the most expensive operation in the whole procedure due to the database request also due to the expansion operation.
 \item [3.] then get the depths of both synsets and their least common ancestor 
 \item [4.] Finally use Wu and Palmer to get the similarity using the Wu and Palmer equation ~\ref{wu_palmer}
@@ -229,7 +229,7 @@ so we utilized the Wu\&Palmer Technique and AWN to measure the semantic similari
 \end{itemize}
 
 \subsubsection{Wikipedia}
-Using the traditional approach of a controlled, designed ontology has many disadvantages beginning with the often difficult task of designing and implementing the ontology. Once that it done, it must be maintained and modified, an important process in domains where the underlying concepts are evolving rapidly. ACM’s CCS, for example, undergoes periodic reorganization and redesign and yet as a classification of computer science concepts, it always seems to be out of date or even quaint. As a final problem, consider the process a person must follow in assigning ontology terms to a document. She has to be familiar with all of the possible choices or have some way to browse or search through them. She has to understand what each of the terms means, either the original meaning intended by the ontology designer or the possibly different current meaning as used by her community. Finally, she has to select the best set of terms from among the many relevant choices the ontology may present to her. The use of an implicit ontology emerging from the tagging choices of a community of individuals solves some of these problems, but also has significant disadvantages\citep{wiki_1}.\\
+Using the traditional approach of a controlled, designed ontology has many disadvantages beginning with the often difficult task of designing and implementing the ontology. Once that it is done, it must be maintained and modified, an important process in domains where the underlying concepts are evolving rapidly. ACM’s CCS, for example, undergoes periodic reorganization and redesign and yet as a classification of computer science concepts, it always seems to be out of date or even quaint. As a final problem, consider the process a person must follow in assigning ontology terms to a document. She has to be familiar with all of the possible choices or have some way to browse or search through them. She has to understand what each of the terms means, either the original meaning intended by the ontology designer or the possibly different current meaning as used by her community. Finally, she has to select the best set of terms from among the many relevant choices the ontology may present to her. The use of an implicit ontology emerging from the tagging choices of a community of individuals solves some of these problems, but also has significant disadvantages\citep{wiki_1}.\\
 Some of these are inherent and others are being addressed in the research community and may ultimately admit good solutions. These problems are worth addressing because the result will be an ontology that 
 \begin{itemize} \item [(1)] represents a consensus view of a community of users and \item [(2)]  is constructed and maintained by the community without cost to any organization. 
 \end{itemize}
@@ -243,7 +243,7 @@ Each collection is a set of XML documents built using Wikipedia. Documents of th
 However, this taxonomy is not a strict hierarchy or tree of categories, but allows multiple categorizations of topics simultaneously, i.e., some categories might have more than one super-category. It is shown that Wikipedia’s category system is a thesaurus that is collaboratively developed and used for indexing Wikipedia articles (Voss 2006). The articles within Wikipedia are inter-linked. However, these links do not impose any subcategory or super-category relationships. It has been observed that the Wikipedia article links graph generally resembles the World Wide Web graph.\\
 
 \paragraph{Lucene}
-We used lucene to buuild an inverted index on whole Wikipedia Articles, so we could be able to search for any term within the wikipedia aricles efficiently, aslo to get the search results ranked according to the search query.\\
+We used lucene to build an inverted index on whole Wikipedia Articles, so we could be able to search for any term within the wikipedia aricles efficiently, aslo to get the search results ranked according to the search query.\\
 Here is some Sample code for how we used Lucene the following one is sample indexing code, where Document object represents Wikipedia Articles to be indexed, Also ArabicAnalyzer is the Analyzer we used as it uses the light stemmer as we do in the datasets we used in our experiments.\\
 
 \lstset{ %
@@ -302,9 +302,9 @@ We downloaded the Wikipedia XML snapshot of 21 June 2011 and extracted around 45
 		\includegraphics{./Figures/wiki_DB.png}
 		\rule{35em}{0.05pt}
 	\caption[Wikipedia Database Schema]{Wikipedia Database Schema}
-	\label{fig:Wikipedia Database}
+	\label{fig:wiki_DB}
 \end{figure}
-\textit{How we Use it}\\
+\paragraph{How we Use it}
 We have managed to implement two techniques based on the wikipedia structure as an Ontology, First technique we treated the Wikipedia Articles as Concepts\citep{wiki_1},then Every Document is represented with a vector containg around 450,000 concepts.
 For each term $w_i$ in document $d_1$ we search the wikipedia articles using the inverted index built by Lucene ~\ref{luceneTool} and get vector of Articles or Concepts $V = \{c_1,c_2,...,c_n\}$, for every result lucene returns $c_i$, this term $w_i$ votes for every Article (concept  vector $V$ in the document vector where it was found by the $TF-IDF$ value in this Article.
 finally we have a vetocr $d =\{\sum_{i=0}^{N} tfidf(w_1,c_i),\sum_{i=0}^{N} tfidf(w_2,c_i),...\sum_{i=0}^{N} tfidf(w_n,c_i)\} $ that represents each document we have then we apply cosine similarity to these vectors to calculate similarities ~\ref{cosine}.\\
@@ -336,7 +336,7 @@ To solve this new problem we tried the Automated contrast Adjustment Technique \
 f(a) =a_{min}+ (a- a_{low})\times \frac{a_{max}-a_{min}}{a_{high} - a_{low}}
 \end{equation}
 
-Concerning Second Approach using the Wikipedia,We utilized the wikipedia Database ~\ref{wiki_DB} and used the categories each articles belongs to to be our concepts instead of the Article it'self. Our scoring scheme was simply count the number of times that each Wikipedia category was associated with one of the N results returned by lucene ~\ref{lucene} inverted index \citep{wiki_2}.
+Concerning Second Approach using the Wikipedia,We utilized the wikipedia Database ~\ref{fig:wiki_DB} and used the categories each articles belongs to to be our concepts instead of the Article it'self. Our scoring scheme was simply count the number of times that each Wikipedia category was associated with one of the N results returned by lucene ~\ref{lucene} inverted index \citep{wiki_2}.
 \begin{figure}[htbp]
 	\centering
 		\includegraphics{./Figures/wiki_2.png}
@@ -351,7 +351,7 @@ We use two methods of computing term specificity. The first method based on mode
 
 \subsubsection{Latent Semantic Analysis:}
 In the following section we explain using Latent Semantic Analysis for approximating term Informativeness. Latent Semantic Analysis (LSA) is a language model that represents semantic word meaning as vectors in high-dimensional space. Word vectors are positioned in such a way that semantically-related words vectors point in similar directions or have a smaller angle / higher cosine between them. The representation is derived in an unsupervised manner, by observing occurrence patterns of words in a large corpus of natural language documents. Singular Value Decomposition (SVD) on the matrix of word/document occurrence counts is used to derive the optimal set of dimensions of the space in which all of the words can be represented as vectors. The number of dimensions is then artificially reduced to a smaller number (typically around 300) of most important dimensions, which has the effect of smoothing out incidental relationships and preserving significant ones between words. The resulting geometric space allows for straightforward representation of meaning of words and/or documents; the latter are simply a weighted geometric composition of constituent word vectors. Similarity in meaning between a pair of words or documents can be obtained by computing the cosine between their corresponding vectors. For details of LSA, please see (Landauer et al., 2007), and others.\\
-LSA applications almost always focus on computing the semantic similarity between words (terms). However, another property of LSA, that has a significant effect, is the term vector length. The vector length plays a very important role in many LSA calculations, in particular – in giving relative weights to the word vectors that constitute a particular text passage. As (Kintsch, 2001) wrote, “Intuitively, the vector length tells us how much information LSA has about this vector. [...] Words that LSA knows a lot about (because they appear frequently in the training corpus [...]) have greater vector lengths than words LSA does not know well. Function words that are used frequently in many different contexts have low vector lengths -- LSA knows nothing about them and cannot tell them apart since they appear in all contexts”.
+LSA applications almost always focus on computing the semantic similarity between words (terms). However, another property of LSA, that has a significant effect, is the term vector length. The vector length plays a very important role in many LSA calculations, in particular – in giving relative weights to the word vectors that constitute a particular text passage. As (Kintsch, 2001) wrote, “Intuitively, the vector length tells us how much information LSA has about this vector. Words that LSA knows a lot about (because they appear frequently in the training corpus) have greater vector lengths than words LSA does not know well. Function words that are used frequently in many different contexts have low vector lengths -- LSA knows nothing about them and cannot tell them apart since they appear in all contexts”.
 The metric of term Informativeness, or specificity, which we call LSAspec, is simply the ratio of LSA word vector length to the number of documents in the LSA training corpus that contain a particular word;
 \begin{equation}
 LSAspec(w)=\frac{\| \overrightarrow{w}\|}{df_w}
