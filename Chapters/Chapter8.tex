@@ -18,7 +18,7 @@ Another resource that affected our performance evaluation process was the existe
 
 Although Arabic language is used by more than $330$ million Arabic speakers, there are few systems that we can compare our system with, also there are no human-judged dataset for Arabic text. We used Aljazeera data set \footnote[1]{Available online at http://filebox.vt.edu/users/dsaid/AljNews.tar.gz} that is categorized in to $8$ categories to measure the accuracy of the different clustering algorithms.
 
-Due to all the previously explained issues, with the addition of our hardware resources’ capabilities and the wide set of alternatives to almost each of the system’s components, we were limited by a few number of experiments. A single run might take more than 12 hours to produce an output. These, previously mentioned, reasons also limited our ability to run the clustering algorithms like Mitosis and DBSCAN with a wide range of parameters’ values to be able to tune the algorithms with the best parameter set.\\
+Due to all the previously explained issues, with the addition of our hardware resourcesï¿½ capabilities and the wide set of alternatives to almost each of the systemï¿½s components, we were limited by a few number of experiments. A single run might take more than 12 hours to produce an output. These, previously mentioned, reasons also limited our ability to run the clustering algorithms like Mitosis and DBSCAN with a wide range of parametersï¿½ values to be able to tune the algorithms with the best parameter set.\\
 However, we were able to test the whole system on two different randomly selected data-sets. The data-set was collected from Aljazeera news website. Some of the system techniques were tested on three different data-sets. We examined, as large as possible, different ranges of parameters for the Mitosis clustering algorithm. We also considered different performance measures like Purity and Confusion Matrix.\\
 
 
@@ -34,7 +34,7 @@ Formally:
 \begin{equation}
 Purity(\omega,C) =\frac{1}{N}\sum_k max_j|w_k \cap c_j|
 \end{equation}
-Where $\omega= \{w_1,w_2,…,w_K \}$  is the set of clusters,  $C= \{c_1,c_2,…,c_J \}$ is the set of classes and N is the total number of documents. We interpret $w_k$ as the set of documents in $w_k$ and $c_j$ as the set of documents $inc_j$. We present an example of how to compute purity in Figure ~\ref{fig:purityFig}. Bad clustering has purity values close to 0; a perfect clustering has a purity of 1. High purity is easy to achieve when the number of clusters is large - in particular, purity is 1 if each document gets its own cluster.
+Where $\omega= \{w_1,w_2,ï¿½,w_K \}$  is the set of clusters,  $C= \{c_1,c_2,ï¿½,c_J \}$ is the set of classes and N is the total number of documents. We interpret $w_k$ as the set of documents in $w_k$ and $c_j$ as the set of documents $inc_j$. We present an example of how to compute purity in Figure ~\ref{fig:purityFig}. Bad clustering has purity values close to 0; a perfect clustering has a purity of 1. High purity is easy to achieve when the number of clusters is large - in particular, purity is 1 if each document gets its own cluster.
 \begin{figure}[htbp]
 	\centering
 		\includegraphics{./Figures/Purityexample.png}
@@ -178,7 +178,7 @@ Finally we try to Cluster the input documents according to the input similarity 
 	\centering
 		\includegraphics{./Figures/wiki_Purity_DS2.png}
 		\rule{35em}{0.5pt}
-	\caption[Purity for Wikipedia Similarity on Dataset one]{Purity for Wikipedia Similarity on Dataset one}
+	\caption[Purity for Wikipedia Similarity on Dataset one]{Purity for Wikipedia Similarity on Dataset Two}
 	\label{fig:F3}
 \end{figure}
 

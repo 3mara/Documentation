@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=pdflatex 2012.6.29)  30 JUN 2012 11:44
+This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=pdflatex 2012.6.29)  30 JUN 2012 12:20
 entering extended mode
 **C:/Users/3mara/Desktop/GP_Documentation/trunk/Thesis.tex
 (C:/Users/3mara/Desktop/GP_Documentation/trunk/Thesis.tex
@@ -1483,9 +1483,15 @@ Underfull \hbox (badness 10000) in paragraph at lines 12--18
 [87
 
 ]
-Missing character: There is no ’ in font cmr10!
-Missing character: There is no ’ in font cmr10!
-Missing character: There is no ’ in font cmr10!
+Missing character: There is no ï in font cmr10!
+Missing character: There is no ¿ in font cmr10!
+Missing character: There is no ½ in font cmr10!
+Missing character: There is no ï in font cmr10!
+Missing character: There is no ¿ in font cmr10!
+Missing character: There is no ½ in font cmr10!
+Missing character: There is no ï in font cmr10!
+Missing character: There is no ¿ in font cmr10!
+Missing character: There is no ½ in font cmr10!
 
 Underfull \hbox (badness 10000) in paragraph at lines 21--23
 
@@ -1497,8 +1503,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 26--30
  []
 
 [88]
-Missing character: There is no … in font cmr10!
-Missing character: There is no … in font cmr10!
+Missing character: There is no ï in font cmr10!
+Missing character: There is no ¿ in font cmr10!
+Missing character: There is no ½ in font cmr10!
+Missing character: There is no ï in font cmr10!
+Missing character: There is no ¿ in font cmr10!
+Missing character: There is no ½ in font cmr10!
  <./Figures/Purityexample.png, id=1756, 481.8pt x 210.03468pt>
 File: ./Figures/Purityexample.png Graphic file (type png)
 
@@ -1508,128 +1518,84 @@ Overfull \hbox (20.9633pt too wide) in paragraph at lines 40--42
  []
 
 [89] [90 <C:/Users/3mara/Desktop/GP_Documentation/trunk/Figures/Purityexample.p
-ng (PNG copy)>] <./Figures/lexical_F_DS1.png, id=1771, 481.8pt x 194.97844pt>
+ng (PNG copy)>] <./Figures/lexical_F_DS1.png, id=1771, 325.215pt x 88.07906pt>
 File: ./Figures/lexical_F_DS1.png Graphic file (type png)
 
 <use ./Figures/lexical_F_DS1.png>
-Overfull \hbox (20.9633pt too wide) in paragraph at lines 91--93
- [][] 
- []
-
-<./Figures/lexical_F_DS2.png, id=1772, 481.8pt x 142.28156pt>
+<./Figures/lexical_F_DS2.png, id=1772, 346.29375pt x 86.57344pt>
 File: ./Figures/lexical_F_DS2.png Graphic file (type png)
 
 <use ./Figures/lexical_F_DS2.png>
-Overfull \hbox (20.9633pt too wide) in paragraph at lines 99--101
- [][] 
- []
-
-<./Figures/lexical_Purity_DS1.png, id=1773, 481.8pt x 191.9672pt>
+<./Figures/lexical_Purity_DS1.png, id=1773, 358.33875pt x 83.5622pt>
 File: ./Figures/lexical_Purity_DS1.png Graphic file (type png)
 
 <use ./Figures/lexical_Purity_DS1.png>
-Overfull \hbox (20.9633pt too wide) in paragraph at lines 107--109
- [][] 
- []
-
-<./Figures/lexical_Purity_DS2.png, id=1774, 481.8pt x 146.79843pt>
+<./Figures/lexical_Purity_DS2.png, id=1774, 334.24875pt x 88.83188pt>
 File: ./Figures/lexical_Purity_DS2.png Graphic file (type png)
 
 <use ./Figures/lexical_Purity_DS2.png>
-Overfull \hbox (20.9633pt too wide) in paragraph at lines 115--117
- [][] 
- []
-
-<./Figures/lsa_F_DS1.png, id=1775, 481.8pt x 206.27063pt>
+<./Figures/lsa_F_DS1.png, id=1775, 335.00156pt x 129.48375pt>
 File: ./Figures/lsa_F_DS1.png Graphic file (type png)
 
 <use ./Figures/lsa_F_DS1.png>
-Overfull \hbox (20.9633pt too wide) in paragraph at lines 123--125
- [][] 
- []
-
-<./Figures/lsa_F_DS2.png, id=1776, 358.33875pt x 142.28156pt>
+<./Figures/lsa_F_DS2.png, id=1776, 334.24875pt x 130.23656pt>
 File: ./Figures/lsa_F_DS2.png Graphic file (type png)
 
 <use ./Figures/lsa_F_DS2.png>
-<./Figures/lsa_Purity_DS1.png, id=1777, 481.8pt x 200.24812pt>
+<./Figures/lsa_Purity_DS1.png, id=1777, 335.00156pt x 131.74219pt>
 File: ./Figures/lsa_Purity_DS1.png Graphic file (type png)
 
 <use ./Figures/lsa_Purity_DS1.png>
-Overfull \hbox (20.9633pt too wide) in paragraph at lines 139--141
- [][] 
- []
-
-<./Figures/lsa_Purity_DS2.png, id=1778, 481.8pt x 204.01219pt>
+<./Figures/lsa_Purity_DS2.png, id=1778, 334.24875pt x 130.23656pt>
 File: ./Figures/lsa_Purity_DS2.png Graphic file (type png)
 
 <use ./Figures/lsa_Purity_DS2.png>
-Overfull \hbox (20.9633pt too wide) in paragraph at lines 147--149
- [][] 
- []
-
-<./Figures/wiki_F_DS1.png, id=1779, 481.8pt x 219.06844pt>
+<./Figures/wiki_F_DS1.png, id=1779, 335.75438pt x 133.24782pt>
 File: ./Figures/wiki_F_DS1.png Graphic file (type png)
 
 <use ./Figures/wiki_F_DS1.png>
-Overfull \hbox (20.9633pt too wide) in paragraph at lines 155--157
- [][] 
- []
-
-<./Figures/wiki_F_DS2.png, id=1780, 481.8pt x 218.31563pt>
+<./Figures/wiki_F_DS2.png, id=1780, 333.49594pt x 127.97812pt>
 File: ./Figures/wiki_F_DS2.png Graphic file (type png)
 
 <use ./Figures/wiki_F_DS2.png>
-Overfull \hbox (20.9633pt too wide) in paragraph at lines 163--165
- [][] 
- []
-
-<./Figures/wiki_Purity_DS1.png, id=1781, 481.8pt x 216.05719pt>
+<./Figures/wiki_Purity_DS1.png, id=1781, 334.24875pt x 133.24782pt>
 File: ./Figures/wiki_Purity_DS1.png Graphic file (type png)
 
 <use ./Figures/wiki_Purity_DS1.png>
-Overfull \hbox (20.9633pt too wide) in paragraph at lines 171--173
- [][] 
- []
-
-<./Figures/wiki_Purity_DS2.png, id=1782, 481.8pt x 213.79875pt>
+<./Figures/wiki_Purity_DS2.png, id=1782, 338.01282pt x 136.25906pt>
 File: ./Figures/wiki_Purity_DS2.png Graphic file (type png)
 
-<use ./Figures/wiki_Purity_DS2.png>
-Overfull \hbox (20.9633pt too wide) in paragraph at lines 179--181
- [][] 
- []
-
-) (C:\Users\3mara\Desktop\GP_Documentation\trunk\Chapters\Chapter9.tex [91]
+<use ./Figures/wiki_Purity_DS2.png>)
+(C:\Users\3mara\Desktop\GP_Documentation\trunk\Chapters\Chapter9.tex [91]
 [92 <C:/Users/3mara/Desktop/GP_Documentation/trunk/Figures/lexical_F_DS1.png (P
 NG copy)> <C:/Users/3mara/Desktop/GP_Documentation/trunk/Figures/lexical_F_DS2.
 png (PNG copy)> <C:/Users/3mara/Desktop/GP_Documentation/trunk/Figures/lexical_
-Purity_DS1.png (PNG copy)>] [93 <C:/Users/3mara/Desktop/GP_Documentation/trunk/
-Figures/lexical_Purity_DS2.png (PNG copy)> <C:/Users/3mara/Desktop/GP_Documenta
+Purity_DS1.png (PNG copy)> <C:/Users/3mara/Desktop/GP_Documentation/trunk/Figur
+es/lexical_Purity_DS2.png (PNG copy)>] [93 <C:/Users/3mara/Desktop/GP_Documenta
 tion/trunk/Figures/lsa_F_DS1.png (PNG copy)> <C:/Users/3mara/Desktop/GP_Documen
-tation/trunk/Figures/lsa_F_DS2.png (PNG copy)>] [94 <C:/Users/3mara/Desktop/GP_
-Documentation/trunk/Figures/lsa_Purity_DS1.png (PNG copy)> <C:/Users/3mara/Desk
-top/GP_Documentation/trunk/Figures/lsa_Purity_DS2.png (PNG copy)>] [95 <C:/User
-s/3mara/Desktop/GP_Documentation/trunk/Figures/wiki_F_DS1.png (PNG copy)> <C:/U
-sers/3mara/Desktop/GP_Documentation/trunk/Figures/wiki_F_DS2.png (PNG copy)>]
-[96 <C:/Users/3mara/Desktop/GP_Documentation/trunk/Figures/wiki_Purity_DS1.png 
+tation/trunk/Figures/lsa_F_DS2.png (PNG copy)> <C:/Users/3mara/Desktop/GP_Docum
+entation/trunk/Figures/lsa_Purity_DS1.png (PNG copy)>] [94 <C:/Users/3mara/Desk
+top/GP_Documentation/trunk/Figures/lsa_Purity_DS2.png (PNG copy)> <C:/Users/3ma
+ra/Desktop/GP_Documentation/trunk/Figures/wiki_F_DS1.png (PNG copy)> <C:/Users/
+3mara/Desktop/GP_Documentation/trunk/Figures/wiki_F_DS2.png (PNG copy)>]
+[95 <C:/Users/3mara/Desktop/GP_Documentation/trunk/Figures/wiki_Purity_DS1.png 
 (PNG copy)> <C:/Users/3mara/Desktop/GP_Documentation/trunk/Figures/wiki_Purity_
 DS2.png (PNG copy)>]
 Chapter 9.
 ------------------------------------------------------------------------------
  9 Conclusion and future work
 ------------------------------------------------------------------------------
-[97
+[96
 
 ]
 Missing character: There is no ï in font cmbx10!
 ) (C:\Users\3mara\Desktop\GP_Documentation\trunk\Appendices\AppendixA.tex
-[98]
+[97]
 Appendix A.
 ------------------------------------------------------------------------------
  A Used algorithms Pseudocode
 ------------------------------------------------------------------------------
-) [99
+) [98
 
 ]
 ------------------------------------------------------------------------------
@@ -1641,7 +1607,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 25--26
 nsity-based-clustering-algorithm\OT1/cmr/m/n/10.95 ,
  []
 
-[100
+[99
 
 
 ]
@@ -1657,7 +1623,7 @@ e].http://nlp.stanford.edu/IR-
  []
 
 Missing character: There is no é in font cmr10!
-[101]
+[100]
 Missing character: There is no ¨ in font cmr10!
 
 Underfull \hbox (badness 10000) in paragraph at lines 232--233
@@ -1667,9 +1633,9 @@ load[Accessed 26/6/2012]\OT1/cmr/m/n/10.95 ,
 
 Missing character: There is no ‘ in font cmr10!
 Missing character: There is no ’ in font cmr10!
-[102]
+[101]
 Missing character: There is no – in font cmti10!
- [103]
+ [102]
 Underfull \hbox (badness 10000) in paragraph at lines 357--362
 []\OT1/cmr/m/n/10.95 Shereen Khoia.  Apt: Ara-bic part-if-speech tag-ger.  \OT1
 /cmr/m/it/10.95 Avail-able from:
@@ -1699,7 +1665,7 @@ Missing character: There is no ” in font cmr10!
 Package natbib Warning: There were undefined citations.
 
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 192.
-[104]
+[103]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 192.
  (C:\Users\3mara\Desktop\GP_Documentation\trunk\Thesis.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 192.
@@ -1888,9 +1854,9 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 13606 strings out of 495285
- 181122 string characters out of 3180738
- 420895 words of memory out of 3000000
+ 13605 strings out of 495285
+ 181114 string characters out of 3180738
+ 420894 words of memory out of 3000000
  15915 multiletter control sequences out of 15000+200000
  17184 words of font info for 64 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
@@ -1911,9 +1877,9 @@ MikTex/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MikTex/fonts/
 type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MikTex/fonts/type1/public
 /amsfonts/cm/cmti12.pfb><C:/Program Files/MikTex/fonts/type1/public/amsfonts/cm
 /cmtt10.pfb><C:/Program Files/MikTex/fonts/type1/public/arabtex/xnsh14.pfb>
-Output written on Thesis.pdf (115 pages, 3987042 bytes).
+Output written on Thesis.pdf (114 pages, 2678981 bytes).
 PDF statistics:
- 2029 PDF objects out of 2073 (max. 8388607)
- 507 named destinations out of 1000 (max. 500000)
+ 2024 PDF objects out of 2073 (max. 8388607)
+ 506 named destinations out of 1000 (max. 500000)
  1564 words of extra memory for PDF output out of 10000 (max. 10000000)
 
