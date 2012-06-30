@@ -85,7 +85,13 @@ Next we feed these results to our Clustering module based on Mitosis Clustering 
 Finally we try to Cluster the input documents according to the input similarity measure and with various ranges for the Mitosis paramters$(f,k)$, to get the parameters where maximum results are given.
 
 \section{Results and discussion}\label{sec:results}
+This section is dedicated for displaying our experiments results, parameter tuning for mitosis and doing some analysis on these results.you can find tables next in this chapter showing the experimental results we have got, where each similarity technique has 2 tables, one for Purity values and the other for F-Score values. This experiment is repeated 2 times for different datasets. you can find these results in tables ~\ref{tables}.\\
 
+Also we used the mean of the obtained purity values to get an overall performace evaluation across various ranges of Mitosis paramters as illustrated in Figures ~\ref{fig:F10}, ~\ref{fig:F11}, ~\ref{fig:F16} \& ~\ref{fig:F30}.\\
+Next we provide a simple comparison in Figures ~\ref{fig:F120} \& ~\ref{fig:F121} using the maximum purity measure obtained and Figures  ~\ref{fig:F50} \& ~\ref{fig:F15} using also the maximum obtained F-Score values.
+
+\section{Experimental Results}
+\label{tables}
 \begin{figure}[htbp]
 	\centering
 		\includegraphics{./Figures/lexical_F_DS1.png}
@@ -115,7 +121,7 @@ Finally we try to Cluster the input documents according to the input similarity 
 		\includegraphics{./Figures/lexical_Purity_DS2.png}
 		\rule{35em}{0.5pt}
 	\caption[Purity for Lexical Similarity on Dataset two]{Purity for Lexical Similarity on Dataset two}
-	\label{fig:F1}
+	\label{fig:purity4}
 \end{figure}
 
 \begin{figure}[htbp]
@@ -123,7 +129,7 @@ Finally we try to Cluster the input documents according to the input similarity 
 		\includegraphics{./Figures/lsa_F_DS1.png}
 		\rule{35em}{0.5pt}
 	\caption[F-Measure for LSA Similarity on Dataset one]{F-Measure for LSA Similarity on Dataset one}
-	\label{fig:F2}
+	\label{fig:F1}
 \end{figure}
 
 \begin{figure}[htbp]
@@ -131,7 +137,7 @@ Finally we try to Cluster the input documents according to the input similarity 
 		\includegraphics{./Figures/lsa_F_DS2.png}
 		\rule{35em}{0.5pt}
 	\caption[F-Measure for LSA Similarity on Dataset Two]{F-Measure for LSA Similarity on Dataset Two}
-	\label{fig:F3}
+	\label{fig:F2}
 \end{figure}
 
 \begin{figure}[htbp]
@@ -139,7 +145,7 @@ Finally we try to Cluster the input documents according to the input similarity 
 		\includegraphics{./Figures/lsa_Purity_DS1.png}
 		\rule{35em}{0.5pt}
 	\caption[Purity for LSA Similarity on Dataset one]{Purity for LSA Similarity on Dataset one}
-	\label{fig:F2}
+	\label{fig:F3}
 \end{figure}
 
 \begin{figure}[htbp]
@@ -147,7 +153,7 @@ Finally we try to Cluster the input documents according to the input similarity 
 		\includegraphics{./Figures/lsa_Purity_DS2.png}
 		\rule{35em}{0.5pt}
 	\caption[Purity for LSA Similarity on Dataset Two]{Purity for LSA Similarity on Dataset Two}
-	\label{fig:F3}
+	\label{fig:F4}
 \end{figure}
 
 \begin{figure}[htbp]
@@ -155,7 +161,7 @@ Finally we try to Cluster the input documents according to the input similarity 
 		\includegraphics{./Figures/wiki_F_DS1.png}
 		\rule{35em}{0.5pt}
 	\caption[F-Measure for Wikipedia Similarity on Dataset one]{F-Measure for Wikipedia Similarity on Dataset one}
-	\label{fig:F2}
+	\label{fig:F5}
 \end{figure}
 
 \begin{figure}[htbp]
@@ -163,7 +169,7 @@ Finally we try to Cluster the input documents according to the input similarity 
 		\includegraphics{./Figures/wiki_F_DS2.png}
 		\rule{35em}{0.5pt}
 	\caption[F-Measure for Wikipedia Similarity on Dataset Two]{F-Measure for Wikipedia Similarity on Dataset Two}
-	\label{fig:F3}
+	\label{fig:F6}
 \end{figure}
 
 \begin{figure}[htbp]
@@ -171,7 +177,7 @@ Finally we try to Cluster the input documents according to the input similarity 
 		\includegraphics{./Figures/wiki_Purity_DS1.png}
 		\rule{35em}{0.5pt}
 	\caption[Purity for Wikipedia Similarity on Dataset one]{Purity for Wikipedia Similarity on Dataset one}
-	\label{fig:F2}
+	\label{fig:F7}
 \end{figure}
 
 \begin{figure}[htbp]
@@ -179,7 +185,7 @@ Finally we try to Cluster the input documents according to the input similarity 
 		\includegraphics{./Figures/wiki_Purity_DS2.png}
 		\rule{35em}{0.5pt}
 	\caption[Purity for Wikipedia Similarity on Dataset one]{Purity for Wikipedia Similarity on Dataset Two}
-	\label{fig:F3}
+	\label{fig:F8}
 \end{figure}
 %==================================MEAN=========================================
 \begin{figure}[htbp]
@@ -203,14 +209,14 @@ Finally we try to Cluster the input documents according to the input similarity 
 		\includegraphics{./Figures/F_DS1.png}
 		\rule{35em}{0.5pt}
 	\caption[Comparison between Purity Values of Different Techniques of Similarity on Dataset one]{Comparison between Purity Values of Different Techniques of Similarity on Dataset one}
-	\label{fig:F3}
+	\label{fig:F16}
 \end{figure}
 \begin{figure}[htbp]
 	\centering
 		\includegraphics{./Figures/F_DS2.png}
 		\rule{35em}{0.5pt}
 	\caption[Comparison between Purity Values of Different Techniques of Similarity on Dataset Two]{Comparison between Purity Values of Different Techniques of Similarity on Dataset Two}
-	\label{fig:F3}
+	\label{fig:F30}
 \end{figure}
 
 %============================MAX==============================
