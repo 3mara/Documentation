@@ -1,28 +1,56 @@
 % Appendix A
 
-\chapter{Used algorithms Pseudocode} % Main appendix title
+\chapter{User Manual} % Main appendix title
 
 \label{AppendixA} % For referencing this appendix elsewhere, use \ref{AppendixA}
 
-\lhead{Used algorithms Pseudocode\emph{Used algorithms Pseudocode}} % This is for the header on each page - perhaps a shortened title
+\lhead{Used algorithms Pseudocode\emph{User Manual}} % This is for the header on each page - perhaps a shortened title
 
-\section{Mitosis}
+\section{Uuser Interface Components}
+\subsection{Home Screen}
+The Home screen of articles published up-to-date, each article appears in a three column layout similar to the magazine style to facilitate the user browsing.
+In each Article there exits two buttons for taking user feedback for the current article used in building the user’s profile.
+\subsection{History}
+This part is responsible for showing the articles that have been viewed by a certain users and their feedback on these articles showed as a score for each article.
+\subsection{Recommendation View}
+Finally this component has the role of displaying the top $N$ recommended articles based on user activity of “Like” or “Dislike” the browsed articles.
 
+\begin{figure}[htbp]
+	\centering
+		\includegraphics{./Figures/Screenshot.png}
+		\rule{35em}{0.5pt}
+	\caption[UI Sample Screenshots]{UI Sample Screenshots}
+	\label{fig:S1}
+\end{figure}
 
-\begin{algorithmic}
-\State //Phase 1:Get associations
-\State BuildTree($P$)		\Comment{Builds Metric Tree T for data set P}
-\State GetDynamicNearestNeighbors($P$) \Comment{uses T and range value r(p) = f.mindist(p) and updates minimum distances for p}
-\State GetAverageDistance($P$)		\Comment {calculates average neighborhood distances for all  patterns}
-\State $L_1\gets$ SortNeighborhoodDistances($P$)	\Comment{Sorts list of associations between neighbors ascendingly on distances}
+\begin{figure}[htbp]
+	\centering
+		\includegraphics{./Figures/Screenshot-1.png}
+		\rule{35em}{0.5pt}
+	\caption[UI Sample Screenshots]{UI Sample Screenshots}
+	\label{fig:S2}
+\end{figure}
 
-\State //Phase 2: Merge Patterns in to clusters
-\State $L_1\gets$ \{\}
-\State InitializeLables
-\Repeat  \newline
-	$(p,q) \gets$ GetNextAssociation($L_1$)
-\Until{All associations}
-\State $c_1$ = Label($p$), $c_2$ = Label($q$)
-\State InitializeAverageDistances(p,q)	  	
+\begin{figure}[htbp]
+	\centering
+		\includegraphics{./Figures/Screenshot-2.png}
+		\rule{35em}{0.5pt}
+	\caption[UI Sample Screenshots]{UI Sample Screenshots}
+	\label{fig:S3}
+\end{figure}
 
-\end{algorithmic}
+\begin{figure}[htbp]
+	\centering
+		\includegraphics{./Figures/Screenshot-3.png}
+		\rule{35em}{0.5pt}
+	\caption[UI Sample Screenshots]{UI Sample Screenshots}
+	\label{fig:S4}
+\end{figure}
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics{./Figures/Screenshot-4.png}
+		\rule{35em}{0.5pt}
+	\caption[UI Sample Screenshots]{UI Sample Screenshots}
+	\label{fig:S5}
+\end{figure}
