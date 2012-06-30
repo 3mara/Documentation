@@ -45,6 +45,26 @@ input parameters:
 
 In our work $k$ is obtained by \textit{first} constructing a similarity matrix between all pairs of documents using one of the techniques explained in chapter ~\ref{sim}, the similarity matrix is stored in a database where for each document its id, location and source are stored too. After that for each document if the number of neighbors  that are not more than $Eps_neighbourhood$ apart is greater than $MinPts$ they are considered as one cluster.
 
+The algorithm is tested first on 2D points (the data set could be found at \citep{Mitosis_2}) and the results are provided in figures ~\ref{fig:DBSCNA_1} and ~\ref{fig:DBSCNA_2}, in figure ~\ref{fig:DBSCNA_2} DBSCAN only identified six instead of eight clusters, merging some of the original clusters. This is
+due to the presence of different densities in the same data set which makes DBSCAN either identifies lower density clusters but merge two
+neighboring higher density ones, or donot identify the lower density cluster, and identifies the higher density ones correctly.
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics{./Figures/DBSCAN_1.png}
+		\rule{25em}{0.3pt}
+	\caption[DBSCAN result on 2D points $Eps = 5.9$, and $Minpts = 4$]{DBSCAN result on 2D points $Eps = 5.9$, and $Minpts = 4$}
+	\label{fig:DBSCNA_1}
+\end{figure}
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics{./Figures/DBSCAN_2.png}
+		\rule{25em}{0.3pt}
+	\caption[DBSCAN result on 2D points at the parameter setting $Eps = 10$, $Minpts = 3$]{DBSCAN result on 2D points at the parameter setting $Eps = 10$, $Minpts = 3$}
+	\label{fig:DBSCNA_2}
+\end{figure}
+
 \section{Mitosis}\label{mitosis}
 For the shortcomings of other clustering algorithms mentioned above we applied the model proposed in \textbf{Mitosis} \citep{Mitosis_1} which introduces a dynamic model based on distance relatedness concepts to overcome drawbacks of related algorithms. Mitosis discovers clusters of arbitrary shapes and densities. It uses distance relatedness between patterns (in this case documents)as a measure to identify clusters of different densities.
 Mitosis overcomes the traditional clustering algorithms in the following points.
@@ -181,7 +201,7 @@ The clustering algorithm is first applied on two different sets of 2D points (th
 	\centering
 		\includegraphics{./Figures/Mitosis_7.png}
 		\rule{25em}{0.3pt}
-	\caption[Mitosis result on 2D points]{Mitosis result on 2D points}
+	\caption[Mitosis result on 2D points ($f = 2.25$, $k = 2.6$)]{Mitosis result on 2D points ($f = 2.25$, $k = 2.6$)}
 	\label{fig:mitosis_7}
 \end{figure}
 
@@ -189,7 +209,7 @@ The clustering algorithm is first applied on two different sets of 2D points (th
 	\centering
 		\includegraphics{./Figures/Mitosis_8.png}
 		\rule{25em}{0.3pt}
-	\caption[Mitosis result on 2D points]{Mitosis result on 2D points}
+	\caption[Mitosis result on 2D points with parameters ($f = 2.15, k = 2.5$)]{Mitosis result on 2D points with parameters ($f = 2.25, k = 2.6$)}
 	\label{fig:mitosis_8}
 \end{figure}
 

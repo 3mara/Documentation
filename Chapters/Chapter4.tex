@@ -169,7 +169,7 @@ The basic criteria for selecting synsets to be covered in AWN are\citep{awn_2}:
 \begin{itemize}
 \item Connectivity: AWN should be as densely connected as possible by hyperonymy / hyponymy chains, etc. Most of the synsets of AWN should correspond to English WN counterparts and the overall topology of both wordnets should be similar.
 \item Relevance: Frequent and salient concepts have priority. Criteria will include the frequency of lexical items (both in Arabic and English) and the frequency of Arabic roots in their respective reference corpora.
-\item Generality: Synsets on the highest levels of WN are preferred. These criteria suggest two ways for proceeding:
+\item Generality: Synsets on the highest levels of WN are preferred. These criteria suggest two ways for processing:
 \item From English to Arabic: Given an English synset, all corresponding Arabic variants (if any) will be selected.
 \item From Arabic to English: Given an Arabic word, all its senses have to be found, and for each of these senses the corresponding English synsets have to be selected.
 \end{itemize}
@@ -189,7 +189,7 @@ AWN suffers a very poor design that resulted in a high coupling between the Core
 \item Running time is major problem\\
 Since AWN depends on the Tree Concept (a hierarchical organization of the synsets), it has an arabic tree with nodes that represent synsets, each synset contains set of words. So every time the AWN is queried by a term, in order to retrieve its synset, the whole tree is first searched for this term. If the term was not found in the tree, we seek it from database. If the term is found in the database, then the retrieved results from the database would include the path of the term in the hierarchical tree. The final step, that is to expand the retrieved path into the tree, exhausts a substantial amount of time. The time consumption is due to the way the path expansion work. \\
 The path expansion starts at the tree root node and traverses the tree through the path retrieved from the database. If a node on the path was not found in the current tree, the node is added to the tree and all its children are fetched from the database and added to the tree. The last step consumes a lot of time because it expands all the node’s children, although only one child is needed. This caused the tree expansion for some words to consume up to 15 minutes.\\
-Another issue that consumes a lot of time is the path retrieval from the database. When a term needs to be fetched from the database, first its synset needs to be find. After the synset is found, the path of the synset in the hierarchical tree also needs to be found. The path is assembled starting from the term’s synset traversing its parent up until the root is reached (you can think of the process traversing up the tree using Forwarding Pointers). \\
+Another issue that consumes a lot of time is the path retrieval from the database. When a term needs to be fetched from the database, first its synset needs to be found. After the synset is found, the path of the synset in the hierarchical tree also needs to be found. The path is assembled starting from the term’s synset traversing its parent up until the root is reached (you can think of the process traversing up the tree using Forwarding Pointers). \\
 \item Bugs in the code\\
 \begin{itemize}
 \item There was missing logic in the code probably because these methods were never called by the GUI.
