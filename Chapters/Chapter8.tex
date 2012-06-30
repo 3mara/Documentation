@@ -6,7 +6,7 @@
 
 \lhead{System Performance Evaluation. \emph{System Performance Evaluation}} % This is for the header on each page - perhaps a shortened title
 %----------------------------------------------------------------------------------------
-In this chapter we present out system’s performance evaluation and performance analysis. However, we need to stress again on the lack of resource for Arabic language and how that caused performance degradation of some components of the system. The chapter is organized as follows; resources are discussed from the performance point-of-view in section ~\ref{sec:challenges}, used performance measures are explained in section ~\ref{sec:tech}, while the design of the test cases is explained in section ~\ref{sec:test}. Finally, the obtained results are viewed in the last section of the chapter section ~\ref{sec:results}.
+In this chapter we present our system\'s performance evaluation and performance analysis. However, we need to stress again on the lack of resource for Arabic language and how that caused performance degradation of some components of the system. The chapter is organized as follows; resources are discussed from the performance point-of-view in section ~\ref{sec:challenges}, used performance measures are explained in section ~\ref{sec:tech}, while the design of the test cases is explained in section ~\ref{sec:test}. Finally, the obtained results are viewed in the last section of the chapter section ~\ref{sec:results}.
 
 \section{Challenges}\label{sec:challenges}
 This is section we give an overall discussion of the resources for Arabic language and its limitations from the perspective of performance. The main components of our system are Web Crawlers, Pre-processing tools, Similarity measure, Clustering algorithms and Recommender System. \\
@@ -83,6 +83,5 @@ In this Section we describes how our experiments were performed, what parameters
 Our Experiment is divided to three main variations which are: Lexical-Based Similarity, Semantic Wiki-based Similarity and finally LSA-based Similarity. In each case we compute the $N\times N$ similarities between the documents of the three datasets used.\\
 Next we feed these results to our Clustering module based on Mitosis Clustering Technique, where this algorithm takes two parameters as input $(f,k)$ you may refer to section ~\ref{mitosis} for further information.
 Finally we try to Cluster the input documents according to the input similarity measure and with various ranges for the Mitosis paramters$(f,k)$, to get the parameters where maximum results are given.
-
 
 \section{Results and discussion}\label{sec:results}

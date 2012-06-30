@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=pdflatex 2012.6.29)  30 JUN 2012 03:34
+This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=pdflatex 2012.6.29)  30 JUN 2012 03:45
 entering extended mode
 **C:/Users/3mara/Desktop/GP_Documentation/trunk/Thesis.tex
 (C:/Users/3mara/Desktop/GP_Documentation/trunk/Thesis.tex
@@ -1463,7 +1463,6 @@ Missing character: There is no ’ in font cmr10!
 Missing character: There is no ’ in font cmr10!
 Missing character: There is no ’ in font cmr10!
 Missing character: There is no ’ in font cmr10!
-Missing character: There is no ’ in font cmr10!
 
 Underfull \hbox (badness 10000) in paragraph at lines 12--18
 
@@ -1762,10 +1761,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 13495 strings out of 495285
- 178755 string characters out of 3180738
+ 13496 strings out of 495285
+ 178763 string characters out of 3180738
  420584 words of memory out of 3000000
- 15846 multiletter control sequences out of 15000+200000
+ 15847 multiletter control sequences out of 15000+200000
  17184 words of font info for 64 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
  48i,14n,45p,1472b,1710s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1785,7 +1784,7 @@ MikTex/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MikTex/fonts/
 type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MikTex/fonts/type1/public
 /amsfonts/cm/cmti12.pfb><C:/Program Files/MikTex/fonts/type1/public/amsfonts/cm
 /cmtt10.pfb><C:/Program Files/MikTex/fonts/type1/public/arabtex/xnsh14.pfb>
-Output written on Thesis.pdf (109 pages, 2573781 bytes).
+Output written on Thesis.pdf (109 pages, 2573883 bytes).
 PDF statistics:
  1950 PDF objects out of 2073 (max. 8388607)
  477 named destinations out of 1000 (max. 500000)
