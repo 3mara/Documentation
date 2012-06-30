@@ -23,6 +23,66 @@ However, we were able to test the whole system on two different randomly selecte
 
 
 \section{Evaluation techniques}\label{sec:tech}
+We chose to evaluate the performance of the system by evaluating the performance of the clustering algorithms. We tested every component of the system individually before integrating it with the other system components. However, many test runs were conducted to evaluate the overall system, which was achieved by evaluating the clustering algorithm. We also chose Purity and Confusion Matrix as performance measure techniques. In this section we will discuss the performance measurement technique that we used. \\
+The cluster hypothesis states the fundamental assumption we make when using clustering in information retrieval. “Documents in the same cluster behave similarly with respect to relevance to information needs.” The hypothesis states that if there is a document from a cluster that is relevant to a search request, then it is likely that other documents from the same cluster are also relevant. This is because clustering puts together documents that share many terms.\\
+Typical objective functions in clustering formalize the goal of attaining high intra-cluster similarity (documents within a cluster are similar) and low inter-cluster similarity (documents from different clusters are dissimilar). This is an internal criterion for the quality of a clustering. But good scores on an internal criterion do not necessarily translate into good effectiveness in an application. An alternative to internal criteria is direct evaluation in the application of interest. For search result clustering, we may want to measure the time it takes users to find an answer with different clustering algorithms. This is the most direct evaluation, but it is expensive, especially if large user studies are necessary.\\
+As a surrogate for user judgments, we can use a set of classes in an evaluation benchmark or gold standard. The gold standard is ideally produced by human judges with a good level of inter-judge agreement. We can then compute an external criterion that evaluates how well the clustering matches the gold standard classes.\\
+
+\subsection{Purity}
+This section introduces external criterion of clustering quality. Purity is a simple and transparent evaluation measure. To compute Purity, each cluster is assigned to the class which is most frequent in the cluster, and then the accuracy of this assignment is measured by counting the number of correctly assigned documents and dividing by N.
+Formally:
+\begin{equation}
+Purity(\omega,C) =\frac{1}{N}\sum_k max_j|w_k \cap c_j|
+\end{equation}
+Where $\omega= \{w_1,w_2,…,w_K \}$  is the set of clusters,  $C= \{c_1,c_2,…,c_J \}$ is the set of classes and N is the total number of documents. We interpret $w_k$ as the set of documents in $w_k$ and $c_j$ as the set of documents $inc_j$. We present an example of how to compute purity in Figure ~\ref{fig:purityFig}. Bad clustering has purity values close to 0; a perfect clustering has a purity of 1. High purity is easy to achieve when the number of clusters is large - in particular, purity is 1 if each document gets its own cluster.
+\begin{figure}[htbp]
+	\centering
+		\includegraphics{./Figures/Purityexample.png}
+		\rule{35em}{0.5pt}
+	\caption[Purity Example]{Purity Example}
+	\label{fig:purityFig}
+\end{figure}
+\subsection{F - Score}
+In statistics, the F score (also F-measure) is a measure of a test's accuracy. It considers both the precision $p$ and the recall $r$ of the test to compute the score: $p$ is the number of correct results divided by the number of all returned results and $r$ is the number of correct results divided by the number of results that should have been returned. The F score can be interpreted as a weighted average of the precision and recall, where an F score reaches its best value at 1 and worst score at 0.
+The traditional F-measure or balanced F-score (F1 score) is the harmonic mean of precision and recall see equation ~\ref{fmeasure}
+\subsection{Confusion Matrix}
+An important tool for analyzing the performance of a classifier for $J > 2$ classes is the confusion matrix. The confusion matrix shows for each pair of classes {c1, c2}, how many documents from c1 were incorrectly assigned to c2. It is a specific table layout that allows visualization of the performance of an algorithm. Each column of the matrix represents the instances in a predicted class, while each row represents the instances in an actual class. The name stems from the fact that it makes it easy to see if the system is confusing two classes (i.e. commonly mislabeling one as another). The confusion matrix can help pinpoint opportunities for improving the accuracy of the system. In predictive analytics, a table of confusion (sometimes also called a confusion matrix), is a table with two rows and two columns that reports the number of false positives, false negatives, true positives and true negatives. This allows more detailed analysis. The final table of confusion would contain the average values for all classes combined.
+
+\begin{table}[ht]
+\caption{Table of Confusion} % title of Table
+\centering  % used for centering table
+\begin{tabular}{c c c} % centered columns (5 columns)
+\hline\hline                        %inserts double horizontal lines
+ & Same Cluster & Different Clusters \\ [0.5ex] % inserts table 
+%heading
+\hline                  % inserts single horizontal line
+Same Class & True Positive (TP)&False Negative (FN)\\ % inserting body of the table
+Different Classes & False Positive (FP)& True Negative (TN)  \\[1ex]      % [1ex] adds vertical space
+\hline %inserts single line
+\end{tabular}
+\label{table:conf} % is used to refer this table in the text
+\end{table}
+
+From the table of confusion ~\ref{table:conf}, we can calculate Precision, Recall and F-Score as follows:
+
+\begin{equation}
+Precision =\frac{TP}{TP + FP}
+\end{equation}
+
+\begin{equation}
+Recall =\frac{TP}{TP + FN}
+\end{equation}
+
+\begin{equation}
+\label{fmeasure}
+F-Score = 2\times \frac {Recall\times Precision}{Recall + Precision}
+\end{equation}
 
 \section{Esperiments Design}\label{sec:test}
+In this Section we describes how our experiments were performed, what parameters we changed and what variations of modules we used.
+Our Experiment is divided to three main variations which are: Lexical-Based Similarity, Semantic Wiki-based Similarity and finally LSA-based Similarity. In each case we compute the $N\times N$ similarities between the documents of the three datasets used.\\
+Next we feed these results to our Clustering module based on Mitosis Clustering Technique, where this algorithm takes two parameters as input $(f,k)$ you may refer to section ~\ref{mitosis} for further information.
+Finally we try to Cluster the input documents according to the input similarity measure and with various ranges for the Mitosis paramters$(f,k)$, to get the parameters where maximum results are given.
+
+
 \section{Results and discussion}\label{sec:results}
