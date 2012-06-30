@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=pdflatex 2012.6.29)  30 JUN 2012 04:17
+This is pdfTeX, Version 3.1415926-1.40.10 (MiKTeX 2.8) (preloaded format=pdflatex 2012.6.29)  30 JUN 2012 11:44
 entering extended mode
 **C:/Users/3mara/Desktop/GP_Documentation/trunk/Thesis.tex
 (C:/Users/3mara/Desktop/GP_Documentation/trunk/Thesis.tex
@@ -739,7 +739,7 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
 (C:\Users\3mara\Desktop\GP_Documentation\trunk\Chapters\Chapter2.tex [2]
 Chapter 2.
 ------------------------------------------------------------------------------
- 2 Literature
+ 2 Literature Review
 ------------------------------------------------------------------------------
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
@@ -1106,7 +1106,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 [49]
 Chapter 5.
 ------------------------------------------------------------------------------
- 5 Used Clustering Technique
+ 5 Used Clustering Techniques
 ------------------------------------------------------------------------------
 [50
 
@@ -1704,7 +1704,7 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 192.
  (C:\Users\3mara\Desktop\GP_Documentation\trunk\Thesis.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 192.
 Package rerunfilecheck Info: File `Thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 32B0630C9CBC99EB85BDA347E4D8CDFF;32241.
+(rerunfilecheck)             Checksum: 2BC2448DDDB7BDC99AF0578D4F29C8A4;32284.
 
 
  *File List*
@@ -1890,7 +1890,7 @@ LaTeX Warning: There were multiply-defined labels.
 Here is how much of TeX's memory you used:
  13606 strings out of 495285
  181122 string characters out of 3180738
- 420887 words of memory out of 3000000
+ 420895 words of memory out of 3000000
  15915 multiletter control sequences out of 15000+200000
  17184 words of font info for 64 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
@@ -1911,7 +1911,7 @@ MikTex/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MikTex/fonts/
 type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MikTex/fonts/type1/public
 /amsfonts/cm/cmti12.pfb><C:/Program Files/MikTex/fonts/type1/public/amsfonts/cm
 /cmtt10.pfb><C:/Program Files/MikTex/fonts/type1/public/arabtex/xnsh14.pfb>
-Output written on Thesis.pdf (115 pages, 3986872 bytes).
+Output written on Thesis.pdf (115 pages, 3987042 bytes).
 PDF statistics:
  2029 PDF objects out of 2073 (max. 8388607)
  507 named destinations out of 1000 (max. 500000)
